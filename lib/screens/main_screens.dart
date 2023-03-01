@@ -8,6 +8,8 @@ import 'package:petai_care/screens/home/home_screen.dart';
 import 'package:petai_care/screens/hospital/hospital_screen.dart';
 
 class MainScreens extends StatefulWidget {
+  const MainScreens({super.key});
+
   @override
   _MainScreensState createState() => _MainScreensState();
 }
@@ -21,12 +23,10 @@ class _MainScreensState extends State<MainScreens> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          HomeScreen(),
           AiScreen(),
-          BoardScreen(),
           HospitalScreen(),
-          AccountScreen(),
-          DiaryScreen()
+          const AccountScreen(),
+          BoardScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -38,15 +38,15 @@ class _MainScreensState extends State<MainScreens> {
             _selectedIndex = index;
           });
         },
-        items: [
-          const BottomNavigationBarItem(
-              label: '홈', icon: Icon(CupertinoIcons.home)),
-          const BottomNavigationBarItem(
-              label: '자가진단', icon: Icon(CupertinoIcons.square_on_square)),
-          const BottomNavigationBarItem(
+        items: const [
+          BottomNavigationBarItem(
+              label: '자가진단', icon: Icon(CupertinoIcons.bandage)),
+          BottomNavigationBarItem(
               label: '주변병원', icon: Icon(CupertinoIcons.placemark)),
-          const BottomNavigationBarItem(
-              label: '가계부', icon: Icon(CupertinoIcons.square_on_square))
+          BottomNavigationBarItem(
+              label: '가계부', icon: Icon(CupertinoIcons.creditcard)),
+          BottomNavigationBarItem(
+              label: '게시판', icon: Icon(CupertinoIcons.bubble_left)),
         ],
       ),
     );

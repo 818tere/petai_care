@@ -38,7 +38,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^2.0.0 #글꼴 제공
   font_awesome_flutter: ^9.0.0 #아이콘 제공
-  intl: ^0.17.0
+  intl: ^0.18.0
+  table_calendar: ^3.0.8
+  image_picker: ^0.8.6+3
+  http: ^0.13.5
+  uuid: ^3.0.7
+  syncfusion_flutter_charts: ^20.4.52
 
 dev_dependencies:
   flutter_test:
