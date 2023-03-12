@@ -11,26 +11,11 @@ TextTheme textTheme() {
   );
 }
 
-AppBarTheme appTheme() {
-  return AppBarTheme(
-    centerTitle: false,
-    color: Colors.white,
-    elevation: 0.0,
-    textTheme: TextTheme(
-      headline6: GoogleFonts.nanumGothic(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-    ),
-  );
-}
 
 ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: Colors.white,
     textTheme: textTheme(),
-    appBarTheme: appTheme(),
     primaryColor: Colors.orange,
   );
 }
