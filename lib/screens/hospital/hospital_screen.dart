@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:petai_care/screens/hospital/seoul_guro.dart';
+import 'package:petai_care/screens/hospital/seoul_gangnam.dart';
+import 'package:petai_care/screens/hospital/seoul_gangdong.dart';
+import 'package:petai_care/screens/hospital/seoul_gangbuk.dart';
 import 'package:flutter/material.dart';
 
 
@@ -513,7 +516,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Gangnam()));
               },
             child: Text('강남구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -534,7 +537,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Gangdong()));
               },
             child: Text('강동구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -556,7 +559,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Gangbuk()));
               },
             child: Text('강북구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
