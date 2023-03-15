@@ -75,6 +75,8 @@ flutter:
     - assets/dog1.png
     - assets/dog2.gif
     - jsonfile/
+    - assets/images/question.jpeg
+    - assets/images/review.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
