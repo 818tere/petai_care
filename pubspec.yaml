@@ -44,6 +44,9 @@ dependencies:
   http: ^0.13.5
   uuid: ^3.0.7
   syncfusion_flutter_charts: ^20.4.52
+  firebase_core: ^2.7.0
+  firebase_auth: ^4.2.2
+  cloud_firestore: ^4.4.3
 
 dev_dependencies:
   flutter_test:

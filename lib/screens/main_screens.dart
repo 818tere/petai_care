@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:petai_care/screens/account/account_screen.dart';
 import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
-import 'package:petai_care/screens/diary/diary_screen.dart';
-import 'package:petai_care/screens/home/home_screen.dart';
 import 'package:petai_care/screens/hospital/hospital_screen.dart';
 
 class MainScreens extends StatefulWidget {
