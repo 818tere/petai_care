@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:petai_care/screens/main_screens.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({super.key});
@@ -9,18 +11,19 @@ class LoginSignupScreen extends StatefulWidget {
 }
 
 class _LoginSignupScreenState extends State<LoginSignupScreen> {
+  final _auth = FirebaseAuth.instance;
+
   bool isSignupScreen = true;
   final _formKey = GlobalKey<FormState>();
-  String userId = '';
+  String userEmail = '';
   String password = '';
   String userName = '';
 
   void _tryValidation() {
     final isValid = _formKey.currentState!.validate();
-    if (!isValid) {
-      return;
+    if (isValid) {
+      _formKey.currentState!.save();
     }
-    _formKey.currentState!.save();
   }
 
   @override
@@ -160,12 +163,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   key: const ValueKey(1),
                                   validator: (value) {
                                     if (value!.isEmpty || value.length < 4) {
-                                      return '아이디는 최소 4자 이상 입력해주세요';
+                                      return '이메일을 정확히 입력해주세요';
                                     }
                                     return null;
                                   },
                                   onSaved: (value) {
-                                    userId = value!;
+                                    userEmail = value!;
                                   },
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(Icons.account_circle,
@@ -182,7 +185,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                       ),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    hintText: '아이디',
+                                    hintText: '이메일',
                                     hintStyle: GoogleFonts.lato(
                                       color: Colors.grey,
                                       fontSize: 14,
@@ -227,6 +230,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 ),
                                 const SizedBox(height: 10),
                                 TextFormField(
+                                  obscureText: true,
                                   key: const ValueKey(3),
                                   validator: (value) {
                                     if (value!.isEmpty || value.length < 6) {
@@ -275,12 +279,15 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   key: const ValueKey(4),
                                   validator: (value) {
                                     if (value!.isEmpty || value.length < 4) {
-                                      return '아이디는 최소 4자 이상 입력해주세요';
+                                      return '이메일을 정확히 입력해주세요';
                                     }
                                     return null;
                                   },
                                   onSaved: (value) {
-                                    userId = value!;
+                                    userEmail = value!;
+                                  },
+                                  onChanged: (value) {
+                                    userEmail = value;
                                   },
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(Icons.account_circle,
@@ -297,7 +304,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                       ),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    hintText: '아이디',
+                                    hintText: '이메일',
                                     hintStyle: GoogleFonts.lato(
                                       color: Colors.grey,
                                       fontSize: 14,
@@ -307,6 +314,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 ),
                                 const SizedBox(height: 10),
                                 TextFormField(
+                                  obscureText: true,
                                   key: const ValueKey(5),
                                   validator: (value) {
                                     if (value!.isEmpty || value.length < 6) {
@@ -316,6 +324,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   },
                                   onSaved: (value) {
                                     password = value!;
+                                  },
+                                  onChanged: (value) {
+                                    password = value;
                                   },
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(Icons.lock,
@@ -343,7 +354,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               ],
                             ),
                           ),
-                        )
+                        ),
                     ],
                   ),
                 ),
@@ -356,8 +367,52 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               right: 0,
               child: Center(
                 child: GestureDetector(
-                  onTap: () {
-                    _tryValidation();
+                  onTap: () async {
+                    if (isSignupScreen) {
+                      _tryValidation();
+                      try {
+                        final newUser =
+                            await _auth.createUserWithEmailAndPassword(
+                                email: userEmail, password: password);
+                        if (newUser.user != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return const MainScreens();
+                            }),
+                          );
+                        }
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('이메일을 정확히 입력해주세요'),
+                            backgroundColor: Colors.blue,
+                          ),
+                        );
+                      }
+                    } //회원가입 메서드
+                    if (!isSignupScreen) {
+                      _tryValidation();
+                      try {
+                        final newUser = await _auth.signInWithEmailAndPassword(
+                            email: userEmail, password: password);
+                        if (newUser.user != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return const MainScreens();
+                            }),
+                          );
+                        }
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('이메일을 정확히 입력해주세요'),
+                            backgroundColor: Colors.blue,
+                          ),
+                        );
+                      }
+                    } //로그인 메서드
                   },
                   child: Container(
                     height: 50,

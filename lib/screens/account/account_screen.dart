@@ -258,11 +258,13 @@ class _AccountScreenState extends State<AccountScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton.extended(
+            heroTag: "b1",
             onPressed: () => _showAddEventDialog(),
             label: const Icon(Icons.add),
           ),
           const SizedBox(width: 10),
           FloatingActionButton.extended(
+            heroTag: "b2",
             onPressed: () {
               setState(() {
                 _getFromImage();
