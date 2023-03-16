@@ -22,7 +22,7 @@ class _MainScreensState extends State<MainScreens> {
         index: _selectedIndex,
         children: [
           AiScreen(),
-          HospitalScreen(),
+          const HospitalScreen(),
           const AccountScreen(),
           BoardScreen(),
         ],
