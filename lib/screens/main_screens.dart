@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:petai_care/screens/account/account_screen.dart';
 import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
@@ -13,11 +14,27 @@ class MainScreens extends StatefulWidget {
 }
 
 class _MainScreensState extends State<MainScreens> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: false,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () {
+              _auth.signOut();
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
       body: IndexedStack(
         index: _selectedIndex,
         children: [
@@ -40,7 +57,7 @@ class _MainScreensState extends State<MainScreens> {
           BottomNavigationBarItem(
               label: '자가진단', icon: Icon(CupertinoIcons.bandage)),
           BottomNavigationBarItem(
-              label: '주변병원', icon: Icon(CupertinoIcons.placemark)),
+              label: '동물병원', icon: Icon(CupertinoIcons.placemark)),
           BottomNavigationBarItem(
               label: '가계부', icon: Icon(CupertinoIcons.creditcard)),
           BottomNavigationBarItem(

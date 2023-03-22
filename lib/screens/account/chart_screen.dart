@@ -60,8 +60,43 @@ class _ChartScreenState extends State<ChartScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
                   const Chart(),
+                  const SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          '소비내역',
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                        ),
+                        Row(
+                          children: [
+                            const Icon(Icons.calendar_month_outlined,
+                                size: 30, color: Colors.black),
+                            const SizedBox(width: 10),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const ChartScreen(),
+                                  ),
+                                );
+                              },
+                              child: const Icon(Icons.bar_chart,
+                                  size: 30, color: Colors.black),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             )
