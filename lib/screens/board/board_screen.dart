@@ -1,41 +1,91 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:petai_care/screens/board/pages/boardQuestion.dart';
-import 'package:petai_care/screens/board/pages/boardReview.dart';
+import 'package:petai_care/screens/board/pages/boardWrite.dart';
+import 'package:petai_care/screens/board/pages/postScreen.dart';
 import 'basicPage/nullSpace.dart';
 import 'basicPage/selectMenu.dart';
 
 /**
  * 하단의 리스트 페이지
  */
-class BoardScreen extends StatelessWidget {
+class BoardScreen extends StatefulWidget {
+  @override
+  State<BoardScreen> createState() => _BoardScreenState();
+}
+
+class _BoardScreenState extends State<BoardScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white, // 배경색 지정
-      appBar: _buildBoardAppBar(), // AppBar 연결
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20), // 수평으로 여백 주기
-        child: ListView(
-          // Column 위에서 아래로 내려가는 구조
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: Colors.white, // 배경색 지정
+        appBar: AppBar(
+          title: Text(
+            "게시판",
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.orange,
+          centerTitle: true,
+          elevation: 3.0,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BoardWrite()),
+                );
+              },
+            ),
+          ],
+          bottom: TabBar(tabs: [
+            Tab(text: "질문 게시판"),
+            Tab(text: "후기 게시판"),
+          ], labelColor: Colors.white, unselectedLabelColor: Colors.black),
+        ),
+        body: TabBarView(
           children: [
-            NullSpace(),
-            GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => BoardQuestion()),
+            ListView.builder(
+                itemCount: 15,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    child: ListTile(
+                      title: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: Text('$index번째 질문'),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PostScreen()),
+                        );
+                      },
+                    ),
                   );
-                },
-                child: Container(child: SelectMenu("question", "질문 게시판"))),
-            GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => BoardReview()),
+                }),
+            ListView.builder(
+                itemCount: 15,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    child: ListTile(
+                      title: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: Text('$index번째 후기'),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PostScreen()),
+                        );
+                      },
+                    ),
                   );
-                },
-                child: Container(child: SelectMenu("review", "후기 게시판"))),
+                }),
           ],
         ),
       ),
@@ -43,17 +93,15 @@ class BoardScreen extends StatelessWidget {
   }
 }
 
-/**
- * 상단의 앱 바
- */
-AppBar _buildBoardAppBar() {
-  return AppBar(
-    title: Text(
-      "게시판",
-      style: TextStyle(color: Colors.white),
-    ),
-    centerTitle: true,
-    backgroundColor: Colors.orangeAccent, //배경색
-    elevation: 3.0, // 그림자 효과 조정
+Widget questionList() {
+  final items = List.generate(15, (i) {
+    var num = i + 1;
+    return ListTile(
+      title: Text('$num번째 질문'),
+    );
+  });
+
+  return ListView(
+    children: items,
   );
 }
