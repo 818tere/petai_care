@@ -1,20 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class PostScreen extends StatelessWidget {
+  const PostScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('index'),
+        title: const Text('index'),
         centerTitle: true,
         backgroundColor: Colors.orangeAccent,
       ),
       body: Column(children: [
         // 아이콘, 익명, datetime
         ListTile(
-          leading: CircleAvatar(
+          leading: const CircleAvatar(
             backgroundColor: Colors.white,
             child: CircleAvatar(
               backgroundColor: Color(0xffE6E6E6),
@@ -24,14 +25,14 @@ class PostScreen extends StatelessWidget {
               ),
             ),
           ),
-          title: Text('익명'),
+          title: const Text('익명'),
           subtitle: Text(DateFormat.yMMMd().format(DateTime.now())),
         ),
         // 제목
         Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           width: double.infinity,
-          child: Text(
+          child: const Text(
             'post.title!',
             style: TextStyle(fontWeight: FontWeight.bold),
             textScaleFactor: 1.4,
@@ -39,27 +40,28 @@ class PostScreen extends StatelessWidget {
           ),
         ),
         // 내용
-        Padding(
-          padding: const EdgeInsets.all(8.0),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Align(
             alignment: Alignment.topLeft,
             child: Text('post.contents!'),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 1,
         ),
-        Divider(
+        const Divider(
           thickness: 1,
         ),
         // 댓글 목록
-        Center(
+        const Center(
           child: Text('No comments'),
         ),
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         Align(
+          alignment: Alignment.bottomCenter,
           child: Container(
             color: Colors.white,
             child: Padding(
@@ -86,7 +88,7 @@ class PostScreen extends StatelessWidget {
                               ),
                             ),
                             hintText: "댓글을 입력하세요.",
-                            hintStyle: new TextStyle(color: Colors.black26),
+                            hintStyle: const TextStyle(color: Colors.black26),
                             isDense: true,
                           ),
                         ),
@@ -94,7 +96,7 @@ class PostScreen extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.send),
+                    icon: const Icon(Icons.send),
                     onPressed: () {
                       print('input comment: ');
                     },
@@ -103,7 +105,6 @@ class PostScreen extends StatelessWidget {
               ),
             ),
           ),
-          alignment: Alignment.bottomCenter,
         ),
       ]),
     );

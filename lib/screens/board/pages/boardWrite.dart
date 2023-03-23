@@ -1,17 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BoardWrite extends StatelessWidget {
+  const BoardWrite({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('글쓰기'),
+        title: const Text('글쓰기'),
         centerTitle: true,
         backgroundColor: Colors.orangeAccent,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.check),
+            icon: const Icon(Icons.check),
             onPressed: () {},
           ),
         ],
@@ -24,7 +25,7 @@ class BoardWrite extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: '제목',
                     ),
                     textInputAction: TextInputAction.next,
@@ -36,7 +37,7 @@ class BoardWrite extends StatelessWidget {
                     },
                   ),
                   TextFormField(
-                    decoration: InputDecoration(labelText: '내용'),
+                    decoration: const InputDecoration(labelText: '내용'),
                     maxLines: 15,
                     keyboardType: TextInputType.multiline,
                     textInputAction: TextInputAction.newline,

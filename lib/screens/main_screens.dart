@@ -24,7 +24,6 @@ class _MainScreensState extends State<MainScreens> {
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
-        automaticallyImplyLeading: false,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.exit_to_app),
@@ -35,13 +34,44 @@ class _MainScreensState extends State<MainScreens> {
           ),
         ],
       ),
+      drawer: Drawer(
+        child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+          UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(40),
+                bottomRight: Radius.circular(40),
+              ),
+              color: Colors.blue.shade200,
+            ),
+            accountName: const Text('이름'),
+            accountEmail: const Text('이메일'),
+            currentAccountPicture: const Icon(
+              Icons.pets,
+              size: 60,
+            ),
+          ),
+          ListTile(
+            title: const Text('정보등록'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: const Text('로그아웃'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ]),
+      ),
       body: IndexedStack(
         index: _selectedIndex,
         children: [
           AiScreen(),
           const HospitalScreen(),
           const AccountScreen(),
-          BoardScreen(),
+          const BoardScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
