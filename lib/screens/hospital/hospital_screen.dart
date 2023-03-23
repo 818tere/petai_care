@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:petai_care/screens/hospital/seoul_guro.dart';
-import 'package:petai_care/screens/hospital/seoul_gangnam.dart';
-import 'package:petai_care/screens/hospital/seoul_gangdong.dart';
-import 'package:petai_care/screens/hospital/seoul_gangbuk.dart';
+import 'package:petai_care/screens/hospital/seoul.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,7 +17,7 @@ class HospitalScreen extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.favorite_border), 
           onPressed: () { 
-            debugPrint('favoite border is clicke12321312d');
+            debugPrint('favoite border is clicked');
            },
         ),
         ],
@@ -587,7 +583,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Gangseo()));
               },
             child: Text('강서구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -608,7 +604,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Gwanak()));
               },
             child: Text('관악구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -630,7 +626,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Gwangjin()));
               },
             child: Text('광진구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -679,7 +675,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Geumcheon()));
               },
             child: Text('금천구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -701,7 +697,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Nowon()));
               },
             child: Text('노원구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -729,7 +725,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Dobong()));
               },
             child: Text('도봉구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -750,7 +746,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Dongdaemun()));
               },
             child: Text('동대문구',
             style: TextStyle(fontSize: 18, color: Colors.white),),
@@ -772,7 +768,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Dongjak()));
               },
             child: Text('동작구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -800,7 +796,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Mapo()));
               },
             child: Text('마포구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -821,7 +817,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Seodaemun()));
               },
             child: Text('서대문구',
             style: TextStyle(fontSize: 18, color: Colors.white),),
@@ -843,7 +839,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Seocho()));
               },
             child: Text('서초구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -871,7 +867,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Seongdong()));
               },
             child: Text('성동구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -892,7 +888,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Seongbuk()));
               },
             child: Text('성북구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -914,7 +910,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Songpa()));
               },
             child: Text('송파구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -942,7 +938,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Yangcheon()));
               },
             child: Text('양천구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -963,7 +959,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Yeongdeungpo()));
               },
             child: Text('영등포구',
             style: TextStyle(fontSize: 18, color: Colors.white),),
@@ -985,7 +981,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Yongsan()));
               },
             child: Text('용산구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -1013,7 +1009,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Eunpyeong()));
               },
             child: Text('은평구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -1034,7 +1030,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Jongno()));
               },
             child: Text('종로구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -1056,7 +1052,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Jung()));
               },
             child: Text('중구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -1084,7 +1080,7 @@ class Seoul extends StatelessWidget {
               // 버튼 누르면 페이지 이동
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Seoul()));
+                  builder: (context) => Jungnang()));
               },
             child: Text('중랑구',
             style: TextStyle(fontSize: 20, color: Colors.white),),
@@ -1106,3 +1102,5 @@ class Seoul extends StatelessWidget {
     );
   }
 }
+
+
