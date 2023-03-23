@@ -44,12 +44,11 @@ dependencies:
   http: ^0.13.5
   uuid: ^3.0.7
   syncfusion_flutter_charts: ^20.4.52
-  firebase_core: ^2.7.0
-  firebase_auth: ^4.2.2
-  cloud_firestore: ^4.4.3
   provider: ^6.0.0
   shared_preferences: ^0.5.3+1
   badges: 2.0.2
+  firebase_core: ^2.7.1
+  cloud_firestore: ^4.4.4
 
 dev_dependencies:
   flutter_test:

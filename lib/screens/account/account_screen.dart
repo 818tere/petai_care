@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:petai_care/screens/account/chart_screen.dart';
-import 'package:petai_care/screens/account/widgets/chart_widget.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:flutter/material.dart';
@@ -174,58 +173,32 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
-            height: 55,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Row(
-                children: const [
-                  Text(
-                    '가계부',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                Offstage(
-                  offstage: false,
-                  child: TableCalendar(
-                    locale: 'ko_KR',
-                    focusedDay: _focusedDay,
-                    firstDay: DateTime(2023),
-                    lastDay: DateTime(2040),
-                    onDaySelected: (selectedDay, focusedDay) {
-                      if (!isSameDay(_selectedDay, selectedDay)) {
-                        setState(() {
-                          _selectedDay = selectedDay;
-                          _focusedDay = focusedDay;
-                        });
-                      }
-                    },
-                    selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                    onFormatChanged: (format) {
-                      if (_calendarFormat != format) {
-                        setState(() {
-                          _calendarFormat = format;
-                        });
-                      }
-                    },
-                    onPageChanged: (focusedDay) {
-                      _focusedDay = focusedDay;
-                    },
-                    eventLoader: _listOfDayEvents,
-                  ),
-                ),
-                const Offstage(offstage: true, child: Chart())
-              ],
-            ),
+          const SizedBox(height: 50),
+          TableCalendar(
+            locale: 'ko_KR',
+            focusedDay: _focusedDay,
+            firstDay: DateTime(2023),
+            lastDay: DateTime(2040),
+            onDaySelected: (selectedDay, focusedDay) {
+              if (!isSameDay(_selectedDay, selectedDay)) {
+                setState(() {
+                  _selectedDay = selectedDay;
+                  _focusedDay = focusedDay;
+                });
+              }
+            },
+            selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+            onFormatChanged: (format) {
+              if (_calendarFormat != format) {
+                setState(() {
+                  _calendarFormat = format;
+                });
+              }
+            },
+            onPageChanged: (focusedDay) {
+              _focusedDay = focusedDay;
+            },
+            eventLoader: _listOfDayEvents,
           ),
           const SizedBox(height: 30),
           Padding(

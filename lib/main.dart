@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:petai_care/screens/LoginSignupScreen.dart';
+import 'package:petai_care/screens/main_screens.dart';
 import 'package:petai_care/theme.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(const PetAICare());
 }
 
@@ -17,7 +14,7 @@ class PetAICare extends StatelessWidget {
     return MaterialApp(
       title: 'Pet_AI_Care',
       debugShowCheckedModeBanner: false,
-      home: const LoginSignupScreen(),
+      home: const MainScreens(),
       theme: theme(),
     );
   }

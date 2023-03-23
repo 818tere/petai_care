@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "464119642714",
-    "project_id": "petaicare",
-    "storage_bucket": "petaicare.appspot.com"
+    "project_number": "810168764037",
+    "project_id": "petai-board",
+    "storage_bucket": "petai-board.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:464119642714:android:303fe87682bdb44294b663",
+        "mobilesdk_app_id": "1:810168764037:android:974ac23b530891841d8bec",
         "android_client_info": {
           "package_name": "com.example.petai_care"
         }
       },
       "oauth_client": [
         {
-          "client_id": "464119642714-k0sbfg1054kuf9lm4gcrs7mt2hg2irdc.apps.googleusercontent.com",
+          "client_id": "810168764037-7v9iiqht0i9eb5fdrsnhug4glc4lf48s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAVAKNjFTUw5xRkSbzHO914rDow-oGwSwI"
+          "current_key": "AIzaSyDBna6Qn3tWQ6t_CG47PLLV8xkZLwRFbyg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "464119642714-k0sbfg1054kuf9lm4gcrs7mt2hg2irdc.apps.googleusercontent.com",
+              "client_id": "810168764037-7v9iiqht0i9eb5fdrsnhug4glc4lf48s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
