@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "464119642714",
+    "project_id": "petaicare",
+    "storage_bucket": "petaicare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464119642714:android:303fe87682bdb44294b663",
+        "android_client_info": {
+          "package_name": "com.example.petai_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464119642714-k0sbfg1054kuf9lm4gcrs7mt2hg2irdc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVAKNjFTUw5xRkSbzHO914rDow-oGwSwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464119642714-k0sbfg1054kuf9lm4gcrs7mt2hg2irdc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
