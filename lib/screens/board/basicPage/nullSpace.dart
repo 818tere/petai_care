@@ -6,8 +6,8 @@ class NullSpace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top:40),
+    return const Padding(
+      padding: EdgeInsets.only(top: 40),
       child: Text(
         "",
         style: TextStyle(fontSize: 20),
