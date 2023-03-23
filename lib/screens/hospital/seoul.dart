@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
 import 'package:petai_care/screens/hospital/HospitalDataModel.dart';
 
-// 서초부터 json 파일 복붙해서 크롤링으로 json 파일 수정해야함.
 
 // 강남구
 
@@ -18,10 +17,7 @@ class _GangnamState extends State<Gangnam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -83,7 +79,7 @@ class _GangnamState extends State<Gangnam> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gangnam.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangnam.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -105,10 +101,7 @@ class _GangdongState extends State<Gangdong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -170,7 +163,7 @@ class _GangdongState extends State<Gangdong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gangdong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangdong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -192,10 +185,7 @@ class _GangbukState extends State<Gangbuk> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -257,7 +247,7 @@ class _GangbukState extends State<Gangbuk> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gangbuk.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangbuk.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -279,10 +269,7 @@ class _GangseoState extends State<Gangseo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -344,7 +331,7 @@ class _GangseoState extends State<Gangseo> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gangseo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangseo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -366,10 +353,7 @@ class _GwanakState extends State<Gwanak> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -431,7 +415,7 @@ class _GwanakState extends State<Gwanak> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gwanak.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwanak.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -453,10 +437,7 @@ class _GwangjinState extends State<Gwangjin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -518,7 +499,7 @@ class _GwangjinState extends State<Gwangjin> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gwangjin.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwangjin.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -539,10 +520,7 @@ class _GuroState extends State<Guro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -604,7 +582,7 @@ class _GuroState extends State<Guro> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/guro.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/guro.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -626,10 +604,7 @@ class _GeumcheonState extends State<Geumcheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -691,7 +666,7 @@ class _GeumcheonState extends State<Geumcheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/geumcheon.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/geumcheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -711,10 +686,7 @@ class _NowonState extends State<Nowon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -776,7 +748,7 @@ class _NowonState extends State<Nowon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/nowon.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/nowon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -796,10 +768,7 @@ class _DobongState extends State<Dobong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -861,7 +830,7 @@ class _DobongState extends State<Dobong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/dobong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dobong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -881,10 +850,7 @@ class _DongdaemunState extends State<Dongdaemun> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -946,7 +912,7 @@ class _DongdaemunState extends State<Dongdaemun> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/dongdaemun.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongdaemun.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -966,10 +932,7 @@ class _DongjakState extends State<Dongjak> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1031,7 +994,7 @@ class _DongjakState extends State<Dongjak> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/dongjak.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongjak.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1051,10 +1014,7 @@ class _MapoState extends State<Mapo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1116,7 +1076,7 @@ class _MapoState extends State<Mapo> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/mapo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/mapo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1136,10 +1096,7 @@ class _SeodaemunState extends State<Seodaemun> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1201,7 +1158,7 @@ class _SeodaemunState extends State<Seodaemun> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seodaemun.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seodaemun.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1221,10 +1178,7 @@ class _SeochoState extends State<Seocho> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1286,7 +1240,7 @@ class _SeochoState extends State<Seocho> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seocho.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seocho.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1306,10 +1260,7 @@ class _SeongdongState extends State<Seongdong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1371,7 +1322,7 @@ class _SeongdongState extends State<Seongdong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seongdong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongdong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1391,10 +1342,7 @@ class _SeongbukState extends State<Seongbuk> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1456,7 +1404,7 @@ class _SeongbukState extends State<Seongbuk> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seongbuk.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongbuk.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1476,10 +1424,6 @@ class _SongpaState extends State<Songpa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
       body:Column(
         children: [
       FutureBuilder(
@@ -1541,7 +1485,7 @@ class _SongpaState extends State<Songpa> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/songpa.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/songpa.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1561,10 +1505,7 @@ class _YangcheonState extends State<Yangcheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1626,7 +1567,7 @@ class _YangcheonState extends State<Yangcheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/yangcheon.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yangcheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1646,10 +1587,7 @@ class _YeongdeungpoState extends State<Yeongdeungpo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1711,7 +1649,7 @@ class _YeongdeungpoState extends State<Yeongdeungpo> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/yeongdeungpo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yeongdeungpo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1731,10 +1669,7 @@ class _YongsanState extends State<Yongsan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1796,7 +1731,7 @@ class _YongsanState extends State<Yongsan> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/yongsan.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yongsan.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1816,10 +1751,7 @@ class _EunpyeongState extends State<Eunpyeong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1881,7 +1813,7 @@ class _EunpyeongState extends State<Eunpyeong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/eunpyeong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/eunpyeong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1901,10 +1833,7 @@ class _JongnoState extends State<Jongno> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -1966,7 +1895,7 @@ class _JongnoState extends State<Jongno> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/jongno.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jongno.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1986,10 +1915,7 @@ class _JungState extends State<Jung> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -2051,7 +1977,7 @@ class _JungState extends State<Jung> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/jung.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jung.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2071,10 +1997,7 @@ class _JungnangState extends State<Jungnang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("병원 찾기"),
-      ),
+      
       body:Column(
         children: [
       FutureBuilder(
@@ -2136,7 +2059,7 @@ class _JungnangState extends State<Jungnang> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
