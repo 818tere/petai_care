@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:petai_care/screens/account/chart_screen.dart';
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
 import 'package:uuid/uuid.dart';
 
@@ -22,7 +21,13 @@ class _AccountScreenState extends State<AccountScreen> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
-
+  //tablecalendar
+  bool calenderHide = false;
+  bool chartHide = true;
+  //offstage
+  List day = ['1일', '1주', '1개월', '1년'];
+  int index_color = 0;
+  //chart
   Map<String, List> mySelectedEvents = <String, List>{};
 
   final amountController = TextEditingController();
@@ -191,41 +196,85 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
             ),
           ),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                Offstage(
-                  offstage: false,
-                  child: TableCalendar(
-                    locale: 'ko_KR',
-                    focusedDay: _focusedDay,
-                    firstDay: DateTime(2023),
-                    lastDay: DateTime(2040),
-                    onDaySelected: (selectedDay, focusedDay) {
-                      if (!isSameDay(_selectedDay, selectedDay)) {
-                        setState(() {
-                          _selectedDay = selectedDay;
-                          _focusedDay = focusedDay;
-                        });
-                      }
-                    },
-                    selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                    onFormatChanged: (format) {
-                      if (_calendarFormat != format) {
-                        setState(() {
-                          _calendarFormat = format;
-                        });
-                      }
-                    },
-                    onPageChanged: (focusedDay) {
-                      _focusedDay = focusedDay;
-                    },
-                    eventLoader: _listOfDayEvents,
-                  ),
+          Column(
+            children: [
+              Offstage(
+                offstage: calenderHide,
+                child: TableCalendar(
+                  locale: 'ko_KR',
+                  focusedDay: _focusedDay,
+                  firstDay: DateTime(2023),
+                  lastDay: DateTime(2040),
+                  onDaySelected: (selectedDay, focusedDay) {
+                    if (!isSameDay(_selectedDay, selectedDay)) {
+                      setState(() {
+                        _selectedDay = selectedDay;
+                        _focusedDay = focusedDay;
+                      });
+                    }
+                  },
+                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+                  onFormatChanged: (format) {
+                    if (_calendarFormat != format) {
+                      setState(() {
+                        _calendarFormat = format;
+                      });
+                    }
+                  },
+                  onPageChanged: (focusedDay) {
+                    _focusedDay = focusedDay;
+                  },
+                  eventLoader: _listOfDayEvents,
                 ),
-                const Offstage(offstage: true, child: Chart())
-              ],
-            ),
+              ),
+              Offstage(
+                  offstage: chartHide,
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ...List.generate(
+                              4,
+                              (index) => GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    index_color = index;
+                                  });
+                                },
+                                child: Container(
+                                  height: 40,
+                                  width: 70,
+                                  decoration: BoxDecoration(
+                                    color: index_color == index
+                                        ? Colors.blue
+                                        : Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    day[index],
+                                    style: TextStyle(
+                                        color: index_color == index
+                                            ? Colors.white
+                                            : Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Chart(),
+                    ],
+                  )),
+            ],
           ),
           const SizedBox(height: 30),
           Padding(
@@ -242,17 +291,23 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 Row(
                   children: [
-                    const Icon(Icons.calendar_month_outlined,
-                        size: 30, color: Colors.black),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          calenderHide = false;
+                          chartHide = true;
+                        });
+                      },
+                      child: const Icon(Icons.calendar_month_outlined,
+                          size: 30, color: Colors.black),
+                    ),
                     const SizedBox(width: 10),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ChartScreen(),
-                          ),
-                        );
+                        setState(() {
+                          chartHide = false;
+                          calenderHide = true;
+                        });
                       },
                       child: const Icon(Icons.bar_chart,
                           size: 30, color: Colors.black),
