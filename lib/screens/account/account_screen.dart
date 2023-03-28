@@ -34,6 +34,7 @@ class _AccountScreenState extends State<AccountScreen> {
     super.initState();
     _selectedDay = _focusedDay;
     initializeDateFormatting();
+    loadPreviousEvents();
   }
 
   List _listOfDayEvents(DateTime day) {
@@ -43,6 +44,8 @@ class _AccountScreenState extends State<AccountScreen> {
       return [];
     }
   }
+
+  loadPreviousEvents() {}
 
   _showAddEventDialog() {
     showDialog(
