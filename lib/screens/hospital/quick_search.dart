@@ -44,12 +44,14 @@ class _QuickSearchState extends State<QuickSearch> {
   }
 
   void _runFilter(String enteredKeyword) {
+    
     List<Map<String, dynamic>> results = [];
     if (enteredKeyword.isEmpty){
       results = _allHospitals;
-    } else {
-      results = _allHospitals.where((hospital) =>hospital["name"].toLowerCase().contains(enteredKeyword.toLowerCase())).toList();
-      results = _allHospitals.where((hospital) =>hospital["address"].toLowerCase().contains(enteredKeyword.toLowerCase())).toList();
+    } 
+    else {
+      results = _allHospitals.where((hospital) => hospital["address"].toLowerCase().contains(enteredKeyword.toLowerCase())).toList() 
+      + _allHospitals.where((hospital) => hospital["name"].toLowerCase().contains(enteredKeyword.toLowerCase())).toList();
     }
     
 
