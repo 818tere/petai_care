@@ -4,7 +4,7 @@ class AiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('AiScreen'),
+      child: Text('질병 진단'),
     );
   }
 }
