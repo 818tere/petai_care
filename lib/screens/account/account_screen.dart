@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -48,6 +48,8 @@ class _AccountScreenState extends State<AccountScreen> {
       return [];
     }
   }
+
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   _showAddEventDialog() {
     showDialog(
