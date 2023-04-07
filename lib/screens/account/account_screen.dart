@@ -1,8 +1,10 @@
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:petai_care/screens/account/sphelper.dart';
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:petai_care/screens/account/performance.dart';
 import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -29,13 +31,17 @@ class _AccountScreenState extends State<AccountScreen> {
   int index_color = 0;
   //chart
   Map<String, List> mySelectedEvents = <String, List>{};
-
+  //tablecalendar 용
+  List<Performance> performances = [];
+  //로컬 저장용
   final amountController = TextEditingController();
   final descpController = TextEditingController();
-  String parsedtext = '';
+  final SPHelper helper = SPHelper();
+  String parsedtext = ''; //_getfromimage
 
   @override
   void initState() {
+    helper.init().then((value) => updateScreen());
     super.initState();
     _selectedDay = _focusedDay;
     initializeDateFormatting();
@@ -49,9 +55,7 @@ class _AccountScreenState extends State<AccountScreen> {
     }
   }
 
-  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-
-  _showAddEventDialog() {
+  Future<dynamic> _showAddEventDialog() async {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -97,6 +101,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 );
                 return;
               } else {
+                savePerformance();
                 setState(() {
                   if (mySelectedEvents[
                           DateFormat('yyyy-MM-dd').format(_selectedDay!)] !=
@@ -119,7 +124,6 @@ class _AccountScreenState extends State<AccountScreen> {
                     ];
                   }
                 });
-
                 amountController.clear();
                 descpController.clear();
                 Navigator.of(context).pop();
@@ -132,49 +136,21 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
-  Future _getFromImage() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile == null) {
-      return;
-    }
-    var bytes = File(pickedFile.path.toString()).readAsBytesSync();
-    String img64 = base64Encode(bytes);
+  Future savePerformance() async {
+    int id = helper.getCounter() + 1;
+    Performance newPerformance = Performance(id, _selectedDay.toString(),
+        amountController.text, descpController.text);
 
-    var url =
-        'https://b90884mpg3.apigw.ntruss.com/custom/v1/20868/aef4c9a439c3f08c0e9166742558b78ddafdcc7234cde4d2eed24e7952e9c1f0/infer';
-    var secretKey = "ZHhjaGVTSlVUQlNtWW1OUUFnRWdIbUlSTHd3RElQUGk=";
-    var uuid = const Uuid();
-    var requestID = uuid.v4();
-
-    var payload = {
-      'version': 'V2',
-      'requestId': requestID,
-      'timestamp': DateTime.now().millisecondsSinceEpoch,
-      'images': [
-        {
-          'format': 'jpg',
-          'data':
-              'data:image/jpg;base64,${img64.toString()}', // use this instead of url if the image is not public
-          'name': 'demo',
-        }
-      ]
-    };
-    var postParams = jsonEncode(payload);
-
-    var headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'X-OCR-SECRET': secretKey
-    };
-
-    var response =
-        await http.post(Uri.parse(url), headers: headers, body: postParams);
-    var result = jsonDecode(response.body);
-
-    setState(() {
-      result;
+    helper.writePerformance(newPerformance).then((_) {
+      helper.setCounter();
+      updateScreen();
     });
+
+    amountController.clear();
+    descpController.clear();
   }
+
+  Future _getFromImage() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -207,6 +183,14 @@ class _AccountScreenState extends State<AccountScreen> {
                   focusedDay: _focusedDay,
                   firstDay: DateTime(2023),
                   lastDay: DateTime(2040),
+                  headerStyle: HeaderStyle(
+                    formatButtonVisible: false,
+                    titleCentered: true,
+                    titleTextStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   onDaySelected: (selectedDay, focusedDay) {
                     if (!isSameDay(_selectedDay, selectedDay)) {
                       setState(() {
@@ -320,7 +304,12 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
           ),
           const SizedBox(height: 15),
-          ..._listOfDayEvents(_selectedDay!).map(
+          Expanded(
+            child: ListView(
+              children: getContent(),
+            ),
+          )
+          /*..._listOfDayEvents(_selectedDay!).map(
             (myEvents) => ListTile(
               leading: const Icon(
                 Icons.local_hospital,
@@ -335,7 +324,7 @@ class _AccountScreenState extends State<AccountScreen> {
               subtitle: Text('내용:  ${myEvents['descp']}',
                   style: const TextStyle(fontWeight: FontWeight.w400)),
             ),
-          )
+          )*/
         ],
       ),
       floatingActionButton: Row(
@@ -350,14 +339,41 @@ class _AccountScreenState extends State<AccountScreen> {
           FloatingActionButton.extended(
             heroTag: "b2",
             onPressed: () {
-              setState(() {
-                _getFromImage();
-              });
+              _getFromImage();
             },
             label: const Icon(Icons.camera_alt),
           ),
         ],
       ),
     );
+  }
+
+  List<Widget> getContent() {
+    List<Widget> tiles = [];
+    performances.forEach((performance) {
+      tiles.add(Dismissible(
+        key: UniqueKey(),
+        onDismissed: (_) {
+          helper
+              .deletePerformance(performance.id)
+              .then((value) => updateScreen());
+        },
+        child: ListTile(
+          leading: const Icon(
+            Icons.local_hospital,
+            color: Colors.blue,
+            size: 40,
+          ),
+          title: Text("${performance.amount}원"),
+          subtitle: Text("${performance.description}"),
+        ),
+      ));
+    });
+    return tiles;
+  }
+
+  void updateScreen() {
+    performances = helper.readPerformances();
+    setState(() {});
   }
 }
