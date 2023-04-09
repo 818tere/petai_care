@@ -81,7 +81,7 @@ class _GoyangState extends State<Goyang> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangdong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/goyang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -165,7 +165,7 @@ class _GwacheonState extends State<Gwacheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangbuk.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gwacheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -249,7 +249,7 @@ class _GwangmyeongState extends State<Gwangmyeong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangseo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gwangmyeong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -333,7 +333,7 @@ class _GwangjuState extends State<Gwangju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwanak.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gwangju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -417,7 +417,7 @@ class _GuriState extends State<Guri> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwangjin.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/guri.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -500,7 +500,7 @@ class _GunpoState extends State<Gunpo> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/guro.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gunpo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -584,7 +584,7 @@ class _GimpoState extends State<Gimpo> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/geumcheon.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gimpo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -666,7 +666,7 @@ class _NamyangjuState extends State<Namyangju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/nowon.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/namyangju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -748,7 +748,7 @@ class _DongducheonState extends State<Dongducheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dobong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/dongducheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -830,7 +830,7 @@ class _BucheonState extends State<Bucheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongdaemun.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/bucheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -912,7 +912,7 @@ class _SeongnamState extends State<Seongnam> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongjak.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/seongnam.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -994,7 +994,7 @@ class _SuwonState extends State<Suwon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/mapo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/suwon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1076,7 +1076,7 @@ class _SiheungState extends State<Siheung> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seodaemun.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/siheung.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1158,7 +1158,7 @@ class _AnsanState extends State<Ansan> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seocho.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/ansan.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1240,7 +1240,7 @@ class _AnseongState extends State<Anseong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongdong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/anseong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1322,7 +1322,7 @@ class _AnyangState extends State<Anyang> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongbuk.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/anyang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1403,7 +1403,7 @@ class _YangjuState extends State<Yangju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/songpa.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/yangju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1487,7 +1487,7 @@ class _YeojuState extends State<Yeoju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yeongdeungpo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/yeoju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1569,7 +1569,7 @@ class _OsanState extends State<Osan> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yongsan.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/osan.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1651,7 +1651,7 @@ class _YonginState extends State<Yongin> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/eunpyeong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/yongin.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1733,7 +1733,7 @@ class _UiwangState extends State<Uiwang> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jongno.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/uiwang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1815,7 +1815,7 @@ class _UijeongbuState extends State<Uijeongbu> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jung.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/uijeongbu.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1897,7 +1897,7 @@ class _IcheonState extends State<Icheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/icheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1979,7 +1979,7 @@ class _PajuState extends State<Paju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/paju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2061,7 +2061,7 @@ class _PyeongtaekState extends State<Pyeongtaek> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/pyeongtaek.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2143,7 +2143,7 @@ class _PocheonState extends State<Pocheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/pocheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2225,7 +2225,7 @@ class _HanamState extends State<Hanam> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/hanam.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2307,7 +2307,7 @@ class _HwaseongState extends State<Hwaseong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/hwaseong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();

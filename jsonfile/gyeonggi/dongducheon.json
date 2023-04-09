@@ -1,0 +1,30 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221129_253%2F16697164588895xQiJ_JPEG%2F%25C1%25B6%25B9%25CC%25BF%25B5.jpg",
+  "name": "윤후동물병원",
+  "number": "031-864-0075",
+  "address": "동두천 지행동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230331_124%2F1680197725174IGkBV_JPEG%2F%25C6%25F7%25B7%25B9%25BA%25EA_72.jpg",
+  "name": "포레브동물의료센터",
+  "number": "0507-1431-7985",
+  "address": "동두천 지행동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190107_215%2F1546843626405IpqPj_JPEG%2Fveterinary-services.jpg",
+  "name": "나라동물병원",
+  "number": "0507-1432-8576",
+  "address": "동두천 생연동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191006_150%2F1570348492688YG3lP_JPEG%2F5Iu1vjpOGD_llU0W1-MgY9qo.jpg",
+  "name": "경기동물병원",
+  "number": "031-865-2137",
+  "address": "동두천 생연동"
+ }
+]

@@ -1,0 +1,79 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210216_62%2F1613443022978vc2bu_JPEG%2FKlZTCSe8nRIvx2y4e4oW7Qnt.jpg",
+  "name": "사바나동물병원",
+  "number": "0507-1337-7515",
+  "address": "의왕 내손동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220302_183%2F1646184342443RRpdp_JPEG%2F%25C1%25C1%25BE%25C6%25BC%25AD%25C7%25CF%25B4%25C2%25B5%25F0%25C0%25DA%25C0%25CE___%25C0%25C7%25BF%25D5_%25BF%25A4_%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_%25289%2529.jpg",
+  "name": "엘동물병원",
+  "number": "031-451-7577",
+  "address": "의왕 오전동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220208_251%2F1644304526806u4HH3_JPEG%2FKakaoTalk_20220208_161439426.jpg",
+  "name": "바하고양이병원",
+  "number": "031-425-8875",
+  "address": "의왕 내손동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_205%2F144107406763983x4h_JPEG%2FSUBMIT_1328412045729_21055855.jpg",
+  "name": "우리집동물병원",
+  "number": "031-421-0008",
+  "address": "의왕 내손동"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210508_273%2F1620450388866nDhOa_JPEG%2FkJmWo42S9oOF7Grnt3jIXlHD.jpg",
+  "name": "라포레동물메디컬센터",
+  "number": "031-360-7588",
+  "address": "의왕 삼동"
+ },
+ {
+  "id": 6,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180102_78%2F1514858041509Wgzv1_JPEG%2FgaT2DGYFTUM4wnyrDvp-v3l1.jpg",
+  "name": "의왕동물병원",
+  "number": "031-454-7582",
+  "address": "의왕 오전동"
+ },
+ {
+  "id": 7,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_102%2F1441042027150y3ruq_JPEG%2FSUBMIT_1418627861490_36123435.jpg",
+  "name": "포일동물병원",
+  "number": "031-425-7541",
+  "address": "의왕 포일동"
+ },
+ {
+  "id": 8,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200415_246%2F1586950827893Wr2ed_JPEG%2FRNxQhj3tFLJ02ek5fz2ElF2P.jpg",
+  "name": "청계종합동물병원",
+  "number": "031-424-7580",
+  "address": "의왕 청계동"
+ },
+ {
+  "id": 9,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210701_144%2F1625114996722hq0mc_PNG%2FlCYGZZMosBaNycmBgFUWa-YN.PNG.png",
+  "name": "펫가든동물병원 롯데마트 의왕점",
+  "number": "031-422-4475",
+  "address": "의왕 내손동"
+ },
+ {
+  "id": 10,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_189%2F1441077486057dOWGs_JPEG%2F166281506224405_0.jpeg",
+  "name": "중앙동물병원",
+  "number": "031-462-8250",
+  "address": "의왕 삼동"
+ },
+ {
+  "id": 11,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161114_284%2F14790917524824d7Sq_JPEG%2F177064517932259_0.jpeg",
+  "name": "늘솜동물병원",
+  "number": "031-424-7887",
+  "address": "의왕 포일동"
+ }
+]

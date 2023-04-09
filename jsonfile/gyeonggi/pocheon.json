@@ -1,0 +1,37 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221114_169%2F1668413173773rkPs3_JPEG%2Fimage_0.jpg",
+  "name": "현대동물병원",
+  "number": "031-541-9488",
+  "address": "포천 소흘읍"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220501_291%2F16513855180508ML64_JPEG%2FKakaoTalk_20220501_150227276.jpg",
+  "name": "사랑종합동물병원",
+  "number": "031-544-0275",
+  "address": "포천 소흘읍"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210422_103%2F1619071904166KQlLK_JPEG%2FA_KjNUHntG92-hlKWkMDg1D9.jpeg.jpg",
+  "name": "한강동물약품병원",
+  "number": "031-536-8388",
+  "address": "포천 군내면"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230118_161%2F16740075810495jwP1_JPEG%2F20220902_191555.jpg",
+  "name": "팜스플랜동물병원 경기북부센터",
+  "number": "0507-1325-9533",
+  "address": "포천 영중면"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210422_273%2F1619071858031c0uuI_JPEG%2Fce0lvi0daUGpt217qFT0oZqB.jpeg.jpg",
+  "name": "한강동물약품",
+  "number": "031-536-2766",
+  "address": "포천 군내면"
+ }
+]

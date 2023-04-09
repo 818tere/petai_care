@@ -1580,7 +1580,7 @@ class Gyeonggi extends StatelessWidget {
                         elevation: 5.0),
                     child: const Text(
                       '의정부시',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
                 ),
