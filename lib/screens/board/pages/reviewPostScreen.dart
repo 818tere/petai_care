@@ -1,21 +1,60 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:intl/intl.dart';
+import 'package:petai_care/models/post.dart';
+import 'package:petai_care/screens/board/board_screen.dart';
+import 'package:petai_care/screens/board/pages/reviewPostEdit.dart';
 
-class PostScreen extends StatelessWidget {
-  const PostScreen({super.key});
+class ReviewPostScreen extends StatefulWidget {
+  ReviewPostScreen(this.doc, {Key? key}) : super(key: key);
+  QueryDocumentSnapshot doc;
 
+  @override
+  State<ReviewPostScreen> createState() => _ReviewPostScreenState();
+}
+
+class _ReviewPostScreenState extends State<ReviewPostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('index'),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text(
+          widget.doc["title"],
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ReviewPostEdit()));
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Column(children: [
+        //제목
+        Container(
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+          width: double.infinity,
+          child: Text(
+            widget.doc["title"],
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            textScaleFactor: 1.4,
+            textAlign: TextAlign.start,
+          ),
+        ),
         // 아이콘, 익명, datetime
         ListTile(
-          leading: const CircleAvatar(
+          leading: CircleAvatar(
             backgroundColor: Colors.white,
             child: CircleAvatar(
               backgroundColor: Color(0xffE6E6E6),
@@ -26,25 +65,19 @@ class PostScreen extends StatelessWidget {
             ),
           ),
           title: const Text('익명'),
-          subtitle: Text(DateFormat.yMMMd().format(DateTime.now())),
-        ),
-        // 제목
-        Container(
-          padding: const EdgeInsets.all(8),
-          width: double.infinity,
-          child: const Text(
-            'post.title!',
-            style: TextStyle(fontWeight: FontWeight.bold),
-            textScaleFactor: 1.4,
-            textAlign: TextAlign.start,
+          subtitle: Text(
+            DateFormat('MM-dd HH:mm').format(widget.doc["writeDate"].toDate()),
           ),
         ),
+        const Divider(
+          thickness: 1,
+        ),
         // 내용
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
           child: Align(
             alignment: Alignment.topLeft,
-            child: Text('post.contents!'),
+            child: Text(widget.doc["contents"]),
           ),
         ),
         const SizedBox(

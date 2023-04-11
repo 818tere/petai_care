@@ -1,19 +1,44 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:petai_care/models/post.dart';
 
-class BoardWrite extends StatelessWidget {
-  const BoardWrite({super.key});
+class QuestionPostEdit extends StatefulWidget {
+  QuestionPostEdit(this.doc, {Key? key}) : super(key: key);
+  QueryDocumentSnapshot doc;
+
+  @override
+  State<QuestionPostEdit> createState() => _QuestionPostEditState();
+}
+
+class _QuestionPostEditState extends State<QuestionPostEdit> {
+  final controllerTitle = TextEditingController();
+  final controllerWriteDate = TextEditingController();
+  final controllerContent = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('글쓰기'),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: const Text(
+          '질문글 수정',
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.check),
-            onPressed: () {},
+            onPressed: () {
+              controllerTitle.text = widget.doc['title'];
+              final post = Post(
+                title: controllerTitle.text,
+                contents: controllerContent.text,
+                writeDate: DateTime.now(),
+              );
+              updatePost(post);
+              Navigator.pop(context);
+            },
           ),
         ],
       ),
@@ -25,6 +50,7 @@ class BoardWrite extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   TextFormField(
+                    controller: controllerTitle,
                     decoration: const InputDecoration(
                       labelText: '제목',
                     ),
@@ -37,6 +63,7 @@ class BoardWrite extends StatelessWidget {
                     },
                   ),
                   TextFormField(
+                    controller: controllerContent,
                     decoration: const InputDecoration(labelText: '내용'),
                     maxLines: 15,
                     keyboardType: TextInputType.multiline,
@@ -56,4 +83,16 @@ class BoardWrite extends StatelessWidget {
       ),
     );
   }
+}
+
+Future updatePost(Post post) async {
+  final docPost =
+      FirebaseFirestore.instance.collection('questionPost').doc(post.id);
+
+  post.id = docPost.id;
+  post.writeDate = DateTime.now();
+
+  final json = post.toJson();
+
+  await docPost.update(json);
 }
