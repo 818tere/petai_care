@@ -5,38 +5,22 @@ import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';
 
-class AiScreen extends StatelessWidget {
+
+class AiScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'AI 질병 진단 페이지',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'AI 질병 진단 페이지'),
-    );
-  }
+  _AiScreenState createState() => _AiScreenState();
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _AiScreenState extends State<AiScreen> {
   late File _imageFile;
   final picker = ImagePicker();
 
-  _MyHomePageState() {
+  _AiScreenState() {
     _imageFile = File(''); // 파일 초기화
   }
 
   Future<void> _getImage(ImageSource source) async {
-    final pickedFile = await picker.getImage(source: source);
+    final pickedFile = await picker.pickImage(source: source);
 
     setState(() {
       if (pickedFile != null) {
@@ -49,21 +33,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    final url = 'http://5b03-34-126-162-145.ngrok.io';
-
-    final response = await http.post(
-      Uri.parse(url),
-      headers: {'Content-Type': 'image/jpeg'},
-      body: await image.readAsBytes(),
+    var request = http.MultipartRequest(
+      'POST', Uri.parse('http://f97d-34-141-182-113.ngrok.io'),
     );
-
-    if (response.statusCode == 200) {
-      Map<String, dynamic> data = json.decode(utf8.decode(response.bodyBytes));
-      String className = data['class_name'];
-      print('질병 확인: $className');
-    } else {
-      print('에러 코드: ${response.statusCode}');
-    }
+    // 이미지 파일을 요청에 추가합니다.
+    request.files.add(
+      await http.MultipartFile.fromPath('image', image.path),
+    );
+    // 요청을 보내고 응답을 받습니다.
+    var response = await request.send();
+    // 응답을 문자열로 변환합니다.
+    var responseString = await response.stream.bytesToString();
+    print(responseString);
   }
 
   void _sendImageToServer() {
@@ -75,13 +56,36 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: _imageFile != null
-            ? Image.file(_imageFile)
-            : Text('No image selected'),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 50,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: Row(
+                children: const [
+                  Text(
+                    '자가진단',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 20.0),),
+          Center(
+            child: _imageFile != null
+                ? Image.file(_imageFile,
+                    fit: BoxFit.cover,
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.height * 0.6,)
+                : Text('선택된 사진 없음'),
+          ),
+        ],
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
