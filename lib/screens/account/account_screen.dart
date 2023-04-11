@@ -1,11 +1,10 @@
-import 'dart:collection';
-import 'dart:convert';
-import 'dart:io';
-import 'package:http/http.dart' as http;
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:google_ml_kit/google_ml_kit.dart';
+
 import 'package:petai_care/screens/account/sphelper.dart';
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
 import 'package:petai_care/screens/account/performance.dart';
-import 'package:uuid/uuid.dart';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -37,7 +36,11 @@ class _AccountScreenState extends State<AccountScreen> {
   final amountController = TextEditingController();
   final descpController = TextEditingController();
   final SPHelper helper = SPHelper();
-  String parsedtext = ''; //_getfromimage
+
+  XFile? _image;
+  final ImagePicker picker = ImagePicker();
+  String scannedText = "";
+  //_getfromimage
 
   @override
   void initState() {
@@ -150,7 +153,59 @@ class _AccountScreenState extends State<AccountScreen> {
     descpController.clear();
   }
 
-  Future _getFromImage() async {}
+  Future _getFromImage(ImageSource imageSource) async {
+    final XFile? pickedFile = await picker.pickImage(source: imageSource);
+    if (pickedFile != null) {
+      setState(() {
+        _image = XFile(pickedFile.path);
+      });
+      getRecognizedText(_image!); //이미지를 가져온 뒤 텍스트를 인식하는 함수
+    }
+  }
+
+  void getRecognizedText(XFile image) async {
+    final InputImage inputImage = InputImage.fromFilePath(image.path);
+    final TextRecognizer textRecognizer =
+        GoogleMlKit.vision.textRecognizer(script: TextRecognitionScript.korean);
+
+    RecognizedText recognizedText =
+        await textRecognizer.processImage(inputImage);
+    await textRecognizer.close();
+    scannedText = "";
+    for (TextBlock block in recognizedText.blocks) {
+      for (TextLine line in block.lines) {
+        scannedText = "$scannedText${line.text}\n";
+      }
+    }
+    setState(() {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => _buildRecognizedText(),
+        ),
+      );
+    });
+  }
+
+  Widget _buildRecognizedText() {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('인식된 텍스트'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text(scannedText),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('돌아가기'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -327,22 +382,29 @@ class _AccountScreenState extends State<AccountScreen> {
           )*/
         ],
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.add_event,
+        spacing: 12,
         children: [
-          FloatingActionButton.extended(
-            heroTag: "b1",
-            onPressed: () => _showAddEventDialog(),
-            label: const Icon(Icons.add),
-          ),
-          const SizedBox(width: 10),
-          FloatingActionButton.extended(
-            heroTag: "b2",
-            onPressed: () {
-              _getFromImage();
+          SpeedDialChild(
+            child: const Icon(Icons.camera_alt),
+            label: '카메라',
+            onTap: () {
+              _getFromImage(ImageSource.camera);
             },
-            label: const Icon(Icons.camera_alt),
           ),
+          SpeedDialChild(
+            child: const Icon(Icons.picture_in_picture),
+            label: '갤러리',
+            onTap: () {
+              _getFromImage(ImageSource.gallery);
+            },
+          ),
+          SpeedDialChild(
+            child: const Icon(Icons.add),
+            label: '직접입력',
+            onTap: () => _showAddEventDialog(),
+          )
         ],
       ),
     );
