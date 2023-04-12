@@ -1,6 +1,9 @@
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'dart:async';
 
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:http/http.dart' as http;
+import 'package:petai_care/screens/account/image_model.dart';
+import 'dart:convert';
 import 'package:petai_care/screens/account/sphelper.dart';
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
 import 'package:petai_care/screens/account/performance.dart';
@@ -39,7 +42,6 @@ class _AccountScreenState extends State<AccountScreen> {
 
   XFile? _image;
   final ImagePicker picker = ImagePicker();
-  String scannedText = "";
   //_getfromimage
 
   @override
@@ -163,30 +165,43 @@ class _AccountScreenState extends State<AccountScreen> {
     }
   }
 
-  void getRecognizedText(XFile image) async {
-    final InputImage inputImage = InputImage.fromFilePath(image.path);
-    final TextRecognizer textRecognizer =
-        GoogleMlKit.vision.textRecognizer(script: TextRecognitionScript.korean);
+  Future getRecognizedText(XFile image) async {
+    //var bytes = File(_image.toString()).readAsBytes();
+    //String img64 = base64Encode(await bytes);
 
-    RecognizedText recognizedText =
-        await textRecognizer.processImage(inputImage);
-    await textRecognizer.close();
-    scannedText = "";
-    for (TextBlock block in recognizedText.blocks) {
-      for (TextLine line in block.lines) {
-        scannedText = "$scannedText${line.text}\n";
-      }
-    }
+    final String apiUrl =
+        'https://c5ow50d89i.apigw.ntruss.com/custom/v1/21848/74ec55cb84097108fb278ca259460e9cfcde072e550ba9a68e3e5dca84f7b0fc/infer';
+    final String secretKey = 'cVhCeGNBVmh6RmxnWVlOTm5Kc2pYU3NrWmpkd3d2ZUk=';
+    final String imageUrl =
+        'https://kr.object.ncloudstorage.com/petaicare/text1.jpeg';
+
+    var requestJson = {
+      'version': 'V1',
+      'requestId': 'test',
+      'timestamp': 0,
+      'images': [
+        {'name': 'tmp', 'format': 'jpg', 'url': imageUrl}
+      ]
+    };
+    var headers = {
+      'Content-Type': 'application/json',
+      'X-OCR-SECRET': secretKey
+    };
+    var response = await http.post(Uri.parse(apiUrl),
+        headers: headers, body: jsonEncode(requestJson));
+
+    final ImageModel imageModel = imageModelFromJson(response.body);
+
     setState(() {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => _buildRecognizedText(),
+          builder: (context) => _buildRecognizedText(imageModel),
         ),
       );
     });
   }
 
-  Widget _buildRecognizedText() {
+  Widget _buildRecognizedText(ImageModel imageModel) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('인식된 텍스트'),
@@ -194,7 +209,7 @@ class _AccountScreenState extends State<AccountScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(scannedText),
+            Text(Image),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
