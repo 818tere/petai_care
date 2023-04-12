@@ -209,7 +209,7 @@ class _AccountScreenState extends State<AccountScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(Image),
+            Text(''),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
