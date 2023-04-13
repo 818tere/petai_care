@@ -5,6 +5,68 @@ import 'package:petai_care/screens/hospital/HospitalDataModel.dart';
 
 
 
+void showPopup(context, imageUrl, name, address, number){
+  showDialog(
+    
+    context: context,
+    builder: (context){
+      return Dialog(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.7,
+          height: 380,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white
+          ),
+          child: Column(
+            children:[
+              const SizedBox(
+                  height : 20,
+                ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image(image: NetworkImage(imageUrl.toString()),fit: BoxFit.fill),
+              ),
+              const SizedBox(
+                  height : 10,
+                ),
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey
+                ),
+              ),
+              const SizedBox(
+                  height : 10,
+                ),
+              Text(
+                address,
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey
+                ),
+              ),
+              const SizedBox(
+                  height : 10,
+                ),
+              Text(
+                number,
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey
+                ),
+              ),
+            ],
+          )
+        ),
+      );
+    },
+  );
+}
 
 // 고양시
 
@@ -19,7 +81,6 @@ class _GoyangState extends State<Goyang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -33,7 +94,11 @@ class _GoyangState extends State<Goyang> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -65,6 +130,7 @@ class _GoyangState extends State<Goyang> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -85,9 +151,7 @@ class _GoyangState extends State<Goyang> {
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
 
 // 과천시 
@@ -103,7 +167,6 @@ class _GwacheonState extends State<Gwacheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -117,7 +180,11 @@ class _GwacheonState extends State<Gwacheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -149,6 +216,7 @@ class _GwacheonState extends State<Gwacheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -169,10 +237,9 @@ class _GwacheonState extends State<Gwacheon> {
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 광명시
 
@@ -187,7 +254,6 @@ class _GwangmyeongState extends State<Gwangmyeong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -201,7 +267,11 @@ class _GwangmyeongState extends State<Gwangmyeong> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -233,6 +303,7 @@ class _GwangmyeongState extends State<Gwangmyeong> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -253,10 +324,9 @@ class _GwangmyeongState extends State<Gwangmyeong> {
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 광주시
 
@@ -271,7 +341,6 @@ class _GwangjuState extends State<Gwangju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -285,7 +354,11 @@ class _GwangjuState extends State<Gwangju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -317,6 +390,7 @@ class _GwangjuState extends State<Gwangju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -337,10 +411,9 @@ class _GwangjuState extends State<Gwangju> {
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 구리시
 
@@ -355,7 +428,6 @@ class _GuriState extends State<Guri> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -369,7 +441,11 @@ class _GuriState extends State<Guri> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -401,6 +477,7 @@ class _GuriState extends State<Guri> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -425,6 +502,7 @@ class _GuriState extends State<Guri> {
 }
 
 
+
 // 군포시
 
 class Gunpo extends StatefulWidget {
@@ -438,7 +516,6 @@ class _GunpoState extends State<Gunpo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -452,7 +529,11 @@ class _GunpoState extends State<Gunpo> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -484,6 +565,7 @@ class _GunpoState extends State<Gunpo> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -504,10 +586,9 @@ class _GunpoState extends State<Gunpo> {
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 김포시
 
@@ -522,7 +603,6 @@ class _GimpoState extends State<Gimpo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -536,7 +616,11 @@ class _GimpoState extends State<Gimpo> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -568,6 +652,7 @@ class _GimpoState extends State<Gimpo> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -591,6 +676,7 @@ class _GimpoState extends State<Gimpo> {
   }
 }
 
+
 // 남양주시
 
 class Namyangju extends StatefulWidget {
@@ -604,7 +690,6 @@ class _NamyangjuState extends State<Namyangju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -618,7 +703,11 @@ class _NamyangjuState extends State<Namyangju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -650,6 +739,7 @@ class _NamyangjuState extends State<Namyangju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -673,6 +763,7 @@ class _NamyangjuState extends State<Namyangju> {
   }
 }
 
+
 // 동두천시
 
 class Dongducheon extends StatefulWidget {
@@ -685,8 +776,7 @@ class Dongducheon extends StatefulWidget {
 class _DongducheonState extends State<Dongducheon> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+   return Scaffold(
       body:Column(
         children: [
       FutureBuilder(
@@ -700,7 +790,11 @@ class _DongducheonState extends State<Dongducheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -732,6 +826,7 @@ class _DongducheonState extends State<Dongducheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -755,6 +850,7 @@ class _DongducheonState extends State<Dongducheon> {
   }
 }
 
+
 // 부천시
 
 class Bucheon extends StatefulWidget {
@@ -768,7 +864,6 @@ class _BucheonState extends State<Bucheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -782,7 +877,11 @@ class _BucheonState extends State<Bucheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -814,6 +913,7 @@ class _BucheonState extends State<Bucheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -837,6 +937,7 @@ class _BucheonState extends State<Bucheon> {
   }
 }
 
+
 // 성남시
 
 class Seongnam extends StatefulWidget {
@@ -850,7 +951,6 @@ class _SeongnamState extends State<Seongnam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -864,7 +964,11 @@ class _SeongnamState extends State<Seongnam> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -896,6 +1000,7 @@ class _SeongnamState extends State<Seongnam> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -919,6 +1024,7 @@ class _SeongnamState extends State<Seongnam> {
   }
 }
 
+
 // 수원시
 
 class Suwon extends StatefulWidget {
@@ -932,7 +1038,6 @@ class _SuwonState extends State<Suwon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -946,7 +1051,11 @@ class _SuwonState extends State<Suwon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -978,6 +1087,7 @@ class _SuwonState extends State<Suwon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1014,7 +1124,6 @@ class _SiheungState extends State<Siheung> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1028,7 +1137,11 @@ class _SiheungState extends State<Siheung> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1060,6 +1173,7 @@ class _SiheungState extends State<Siheung> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1083,6 +1197,7 @@ class _SiheungState extends State<Siheung> {
   }
 }
 
+
 // 안산시
 
 class Ansan extends StatefulWidget {
@@ -1096,7 +1211,6 @@ class _AnsanState extends State<Ansan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1110,7 +1224,11 @@ class _AnsanState extends State<Ansan> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1142,6 +1260,7 @@ class _AnsanState extends State<Ansan> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1165,6 +1284,7 @@ class _AnsanState extends State<Ansan> {
   }
 }
 
+
 // 안성시
 
 class Anseong extends StatefulWidget {
@@ -1178,7 +1298,6 @@ class _AnseongState extends State<Anseong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1192,7 +1311,11 @@ class _AnseongState extends State<Anseong> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1224,6 +1347,7 @@ class _AnseongState extends State<Anseong> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1260,7 +1384,6 @@ class _AnyangState extends State<Anyang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1274,7 +1397,11 @@ class _AnyangState extends State<Anyang> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1306,6 +1433,7 @@ class _AnyangState extends State<Anyang> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1328,6 +1456,7 @@ class _AnyangState extends State<Anyang> {
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 양주시
 
@@ -1355,7 +1484,11 @@ class _YangjuState extends State<Yangju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1387,6 +1520,7 @@ class _YangjuState extends State<Yangju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1412,6 +1546,7 @@ class _YangjuState extends State<Yangju> {
 
 
 
+
 // 여주시
 
 class Yeoju extends StatefulWidget {
@@ -1425,7 +1560,6 @@ class _YeojuState extends State<Yeoju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1439,7 +1573,11 @@ class _YeojuState extends State<Yeoju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1471,6 +1609,7 @@ class _YeojuState extends State<Yeoju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1506,8 +1645,7 @@ class Osan extends StatefulWidget {
 class _OsanState extends State<Osan> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+   return Scaffold(
       body:Column(
         children: [
       FutureBuilder(
@@ -1521,7 +1659,11 @@ class _OsanState extends State<Osan> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1553,6 +1695,7 @@ class _OsanState extends State<Osan> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1576,6 +1719,7 @@ class _OsanState extends State<Osan> {
   }
 }
 
+
 // 용인시
 
 class Yongin extends StatefulWidget {
@@ -1589,7 +1733,6 @@ class _YonginState extends State<Yongin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1603,7 +1746,11 @@ class _YonginState extends State<Yongin> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1635,6 +1782,7 @@ class _YonginState extends State<Yongin> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1658,6 +1806,7 @@ class _YonginState extends State<Yongin> {
   }
 }
 
+
 // 의왕시
 
 class Uiwang extends StatefulWidget {
@@ -1671,7 +1820,6 @@ class _UiwangState extends State<Uiwang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1685,7 +1833,11 @@ class _UiwangState extends State<Uiwang> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1717,6 +1869,7 @@ class _UiwangState extends State<Uiwang> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1740,6 +1893,7 @@ class _UiwangState extends State<Uiwang> {
   }
 }
 
+
 // 의정부시
 
 class Uijeongbu extends StatefulWidget {
@@ -1753,7 +1907,6 @@ class _UijeongbuState extends State<Uijeongbu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1767,7 +1920,11 @@ class _UijeongbuState extends State<Uijeongbu> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1799,6 +1956,7 @@ class _UijeongbuState extends State<Uijeongbu> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1835,7 +1993,6 @@ class _IcheonState extends State<Icheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1849,7 +2006,11 @@ class _IcheonState extends State<Icheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1881,6 +2042,7 @@ class _IcheonState extends State<Icheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1904,6 +2066,7 @@ class _IcheonState extends State<Icheon> {
   }
 }
 
+
 // 파주시
 
 class Paju extends StatefulWidget {
@@ -1917,7 +2080,6 @@ class _PajuState extends State<Paju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1931,7 +2093,11 @@ class _PajuState extends State<Paju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1963,6 +2129,7 @@ class _PajuState extends State<Paju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1986,6 +2153,7 @@ class _PajuState extends State<Paju> {
   }
 }
 
+
 // 평택시
 
 class Pyeongtaek extends StatefulWidget {
@@ -1999,7 +2167,6 @@ class _PyeongtaekState extends State<Pyeongtaek> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2013,7 +2180,11 @@ class _PyeongtaekState extends State<Pyeongtaek> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2045,6 +2216,7 @@ class _PyeongtaekState extends State<Pyeongtaek> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -2068,6 +2240,7 @@ class _PyeongtaekState extends State<Pyeongtaek> {
   }
 }
 
+
 // 포천시
 
 class Pocheon extends StatefulWidget {
@@ -2081,7 +2254,6 @@ class _PocheonState extends State<Pocheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2095,7 +2267,11 @@ class _PocheonState extends State<Pocheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2127,6 +2303,7 @@ class _PocheonState extends State<Pocheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -2163,7 +2340,6 @@ class _HanamState extends State<Hanam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2177,7 +2353,11 @@ class _HanamState extends State<Hanam> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2209,6 +2389,7 @@ class _HanamState extends State<Hanam> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -2232,6 +2413,7 @@ class _HanamState extends State<Hanam> {
   }
 }
 
+
 // 화성시
 
 class Hwaseong extends StatefulWidget {
@@ -2245,7 +2427,6 @@ class _HwaseongState extends State<Hwaseong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2259,7 +2440,11 @@ class _HwaseongState extends State<Hwaseong> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2291,6 +2476,7 @@ class _HwaseongState extends State<Hwaseong> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
