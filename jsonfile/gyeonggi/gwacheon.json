@@ -1,0 +1,37 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230130_284%2F1675046537637dLuGe_PNG%2F%25B7%25CE%25B0%25ED2.png",
+  "name": "우주동물병원",
+  "number": "02-6949-0883",
+  "address": "과천 원문동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220111_164%2F1641868786816OPWq6_JPEG%2F%25BD%25B4%25B8%25A3%25B8%25B6%25C5%25A9.jpg",
+  "name": "슈르플러스동물병원",
+  "number": "02-3418-7500",
+  "address": "과천 별양동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210215_136%2F1613393384467lsX6A_PNG%2FmHGC1E9bGUUhkYlsVloRPbRd.png",
+  "name": "봄앤동물병원",
+  "number": "02-2038-7718",
+  "address": "과천 부림동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_91%2F1441055520990rGtrm_JPEG%2F106168537535176_0.jpg",
+  "name": "서울동물병원",
+  "number": "02-503-7787",
+  "address": "과천 과천동"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180810_261%2F1533878041923qMVfw_JPEG%2F1o7Szq4rB-BIUDuzcXH02esh.jpg",
+  "name": "구자동동물병원",
+  "number": "02-504-7588",
+  "address": "과천 별양동"
+ }
+]
