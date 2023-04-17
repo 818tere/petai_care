@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:http/http.dart' as http;
 import 'package:petai_care/screens/account/image_model.dart';
@@ -7,7 +6,6 @@ import 'dart:convert';
 import 'package:petai_care/screens/account/sphelper.dart';
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
 import 'package:petai_care/screens/account/performance.dart';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -169,10 +167,10 @@ class _AccountScreenState extends State<AccountScreen> {
     //var bytes = File(_image.toString()).readAsBytes();
     //String img64 = base64Encode(await bytes);
 
-    final String apiUrl =
+    const String apiUrl =
         'https://c5ow50d89i.apigw.ntruss.com/custom/v1/21848/74ec55cb84097108fb278ca259460e9cfcde072e550ba9a68e3e5dca84f7b0fc/infer';
-    final String secretKey = 'cVhCeGNBVmh6RmxnWVlOTm5Kc2pYU3NrWmpkd3d2ZUk=';
-    final String imageUrl =
+    const String secretKey = 'cVhCeGNBVmh6RmxnWVlOTm5Kc2pYU3NrWmpkd3d2ZUk=';
+    const String imageUrl =
         'https://kr.object.ncloudstorage.com/petaicare/text1.jpeg';
 
     var requestJson = {
@@ -209,7 +207,8 @@ class _AccountScreenState extends State<AccountScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(Image),
+            Text('사업자명: ${imageModel.images[0].fields[0].inferText}'),
+            Text('금엑: ${imageModel.images[0].fields[1].inferText}'),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
@@ -253,10 +252,10 @@ class _AccountScreenState extends State<AccountScreen> {
                   focusedDay: _focusedDay,
                   firstDay: DateTime(2023),
                   lastDay: DateTime(2040),
-                  headerStyle: HeaderStyle(
+                  headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     titleCentered: true,
-                    titleTextStyle: const TextStyle(
+                    titleTextStyle: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -427,7 +426,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   List<Widget> getContent() {
     List<Widget> tiles = [];
-    performances.forEach((performance) {
+    for (var performance in performances) {
       tiles.add(Dismissible(
         key: UniqueKey(),
         onDismissed: (_) {
@@ -442,10 +441,10 @@ class _AccountScreenState extends State<AccountScreen> {
             size: 40,
           ),
           title: Text("${performance.amount}원"),
-          subtitle: Text("${performance.description}"),
+          subtitle: Text(performance.description),
         ),
       ));
-    });
+    }
     return tiles;
   }
 

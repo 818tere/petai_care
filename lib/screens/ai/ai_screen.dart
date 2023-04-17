@@ -5,8 +5,9 @@ import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';
 
-
 class AiScreen extends StatefulWidget {
+  const AiScreen({super.key});
+
   @override
   _AiScreenState createState() => _AiScreenState();
 }
@@ -34,7 +35,8 @@ class _AiScreenState extends State<AiScreen> {
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
     var request = http.MultipartRequest(
-      'POST', Uri.parse('http://f97d-34-141-182-113.ngrok.io'),
+      'POST',
+      Uri.parse('http://f97d-34-141-182-113.ngrok.io'),
     );
     // 이미지 파일을 요청에 추가합니다.
     request.files.add(
@@ -48,9 +50,7 @@ class _AiScreenState extends State<AiScreen> {
   }
 
   void _sendImageToServer() {
-    if (_imageFile != null) {
-      _uploadImage(_imageFile);
-    }
+    _uploadImage(_imageFile);
   }
 
   @override
@@ -75,15 +75,18 @@ class _AiScreenState extends State<AiScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),),
+          const Padding(
+            padding: EdgeInsets.only(top: 20.0),
+          ),
           Center(
             child: _imageFile != null
-                ? Image.file(_imageFile,
+                ? Image.file(
+                    _imageFile,
                     fit: BoxFit.cover,
                     width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.6,)
-                : Text('선택된 사진 없음'),
+                    height: MediaQuery.of(context).size.height * 0.6,
+                  )
+                : const Text('선택된 사진 없음'),
           ),
         ],
       ),
@@ -93,19 +96,19 @@ class _AiScreenState extends State<AiScreen> {
           FloatingActionButton(
             onPressed: () => _getImage(ImageSource.camera),
             tooltip: 'Take a photo',
-            child: Icon(Icons.add_a_photo),
+            child: const Icon(Icons.add_a_photo),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           FloatingActionButton(
             onPressed: () => _getImage(ImageSource.gallery),
             tooltip: 'Pick an image',
-            child: Icon(Icons.photo_library),
+            child: const Icon(Icons.photo_library),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           FloatingActionButton(
             onPressed: _sendImageToServer,
             tooltip: 'Send image to server',
-            child: Icon(Icons.cloud_upload),
+            child: const Icon(Icons.cloud_upload),
           ),
         ],
       ),

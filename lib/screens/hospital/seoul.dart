@@ -3,69 +3,63 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
 import 'package:petai_care/screens/hospital/HospitalDataModel.dart';
 
-void showPopup(context, imageUrl, name, address, number){
+void showPopup(context, imageUrl, name, address, number) {
   showDialog(
-    
     context: context,
-    builder: (context){
+    builder: (context) {
       return Dialog(
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.7,
-          height: 380,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white
-          ),
-          child: Column(
-            children:[
-              const SizedBox(
-                  height : 20,
+            width: MediaQuery.of(context).size.width * 0.7,
+            height: 380,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), color: Colors.white),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 20,
                 ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image(image: NetworkImage(imageUrl.toString()),fit: BoxFit.fill),
-              ),
-              const SizedBox(
-                  height : 10,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image(
+                      image: NetworkImage(imageUrl.toString()),
+                      fit: BoxFit.fill),
                 ),
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                  height : 10,
+                Text(
+                  name,
+                  style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
                 ),
-              Text(
-                address,
-                style: const TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                  height : 10,
+                Text(
+                  address,
+                  style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
                 ),
-              Text(
-                number,
-                style: const TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-            ],
-          )
-        ),
+                Text(
+                  number,
+                  style: const TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+              ],
+            )),
       );
     },
   );
 }
-
 
 // 강남구
 
@@ -80,73 +74,103 @@ class _GangnamState extends State<Gangnam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangnam.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/gangnam.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -166,73 +190,103 @@ class _GangdongState extends State<Gangdong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangdong.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/gangdong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -252,73 +306,103 @@ class _GangbukState extends State<Gangbuk> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangbuk.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/gangbuk.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -337,73 +421,103 @@ class _GangseoState extends State<Gangseo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangseo.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/gangseo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -422,73 +536,103 @@ class _GwanakState extends State<Gwanak> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwanak.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/gwanak.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -508,79 +652,108 @@ class _GwangjinState extends State<Gwangjin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwangjin.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/gwangjin.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
-
 
 // 구로구
 
@@ -595,73 +768,103 @@ class _GuroState extends State<Guro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/guro.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/guro.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -681,73 +884,103 @@ class _GeumcheonState extends State<Geumcheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/geumcheon.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/geumcheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -767,73 +1000,103 @@ class _NowonState extends State<Nowon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/nowon.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/nowon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -853,73 +1116,103 @@ class _DobongState extends State<Dobong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dobong.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/dobong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -939,73 +1232,103 @@ class _DongdaemunState extends State<Dongdaemun> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongdamun.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/dongdamun.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1025,73 +1348,103 @@ class _DongjakState extends State<Dongjak> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongjak.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/dongjak.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1111,73 +1464,103 @@ class _MapoState extends State<Mapo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/mapo.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/mapo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1197,73 +1580,103 @@ class _SeodaemunState extends State<Seodaemun> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seodaemun.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/seodaemun.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1282,73 +1695,103 @@ class _SeochoState extends State<Seocho> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seocho.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/seocho.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1367,73 +1810,103 @@ class _SeongdongState extends State<Seongdong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongdong.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/seongdong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1453,73 +1926,103 @@ class _SeongbukState extends State<Seongbuk> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongbuk.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/seongbuk.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1539,73 +2042,103 @@ class _SongpaState extends State<Songpa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/songpa.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/songpa.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1625,73 +2158,103 @@ class _YangcheonState extends State<Yangcheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yangcheon.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/yangcheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1711,73 +2274,103 @@ class _YeongdeungpoState extends State<Yeongdeungpo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yeongdeungpo.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata = await rootBundle.rootBundle
+        .loadString('jsonfile/seoul/yeongdeungpo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1797,73 +2390,103 @@ class _YongsanState extends State<Yongsan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yongsan.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/yongsan.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1883,73 +2506,103 @@ class _EunpyeongState extends State<Eunpyeong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/eunpyeong.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/eunpyeong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1968,73 +2621,103 @@ class _JongnoState extends State<Jongno> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jongno.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/jongno.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2054,73 +2737,103 @@ class _JungState extends State<Jung> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jung.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/jung.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2140,73 +2853,103 @@ class _JungnangState extends State<Jungnang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body: Column(
         children: [
-      FutureBuilder(
-        future: ReadJsonData(),
-        builder: (context,data){
-          if(data.hasError){
-            return Center(child: Text("${data.error}"));
-          }else if(data.hasData){
-            var items = data.data as List<HospitalDataModel>;
-            return Expanded(
-              child: ListView.builder(
-                itemCount: items == null? 0: items.length,
-                itemBuilder: (context,index){
-                  return GestureDetector(
-                    onTap: () {
-                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
-                    },
-                  child: Card(
-                    elevation: 5,
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            child: Image(image: NetworkImage(items[index].imageUrl.toString()),fit: BoxFit.fill,),
-                          ),
-                          Expanded(child: Container(
-                            padding: EdgeInsets.only(bottom: 8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].name.toString(),style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                                ),),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].address.toString()),),
-                                Padding(padding: EdgeInsets.only(left: 8, right: 8), child: Text(items[index].number.toString()),)
-                              ],
+          FutureBuilder(
+            future: ReadJsonData(),
+            builder: (context, data) {
+              if (data.hasError) {
+                return Center(child: Text("${data.error}"));
+              } else if (data.hasData) {
+                var items = data.data as List<HospitalDataModel>;
+                return Expanded(
+                  child: ListView.builder(
+                      itemCount: items == null ? 0 : items.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            showPopup(
+                                context,
+                                items[index].imageUrl,
+                                items[index].name,
+                                items[index].address,
+                                items[index].number);
+                          },
+                          child: Card(
+                            elevation: 5,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          items[index].imageUrl.toString()),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Container(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                            items[index].name.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].address.toString()),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 8),
+                                          child: Text(
+                                              items[index].number.toString()),
+                                        )
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              ),
                             ),
-                          ))
-                        ],                
-                      ),
-                    ),
-                  ),
-                  );
-                }
-              ),
-            );
-          }else{
-            return Center(child: CircularProgressIndicator(),);
-          }
-        },
-      )
+                          ),
+                        );
+                      }),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          )
         ],
-
       ),
     );
   }
 
-  Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+  Future<List<HospitalDataModel>> ReadJsonData() async {
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();

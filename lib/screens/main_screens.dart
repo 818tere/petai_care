@@ -67,11 +67,11 @@ class _MainScreensState extends State<MainScreens> {
       ),
       body: IndexedStack(
         index: _selectedIndex,
-        children: [
+        children: const [
           AiScreen(),
-          const HospitalScreen(),
-          const AccountScreen(),
-          const BoardScreen(),
+          HospitalScreen(),
+          AccountScreen(),
+          BoardScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
