@@ -1,0 +1,240 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190313_282%2F155243992383586Ghc_JPEG%2FqJA1juhphePuGekSvAK8AvTf.jpg",
+  "name": "S동물의료센터",
+  "number": "0507-1427-3234",
+  "address": "화성 반송동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_250%2F14410862928486NqKx_JPEG%2F166379506935638_0.jpeg",
+  "name": "메타동물의료센터",
+  "number": "031-831-5508",
+  "address": "화성 반송동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160404_245%2F14597585240899O8Nv_JPEG%2F176354575861750_0.jpeg",
+  "name": "밴스 동물병원",
+  "number": "031-375-0759",
+  "address": "화성 영천동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_120%2F1441084830074dW3q4_JPEG%2F136268548135401_0.jpeg",
+  "name": "신동물메디컬센터",
+  "number": "031-352-6633",
+  "address": "화성 향남읍"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220409_288%2F1649479463231V9lYI_JPEG%2FKakaoTalk_20211211_171453505_13_%25281%2529.jpg",
+  "name": "이리온 동물병원 병점점",
+  "number": "031-226-7582",
+  "address": "화성 병점동"
+ },
+ {
+  "id": 6,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200619_106%2F1592497094021tL40u_JPEG%2FxMMnEPJQ4Q3Knd1N5KxfcUfM.jpg",
+  "name": "24시 동탄 이음동물의료센터",
+  "number": "0507-1362-3513",
+  "address": "화성 산척동"
+ },
+ {
+  "id": 7,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220506_223%2F1651827541289aq3Mc_JPEG%2F1.JPG",
+  "name": "그린동물병원",
+  "number": "031-366-7970",
+  "address": "화성 새솔동"
+ },
+ {
+  "id": 8,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180413_135%2F1523605075018kyHxH_JPEG%2FAoByGU-mfEFeYhUaCsjF6nEQ.jpg",
+  "name": "핸즈동물의료센터",
+  "number": "0507-1307-2115",
+  "address": "화성 오산동"
+ },
+ {
+  "id": 9,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_77%2F14410322442698LT8C_JPEG%2FSUBMIT_1425633918271_13402077.jpg",
+  "name": "향남메디동물병원",
+  "number": "031-359-8275",
+  "address": "화성 향남읍"
+ },
+ {
+  "id": 10,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190530_191%2F1559190448872w0NjG_JPEG%2FFW6vy4-XDKNet_eaCtIrPWke.jpeg.jpg",
+  "name": "고려동물병원",
+  "number": "031-225-0275",
+  "address": "화성 봉담읍"
+ },
+ {
+  "id": 11,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191108_243%2F1573171769352qUC1C_JPEG%2F4oLUVCbrE-WLWnH3tGNsO_yu.jpg",
+  "name": "센트럴동물병원",
+  "number": "0507-1405-7520",
+  "address": "화성 반송동"
+ },
+ {
+  "id": 12,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150923_118%2F1442974880333RcQ7S_JPEG%2FSUBMIT_1442974862170_37107700.jpg",
+  "name": "해솔동물병원",
+  "number": "031-8003-7595",
+  "address": "화성 능동"
+ },
+ {
+  "id": 13,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160919_258%2F1474246801003aA265_GIF%2F176869503020055_0.gif",
+  "name": "베스트동물병원",
+  "number": "0507-1419-0275",
+  "address": "화성 진안동"
+ },
+ {
+  "id": 14,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210619_8%2F1624101606067O67uM_PNG%2FWZLs4tO1i-Jzr7WjtHUotihk.PNG.png",
+  "name": "블루베어동물병원",
+  "number": "0507-1486-7558",
+  "address": "화성 병점동"
+ },
+ {
+  "id": 15,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180108_101%2F1515410220440WoShy_PNG%2FxzlUV4KCPriQGlpt3KF7nl1N.png",
+  "name": "나인동물의료센터",
+  "number": "031-376-9909",
+  "address": "화성 산척동"
+ },
+ {
+  "id": 16,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160129_143%2F1454042656709DScCJ_JPEG%2F176075606838905_0.jpeg",
+  "name": "리더스동물병원",
+  "number": "031-372-7550",
+  "address": "화성 청계동"
+ },
+ {
+  "id": 17,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221115_219%2F16684754950566FIQ9_JPEG%2Fbeauty_20221115102325.jpg",
+  "name": "이솝동물병원",
+  "number": "0507-1370-3776",
+  "address": "화성 남양읍"
+ },
+ {
+  "id": 18,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190603_202%2F15595461358281qyzr_JPEG%2FM3hzDoqbzoptQIHVvWT6oo--.jpg",
+  "name": "아인스 동물병원",
+  "number": "031-8055-8565",
+  "address": "화성 목동"
+ },
+ {
+  "id": 19,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191114_180%2F1573707905097CtqSi_JPEG%2F0O_QSKZ3MJ8hVZVWFx3L51uZ.jpg",
+  "name": "동탄24시동물의료센터",
+  "number": "0507-1373-7579",
+  "address": "화성 반송동"
+ },
+ {
+  "id": 20,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_120%2F1441053436033r0k2N_JPEG%2F117166438849149_0.jpg",
+  "name": "위니펫동물병원",
+  "number": "031-225-2513",
+  "address": "화성 진안동"
+ },
+ {
+  "id": 21,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180208_8%2F1518066006240lah11_JPEG%2F_T8BFDZcJqpK8AUgeiU90lPP.JPG.jpg",
+  "name": "봉담우리애동물병원",
+  "number": "0507-1448-0294",
+  "address": "화성 봉담읍"
+ },
+ {
+  "id": 22,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200416_264%2F1587042464470wsLrz_JPEG%2Fd5wFs4HYpQ98BNC-xMzP5agm.jpg",
+  "name": "동탄호수동물병원",
+  "number": "031-376-7800",
+  "address": "화성 산척동"
+ },
+ {
+  "id": 23,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230402_185%2F1680401777800uef5o_JPEG%2FKakaoTalk_20230402_111507104.jpg",
+  "name": "동탄 해나동물병원",
+  "number": "031-378-7599",
+  "address": "화성 목동"
+ },
+ {
+  "id": 24,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201107_266%2F1604724127191MN0zu_PNG%2FE4ER3wt8VvmWwYgAuUAX9LNv.PNG.png",
+  "name": "24시동탄윌동물의료센터",
+  "number": "0507-1427-3531",
+  "address": "화성 반송동"
+ },
+ {
+  "id": 25,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220610_211%2F16548560460306nl4j_JPEG%2F37D61F0C-6CDB-4820-8B89-055E54AA7E47.jpeg",
+  "name": "숲속동물병원",
+  "number": "031-355-7525",
+  "address": "화성 새솔동"
+ },
+ {
+  "id": 26,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210319_132%2F1616143651731FcqiO_JPEG%2FBcAdeWgqYCpqXLNmABXuqgSK.jpg",
+  "name": "나래동물의료센터",
+  "number": "0507-1379-7509",
+  "address": "화성 능동"
+ },
+ {
+  "id": 27,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160613_216%2F1465809419207G3uuE_JPEG%2F176557516523041_0.jpeg",
+  "name": "스마트동물병원 병점점",
+  "number": "0507-1434-7582",
+  "address": "화성 진안동"
+ },
+ {
+  "id": 28,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201030_253%2F1604022953146YIqu7_JPEG%2F0TFXXEXStNIwke_GjVD_zqrF.jpg",
+  "name": "이루다동물병원",
+  "number": "0507-1317-7559",
+  "address": "화성 남양읍"
+ },
+ {
+  "id": 29,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20151020_212%2F1445327797401Vqkon_JPEG%2FSUBMIT_1445327773776_37174897.jpg",
+  "name": "동탄중앙동물병원",
+  "number": "0507-1332-7524",
+  "address": "화성 청계동"
+ },
+ {
+  "id": 30,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210415_143%2F1618474820832DFRli_JPEG%2FWKpym7mDEiIPK6TsY5RJ1R5i.jpg",
+  "name": "아마존동물병원",
+  "number": "031-226-3872",
+  "address": "화성 봉담읍"
+ },
+ {
+  "id": 31,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220216_205%2F1644997867635h42S4_JPEG%2F%25C0%25CC%25B8%25DE%25C0%25CF_%25C7%25C1%25B7%25CE%25C7%25CA%25BF%25EB_%25C3%25E0%25BC%25D2.jpg",
+  "name": "24시 동탄시티 동물의료센터",
+  "number": "0507-1362-7533",
+  "address": "화성 반송동"
+ },
+ {
+  "id": 32,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20171220_216%2F15137693978308HrPJ_JPEG%2FWjvtfKvVqI39lI1RmzFCjmT1.jpg",
+  "name": "21세기동물병원",
+  "number": "0507-1302-3178",
+  "address": "화성 반송동"
+ },
+ {
+  "id": 33,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201015_276%2F1602749195288brFRx_JPEG%2Fs6Xcu0naizgAQHfmkZ5SvGqm.jpg",
+  "name": "루아동물병원",
+  "number": "031-352-0002",
+  "address": "화성 향남읍"
+ },
+ {
+  "id": 34,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211124_291%2F1637716490437yHR03_JPEG%2F20211124_095847.jpg",
+  "name": "동탄동물병원",
+  "number": "0507-1376-8831",
+  "address": "화성 능동"
+ }
+]

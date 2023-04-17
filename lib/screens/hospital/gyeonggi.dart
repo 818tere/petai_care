@@ -5,6 +5,68 @@ import 'package:petai_care/screens/hospital/HospitalDataModel.dart';
 
 
 
+void showPopup(context, imageUrl, name, address, number){
+  showDialog(
+    
+    context: context,
+    builder: (context){
+      return Dialog(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.7,
+          height: 380,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white
+          ),
+          child: Column(
+            children:[
+              const SizedBox(
+                  height : 20,
+                ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image(image: NetworkImage(imageUrl.toString()),fit: BoxFit.fill),
+              ),
+              const SizedBox(
+                  height : 10,
+                ),
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey
+                ),
+              ),
+              const SizedBox(
+                  height : 10,
+                ),
+              Text(
+                address,
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey
+                ),
+              ),
+              const SizedBox(
+                  height : 10,
+                ),
+              Text(
+                number,
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey
+                ),
+              ),
+            ],
+          )
+        ),
+      );
+    },
+  );
+}
 
 // 고양시
 
@@ -19,7 +81,6 @@ class _GoyangState extends State<Goyang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -33,7 +94,11 @@ class _GoyangState extends State<Goyang> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -65,6 +130,7 @@ class _GoyangState extends State<Goyang> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -81,13 +147,11 @@ class _GoyangState extends State<Goyang> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangdong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/goyang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
 
 // 과천시 
@@ -103,7 +167,6 @@ class _GwacheonState extends State<Gwacheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -117,7 +180,11 @@ class _GwacheonState extends State<Gwacheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -149,6 +216,7 @@ class _GwacheonState extends State<Gwacheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -165,14 +233,13 @@ class _GwacheonState extends State<Gwacheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangbuk.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gwacheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 광명시
 
@@ -187,7 +254,6 @@ class _GwangmyeongState extends State<Gwangmyeong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -201,7 +267,11 @@ class _GwangmyeongState extends State<Gwangmyeong> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -233,6 +303,7 @@ class _GwangmyeongState extends State<Gwangmyeong> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -249,14 +320,13 @@ class _GwangmyeongState extends State<Gwangmyeong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gangseo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gwangmyeong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 광주시
 
@@ -271,7 +341,6 @@ class _GwangjuState extends State<Gwangju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -285,7 +354,11 @@ class _GwangjuState extends State<Gwangju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -317,6 +390,7 @@ class _GwangjuState extends State<Gwangju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -333,14 +407,13 @@ class _GwangjuState extends State<Gwangju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwanak.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gwangju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 구리시
 
@@ -355,7 +428,6 @@ class _GuriState extends State<Guri> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -369,7 +441,11 @@ class _GuriState extends State<Guri> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -401,6 +477,7 @@ class _GuriState extends State<Guri> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -417,12 +494,13 @@ class _GuriState extends State<Guri> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/gwangjin.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/guri.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 
 // 군포시
@@ -438,7 +516,6 @@ class _GunpoState extends State<Gunpo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -452,7 +529,11 @@ class _GunpoState extends State<Gunpo> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -484,6 +565,7 @@ class _GunpoState extends State<Gunpo> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -500,14 +582,13 @@ class _GunpoState extends State<Gunpo> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/guro.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gunpo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
-
   }
-
 }
+
 
 // 김포시
 
@@ -522,7 +603,6 @@ class _GimpoState extends State<Gimpo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -536,7 +616,11 @@ class _GimpoState extends State<Gimpo> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -568,6 +652,7 @@ class _GimpoState extends State<Gimpo> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -584,12 +669,13 @@ class _GimpoState extends State<Gimpo> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/geumcheon.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/gimpo.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 남양주시
 
@@ -604,7 +690,6 @@ class _NamyangjuState extends State<Namyangju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -618,7 +703,11 @@ class _NamyangjuState extends State<Namyangju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -650,6 +739,7 @@ class _NamyangjuState extends State<Namyangju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -666,12 +756,13 @@ class _NamyangjuState extends State<Namyangju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/nowon.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/namyangju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 동두천시
 
@@ -685,8 +776,7 @@ class Dongducheon extends StatefulWidget {
 class _DongducheonState extends State<Dongducheon> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+   return Scaffold(
       body:Column(
         children: [
       FutureBuilder(
@@ -700,7 +790,11 @@ class _DongducheonState extends State<Dongducheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -732,6 +826,7 @@ class _DongducheonState extends State<Dongducheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -748,12 +843,13 @@ class _DongducheonState extends State<Dongducheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dobong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/dongducheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 부천시
 
@@ -768,7 +864,6 @@ class _BucheonState extends State<Bucheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -782,7 +877,11 @@ class _BucheonState extends State<Bucheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -814,6 +913,7 @@ class _BucheonState extends State<Bucheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -830,12 +930,13 @@ class _BucheonState extends State<Bucheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongdaemun.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/bucheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 성남시
 
@@ -850,7 +951,6 @@ class _SeongnamState extends State<Seongnam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -864,7 +964,11 @@ class _SeongnamState extends State<Seongnam> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -896,6 +1000,7 @@ class _SeongnamState extends State<Seongnam> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -912,12 +1017,13 @@ class _SeongnamState extends State<Seongnam> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/dongjak.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/seongnam.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 수원시
 
@@ -932,7 +1038,6 @@ class _SuwonState extends State<Suwon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -946,7 +1051,11 @@ class _SuwonState extends State<Suwon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -978,6 +1087,7 @@ class _SuwonState extends State<Suwon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -994,7 +1104,7 @@ class _SuwonState extends State<Suwon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/mapo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/suwon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1014,7 +1124,6 @@ class _SiheungState extends State<Siheung> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1028,7 +1137,11 @@ class _SiheungState extends State<Siheung> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1060,6 +1173,7 @@ class _SiheungState extends State<Siheung> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1076,12 +1190,13 @@ class _SiheungState extends State<Siheung> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seodaemun.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/siheung.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 안산시
 
@@ -1096,7 +1211,6 @@ class _AnsanState extends State<Ansan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1110,7 +1224,11 @@ class _AnsanState extends State<Ansan> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1142,6 +1260,7 @@ class _AnsanState extends State<Ansan> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1158,12 +1277,13 @@ class _AnsanState extends State<Ansan> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seocho.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/ansan.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 안성시
 
@@ -1178,7 +1298,6 @@ class _AnseongState extends State<Anseong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1192,7 +1311,11 @@ class _AnseongState extends State<Anseong> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1224,6 +1347,7 @@ class _AnseongState extends State<Anseong> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1240,7 +1364,7 @@ class _AnseongState extends State<Anseong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongdong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/anseong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1260,7 +1384,6 @@ class _AnyangState extends State<Anyang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1274,7 +1397,11 @@ class _AnyangState extends State<Anyang> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1306,6 +1433,7 @@ class _AnyangState extends State<Anyang> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1322,12 +1450,13 @@ class _AnyangState extends State<Anyang> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/seongbuk.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/anyang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 양주시
 
@@ -1355,7 +1484,11 @@ class _YangjuState extends State<Yangju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1387,6 +1520,7 @@ class _YangjuState extends State<Yangju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1403,12 +1537,13 @@ class _YangjuState extends State<Yangju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/songpa.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/yangju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 
 
@@ -1425,7 +1560,6 @@ class _YeojuState extends State<Yeoju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1439,7 +1573,11 @@ class _YeojuState extends State<Yeoju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1471,6 +1609,7 @@ class _YeojuState extends State<Yeoju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1487,7 +1626,7 @@ class _YeojuState extends State<Yeoju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yeongdeungpo.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/yeoju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1506,8 +1645,7 @@ class Osan extends StatefulWidget {
 class _OsanState extends State<Osan> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
+   return Scaffold(
       body:Column(
         children: [
       FutureBuilder(
@@ -1521,7 +1659,11 @@ class _OsanState extends State<Osan> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1553,6 +1695,7 @@ class _OsanState extends State<Osan> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1569,12 +1712,13 @@ class _OsanState extends State<Osan> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/yongsan.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/osan.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 용인시
 
@@ -1589,7 +1733,6 @@ class _YonginState extends State<Yongin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1603,7 +1746,11 @@ class _YonginState extends State<Yongin> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1635,6 +1782,7 @@ class _YonginState extends State<Yongin> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1651,12 +1799,13 @@ class _YonginState extends State<Yongin> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/eunpyeong.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/yongin.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 의왕시
 
@@ -1671,7 +1820,6 @@ class _UiwangState extends State<Uiwang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1685,7 +1833,11 @@ class _UiwangState extends State<Uiwang> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1717,6 +1869,7 @@ class _UiwangState extends State<Uiwang> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1733,12 +1886,13 @@ class _UiwangState extends State<Uiwang> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jongno.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/uiwang.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 의정부시
 
@@ -1753,7 +1907,6 @@ class _UijeongbuState extends State<Uijeongbu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1767,7 +1920,11 @@ class _UijeongbuState extends State<Uijeongbu> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1799,6 +1956,7 @@ class _UijeongbuState extends State<Uijeongbu> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1815,7 +1973,7 @@ class _UijeongbuState extends State<Uijeongbu> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jung.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/uijeongbu.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -1835,7 +1993,6 @@ class _IcheonState extends State<Icheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1849,7 +2006,11 @@ class _IcheonState extends State<Icheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1881,6 +2042,7 @@ class _IcheonState extends State<Icheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1897,12 +2059,13 @@ class _IcheonState extends State<Icheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/icheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 파주시
 
@@ -1917,7 +2080,6 @@ class _PajuState extends State<Paju> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -1931,7 +2093,11 @@ class _PajuState extends State<Paju> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -1963,6 +2129,7 @@ class _PajuState extends State<Paju> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -1979,12 +2146,13 @@ class _PajuState extends State<Paju> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/paju.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 평택시
 
@@ -1999,7 +2167,6 @@ class _PyeongtaekState extends State<Pyeongtaek> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2013,7 +2180,11 @@ class _PyeongtaekState extends State<Pyeongtaek> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2045,6 +2216,7 @@ class _PyeongtaekState extends State<Pyeongtaek> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -2061,12 +2233,13 @@ class _PyeongtaekState extends State<Pyeongtaek> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/pyeongtaek.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 포천시
 
@@ -2081,7 +2254,6 @@ class _PocheonState extends State<Pocheon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2095,7 +2267,11 @@ class _PocheonState extends State<Pocheon> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2127,6 +2303,7 @@ class _PocheonState extends State<Pocheon> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -2143,7 +2320,7 @@ class _PocheonState extends State<Pocheon> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/pocheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
@@ -2163,7 +2340,6 @@ class _HanamState extends State<Hanam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2177,7 +2353,11 @@ class _HanamState extends State<Hanam> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2209,6 +2389,7 @@ class _HanamState extends State<Hanam> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -2225,12 +2406,13 @@ class _HanamState extends State<Hanam> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/hanam.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 화성시
 
@@ -2245,7 +2427,6 @@ class _HwaseongState extends State<Hwaseong> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body:Column(
         children: [
       FutureBuilder(
@@ -2259,7 +2440,11 @@ class _HwaseongState extends State<Hwaseong> {
               child: ListView.builder(
                 itemCount: items == null? 0: items.length,
                 itemBuilder: (context,index){
-                  return Card(
+                  return GestureDetector(
+                    onTap: () {
+                      showPopup(context, items[index].imageUrl, items[index].name, items[index].address, items[index].number);
+                    },
+                  child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     child: Container(
@@ -2291,6 +2476,7 @@ class _HwaseongState extends State<Hwaseong> {
                         ],                
                       ),
                     ),
+                  ),
                   );
                 }
               ),
@@ -2307,7 +2493,7 @@ class _HwaseongState extends State<Hwaseong> {
   }
 
   Future<List<HospitalDataModel>>ReadJsonData() async{
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
+    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/gyeonggi/hwaseong.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
