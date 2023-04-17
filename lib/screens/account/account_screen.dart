@@ -238,10 +238,10 @@ class _AccountScreenState extends State<AccountScreen> {
                   focusedDay: _focusedDay,
                   firstDay: DateTime(2023),
                   lastDay: DateTime(2040),
-                  headerStyle: HeaderStyle(
+                  headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     titleCentered: true,
-                    titleTextStyle: const TextStyle(
+                    titleTextStyle: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -412,7 +412,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   List<Widget> getContent() {
     List<Widget> tiles = [];
-    performances.forEach((performance) {
+    for (var performance in performances) {
       tiles.add(Dismissible(
         key: UniqueKey(),
         onDismissed: (_) {
@@ -427,10 +427,10 @@ class _AccountScreenState extends State<AccountScreen> {
             size: 40,
           ),
           title: Text("${performance.amount}원"),
-          subtitle: Text("${performance.description}"),
+          subtitle: Text(performance.description),
         ),
       ));
-    });
+    }
     return tiles;
   }
 
