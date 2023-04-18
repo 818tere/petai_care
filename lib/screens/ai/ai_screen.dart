@@ -8,6 +8,8 @@ import 'dart:convert';
 
 
 class AiScreen extends StatefulWidget {
+  const AiScreen({super.key});
+
   @override
   _AiScreenState createState() => _AiScreenState();
 }
@@ -17,7 +19,7 @@ class _AiScreenState extends State<AiScreen> {
   final picker = ImagePicker();
 
   _AiScreenState() {
-    _imageFile = File('assets/ai_main.png'); // 파일 초기화
+    _imageFile = File(''); // 파일 초기화
   }
 
   Future<void> _getImage(ImageSource source) async {
@@ -34,24 +36,32 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    var request = http.MultipartRequest(
-      'POST', Uri.parse('http://f97d-34-141-182-113.ngrok.io'),
-    );
-    // 이미지 파일을 요청에 추가합니다.
-    request.files.add(
-      await http.MultipartFile.fromPath('image', image.path),
-    );
-    // 요청을 보내고 응답을 받습니다.
+    var url = Uri.parse('http://f153-35-222-123-163.ngrok-free.app');
+    var request = http.MultipartRequest('POST', url);
+    request.files.add(await http.MultipartFile.fromPath('file', image.path));
     var response = await request.send();
-    // 응답을 문자열로 변환합니다.
     var responseString = await response.stream.bytesToString();
-    print(responseString);
+    String koreanString = jsonDecode(
+      const Utf8Decoder().convert(responseString.runes.toList()),
+    )['class_name'];
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text('질병 코드'),
+        content: Text(koreanString),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text('OK'),
+          ),
+        ],
+      ),
+    );
   }
 
   void _sendImageToServer() {
-    if (_imageFile != null) {
-      _uploadImage(_imageFile);
-    }
+    _uploadImage(_imageFile);
   }
 
   @override
@@ -76,13 +86,13 @@ class _AiScreenState extends State<AiScreen> {
               ),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 20.0),),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.receipt_long),
+                icon: const Icon(Icons.receipt_long),
                 iconSize: 250.0,
                 onPressed: () {
                   Navigator.push(
@@ -107,19 +117,19 @@ class _AiScreenState extends State<AiScreen> {
           FloatingActionButton(
             onPressed: () => _getImage(ImageSource.camera),
             tooltip: 'Take a photo',
-            child: Icon(Icons.add_a_photo),
+            child: const Icon(Icons.add_a_photo),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           FloatingActionButton(
             onPressed: () => _getImage(ImageSource.gallery),
             tooltip: 'Pick an image',
-            child: Icon(Icons.photo_library),
+            child: const Icon(Icons.photo_library),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           FloatingActionButton(
             onPressed: _sendImageToServer,
             tooltip: 'Send image to server',
-            child: Icon(Icons.cloud_upload),
+            child: const Icon(Icons.cloud_upload),
           ),
         ],
       ),
