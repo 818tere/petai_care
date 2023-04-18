@@ -1,3 +1,4 @@
+import 'result_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,7 +17,7 @@ class _AiScreenState extends State<AiScreen> {
   final picker = ImagePicker();
 
   _AiScreenState() {
-    _imageFile = File(''); // 파일 초기화
+    _imageFile = File('assets/ai_main.png'); // 파일 초기화
   }
 
   Future<void> _getImage(ImageSource source) async {
@@ -77,14 +78,27 @@ class _AiScreenState extends State<AiScreen> {
           ),
           Padding(
             padding: EdgeInsets.only(top: 20.0),),
-          Center(
-            child: _imageFile != null
-                ? Image.file(_imageFile,
-                    fit: BoxFit.cover,
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.6,)
-                : Text('선택된 사진 없음'),
-          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.receipt_long),
+                iconSize: 250.0,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ResultListScreen()),
+                  );
+                },
+              ),
+              const Text(
+                '진단 결과 목록',
+                style: TextStyle(
+                  fontSize: 25.0,
+                ),
+              ),
+            ],
+          )
         ],
       ),
       floatingActionButton: Column(

@@ -80,6 +80,7 @@ flutter:
     - jsonfile/
     - assets/images/question.jpeg
     - assets/images/review.jpeg
+    - assets/ai_main.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
