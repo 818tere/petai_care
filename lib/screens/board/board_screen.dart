@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:petai_care/models/post.dart';
-import 'package:petai_care/screens/board/pages/postList.dart';
 import 'package:petai_care/screens/board/pages/questionWrite.dart';
 import 'package:petai_care/screens/board/pages/questionPostScreen.dart';
 import 'package:petai_care/screens/board/pages/reviewPostScreen.dart';
@@ -25,6 +24,155 @@ class _BoardScreenState extends State<BoardScreen>
       List.generate(tabsCount, (index) => index == initialIndex ? 1.0 : 0.0);
 
   late TabController tabController;
+
+  final controllerTitle = TextEditingController();
+  final controllerWriteDate = TextEditingController();
+  final controllerContent = TextEditingController();
+
+  Future<void> updateQuestion(DocumentSnapshot documentSnapshot) async {
+    controllerTitle.text = documentSnapshot['title'];
+    controllerContent.text = documentSnapshot['contents'];
+
+    await showDialog(
+        context: context,
+        builder: (context) => Dialog(
+                child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        controller: controllerTitle,
+                        decoration: const InputDecoration(
+                          labelText: '제목',
+                        ),
+                        textInputAction: TextInputAction.next,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return '제목을 입력해주세요.';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        controller: controllerContent,
+                        decoration: const InputDecoration(labelText: '내용'),
+                        maxLines: 15,
+                        keyboardType: TextInputType.multiline,
+                        textInputAction: TextInputAction.newline,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return '내용을 입력해주세요.';
+                          }
+                          return null;
+                        },
+                      ),
+                      ElevatedButton(
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text('Update'),
+                          ),
+                          onPressed: () async {
+                            final String title = controllerTitle.text;
+                            final String content = controllerContent.text;
+                            final DateTime writeDate = DateTime.now();
+                            refQuestion.doc(documentSnapshot.id).update({
+                              'title': title,
+                              'contents': content,
+                              'writeDate': writeDate
+                            });
+                            controllerTitle.text = "";
+                            controllerContent.text = "";
+                            Navigator.of(context).pop();
+                          })
+                    ],
+                  ),
+                ),
+              ),
+            )));
+  }
+
+  Future<void> updateReview(DocumentSnapshot documentSnapshot) async {
+    controllerTitle.text = documentSnapshot['title'];
+    controllerContent.text = documentSnapshot['contents'];
+
+    await showDialog(
+        context: context,
+        builder: (context) => Dialog(
+                child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        controller: controllerTitle,
+                        decoration: const InputDecoration(
+                          labelText: '제목',
+                        ),
+                        textInputAction: TextInputAction.next,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return '제목을 입력해주세요.';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        controller: controllerContent,
+                        decoration: const InputDecoration(labelText: '내용'),
+                        maxLines: 15,
+                        keyboardType: TextInputType.multiline,
+                        textInputAction: TextInputAction.newline,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return '내용을 입력해주세요.';
+                          }
+                          return null;
+                        },
+                      ),
+                      ElevatedButton(
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text('Update'),
+                          ),
+                          onPressed: () async {
+                            final String title = controllerTitle.text;
+                            final String content = controllerContent.text;
+                            final DateTime writeDate = DateTime.now();
+                            refReview.doc(documentSnapshot.id).update({
+                              'title': title,
+                              'contents': content,
+                              'writeDate': writeDate
+                            });
+                            controllerTitle.text = "";
+                            controllerContent.text = "";
+                            Navigator.of(context).pop();
+                          })
+                    ],
+                  ),
+                ),
+              ),
+            )));
+  }
+
+  Future<void> deleteQuestion(String questionId) async {
+    await refQuestion.doc(questionId).delete();
+  }
+
+  Future<void> deleteReview(String reviewId) async {
+    await refReview.doc(reviewId).delete();
+  }
+
+  CollectionReference refQuestion =
+      FirebaseFirestore.instance.collection('questionPost');
+
+  CollectionReference refReview =
+      FirebaseFirestore.instance.collection('reviewPost');
+
+  bool edit = false;
+  bool delete = false;
 
   @override
   void initState() {
@@ -75,6 +223,24 @@ class _BoardScreenState extends State<BoardScreen>
           ),
           actions: <Widget>[
             IconButton(
+              icon: const Icon(Icons.edit),
+              color: edit ? Colors.red : Colors.black,
+              onPressed: () {
+                setState(() {
+                  edit = !edit;
+                });
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete),
+              color: delete ? Colors.red : Colors.black,
+              onPressed: () {
+                setState(() {
+                  delete = !delete;
+                });
+              },
+            ),
+            IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {},
             ),
@@ -94,24 +260,88 @@ class _BoardScreenState extends State<BoardScreen>
           children: [
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection("questionPost")
+                  stream: refQuestion
+                      .orderBy("writeDate", descending: true)
                       .snapshots(),
                   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.hasError) {
                       return Text('Something went wrong! ${snapshot.error}');
                     } else if (snapshot.hasData) {
-                      return ListView(
-                        children: snapshot.data!.docs
-                            .map((post) => postList(() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            QuestionPostScreen(post),
-                                      ));
-                                }, post))
-                            .toList(),
+                      return ListView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          final DocumentSnapshot documentSnapshot =
+                              snapshot.data!.docs[index];
+                          return Card(
+                              child: ListTile(
+                            title: Text(snapshot.data!.docs[index]['title']),
+                            subtitle: Text(snapshot.data!.docs[index]
+                                ['contents']), //userId로 변경
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: Text(DateFormat('MM-dd HH:mm').format(
+                                      snapshot.data!.docs[index]['writeDate']
+                                          .toDate())),
+                                ),
+                                Visibility(
+                                  visible: edit,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      updateQuestion(documentSnapshot);
+                                    },
+                                    padding: EdgeInsets.only(left: 5),
+                                    constraints: BoxConstraints(),
+                                    icon: Icon(Icons.edit),
+                                  ),
+                                ),
+                                Visibility(
+                                  visible: delete,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) =>
+                                              AlertDialog(
+                                                title: Text('경고!'),
+                                                content: Text('게시글을 삭제하시겠습니까?'),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      deleteQuestion(
+                                                          documentSnapshot.id);
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text('삭제'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text('취소'),
+                                                  )
+                                                ],
+                                              ));
+                                    },
+                                    padding: EdgeInsets.only(left: 5),
+                                    constraints: BoxConstraints(),
+                                    icon: Icon(Icons.delete),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: ((context) => QuestionPostScreen(
+                                    snapshot.data!.docs[index])),
+                              ));
+                            },
+                          ));
+                        },
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.waiting) {
@@ -122,24 +352,88 @@ class _BoardScreenState extends State<BoardScreen>
             ),
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection("reviewPost")
+                  stream: refReview
+                      .orderBy("writeDate", descending: true)
                       .snapshots(),
                   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.hasError) {
                       return Text('Something went wrong! ${snapshot.error}');
                     } else if (snapshot.hasData) {
-                      return ListView(
-                        children: snapshot.data!.docs
-                            .map((post) => postList(() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            ReviewPostScreen(post),
-                                      ));
-                                }, post))
-                            .toList(),
+                      return ListView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          final DocumentSnapshot documentSnapshot =
+                              snapshot.data!.docs[index];
+                          return Card(
+                              child: ListTile(
+                            title: Text(snapshot.data!.docs[index]['title']),
+                            subtitle: Text(snapshot.data!.docs[index]
+                                ['contents']), //userId로 변경
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: Text(DateFormat('MM-dd HH:mm').format(
+                                      snapshot.data!.docs[index]['writeDate']
+                                          .toDate())),
+                                ),
+                                Visibility(
+                                  visible: edit,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      updateReview(documentSnapshot);
+                                    },
+                                    padding: EdgeInsets.only(left: 5),
+                                    constraints: BoxConstraints(),
+                                    icon: Icon(Icons.edit),
+                                  ),
+                                ),
+                                Visibility(
+                                  visible: delete,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) =>
+                                              AlertDialog(
+                                                title: Text('경고!'),
+                                                content: Text('게시글을 삭제하시겠습니까?'),
+                                                actions: <Widget>[
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      deleteReview(
+                                                          documentSnapshot.id);
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text('삭제'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Text('취소'),
+                                                  )
+                                                ],
+                                              ));
+                                    },
+                                    padding: EdgeInsets.only(left: 5),
+                                    constraints: BoxConstraints(),
+                                    icon: Icon(Icons.delete),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: ((context) => ReviewPostScreen(
+                                    snapshot.data!.docs[index])),
+                              ));
+                            },
+                          ));
+                        },
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.waiting) {
@@ -154,20 +448,6 @@ class _BoardScreenState extends State<BoardScreen>
       ),
     );
   }
-
-  Stream<List<Post>> readQuestionPost() => FirebaseFirestore.instance
-      .collection('questionPost')
-      .orderBy('writeDate', descending: true)
-      .snapshots()
-      .map((snapshot) =>
-          snapshot.docs.map((doc) => Post.fromJson(doc.data())).toList());
-
-  Stream<List<Post>> readReviewPost() => FirebaseFirestore.instance
-      .collection('reviewPost')
-      .orderBy('writeDate', descending: true)
-      .snapshots()
-      .map((snapshot) =>
-          snapshot.docs.map((doc) => Post.fromJson(doc.data())).toList());
 
   @override
   Widget? createScaledFab() {
@@ -194,7 +474,7 @@ class _BoardScreenState extends State<BoardScreen>
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const QuestionWrite()));
         },
-        child: Icon(Icons.edit),
+        child: Icon(Icons.add),
       );
     }
     if (index == 1) {
@@ -203,7 +483,7 @@ class _BoardScreenState extends State<BoardScreen>
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const ReviewWrite()));
         },
-        child: Icon(Icons.edit),
+        child: Icon(Icons.add),
       );
     }
   }

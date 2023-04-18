@@ -4,7 +4,6 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:petai_care/models/post.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
-import 'package:petai_care/screens/board/pages/reviewPostEdit.dart';
 
 class ReviewPostScreen extends StatefulWidget {
   ReviewPostScreen(this.doc, {Key? key}) : super(key: key);
@@ -26,19 +25,6 @@ class _ReviewPostScreenState extends State<ReviewPostScreen> {
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ReviewPostEdit()));
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Column(children: [
         //제목
@@ -99,42 +85,44 @@ class _ReviewPostScreenState extends State<ReviewPostScreen> {
             color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  Flexible(
-                    child: Container(
-                      child: Form(
-                        child: TextFormField(
-                          validator: (value) {
-                            if (value!.trim().isEmpty) {
-                              return '댓글을 입력하세요.';
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 1,
-                                color: Theme.of(context).primaryColor,
+              child: SingleChildScrollView(
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: Container(
+                        child: Form(
+                          child: TextFormField(
+                            validator: (value) {
+                              if (value!.trim().isEmpty) {
+                                return '댓글을 입력하세요.';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Theme.of(context).primaryColor,
+                                ),
                               ),
+                              hintText: "댓글을 입력하세요.",
+                              hintStyle: const TextStyle(color: Colors.black26),
+                              isDense: true,
                             ),
-                            hintText: "댓글을 입력하세요.",
-                            hintStyle: const TextStyle(color: Colors.black26),
-                            isDense: true,
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.send),
-                    onPressed: () {
-                      print('input comment: ');
-                    },
-                  )
-                ],
+                    IconButton(
+                      icon: const Icon(Icons.send),
+                      onPressed: () {
+                        print('input comment: ');
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
           ),

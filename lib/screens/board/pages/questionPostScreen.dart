@@ -6,7 +6,6 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:petai_care/models/post.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
-import 'package:petai_care/screens/board/pages/questionPostEdit.dart';
 
 class QuestionPostScreen extends StatefulWidget {
   QuestionPostScreen(this.doc, {Key? key}) : super(key: key);
@@ -32,89 +31,6 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        actions: <Widget>[
-          StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance
-                  .collection("reviewPost")
-                  .snapshots(),
-              builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (snapshot.hasError) {
-                  return Text('Something went wrong! ${snapshot.error}');
-                } else if (snapshot.hasData) {
-                  return IconButton(
-                    icon: const Icon(Icons.edit),
-                    onPressed: () {
-                      controllerTitle.text = widget.doc['title'];
-                      controllerContent.text = widget.doc['contents'];
-
-                      showDialog(
-                          context: context,
-                          builder: (context) => Dialog(
-                                child: Container(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12.0),
-                                    child: SingleChildScrollView(
-                                      child: Column(
-                                        children: <Widget>[
-                                          TextFormField(
-                                            controller: controllerTitle,
-                                            decoration: const InputDecoration(
-                                              labelText: '제목',
-                                            ),
-                                            textInputAction:
-                                                TextInputAction.next,
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return '제목을 입력해주세요.';
-                                              }
-                                              return null;
-                                            },
-                                          ),
-                                          TextFormField(
-                                            controller: controllerContent,
-                                            decoration: const InputDecoration(
-                                                labelText: '내용'),
-                                            maxLines: 15,
-                                            keyboardType:
-                                                TextInputType.multiline,
-                                            textInputAction:
-                                                TextInputAction.newline,
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return '내용을 입력해주세요.';
-                                              }
-                                              return null;
-                                            },
-                                          ),
-                                          ElevatedButton(
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(12.0),
-                                                child: Text('Update'),
-                                              ),
-                                              onPressed: () async {
-                                                final String title =
-                                                    controllerTitle.text;
-                                              })
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ));
-                    },
-                  );
-                } else if (snapshot.connectionState ==
-                    ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
-                }
-                return Text("there's no data");
-              }),
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -177,42 +93,45 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
               color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Container(
-                        child: Form(
-                          child: TextFormField(
-                            validator: (value) {
-                              if (value!.trim().isEmpty) {
-                                return '댓글을 입력하세요.';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Theme.of(context).primaryColor,
+                child: SingleChildScrollView(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Container(
+                          child: Form(
+                            child: TextFormField(
+                              validator: (value) {
+                                if (value!.trim().isEmpty) {
+                                  return '댓글을 입력하세요.';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 1,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
                                 ),
+                                hintText: "댓글을 입력하세요.",
+                                hintStyle:
+                                    const TextStyle(color: Colors.black26),
+                                isDense: true,
                               ),
-                              hintText: "댓글을 입력하세요.",
-                              hintStyle: const TextStyle(color: Colors.black26),
-                              isDense: true,
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.send),
-                      onPressed: () {
-                        print('input comment: ');
-                      },
-                    )
-                  ],
+                      IconButton(
+                        icon: const Icon(Icons.send),
+                        onPressed: () {
+                          print('input comment: ');
+                        },
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
