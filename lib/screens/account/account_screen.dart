@@ -1,10 +1,19 @@
+import 'dart:async';
+import 'dart:io';
+import 'package:flutter/services.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:http/http.dart' as http;
+import 'package:petai_care/screens/account/models/image_model.dart';
+import 'dart:convert';
 import 'package:petai_care/screens/account/sphelper.dart';
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
 import 'package:petai_care/screens/account/performance.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:flutter/src/widgets/image.dart' as uploadImage;
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -28,10 +37,13 @@ class _AccountScreenState extends State<AccountScreen> {
   //tablecalendar 용
   List<Performance> performances = [];
   //로컬 저장용
-  final amountController = TextEditingController();
-  final descpController = TextEditingController();
+  var amountController = TextEditingController();
+  var descpController = TextEditingController();
   final SPHelper helper = SPHelper();
-  String parsedtext = ''; //_getfromimage
+
+  XFile? _image;
+  final ImagePicker picker = ImagePicker();
+  //_getfromimage
 
   @override
   void initState() {
@@ -63,12 +75,18 @@ class _AccountScreenState extends State<AccountScreen> {
           children: [
             TextField(
               controller: amountController,
+              keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: const InputDecoration(
                 labelText: '금액',
               ),
             ),
             TextField(
               controller: descpController,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.allow(RegExp(
+                    r'[a-z|A-Z|0-9|ㄱ-ㅎ|ㅏ-ㅣ|가-힣|ᆞ|ᆢ|ㆍ|ᆢ|ᄀᆞ|ᄂᆞ|ᄃᆞ|ᄅᆞ|ᄆᆞ|ᄇᆞ|ᄉᆞ|ᄋᆞ|ᄌᆞ|ᄎᆞ|ᄏᆞ|ᄐᆞ|ᄑᆞ|ᄒᆞ]')),
+              ],
               decoration: const InputDecoration(
                 labelText: '내용',
               ),
@@ -95,7 +113,8 @@ class _AccountScreenState extends State<AccountScreen> {
                 );
                 return;
               } else {
-                savePerformance();
+                savePerformance(
+                    num.parse(amountController.text), descpController.text);
                 setState(() {
                   if (mySelectedEvents[
                           DateFormat('yyyy-MM-dd').format(_selectedDay!)] !=
@@ -130,10 +149,10 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
-  Future savePerformance() async {
+  Future savePerformance(num amount, String descp) async {
     int id = helper.getCounter() + 1;
-    Performance newPerformance = Performance(id, _selectedDay.toString(),
-        amountController.text, descpController.text);
+    Performance newPerformance =
+        Performance(id, _selectedDay.toString(), amount, descp);
 
     helper.writePerformance(newPerformance).then((_) {
       helper.setCounter();
@@ -144,7 +163,253 @@ class _AccountScreenState extends State<AccountScreen> {
     descpController.clear();
   }
 
-  Future _getFromImage() async {}
+  Future _getFromImage(ImageSource imageSource) async {
+    final XFile? pickedFile = await picker.pickImage(source: imageSource);
+    if (pickedFile != null) {
+      setState(() {
+        _image = XFile(pickedFile.path);
+      });
+      getRecognizedText(_image!); //이미지를 가져온 뒤 텍스트를 인식하는 함수
+    }
+  }
+
+  Future getRecognizedText(XFile image) async {
+    //var bytes = File(_image.toString()).readAsBytes();
+    //String img64 = base64Encode(await bytes);
+
+    const String apiUrl =
+        'https://c5ow50d89i.apigw.ntruss.com/custom/v1/21848/74ec55cb84097108fb278ca259460e9cfcde072e550ba9a68e3e5dca84f7b0fc/infer';
+    const String secretKey = 'cVhCeGNBVmh6RmxnWVlOTm5Kc2pYU3NrWmpkd3d2ZUk=';
+    const String imageUrl =
+        'https://kr.object.ncloudstorage.com/petaicare/text1.jpeg';
+
+    var requestJson = {
+      'version': 'V1',
+      'requestId': 'test',
+      'timestamp': 0,
+      'images': [
+        {'name': 'tmp', 'format': 'jpg', 'url': imageUrl}
+      ]
+    };
+    var headers = {
+      'Content-Type': 'application/json',
+      'X-OCR-SECRET': secretKey
+    };
+    var response = await http.post(Uri.parse(apiUrl),
+        headers: headers, body: jsonEncode(requestJson));
+
+    final ImageModel imageModel = imageModelFromJson(response.body);
+
+    setState(() {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => _buildRecognizedText(image, imageModel),
+        ),
+      );
+    });
+  }
+
+  _bottomSheet(context, num recognizedAmount, String recognizedDescp) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: 200,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('추가할 정보를 한번 더 확인해주세요'),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      savePerformance(recognizedAmount, recognizedDescp);
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('내역추가'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('취소'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildRecognizedText(XFile image, ImageModel imageModel) {
+    String amountTemp = (imageModel.images[0].fields[1].inferText)
+        .replaceAll(RegExp('[^0-9\\s]'), '');
+    num recognizedAmount = num.parse(amountTemp);
+    String recognizedDescp = imageModel.images[0].fields[0].inferText;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('영수증 인식확인'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 400,
+                width: 400,
+                child: uploadImage.Image.file(File(image.path)),
+              ),
+              SizedBox(
+                height: 300,
+                width: 300,
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    const Divider(
+                      thickness: 1.5,
+                      height: 1,
+                      color: Colors.black,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('사업자명: ',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 17)),
+                          Text(imageModel.images[0].fields[0].inferText,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                    const Divider(
+                      thickness: 0.3,
+                      height: 1,
+                      color: Colors.black,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('금엑: ',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 17)),
+                          Text(imageModel.images[0].fields[1].inferText,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 17)),
+                        ],
+                      ),
+                    ),
+                    const Divider(
+                      thickness: 0.3,
+                      height: 1,
+                      color: Colors.black,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text('* 영수증에서 인식한 정보이며 빈 칸의 항목은 인식불가 항목입니다.',
+                                style:
+                                    TextStyle(color: Colors.red, fontSize: 12))
+                          ]),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.blue, width: 1.5)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 17))
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.blue,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 50, vertical: 10)),
+                                  onPressed: () {
+                                    savePerformance(
+                                        recognizedAmount, recognizedDescp);
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('내역추가'),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.blue,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 50, vertical: 10)),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('취소'),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -321,28 +586,37 @@ class _AccountScreenState extends State<AccountScreen> {
           )*/
         ],
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.add_event,
+        spacing: 12,
         children: [
-          FloatingActionButton.extended(
-            heroTag: "b1",
-            onPressed: () => _showAddEventDialog(),
-            label: const Icon(Icons.add),
-          ),
-          const SizedBox(width: 10),
-          FloatingActionButton.extended(
-            heroTag: "b2",
-            onPressed: () {
-              _getFromImage();
+          SpeedDialChild(
+            child: const Icon(Icons.camera_alt),
+            label: '카메라',
+            onTap: () {
+              _getFromImage(ImageSource.camera);
             },
-            label: const Icon(Icons.camera_alt),
           ),
+          SpeedDialChild(
+            child: const Icon(Icons.picture_in_picture),
+            label: '갤러리',
+            onTap: () {
+              _getFromImage(ImageSource.gallery);
+            },
+          ),
+          SpeedDialChild(
+            child: const Icon(Icons.add),
+            label: '직접입력',
+            onTap: () => _showAddEventDialog(),
+          )
         ],
       ),
     );
   }
 
   List<Widget> getContent() {
+    final formatCurrency = NumberFormat.simpleCurrency(
+        locale: 'ko_KR', name: '', decimalDigits: 0);
     List<Widget> tiles = [];
     for (var performance in performances) {
       tiles.add(Dismissible(
@@ -358,7 +632,7 @@ class _AccountScreenState extends State<AccountScreen> {
             color: Colors.blue,
             size: 40,
           ),
-          title: Text("${performance.amount}원"),
+          title: Text('${formatCurrency.format(performance.amount)}원'),
           subtitle: Text(performance.description),
         ),
       ));
