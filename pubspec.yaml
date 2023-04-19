@@ -77,7 +77,8 @@ flutter:
   assets:
     - assets/dog1.png
     - assets/dog2.gif
-    - jsonfile/
+    - jsonfile/seoul/
+    - jsonfile/gyeonggi/
     - assets/images/question.jpeg
     - assets/images/review.jpeg
 
