@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:petai_care/models/post.dart';
 
 class ReviewWrite extends StatefulWidget {
@@ -19,7 +18,7 @@ class _ReviewWriteState extends State<ReviewWrite> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         title: const Text(
           '후기글 쓰기',
           style: TextStyle(color: Colors.black),

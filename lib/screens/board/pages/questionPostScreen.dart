@@ -1,15 +1,10 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:intl/intl.dart';
-import 'package:petai_care/models/post.dart';
-import 'package:petai_care/screens/board/board_screen.dart';
 
 class QuestionPostScreen extends StatefulWidget {
-  QuestionPostScreen(this.doc, {Key? key}) : super(key: key);
-  QueryDocumentSnapshot doc;
+  const QuestionPostScreen(this.doc, {Key? key}) : super(key: key);
+  final QueryDocumentSnapshot doc;
 
   @override
   State<QuestionPostScreen> createState() => _QuestionPostScreenState();
@@ -24,10 +19,10 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         title: Text(
           widget.doc["title"],
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -47,7 +42,7 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
           ),
           // 아이콘, 익명, datetime
           ListTile(
-            leading: CircleAvatar(
+            leading: const CircleAvatar(
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 backgroundColor: Color(0xffE6E6E6),
@@ -68,7 +63,8 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
           ),
           // 내용
           Padding(
-            padding: EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
+            padding:
+                const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(widget.doc["contents"]),
@@ -97,29 +93,26 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                   child: Row(
                     children: [
                       Flexible(
-                        child: Container(
-                          child: Form(
-                            child: TextFormField(
-                              validator: (value) {
-                                if (value!.trim().isEmpty) {
-                                  return '댓글을 입력하세요.';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 1,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
+                        child: Form(
+                          child: TextFormField(
+                            validator: (value) {
+                              if (value!.trim().isEmpty) {
+                                return '댓글을 입력하세요.';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 1,
+                                  color: Theme.of(context).primaryColor,
                                 ),
-                                hintText: "댓글을 입력하세요.",
-                                hintStyle:
-                                    const TextStyle(color: Colors.black26),
-                                isDense: true,
                               ),
+                              hintText: "댓글을 입력하세요.",
+                              hintStyle: const TextStyle(color: Colors.black26),
+                              isDense: true,
                             ),
                           ),
                         ),

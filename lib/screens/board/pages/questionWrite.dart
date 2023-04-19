@@ -18,7 +18,7 @@ class _QuestionWriteState extends State<QuestionWrite> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         title: const Text(
           '질문글 쓰기',
           style: TextStyle(color: Colors.black),

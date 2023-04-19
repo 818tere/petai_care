@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:intl/intl.dart';
-import 'package:petai_care/models/post.dart';
 import 'package:petai_care/screens/board/pages/questionWrite.dart';
 import 'package:petai_care/screens/board/pages/questionPostScreen.dart';
 import 'package:petai_care/screens/board/pages/reviewPostScreen.dart';
@@ -36,58 +34,56 @@ class _BoardScreenState extends State<BoardScreen>
     await showDialog(
         context: context,
         builder: (context) => Dialog(
-                child: Container(
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        controller: controllerTitle,
-                        decoration: const InputDecoration(
-                          labelText: '제목',
+                child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      controller: controllerTitle,
+                      decoration: const InputDecoration(
+                        labelText: '제목',
+                      ),
+                      textInputAction: TextInputAction.next,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return '제목을 입력해주세요.';
+                        }
+                        return null;
+                      },
+                    ),
+                    TextFormField(
+                      controller: controllerContent,
+                      decoration: const InputDecoration(labelText: '내용'),
+                      maxLines: 15,
+                      keyboardType: TextInputType.multiline,
+                      textInputAction: TextInputAction.newline,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return '내용을 입력해주세요.';
+                        }
+                        return null;
+                      },
+                    ),
+                    ElevatedButton(
+                        child: const Padding(
+                          padding: EdgeInsets.all(12.0),
+                          child: Text('Update'),
                         ),
-                        textInputAction: TextInputAction.next,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return '제목을 입력해주세요.';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        controller: controllerContent,
-                        decoration: const InputDecoration(labelText: '내용'),
-                        maxLines: 15,
-                        keyboardType: TextInputType.multiline,
-                        textInputAction: TextInputAction.newline,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return '내용을 입력해주세요.';
-                          }
-                          return null;
-                        },
-                      ),
-                      ElevatedButton(
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Text('Update'),
-                          ),
-                          onPressed: () async {
-                            final String title = controllerTitle.text;
-                            final String content = controllerContent.text;
-                            final DateTime writeDate = DateTime.now();
-                            refQuestion.doc(documentSnapshot.id).update({
-                              'title': title,
-                              'contents': content,
-                              'writeDate': writeDate
-                            });
-                            controllerTitle.text = "";
-                            controllerContent.text = "";
-                            Navigator.of(context).pop();
-                          })
-                    ],
-                  ),
+                        onPressed: () async {
+                          final String title = controllerTitle.text;
+                          final String content = controllerContent.text;
+                          final DateTime writeDate = DateTime.now();
+                          refQuestion.doc(documentSnapshot.id).update({
+                            'title': title,
+                            'contents': content,
+                            'writeDate': writeDate
+                          });
+                          controllerTitle.text = "";
+                          controllerContent.text = "";
+                          Navigator.of(context).pop();
+                        })
+                  ],
                 ),
               ),
             )));
@@ -100,58 +96,56 @@ class _BoardScreenState extends State<BoardScreen>
     await showDialog(
         context: context,
         builder: (context) => Dialog(
-                child: Container(
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        controller: controllerTitle,
-                        decoration: const InputDecoration(
-                          labelText: '제목',
+                child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      controller: controllerTitle,
+                      decoration: const InputDecoration(
+                        labelText: '제목',
+                      ),
+                      textInputAction: TextInputAction.next,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return '제목을 입력해주세요.';
+                        }
+                        return null;
+                      },
+                    ),
+                    TextFormField(
+                      controller: controllerContent,
+                      decoration: const InputDecoration(labelText: '내용'),
+                      maxLines: 15,
+                      keyboardType: TextInputType.multiline,
+                      textInputAction: TextInputAction.newline,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return '내용을 입력해주세요.';
+                        }
+                        return null;
+                      },
+                    ),
+                    ElevatedButton(
+                        child: const Padding(
+                          padding: EdgeInsets.all(12.0),
+                          child: Text('Update'),
                         ),
-                        textInputAction: TextInputAction.next,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return '제목을 입력해주세요.';
-                          }
-                          return null;
-                        },
-                      ),
-                      TextFormField(
-                        controller: controllerContent,
-                        decoration: const InputDecoration(labelText: '내용'),
-                        maxLines: 15,
-                        keyboardType: TextInputType.multiline,
-                        textInputAction: TextInputAction.newline,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return '내용을 입력해주세요.';
-                          }
-                          return null;
-                        },
-                      ),
-                      ElevatedButton(
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Text('Update'),
-                          ),
-                          onPressed: () async {
-                            final String title = controllerTitle.text;
-                            final String content = controllerContent.text;
-                            final DateTime writeDate = DateTime.now();
-                            refReview.doc(documentSnapshot.id).update({
-                              'title': title,
-                              'contents': content,
-                              'writeDate': writeDate
-                            });
-                            controllerTitle.text = "";
-                            controllerContent.text = "";
-                            Navigator.of(context).pop();
-                          })
-                    ],
-                  ),
+                        onPressed: () async {
+                          final String title = controllerTitle.text;
+                          final String content = controllerContent.text;
+                          final DateTime writeDate = DateTime.now();
+                          refReview.doc(documentSnapshot.id).update({
+                            'title': title,
+                            'contents': content,
+                            'writeDate': writeDate
+                          });
+                          controllerTitle.text = "";
+                          controllerContent.text = "";
+                          Navigator.of(context).pop();
+                        })
+                  ],
                 ),
               ),
             )));
@@ -247,7 +241,7 @@ class _BoardScreenState extends State<BoardScreen>
           ],
           bottom: TabBar(
               controller: tabController,
-              tabs: [
+              tabs: const [
                 Tab(text: "질문 게시판"),
                 Tab(text: "후기 게시판"),
               ],
@@ -292,9 +286,9 @@ class _BoardScreenState extends State<BoardScreen>
                                     onPressed: () {
                                       updateQuestion(documentSnapshot);
                                     },
-                                    padding: EdgeInsets.only(left: 5),
-                                    constraints: BoxConstraints(),
-                                    icon: Icon(Icons.edit),
+                                    padding: const EdgeInsets.only(left: 5),
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.edit),
                                   ),
                                 ),
                                 Visibility(
@@ -305,8 +299,9 @@ class _BoardScreenState extends State<BoardScreen>
                                           context: context,
                                           builder: (BuildContext context) =>
                                               AlertDialog(
-                                                title: Text('경고!'),
-                                                content: Text('게시글을 삭제하시겠습니까?'),
+                                                title: const Text('경고!'),
+                                                content: const Text(
+                                                    '게시글을 삭제하시겠습니까?'),
                                                 actions: <Widget>[
                                                   TextButton(
                                                     onPressed: () {
@@ -315,21 +310,21 @@ class _BoardScreenState extends State<BoardScreen>
                                                       Navigator.of(context)
                                                           .pop();
                                                     },
-                                                    child: Text('삭제'),
+                                                    child: const Text('삭제'),
                                                   ),
                                                   TextButton(
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .pop();
                                                     },
-                                                    child: Text('취소'),
+                                                    child: const Text('취소'),
                                                   )
                                                 ],
                                               ));
                                     },
-                                    padding: EdgeInsets.only(left: 5),
-                                    constraints: BoxConstraints(),
-                                    icon: Icon(Icons.delete),
+                                    padding: const EdgeInsets.only(left: 5),
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.delete),
                                   ),
                                 ),
                               ],
@@ -345,9 +340,9 @@ class _BoardScreenState extends State<BoardScreen>
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     }
-                    return Text("there's no data");
+                    return const Text("there's no data");
                   }),
             ),
             Expanded(
@@ -384,9 +379,9 @@ class _BoardScreenState extends State<BoardScreen>
                                     onPressed: () {
                                       updateReview(documentSnapshot);
                                     },
-                                    padding: EdgeInsets.only(left: 5),
-                                    constraints: BoxConstraints(),
-                                    icon: Icon(Icons.edit),
+                                    padding: const EdgeInsets.only(left: 5),
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.edit),
                                   ),
                                 ),
                                 Visibility(
@@ -397,8 +392,9 @@ class _BoardScreenState extends State<BoardScreen>
                                           context: context,
                                           builder: (BuildContext context) =>
                                               AlertDialog(
-                                                title: Text('경고!'),
-                                                content: Text('게시글을 삭제하시겠습니까?'),
+                                                title: const Text('경고!'),
+                                                content: const Text(
+                                                    '게시글을 삭제하시겠습니까?'),
                                                 actions: <Widget>[
                                                   TextButton(
                                                     onPressed: () {
@@ -407,21 +403,21 @@ class _BoardScreenState extends State<BoardScreen>
                                                       Navigator.of(context)
                                                           .pop();
                                                     },
-                                                    child: Text('삭제'),
+                                                    child: const Text('삭제'),
                                                   ),
                                                   TextButton(
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .pop();
                                                     },
-                                                    child: Text('취소'),
+                                                    child: const Text('취소'),
                                                   )
                                                 ],
                                               ));
                                     },
-                                    padding: EdgeInsets.only(left: 5),
-                                    constraints: BoxConstraints(),
-                                    icon: Icon(Icons.delete),
+                                    padding: const EdgeInsets.only(left: 5),
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.delete),
                                   ),
                                 ),
                               ],
@@ -437,9 +433,9 @@ class _BoardScreenState extends State<BoardScreen>
                       );
                     } else if (snapshot.connectionState ==
                         ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     }
-                    return Text("there's no data");
+                    return const Text("there's no data");
                   }),
             ),
           ],
@@ -449,7 +445,6 @@ class _BoardScreenState extends State<BoardScreen>
     );
   }
 
-  @override
   Widget? createScaledFab() {
     final indexOfCurrentFab = tabScales.indexWhere((fabScale) => fabScale != 0);
     if (indexOfCurrentFab == -1) {
@@ -474,7 +469,7 @@ class _BoardScreenState extends State<BoardScreen>
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const QuestionWrite()));
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       );
     }
     if (index == 1) {
@@ -483,8 +478,9 @@ class _BoardScreenState extends State<BoardScreen>
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const ReviewWrite()));
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       );
     }
+    return null;
   }
 }

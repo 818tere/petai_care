@@ -18,32 +18,30 @@ class HospitalScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 30),
               child: Row(
                 children: [
-                  Text (
+                  const Text(
                     '동물병원',
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
-            SizedBox(
-              width: 150,
-            ),
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.push(
+                  const SizedBox(
+                    width: 150,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.search),
+                    onPressed: () {
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const QuickSearch()));
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.favorite),
-              onPressed: () {},
-            ),
-          
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.favorite),
+                    onPressed: () {},
+                  ),
                 ],
-                
               ),
             ),
           ),
@@ -79,8 +77,10 @@ class HospitalScreen extends StatelessWidget {
                 child: ElevatedButton(
                   // 버튼 누르면 페이지 이동
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Gyeonggi()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Gyeonggi()));
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orangeAccent,
