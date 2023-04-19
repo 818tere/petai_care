@@ -1,0 +1,8 @@
+{
+  "@@locale": "ko",
+  "sign_in": "로그인",
+  "email": "이메일",
+  "password": "비밀번호",
+  "sign_in_with_email": "이메일로 로그인",
+  "sign_in_with_google": "구글로 로그인"
+}

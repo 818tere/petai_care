@@ -121,10 +121,10 @@ class Bounding {
     required this.height,
   });
 
-  int top;
-  int left;
-  int width;
-  int height;
+  num top;
+  num left;
+  num width;
+  num height;
 
   factory Bounding.fromJson(Map<String, dynamic> json) => Bounding(
         top: json["top"],

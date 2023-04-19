@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 class DiaryScreen extends StatelessWidget {
+  const DiaryScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('diaryScreen'),
     );
   }

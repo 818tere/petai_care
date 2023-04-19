@@ -17,13 +17,13 @@ class SPHelper {
   List<Performance> readPerformances() {
     List<Performance> performances = [];
     Set<String> keys = prefs.getKeys(); //SharedPreferences에 저장한 모든 키 가져오기
-    keys.forEach((String key) {
+    for (var key in keys) {
       if (key != 'counter') {
         Performance performance =
             Performance.fromJson(json.decode(prefs.getString(key) ?? ''));
         performances.add(performance);
       }
-    });
+    }
     return performances;
   }
 
