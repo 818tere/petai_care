@@ -1,13 +1,7 @@
-import 'dart:collection';
-import 'dart:convert';
-import 'dart:io';
-import 'package:http/http.dart' as http;
 import 'package:petai_care/screens/account/sphelper.dart';
 import 'package:petai_care/screens/account/widgets/chart_widget.dart';
 import 'package:petai_care/screens/account/performance.dart';
-import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -183,10 +177,10 @@ class _AccountScreenState extends State<AccountScreen> {
                   focusedDay: _focusedDay,
                   firstDay: DateTime(2023),
                   lastDay: DateTime(2040),
-                  headerStyle: HeaderStyle(
+                  headerStyle: const HeaderStyle(
                     formatButtonVisible: false,
                     titleCentered: true,
-                    titleTextStyle: const TextStyle(
+                    titleTextStyle: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -350,7 +344,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   List<Widget> getContent() {
     List<Widget> tiles = [];
-    performances.forEach((performance) {
+    for (var performance in performances) {
       tiles.add(Dismissible(
         key: UniqueKey(),
         onDismissed: (_) {
@@ -365,10 +359,10 @@ class _AccountScreenState extends State<AccountScreen> {
             size: 40,
           ),
           title: Text("${performance.amount}원"),
-          subtitle: Text("${performance.description}"),
+          subtitle: Text(performance.description),
         ),
       ));
-    });
+    }
     return tiles;
   }
 

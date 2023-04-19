@@ -1,17 +1,15 @@
 import 'result_list.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';
 
-
 class AiScreen extends StatefulWidget {
   const AiScreen({super.key});
 
   @override
-  _AiScreenState createState() => _AiScreenState();
+  State<AiScreen> createState() => _AiScreenState();
 }
 
 class _AiScreenState extends State<AiScreen> {
@@ -45,15 +43,16 @@ class _AiScreenState extends State<AiScreen> {
       const Utf8Decoder().convert(responseString.runes.toList()),
     )['class_name'];
 
+    if (!mounted) return;
     showDialog(
       context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: Text('질병 코드'),
+      builder: (context) => AlertDialog(
+        title: const Text('질병 코드'),
         content: Text(koreanString),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('OK'),
+            child: const Text('OK'),
           ),
         ],
       ),
@@ -87,7 +86,8 @@ class _AiScreenState extends State<AiScreen> {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(top: 20.0),),
+            padding: EdgeInsets.only(top: 20.0),
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -97,7 +97,8 @@ class _AiScreenState extends State<AiScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ResultListScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const ResultListScreen()),
                   );
                 },
               ),
@@ -115,18 +116,21 @@ class _AiScreenState extends State<AiScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
+            heroTag: 'a1',
             onPressed: () => _getImage(ImageSource.camera),
             tooltip: 'Take a photo',
             child: const Icon(Icons.add_a_photo),
           ),
           const SizedBox(height: 16),
           FloatingActionButton(
+            heroTag: 'a2',
             onPressed: () => _getImage(ImageSource.gallery),
             tooltip: 'Pick an image',
             child: const Icon(Icons.photo_library),
           ),
           const SizedBox(height: 16),
           FloatingActionButton(
+            heroTag: 'a3',
             onPressed: _sendImageToServer,
             tooltip: 'Send image to server',
             child: const Icon(Icons.cloud_upload),
