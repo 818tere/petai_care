@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
 import 'package:petai_care/screens/hospital/HospitalDataModel.dart';
 
-void showPopup(context, imageUrl, name, address, number, description) {
+void showPopup(context, imageUrl, name, address, number) {
   showDialog(
     context: context,
     builder: (context) {
@@ -57,13 +57,6 @@ void showPopup(context, imageUrl, name, address, number, description) {
                 const SizedBox(
                   height: 7,
                 ),
-                Text(
-                  description,
-                  style: const TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
-                ),
               ],
             )),
       );
@@ -104,8 +97,7 @@ class _GangnamState extends State<Gangnam> {
                                 items[index].imageUrl,
                                 items[index].name,
                                 items[index].address,
-                                items[index].number,
-                                items[index].description);
+                                items[index].number);
                           },
                           child: Card(
                             elevation: 5,
@@ -217,12 +209,12 @@ class _GangdongState extends State<Gangdong> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -334,12 +326,12 @@ class _GangbukState extends State<Gangbuk> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -450,12 +442,12 @@ class _GangseoState extends State<Gangseo> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -566,12 +558,12 @@ class _GwanakState extends State<Gwanak> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -683,12 +675,12 @@ class _GwangjinState extends State<Gwangjin> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -800,12 +792,12 @@ class _GuroState extends State<Guro> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -917,12 +909,12 @@ class _GeumcheonState extends State<Geumcheon> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1034,12 +1026,12 @@ class _NowonState extends State<Nowon> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1151,12 +1143,12 @@ class _DobongState extends State<Dobong> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1268,12 +1260,12 @@ class _DongdaemunState extends State<Dongdaemun> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1385,12 +1377,12 @@ class _DongjakState extends State<Dongjak> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1502,12 +1494,12 @@ class _MapoState extends State<Mapo> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1619,12 +1611,12 @@ class _SeodaemunState extends State<Seodaemun> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1735,12 +1727,12 @@ class _SeochoState extends State<Seocho> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1851,12 +1843,12 @@ class _SeongdongState extends State<Seongdong> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -1968,12 +1960,12 @@ class _SeongbukState extends State<Seongbuk> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2085,12 +2077,12 @@ class _SongpaState extends State<Songpa> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2202,12 +2194,12 @@ class _YangcheonState extends State<Yangcheon> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2319,12 +2311,12 @@ class _YeongdeungpoState extends State<Yeongdeungpo> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2436,12 +2428,12 @@ class _YongsanState extends State<Yongsan> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2553,12 +2545,12 @@ class _EunpyeongState extends State<Eunpyeong> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2669,12 +2661,12 @@ class _JongnoState extends State<Jongno> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2786,12 +2778,12 @@ class _JungState extends State<Jung> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,
@@ -2903,12 +2895,12 @@ class _JungnangState extends State<Jungnang> {
                         return GestureDetector(
                           onTap: () {
                             showPopup(
-                                context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                              context,
+                              items[index].imageUrl,
+                              items[index].name,
+                              items[index].address,
+                              items[index].number,
+                            );
                           },
                           child: Card(
                             elevation: 5,

@@ -4,15 +4,9 @@ class HospitalDataModel {
   String? name;
   String? address;
   String? number;
-  String? description;
 
   HospitalDataModel(
-      {this.id,
-      this.imageUrl,
-      this.name,
-      this.address,
-      this.number,
-      this.description});
+      {this.id, this.imageUrl, this.name, this.address, this.number});
 
   HospitalDataModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -20,6 +14,5 @@ class HospitalDataModel {
     name = json['name'];
     address = json['address'];
     number = json['number'];
-    description = json['description'];
   }
 }
