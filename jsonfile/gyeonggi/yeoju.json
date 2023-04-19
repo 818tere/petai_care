@@ -1,0 +1,30 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230215_187%2F1676423082540ayJ4k_JPEG%2FJDL_7680.jpg",
+  "name": "허그미동물병원",
+  "number": "0507-1406-9920",
+  "address": "여주 교동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200501_58%2F15883076618496vaUI_JPEG%2FH9gKN061qWLjfyNdlpd0kUGa.jpeg.jpg",
+  "name": "푸른동물병원",
+  "number": "031-883-6363",
+  "address": "여주 홍문동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170104_134%2F1483507322289Ca7Yn_JPEG%2F186054545179596_0.jpeg",
+  "name": "나무동물병원",
+  "number": "031-885-7475",
+  "address": "여주 하동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220113_147%2F1642038145320iY3tb_JPEG%2F%25BB%25E7%25B6%25FB%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_%25B8%25B6%25C5%25A9.jpg",
+  "name": "사랑동물병원",
+  "number": "031-886-3309",
+  "address": "여주 교동"
+ }
+]

@@ -1,18 +1,40 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class PostScreen extends StatelessWidget {
-  const PostScreen({super.key});
+class ReviewPostScreen extends StatefulWidget {
+  const ReviewPostScreen(this.doc, {Key? key}) : super(key: key);
+  final QueryDocumentSnapshot doc;
 
+  @override
+  State<ReviewPostScreen> createState() => _ReviewPostScreenState();
+}
+
+class _ReviewPostScreenState extends State<ReviewPostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('index'),
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: Text(
+          widget.doc["title"],
+          style: const TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.white,
       ),
       body: Column(children: [
+        //제목
+        Container(
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+          width: double.infinity,
+          child: Text(
+            widget.doc["title"],
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            textScaleFactor: 1.4,
+            textAlign: TextAlign.start,
+          ),
+        ),
         // 아이콘, 익명, datetime
         ListTile(
           leading: const CircleAvatar(
@@ -26,25 +48,20 @@ class PostScreen extends StatelessWidget {
             ),
           ),
           title: const Text('익명'),
-          subtitle: Text(DateFormat.yMMMd().format(DateTime.now())),
-        ),
-        // 제목
-        Container(
-          padding: const EdgeInsets.all(8),
-          width: double.infinity,
-          child: const Text(
-            'post.title!',
-            style: TextStyle(fontWeight: FontWeight.bold),
-            textScaleFactor: 1.4,
-            textAlign: TextAlign.start,
+          subtitle: Text(
+            DateFormat('MM-dd HH:mm').format(widget.doc["writeDate"].toDate()),
           ),
         ),
+        const Divider(
+          thickness: 1,
+        ),
         // 내용
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding:
+              const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
           child: Align(
             alignment: Alignment.topLeft,
-            child: Text('post.contents!'),
+            child: Text(widget.doc["contents"]),
           ),
         ),
         const SizedBox(
@@ -66,10 +83,10 @@ class PostScreen extends StatelessWidget {
             color: Colors.white,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  Flexible(
-                    child: Container(
+              child: SingleChildScrollView(
+                child: Row(
+                  children: [
+                    Flexible(
                       child: Form(
                         child: TextFormField(
                           validator: (value) {
@@ -94,14 +111,14 @@ class PostScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.send),
-                    onPressed: () {
-                      print('input comment: ');
-                    },
-                  )
-                ],
+                    IconButton(
+                      icon: const Icon(Icons.send),
+                      onPressed: () {
+                        print('input comment: ');
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
           ),

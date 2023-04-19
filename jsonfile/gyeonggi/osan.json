@@ -1,0 +1,107 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_268%2F1440992170179d1rWc_JPEG%2F35288640_0.jpeg",
+  "name": "경기동물메디컬센터",
+  "number": "031-375-8875",
+  "address": "오산 원동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211108_271%2F1636353948406IQ2Wd_JPEG%2Feee.JPG",
+  "name": "미소동물병원",
+  "number": "031-374-2579",
+  "address": "오산 금암동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220316_148%2F1647399464169bscSI_JPEG%2F%25BF%25EC%25B8%25AE%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_6.jpg",
+  "name": "우리동물병원",
+  "number": "031-373-8486",
+  "address": "오산 원동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_259%2F1441008617434etPs2_JPEG%2FSUBMIT_1314947181532_19574878.jpg",
+  "name": "저스트벳동물병원",
+  "number": "031-378-1514",
+  "address": "오산 원동"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180616_137%2F1529160795288DALyU_JPEG%2F46_RO7bkf8ONmb4pJqOXlWep.jpg",
+  "name": "위더스동물의료센터",
+  "number": "0507-1307-2975",
+  "address": "오산 금암동"
+ },
+ {
+  "id": 6,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180423_52%2F1524464552843hD8qo_JPEG%2F1a4bB6DQBJwIK2fVk-RioPH-.jpg",
+  "name": "도래동물병원",
+  "number": "0507-1313-7590",
+  "address": "오산 수청동"
+ },
+ {
+  "id": 7,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_279%2F14411147917029SkGY_JPEG%2FSUBMIT_1428733262110_34897331.jpg",
+  "name": "참동물병원",
+  "number": "031-374-1275",
+  "address": "오산 갈곶동"
+ },
+ {
+  "id": 8,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210430_95%2F1619759843873tNQ7r_JPEG%2FiNyonOMZvFFQHnrcHwg_lWL3.jpg",
+  "name": "하군이네동물병원",
+  "number": "031-8055-7803",
+  "address": "오산 궐동"
+ },
+ {
+  "id": 9,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190705_66%2F1562296927326pazME_JPEG%2FnZy5KX_hiOYbbrC2z6l17JLW.jpg",
+  "name": "스마일동물병원",
+  "number": "031-375-5975",
+  "address": "오산 수청동"
+ },
+ {
+  "id": 10,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_112%2F1441053811320uIM89_JPEG%2FSUBMIT_1298364879322_13548868.jpg",
+  "name": "튼튼동물병원",
+  "number": "031-372-8333",
+  "address": "오산 궐동"
+ },
+ {
+  "id": 11,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190121_66%2F1548036932946ojkUE_JPEG%2FQjLPMGYvKL6oKMNeSL56UcH4.jpeg.jpg",
+  "name": "25시종합동물병원",
+  "number": "031-378-1114",
+  "address": "오산 오산동"
+ },
+ {
+  "id": 12,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190121_17%2F15480396223484fO3I_JPEG%2F8ZryUquPLuhiBLxkOoZh5oJ9.jpeg.jpg",
+  "name": "원 동물병원",
+  "number": "031-374-1175",
+  "address": "오산 원동"
+ },
+ {
+  "id": 13,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181223_63%2F1545531137350T1iyP_JPEG%2F-2920bTvJNz_7-B0oO79mFOy.jpg",
+  "name": "장수동물의료원",
+  "number": "031-373-0775",
+  "address": "오산 오산동"
+ },
+ {
+  "id": 14,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190125_155%2F1548418522610nYOaz_JPEG%2Fz7DdW1gyLJlnbtZ1ZbwVsmMG.jpg",
+  "name": "오산동물병원",
+  "number": "031-377-7582",
+  "address": "오산 원동"
+ },
+ {
+  "id": 15,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230127_26%2F1674807418049r2ISo_JPEG%2F%25B8%25BB%25C6%25BC%25C7%25AA-%25B1%25E8%25C0%25CE%25C1%25D6%25B8%25BB%25C6%25BC%25C7%25AA_%25B0%25F5%25B5%25B9%25C0%25CC_%25BC%25F6%25C1%25A4%25BF%25CF%25B7%25E1_%25283%2529.jpg",
+  "name": "캣츠앤독스",
+  "number": "031-375-8254",
+  "address": "오산 궐동"
+ }
+]

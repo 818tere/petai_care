@@ -1,0 +1,100 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200820_228%2F1597884963557H6vJm_JPEG%2FiyMyObdxXrxJxyxAnwRaZipF.jpg",
+  "name": "안성동물의료센터",
+  "number": "031-676-7975",
+  "address": "안성 옥산동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230331_283%2F1680250638609vrcI6_JPEG%2F%25C5%25A9%25B1%25E2%25BA%25AF%25C8%25AF23.03.22_%25C0%25A3%25B4%25CF%25BD%25BA%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_%25B0%25A8%25BB%25E7_%25C0%25CC%25BA%25A5%25C6%25AE_%25BD%25C3%25C6%25AE_%25B4%25EB%25C1%25F6_1.jpg",
+  "name": "웰니스동물병원",
+  "number": "031-8029-5080",
+  "address": "안성 공도읍"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211207_17%2F1638837552324UL2lB_JPEG%2F20211207_093322.jpg",
+  "name": "바우동물병원",
+  "number": "031-657-0016",
+  "address": "안성 공도읍"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211221_166%2F1640075721781AX7F5_JPEG%2F%25B4%25EB%25B1%25E2%25BD%25C7_%25BB%25E7%25C1%25F8.jpg",
+  "name": "우리동물병원",
+  "number": "031-675-0722",
+  "address": "안성 인지동"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200614_274%2F15921431651583gsJC_JPEG%2F34-g2utCQyGCx_NOGQYUZY8w.jpeg.jpg",
+  "name": "행복한동물병원",
+  "number": "031-677-8275",
+  "address": "안성 영동"
+ },
+ {
+  "id": 6,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220520_56%2F1653028145064LK0Cr_PNG%2F1638758015488.png",
+  "name": "슬기로운동물병원",
+  "number": "031-655-5946",
+  "address": "안성 공도읍"
+ },
+ {
+  "id": 7,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160309_196%2F1457501538642lU4Sh_JPEG%2F176259546238447_0.jpeg",
+  "name": "아프리카동물병원",
+  "number": "031-656-5975",
+  "address": "안성 공도읍"
+ },
+ {
+  "id": 8,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211228_159%2F1640661414672I6cKp_JPEG%2FIMG-4002.JPG",
+  "name": "함께오래동물병원",
+  "number": "031-657-7114",
+  "address": "안성 공도읍"
+ },
+ {
+  "id": 9,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230217_248%2F16766225643499elQR_JPEG%2FKakaoTalk_20230217_171619789.jpg",
+  "name": "쿨펫동물병원 이마트 안성점",
+  "number": "031-677-7975",
+  "address": "안성 석정동"
+ },
+ {
+  "id": 10,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200614_113%2F1592142375394VncDS_JPEG%2FGCuAa493Nb4bBhSbwjqPaAkR.jpeg.jpg",
+  "name": "이성준동물병원",
+  "number": "0507-1336-5861",
+  "address": "안성 봉남동"
+ },
+ {
+  "id": 11,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220103_251%2F1641204087434ebVzC_JPEG%2F1641195963148.jpg",
+  "name": "쿨펫동물병원 롯데마트안성점",
+  "number": "031-618-7533",
+  "address": "안성 공도읍"
+ },
+ {
+  "id": 12,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200924_39%2F1600936883306Glq1N_JPEG%2F6YzzULfKlaZ0roq2X9phe6LC.jpeg.jpg",
+  "name": "일죽종합동물병원",
+  "number": "031-674-6551",
+  "address": "안성 일죽면"
+ },
+ {
+  "id": 13,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230403_135%2F1680526222214jFmCv_JPEG%2F%25BE%25C8%25BC%25BA%25C7%25D1%25B8%25B6%25C0%25BD_%25B5%25BF%25B9%25B0%25C0%25C7%25B7%25E1%25BF%25F8_%25B7%25CE%25B0%25ED_2.jpg",
+  "name": "한마음동물의료원",
+  "number": "0507-1332-7813",
+  "address": "안성 공도읍"
+ },
+ {
+  "id": 14,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200901_288%2F1598920815918vxMzP_JPEG%2FzKBVdGbSUj9vKHYmKlr0sQ8x.jpg",
+  "name": "한국양봉농협 동물병원",
+  "number": "031-677-9323",
+  "address": "안성 미양면"
+ }
+]

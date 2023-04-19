@@ -1,0 +1,72 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_114%2F1441048093856ln6g4_JPEG%2F157175628163027_0.jpeg",
+  "name": "군포굿닥터동물병원",
+  "number": "0507-1437-7533",
+  "address": "군포 당동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_144%2F1441111493323iTyqp_JPEG%2F136760595964076_1.jpeg",
+  "name": "산본중앙동물병원",
+  "number": "031-395-0079",
+  "address": "군포 산본동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190812_287%2F1565578852339iDgAr_JPEG%2F366vHsw6i0_csiMG6ui0BYiH.jpg",
+  "name": "행복나눔동물병원",
+  "number": "031-398-9975",
+  "address": "군포 당동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220306_240%2F16465468234951SfnT_JPEG%2F%25B7%25CE%25B0%25ED.jpg",
+  "name": "로아동물병원",
+  "number": "031-399-8875",
+  "address": "군포 산본동"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220306_300%2F164653920395597m7q_JPEG%2F%25BC%25D6-%25C4%25AB%25B5%25E5%25B4%25BA%25BD%25BA2.jpg",
+  "name": "솔동물의료센터",
+  "number": "031-345-4500",
+  "address": "군포 산본동"
+ },
+ {
+  "id": 6,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190320_60%2F1553087085691VLxNo_JPEG%2F25Ws9khW1KJkKSzx84_6yig0.JPG.jpg",
+  "name": "뉴에스동물병원",
+  "number": "031-397-0071",
+  "address": "군포 산본동"
+ },
+ {
+  "id": 7,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170315_49%2F1489557041891Ixbeq_JPEG%2FuserRegistration_32a78ed4668346d882be11306946ced1___.jpg",
+  "name": "산본동물병원",
+  "number": "031-394-0816",
+  "address": "군포 산본1동"
+ },
+ {
+  "id": 8,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220417_55%2F1650199694597sbM5j_JPEG%2F1650199672738-1.jpg",
+  "name": "그랜드동물병원",
+  "number": "031-453-7582",
+  "address": "군포 당동"
+ },
+ {
+  "id": 9,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160302_272%2F1456894202187okPck_JPEG%2F176252538022088_0.jpeg",
+  "name": "제일동물병원",
+  "number": "0507-1410-8850",
+  "address": "군포 광정동"
+ },
+ {
+  "id": 10,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161026_206%2F1477464581398uYgdW_JPEG%2F176976557960763_0.jpeg",
+  "name": "명동물종합병원",
+  "number": "031-452-7582",
+  "address": "군포 금정동"
+ }
+]

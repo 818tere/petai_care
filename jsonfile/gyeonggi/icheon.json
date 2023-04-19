@@ -1,0 +1,86 @@
+[
+ {
+  "id": 1,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190312_114%2F1552380185363OMdIk_JPEG%2F2OocQGCcAEOP7SobwaNss5GY.jpg",
+  "name": "행복한동물병원",
+  "number": "0507-1382-7582",
+  "address": "이천 진리동"
+ },
+ {
+  "id": 2,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200507_48%2F1588840086797Hcfsm_JPEG%2F4r6GURnAjwhy7A-jMMenHHBk.jpg",
+  "name": "아이동물병원",
+  "number": "0507-1422-0046",
+  "address": "이천 진리동"
+ },
+ {
+  "id": 3,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200503_238%2F15885077781408hxWj_JPEG%2FHc9oXbnUJ_7fsK2pV7wVqYrW.JPG.jpg",
+  "name": "24시스마일동물의료센터",
+  "number": "0507-1427-7582",
+  "address": "이천 진리동"
+ },
+ {
+  "id": 4,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_263%2F1440993298158eHk3V_JPEG%2FSUBMIT_1423468705260_18457401.jpg",
+  "name": "나라동물병원",
+  "number": "031-632-1075",
+  "address": "이천 관고동"
+ },
+ {
+  "id": 5,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220131_46%2F1643613291078x7fvb_JPEG%2FKakaoTalk_20220131_095734819.jpg",
+  "name": "24시 이천동물의료센터",
+  "number": "0507-1347-7510",
+  "address": "이천 증포동"
+ },
+ {
+  "id": 6,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220331_216%2F1648702262589S9WFr_JPEG%2FKakaoTalk_20220331_134910722_07.jpg",
+  "name": "24시고방동물병원",
+  "number": "031-632-7582",
+  "address": "이천 부발읍"
+ },
+ {
+  "id": 7,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200210_300%2F15813170891249xTDm_JPEG%2FGu96xkW0qKCOdjewuidiqIIa.JPG.jpg",
+  "name": "장호원동물병원",
+  "number": "031-643-0010",
+  "address": "이천 장호원읍"
+ },
+ {
+  "id": 8,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230107_134%2F1673081005844ekfO3_JPEG%2F20221215_124655.jpg",
+  "name": "헤세드동물병원",
+  "number": "031-642-7582",
+  "address": "이천 마장면"
+ },
+ {
+  "id": 9,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190130_24%2F154884903162240e69_JPEG%2Fps5TCQja1bsjwmeHxie4NPex.jpg",
+  "name": "우리동물병원",
+  "number": "031-634-0052",
+  "address": "이천 창전동"
+ },
+ {
+  "id": 10,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211225_206%2F1640401129539slPnp_PNG%2F%25B7%25CE%25B0%25ED.png",
+  "name": "홍익동물병원",
+  "number": "0507-1330-7763",
+  "address": "이천 단월동"
+ },
+ {
+  "id": 11,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_10%2F14410505632854pt6J_JPEG%2F11834632_0.jpg",
+  "name": "제일동물병원",
+  "number": "031-633-9883",
+  "address": "이천 창전동"
+ },
+ {
+  "id": 12,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201025_264%2F1603608977308cMjmy_JPEG%2FRK-y7iu2ul6hNuXaOx5xNSYa.jpg",
+  "name": "소사랑동물병원",
+  "number": "0507-1395-0134안내",
+  "address": "이천 설성면"
+ }
+]
