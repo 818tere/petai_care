@@ -2,14 +2,14 @@ class Performance {
   int id = 0;
   String description = '';
   String date = '';
-  num amount = 0;
+  String amount = '';
 
   Performance(this.id, this.date, this.amount, this.description);
 
   Performance.fromJson(Map<String, dynamic> performanceMap) {
     id = performanceMap['id'] ?? 0;
     date = performanceMap['date'] ?? '';
-    amount = performanceMap['amount'] ?? 0;
+    amount = performanceMap['amount'] ?? '';
     description = performanceMap['description'] ?? '';
   }
 

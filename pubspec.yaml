@@ -32,34 +32,24 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_localizations: # 다국어 패키지
-    sdk: flutter
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3 #글꼴 제공
   font_awesome_flutter: ^10.4.0 #아이콘 제공
-  intl: ^0.17.0
+  intl: ^0.18.0
   table_calendar: ^3.0.8
   image_picker: ^0.8.6+3
   http: ^0.13.5
   uuid: ^3.0.7
-  syncfusion_flutter_charts: ^21.1.39
+  syncfusion_flutter_charts: ^21.1.41
   firebase_core: ^2.7.0
   firebase_auth: ^4.2.2
-  cloud_firestore: ^4.5.1
+  cloud_firestore: ^4.4.3
   provider: ^6.0.0
-  shared_preferences: ^2.0.20
+  shared_preferences: ^2.1.0
   badges: ^3.1.1
-  google_ml_kit: ^0.13.0
-  flutter_speed_dial: ^6.2.0
-  dio: ^5.1.1
-  flutter_secure_storage: ^8.0.0
-  firebase_ui_auth: ^1.2.1
-  firebase_ui_firestore: ^1.3.1
-  firebase_database: ^10.1.0
-  firebase_ui_database: ^1.1.1
-  intl_translation: ^0.18.0
 
 dev_dependencies:
   flutter_test:
@@ -85,9 +75,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/dog1.png
-    - assets/dog2.gif
-    - jsonfile/
+    - jsonfile/seoul/
+    - jsonfile/gyeonggi/
     - assets/images/question.jpeg
     - assets/images/review.jpeg
 
