@@ -4,258 +4,295 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMjBfMjM0%2FMDAxNjQyNjY0ODk0NDU5.FCK97akdVZ61QQAXheUGyoFCimopuw-7VHyP1xmq5kYg.qXaP54_BL6neMnXonFPhnMHtGClysFNXYBvVMBGYn_Mg.PNG%2F1271446-51d901cf-77a1-43d5-b10c-7ef121d376fd.png",
   "name": "올스타동물의료센터",
   "number": "0507-1413-7594",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "화곡역 5번 출구"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220725_16%2F1658737198859yjBtX_JPEG%2F%25BF%25AC_%25BF%25DC%25B0%25FC%25BB%25E7%25C1%25F8.jpg",
   "name": "24시 연 동물의료센터",
   "number": "0507-1326-7553",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210608_275%2F1623130758206My3sB_JPEG%2FaeDW9LMm6FZ03F0WQlkMK9Jg.jpg",
   "name": "24시 로운동물의료센터",
   "number": "02-6953-7576",
-  "address": "서울 강서구 등촌동"
+  "address": "서울 강서구 등촌동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_269%2F1441110090671sEzEF_JPEG%2FSUBMIT_1398406027644_34786660.jpg",
   "name": "24시아프리카동물메디컬센터",
   "number": "02-3663-7975",
-  "address": "서울 강서구 등촌동"
+  "address": "서울 강서구 등촌동",
+  "description": "발산역 4번 출구"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220617_76%2F1655450666289owo07_JPEG%2F%25C1%25A8%25C6%25B2%25B8%25AE.jpg",
   "name": "24시 강서 젠틀리동물의료센터",
   "number": "02-2662-8111",
-  "address": "서울 강서구 마곡동"
+  "address": "서울 강서구 마곡동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_64%2F1441002483864NIlEs_JPEG%2FSUBMIT_1362488263234_31591956.jpg",
   "name": "안박동물병원",
   "number": "02-3664-7511",
-  "address": "서울 강서구 등촌동"
+  "address": "서울 강서구 등촌동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210513_163%2F1620887311172yWrSi_JPEG%2FJPnJLK54_2G83e7l0qXztjV5.jpg",
   "name": "미소동물의료센터",
   "number": "02-2603-0075",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTA5MjhfMTc3%2FMDAxNjMyODIwMTg1ODk4.cV0JHT9B968_GywSbuxV8VxoLlOCU12-eg7U1mtpnxMg._Lng6prBkGl9roSW8Ep6uIvbAt0KGMpcjfPpTEHqTBwg.PNG%2F1567459-bc316ffe-a735-4555-a78a-dcf19d6cc939.png",
   "name": "세명동물병원",
   "number": "0507-1375-3584",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "20:00 영업 종료"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_254%2F1441024314761QagPX_JPEG%2FSUBMIT_1269933362023_13344731.jpg",
   "name": "파스텔동물병원",
   "number": "02-2693-0075",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "10:10 영업시작"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221127_211%2F1669515638517iS4UT_JPEG%2FKakaoTalk_20221027_112302193.jpg",
   "name": "나음동물의료센터",
   "number": "0507-1432-0042",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "21:00 영업 종료"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200226_27%2F1582695998432481i1_JPEG%2FNZLY4Yl7HvUiYLFtnadNQ-is.jpg",
   "name": "우장산동물의료센터",
   "number": "0507-1476-8277",
-  "address": "서울 강서구 내발산동"
+  "address": "서울 강서구 내발산동",
+  "description": "20:00 영업 종료"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210401_181%2F1617243368965otcyL_JPEG%2Fr_TF3B4cDwI63qxt2sFCdJCS.jpg",
   "name": "땅콩동물병원",
   "number": "02-3665-7588",
-  "address": "서울 강서구 마곡동"
+  "address": "서울 강서구 마곡동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191016_51%2F1571217480065QUeYs_JPEG%2Fdy7H9Ir-l3n4HCPhwEuskyzF.jpeg.jpg",
   "name": "다나동물병원",
   "number": "02-2690-1060",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220802_142%2F1659368345353xRjTb_JPEG%2FbQfo9knHREkqmqb00uAJWBnI.jpg",
   "name": "강서YD동물의료센터",
   "number": "02-518-7500",
-  "address": "서울 강서구 등촌동"
+  "address": "서울 강서구 등촌동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200402_192%2F1585785937568j2hfy_JPEG%2FgU6AcDujPH6utWOCkQsQy-Tz.jpeg.jpg",
   "name": "굿모닝동물병원",
   "number": "02-2665-8256",
-  "address": "서울 강서구 방화3동"
+  "address": "서울 강서구 방화3동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160202_141%2F1454400758442VJRcW_JPEG%2F176152574258329_0.jpeg",
   "name": "송정동물메디컬센터",
   "number": "02-2661-0530",
-  "address": "서울 강서구 공항동"
+  "address": "서울 강서구 공항동",
+  "description": "22:00 영업 종료"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160426_167%2F14616596465840wYXz_JPEG%2F176371576144552_0.jpeg",
   "name": "세인트동물병원",
   "number": "02-2695-0072",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "까치산역 2번 출구"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170922_34%2F1506052358541uiPXk_JPEG%2Fkvf3_ul7KCz21hi4r-0nPpPj.JPG.jpg",
   "name": "올스타동물의료센터",
   "number": "0507-1413-7594",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "화곡역 5번 출구"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220504_79%2F1651638113355WpbaM_JPEG%2FKakaoTalk_20190520_112710341.jpg",
   "name": "참동물병원",
   "number": "02-2666-7990",
-  "address": "서울 강서구 마곡동"
+  "address": "서울 강서구 마곡동",
+  "description": "20:00 영업 종료"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170330_292%2F14908522924430bKi6_JPEG%2F186280546831411_0.jpeg",
   "name": "마곡나무동물병원",
   "number": "0507-1427-7515",
-  "address": "서울 강서구 마곡동"
+  "address": "서울 강서구 마곡동",
+  "description": "22:00 영업 종료"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160926_204%2F1474880114991Q53os_JPEG%2F176876578533693_0.jpeg",
   "name": "우리아이동물메디컬센터",
   "number": "02-3664-0075",
-  "address": "서울 강서구 내발산동"
+  "address": "서울 강서구 내발산동",
+  "description": "20:00 영업 종료"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200130_55%2F1580380879331Trcc5_JPEG%2FDGfOOWMHoIY6TKkIm-FPEIEm.jpeg.jpg",
   "name": "24시 마곡M동물의료센터",
   "number": "02-2662-7515",
-  "address": "서울 강서구 방화동"
+  "address": "서울 강서구 방화동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190122_72%2F1548155781251Bma4K_JPEG%2F254BFNHpvrrm6mAhf71TfWNR.jpeg.jpg",
   "name": "강서동물종합병원",
   "number": "02-2691-5900",
-  "address": "서울 강서구 화곡1동"
+  "address": "서울 강서구 화곡1동",
+  "description": "까치산역 4번 출구"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_280%2F1441056033951iTqG7_JPEG%2FSUBMIT_1360893365642_13063779.jpg",
   "name": "서서울동물병원",
   "number": "02-3662-8661",
-  "address": "서울 강서구 염창동"
+  "address": "서울 강서구 염창동",
+  "description": "등촌역 3번 출구"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221223_36%2F1671783701144NCceO_JPEG%2F20221126_022200.jpg",
   "name": "하트온동물병원",
   "number": "0507-1303-5975",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "20:00 영업 종료"
  },
  {
   "id": 26,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170419_162%2F149258163274767Ydm_JPEG%2F186369553052600_0.jpeg",
   "name": "대한동물병원",
   "number": "0507-1407-4821",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 27,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220107_21%2F1641544355320Q5Rf7_PNG%2F15677296713001_35.png",
   "name": "마음사랑동물병원",
   "number": "02-2666-2611",
-  "address": "서울 강서구 내발산동"
+  "address": "서울 강서구 내발산동",
+  "description": "20:00 영업 종료"
  },
  {
   "id": 28,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200318_156%2F1584524644705ugTP9_JPEG%2FiR4iZhhMr3W9GVHyVVvKSBVm.jpeg.jpg",
   "name": "공항축산동물병원",
   "number": "02-2663-8520",
-  "address": "서울 강서구 방화동"
+  "address": "서울 강서구 방화동",
+  "description": "공항시작역 1번 출구"
  },
  {
   "id": 29,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190811_236%2F1565522673879LmIyy_JPEG%2FB7xqCmb2L3j--8k5qxamnXHw.jpg",
   "name": "차지우동물병원",
   "number": "02-2235-1533",
-  "address": "서울 강서구 등촌동"
+  "address": "서울 강서구 등촌동",
+  "description": "매주 화요일 휴무"
  },
  {
   "id": 30,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200529_142%2F159074560999419QEN_JPEG%2Fg9Qxr41Ozp6qxTUpZPkrgQ67.jpg",
   "name": "쿨펫동물병원",
   "number": "02-3665-1838",
-  "address": "서울 강서구 가양동"
+  "address": "서울 강서구 가양동",
+  "description": "21:00 영업 종료"
  },
  {
   "id": 31,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220409_240%2F1649465487535wYzQz_JPEG%2FKakaoTalk_20220409_094613955_01.jpg",
   "name": "고려종합동물병원",
   "number": "0507-1436-8206",
-  "address": "서울 강서구 가양동"
+  "address": "서울 강서구 가양동",
+  "description": "09:30 영업 시작"
  },
  {
   "id": 32,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210608_133%2F1623119579081T72YI_JPEG%2F%25B7%25CE%25B0%25ED2.JPG",
   "name": "모모동물병원",
   "number": "0507-1316-7975",
-  "address": "서울 강서구 마곡동"
+  "address": "서울 강서구 마곡동",
+  "description": "마곡역 7번 출구"
  },
  {
   "id": 33,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191121_208%2F1574299126931spAuM_JPEG%2FqdHg8C6JN6pMdsK192gz0uVy.jpg",
   "name": "한마음동물병원",
   "number": "02-2692-8275",
-  "address": "서울 강서구 화곡8동"
+  "address": "서울 강서구 화곡8동",
+  "description": "까치산역 1번 출구"
  },
  {
   "id": 34,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190728_87%2F1564314345547x73Uq_JPEG%2FPe0Agky-nV41P4thpoXGHn0s.jpg",
   "name": "시온동물병원",
   "number": "02-2692-9290",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 35,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190131_117%2F1548946757726rCNcV_JPEG%2FKRJ5sJ4OqrsPryi_LHgJa43A.jpg",
   "name": "고득영 동물병원",
   "number": "02-2608-0973",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "21:00 영업 종료"
  },
  {
   "id": 36,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220420_27%2F1650422885889Fkee2_JPEG%2FKakaoTalk_20220420_114535267_09.jpg",
   "name": "해맑은동물병원",
   "number": "0507-1400-7584",
-  "address": "서울 강서구 가양동"
+  "address": "서울 강서구 가양동",
+  "description": "20:00 영업 종료"
  },
  {
   "id": 37,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190122_1%2F1548156419078e5Q8L_JPEG%2FNZr_P2Axv5FLUjHv164X-6nE.jpeg.jpg",
   "name": "미래동물병원",
   "number": "02-2608-0234",
-  "address": "서울 강서구 화곡동"
+  "address": "서울 강서구 화곡동",
+  "description": "까치산역 3번 출구"
  }
 ]

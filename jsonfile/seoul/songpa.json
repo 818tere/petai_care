@@ -1,149 +1,282 @@
 [
  {
   "id": 1,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180412_192%2F1523495228201EHget_JPEG%2FUORKf6ztqh2mcpQZ2A2ydVav.jpg",
-  "name": "24시 루시드동물메디컬센터",
-  "number": "02-941-7900",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAzMTFfMTIz%2FMDAxNjQ2OTU4NDIyNDE2.qgJ199YVXpvZu94QckX7aobYbmgUPwpjPevzR0-814Ig.AoRYaGZQQsfMVXrgX3iLy5YUAYyl0rtfrScDAFKab9wg.PNG%2F2494076-54134c66-d34c-467d-9910-945ebebb8758.png",
+  "name": "송파 마리동물병원",
+  "number": "02-415-7555",
+  "address": "서울 송파구 방이동",
+  "description": "09:00 영업 시작"
  },
  {
   "id": 2,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180827_114%2F1535378254868LMmYC_JPEG%2FsuZeM7hrIy0_thf1qG8pyIcB.jpg",
-  "name": "보노보노 동물병원",
-  "number": "0507-1412-5525",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTA3MTRfNCAg%2FMDAxNjI2MjU0OTcyMjQ3.IDkX4xQLN7aGvnCp-CkrU5W0f5v5ro3Dkzvkk4K4UXsg.D8E33BtvzlVAy4vxsL8tsgMjj_PgNXqCiWDq4LPmWIMg.PNG%2F2298599-3665a274-eba6-471e-8db6-8b2b7afb6328.png",
+  "name": "도그마루 동물병원",
+  "number": "070-4349-3357",
+  "address": "서울 송파구 잠실동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 3,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221206_196%2F1670263919649zMlB2_JPEG%2FScreenshot_20220206-211724_KakaoTalk.jpg",
-  "name": "24시 바른펫 동물의료센터",
-  "number": "02-903-7582",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220409_4%2F1649489275460jFOsL_JPEG%2F20220317_141929.jpg",
+  "name": "라온펫동물병원",
+  "number": "02-555-2272",
+  "address": "서울 송파구 송파동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 4,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190515_205%2F1557912883814MqNXA_JPEG%2FpAsBp7lMNX5Lt9-hkLmWIrV1.jpg",
-  "name": "아이사랑동물병원",
-  "number": "0507-1330-7583",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221214_38%2F1670996340501hR8TX_PNG%2F2-2.%25B4%25DC%25C3%25BC.png",
+  "name": "24시샤인동물메디컬센터",
+  "number": "0507-1495-7775",
+  "address": "서울 송파구 송파동",
+  "description": "24시간 영업 연중 무휴"
  },
  {
   "id": 5,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211118_171%2F1637224197416Em3MJ_JPEG%2FJDL_8445_copy.jpg",
-  "name": "대형동물병원",
-  "number": "02-998-1785",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221007_86%2F1665120912538PzC4t_JPEG%2F1628643060179.jpg",
+  "name": "에코동물병원",
+  "number": "02-443-2222",
+  "address": "서울 송파구 가락동",
+  "description": "09:30 영업 시작"
  },
  {
   "id": 6,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190129_21%2F15487506361218XI2r_JPEG%2FsTIr6DZlvoUqSCxnC6utLlWG.jpg",
-  "name": "중앙동물병원",
-  "number": "02-982-8698",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220602_226%2F1654177426422OYrgQ_JPEG%2F220314_JSON0338.jpg",
+  "name": "잠실ON동물의료센터",
+  "number": "02-418-0724",
+  "address": "서울 송파구 잠실동",
+  "description": "24시간 영업 연중 무휴"
  },
  {
   "id": 7,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220708_272%2F1657266706704Cx7qQ_JPEG%2F%25BA%25B4.jpg",
-  "name": "마인동물의료센터",
-  "number": "02-2039-8900",
-  "address": "서울 강북구 번동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220430_256%2F16513039349058xT4I_JPEG%2F1650969890200.jpg",
+  "name": "스킨앤이어 동물병원",
+  "number": "02-417-3021",
+  "address": "서울 송파구 방이동",
+  "description": "09:30 영업 시작"
  },
  {
   "id": 8,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_175%2F1441002493179Sm89R_JPEG%2F11599472_0.jpg",
-  "name": "동물을사랑하는사람들",
-  "number": "02-990-7588",
-  "address": "서울 강북구 번동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_229%2F14410454307291GR77_JPEG%2F146754613838627_0.jpeg",
+  "name": "킴리동물병원",
+  "number": "02-6925-5475",
+  "address": "서울 송파구 신천동",
+  "description": "잠실나루역 3번 출구"
  },
  {
   "id": 9,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191121_156%2F1574346629693s8uTA_JPEG%2F07wZPZXZN35idt_niJQl1xMv.jpg",
-  "name": "동물병원 위드",
-  "number": "02-904-0075",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTA3MTlfMTcx%2FMDAxNjI2NjY0MjM2ODAx.xs_sauDCJteToPoLXbh1IY3S-4ALaEH6tHaO1fZpCLEg.7E1VN9E2GNej1PL_bARiGD1956W41eSnxefXCatyxg8g.PNG%2F2022960-75e26b9a-d660-41b8-b7eb-2482dd843866.png",
+  "name": "채움동물의료센터",
+  "number": "0507-1351-6933",
+  "address": "서울 송파구 오금동",
+  "description": "09:30 영업 시작"
  },
  {
   "id": 10,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191030_263%2F1572416649713qDDrH_JPEG%2FEitO6FYOjnn9Qk7J4IIIEviX.jpg",
-  "name": "현대종합동물병원",
-  "number": "02-999-9110",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_105%2F1441022067889vW9PS_JPEG%2F116256548147406_0.jpg",
+  "name": "위드펫 종합동물병원",
+  "number": "02-2202-0075",
+  "address": "서울 송파구 잠실본동",
+  "description": "삼전역 1번 출구"
  },
  {
   "id": 11,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190816_208%2F1565930330025jhfzj_JPEG%2FSfWzjBE-K-sTtaQ5KwczcJF3.jpg",
-  "name": "쿠키동물병원",
-  "number": "02-986-9875",
-  "address": "서울 강북구 삼각산동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_46%2F144111398238543Ruh_JPEG%2FSUBMIT_1402727028334_34882539.jpg",
+  "name": "24시잠실베스트동물메디컬센터",
+  "number": "0507-1479-7976",
+  "address": "서울 송파구 석촌동",
+  "description": "10:00 영업 시작"
  },
  {
   "id": 12,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20151119_178%2F1447925397812PQ5Gj_JPEG%2F167066586849090_0.jpeg",
-  "name": "애니케어동물병원",
-  "number": "0507-1484-1033",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210608_200%2F1623132600243OiIaf_JPEG%2FE9pIn3YoVsnhYThs-Zoelk-O.jpg",
+  "name": "송이종합동물병원",
+  "number": "02-415-7114",
+  "address": "서울 송파구 송파동",
+  "description": "24시간 영업 연중 무휴"
  },
  {
   "id": 13,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190108_243%2F1546927155567eG6c7_JPEG%2FFP771EfGME1vk4R8sRo6cd83.jpg",
-  "name": "호동물병원",
-  "number": "02-988-6543",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190313_193%2F1552449535315QcTwv_JPEG%2FRutl5zwrK5mMC_YNmaL0mBPo.jpeg.jpg",
+  "name": "리오동물병원",
+  "number": "02-415-7579",
+  "address": "서울 송파구 신천동",
+  "description": "몽촌토성역 5번 출구"
  },
  {
   "id": 14,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191202_256%2F15752587646186S6iM_JPEG%2FavdEAQDsMguCE60YNQ8rhGo8.jpg",
-  "name": "위즈동물병원",
-  "number": "02-987-7959",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200831_217%2F15988779810055NhJf_JPEG%2F0LMavdVBPP5fgkORb1-99JL_.jpg",
+  "name": "동물병원알루",
+  "number": "0507-1336-3270",
+  "address": "서울 송파구 문정동",
+  "description": "09:30 영업 시작"
  },
  {
   "id": 15,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191005_284%2F1570274889823GPDgK_JPEG%2FSeVk0e2bp6uFgA5DhG-gpGGq.jpg",
-  "name": "삼성동물병원",
-  "number": "02-980-2340",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220807_206%2F16598776607355CMjd_JPEG%2F%25BD%25BA%25C5%25C4%25B4%25D9%25B5%25E5%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_110.jpeg",
+  "name": "24시스탠다드동물의료센터",
+  "number": "02-448-6400",
+  "address": "서울 송파구 거여동",
+  "description": "24시간 영업 연중 무휴"
  },
  {
   "id": 16,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220127_21%2F16432721014298foG8_JPEG%2F20220127_170002.jpg",
-  "name": "삼양동물병원",
-  "number": "02-989-9552",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAyMTlfMjAg%2FMDAxNjQ1MjMzMzk3MzYx.mMMM6jMsgjyDkbYCU5UieuOOrzO0RqljRhgxpI5-0Pog.4vjVFkomcD9P1tQwdvw83GH1ngg7_f4t_Bb9ubl8FNkg.PNG%2F1062915-33c88ac0-0d68-4813-a11d-f6ba0c540d8f.png",
+  "name": "송파 바로 동물병원",
+  "number": "0507-1418-8575",
+  "address": "서울 송파구 문정동",
+  "description": "24시간 영업 연중 무휴"
  },
  {
   "id": 17,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211026_62%2F1635209024851yClu7_PNG%2FNt2vTXNmEIfEsT-TBK96LvUX.PNG.png",
-  "name": "모네동물피부과",
-  "number": "0507-1324-3121",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjEyMjFfNDgg%2FMDAxNjcxNjAxNTA3MzU2.w6WmHLvZiFaD6q3erqNsCH-yeEz4A_loBXjuaA9tEmMg.Ev_t3h-gQx-OkBKMXji32ANOdy0Vtfn4DGZo8h4ibvog.PNG%2F1175340-f2fe86c2-bbba-4b1d-bfa7-f550ace5db75.png",
+  "name": "라임동물병원",
+  "number": "02-6227-7582",
+  "address": "서울 송파구 방이동",
+  "description": "09:00 영업 시작"
  },
  {
   "id": 18,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150824_175%2F1440396445538YRVsa_JPEG%2F166768553078235_0.jpeg",
-  "name": "창문동물병원",
-  "number": "02-988-0251",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220420_191%2F1650445680776M9pmO_JPEG%2F%25BC%25F6%25BC%25FA%25BB%25E7%25C1%25F8.jpg",
+  "name": "베를린동물치과센터",
+  "number": "0507-1402-1494",
+  "address": "서울 송파구 방이동",
+  "description": "09:00 영업 시작"
  },
  {
   "id": 19,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210818_153%2F1629270170516PLbT4_JPEG%2FHW67znaQcqV3SfE-Qyu46PjA.jpg",
-  "name": "솔샘동물병원",
-  "number": "02-988-7582",
-  "address": "서울 강북구 미아동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_13%2F1441075635791HmSN4_JPEG%2FSUBMIT_1389753658503_33972141.jpg",
+  "name": "석촌동물병원",
+  "number": "02-414-7975",
+  "address": "서울 송파구 석촌동",
+  "description": "10:30 영업 시작"
  },
  {
   "id": 20,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200420_29%2F1587353317273kEBW2_JPEG%2FHeA6Vne6ivbyjzXTj2g_gyNT.jpg",
-  "name": "초이스동물병원",
-  "number": "02-993-8266",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_8%2F1440998965240TLQNJ_JPEG%2F11577766_0.jpg",
+  "name": "에버펫동물병원",
+  "number": "02-409-7533",
+  "address": "서울 송파구 가락2동",
+  "description": "09:30 영업 시작"
  },
  {
   "id": 21,
-  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200414_124%2F1586836644697yD7Vj_JPEG%2Fx9FNk5UCh9sD3ZsDQp3xAz7I.jpg",
-  "name": "사랑동물병원",
-  "number": "0507-1304-4304",
-  "address": "서울 강북구 수유동"
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjExMjVfMjAw%2FMDAxNjY5MzM3NDI0MTQx.xKgPmbZpSE1kWfSzFlUVUyJhKYDEZ1_8XIlvb9Ht_Nsg.09BDt_lQzkqlMibCT7VCWC019y_qsjoyBVRy0WLx2F4g.PNG%2F2715842-9891b9f5-bcba-43df-ab2c-ff0fba09d7af.png",
+  "name": "리베동물메디컬센터",
+  "number": "0507-1448-7502",
+  "address": "서울 송파구 삼전동",
+  "description": "24시간 영업 연중 무휴"
+ },
+ {
+  "id": 22,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAyMjNfNDIg%2FMDAxNjQ1NjE0NDE5Nzc5.2OnRGJrjcT8Gu_13uQzIrNjdHJUgP8r4cajrpPWRZs4g.XQ8CcmhOCjVTRJuYy4UDSgXlfutqU29re0pL5jouNqcg.PNG%2F1082768-1f18daf0-0a6b-4a53-bf9a-ef3af7975a99.png",
+  "name": "송파스마일동물병원",
+  "number": "02-448-7588",
+  "address": "서울 송파구 문정동",
+  "description": "09:00 영업 시작"
+ },
+ {
+  "id": 23,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210907_106%2F1630984943554Prxku_JPEG%2Fc6Kt8kJS8FW5BNtRWUngmJS7.jpg",
+  "name": "위례 별 동물의료센터",
+  "number": "02-401-7579",
+  "address": "서울 송파구 장지동",
+  "description": "주차는 위례별 초교 맞은편"
+ },
+ {
+  "id": 24,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220308_7%2F1646725260796ca38z_JPEG%2FJDL_7812_copy.jpg",
+  "name": "송파 마리동물병원",
+  "number": "02-415-7555",
+  "address": "서울 송파구 방이동",
+  "description": "09:00 영업 시작"
+ },
+ {
+  "id": 25,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_154%2F14410435342742Wyzl_JPEG%2F36154437_0.jpeg",
+  "name": "잠실종합동물병원",
+  "number": "02-415-7585",
+  "address": "서울 송파구 송파1동",
+  "description": "10:00 영업 시작"
+ },
+ {
+  "id": 26,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200226_198%2F1582642813862kjBxE_JPEG%2FZCfLe-mDsLtZZ9AYTwegA92z.jpg",
+  "name": "꿈이크는동물병원",
+  "number": "0507-1416-7580",
+  "address": "서울 송파구 잠실본동",
+  "description": "10:00 영업 시작"
+ },
+ {
+  "id": 27,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160106_1%2F1452072616204Xl3WJ_JPEG%2F176056586035969_1.jpeg",
+  "name": "온마음동물메디컬센터",
+  "number": "02-449-0075",
+  "address": "서울 송파구 거여동",
+  "description": "거여역 1번 출구"
+ },
+ {
+  "id": 28,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190102_216%2F1546410559143wCofQ_JPEG%2Fh1WIsgQkJQ67Awtzq8J13VaK.JPG.jpg",
+  "name": "더샵동물메디컬센터",
+  "number": "0507-1326-7512",
+  "address": "서울 송파구 신천동",
+  "description": "10:00 영업 시작"
+ },
+ {
+  "id": 29,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200608_36%2F1591602649848wcaqp_JPEG%2Fy4juKSEssY9ztmDyqBHhvcg5.jpg",
+  "name": "라임동물병원",
+  "number": "02-6227-7582",
+  "address": "서울 송파구 방이동",
+  "description": "09:00 영업 시작"
+ },
+ {
+  "id": 30,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150902_152%2F1441124088810Dbdia_JPEG%2FSUBMIT_1395990580749_31161129.jpg",
+  "name": "리센츠스타동물병원",
+  "number": "02-419-1010",
+  "address": "서울 송파구 잠실동",
+  "description": "10:00 영업 시작"
+ },
+ {
+  "id": 31,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200113_253%2F1578901171451kdINN_JPEG%2FJo5vge9n7nnreCvN-pp3bq5x.jpg",
+  "name": "늘푸른종합동물병원",
+  "number": "02-449-0101",
+  "address": "서울 송파구 오금동",
+  "description": "방이역 1번 출구"
+ },
+ {
+  "id": 32,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_122%2F1441017781531JwMT6_JPEG%2FSUBMIT_1351496072432_13306520.jpg",
+  "name": "잠실 준 25시 동물병원",
+  "number": "02-415-7580",
+  "address": "서울 송파구 삼전동",
+  "description": "10:00 영업 시작"
+ },
+ {
+  "id": 33,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150902_191%2F14411278112176DmLu_PNG%2F35162791_0.png",
+  "name": "문정탑동물병원",
+  "number": "02-431-0275",
+  "address": "서울 송파구 문정동",
+  "description": "10:30 영업 시작"
+ },
+ {
+  "id": 34,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180718_271%2F1531900060811S0cLy_PNG%2F5XxTFO8rZ9HctxsUtCBy3Yzx.png",
+  "name": "닥터캣고양이병원",
+  "number": "0507-1314-2575",
+  "address": "서울 송파구 석촌동",
+  "description": "10:00 영업 시작"
+ },
+ {
+  "id": 35,
+  "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220617_296%2F1655445403164VOJxA_JPEG%2F1655445312453.jpg",
+  "name": "24시페토피아동물병원",
+  "number": "02-414-0075",
+  "address": "서울 송파구 방이동",
+  "description": "송파나루역 3번 출구"
  }
 ]

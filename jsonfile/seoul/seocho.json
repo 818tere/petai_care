@@ -4,223 +4,255 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_97%2F1441062091783hHwE2_JPEG%2F33562333_0.jpeg",
   "name": "동물제중원금손이",
   "number": "02-581-5500",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_104%2F1440991463307NfKk3_JPEG%2FSUBMIT_1393981973895_18225354.jpg",
   "name": "내방동물병원",
   "number": "02-3473-8275",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181106_113%2F1541484151548eczhy_JPEG%2F7uLo5RxuKmuKXBb5bokmmQg5.jpg",
   "name": "두리동물병원",
   "number": "0507-1404-7522",
-  "address": "서울 서초구 반포동"
+  "address": "서울 서초구 반포동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170413_150%2F1492047940503lO0sR_JPEG%2F186358566349748_0.jpeg",
   "name": "메디펫 동물병원",
   "number": "02-586-7501",
-  "address": "서울 서초구 서초동"
+  "address": "서울 서초구 서초동",
+  "description": "매주 화요일 휴무"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170313_125%2F1489391279424H2hm6_JPEG%2F186263567778405_0.jpeg",
   "name": "리즈동물병원",
   "number": "0507-1408-7594",
-  "address": "서울 서초구 잠원동"
+  "address": "서울 서초구 잠원동",
+  "description": "신사역 5번 출구"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221018_105%2F1666066459059kHfj0_JPEG%2F1.jpg",
   "name": "동편동물혈액검진센터",
   "number": "0507-1337-8661",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161015_232%2F1476537996751KRBbf_JPEG%2F176965625655704_0.jpeg",
   "name": "VIP동물의료센터 서초점",
   "number": "02-525-3102",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "24시간 영업"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_223%2F1440994623722wVXOQ_JPEG%2F106470458855529_0.jpg",
   "name": "교대동물병원",
   "number": "02-596-1175",
-  "address": "서울 서초구 서초동"
+  "address": "서울 서초구 서초동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191010_297%2F157069268253979t5I_JPEG%2FSvrpUDbAvoSW8pbNrOcRo1yU.jpg",
   "name": "서초이음동물병원",
   "number": "02-3474-7582",
-  "address": "서울 서초구 서초동"
+  "address": "서울 서초구 서초동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_1%2F1441056001776FN3KY_JPEG%2FSUBMIT_1318847931108_20584599.jpg",
   "name": "24시 예스 동물병원",
   "number": "02-534-3475",
-  "address": "서울 서초구 반포1동"
+  "address": "서울 서초구 반포1동",
+  "description": "반포역 3번 출구"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_132%2F1441051349084cbqoQ_JPEG%2F33210316_0.jpg",
   "name": "아델동물병원",
   "number": "02-522-0222",
-  "address": "서울 서초구 서초3동"
+  "address": "서울 서초구 서초3동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200318_71%2F1584508584558JDKTV_JPEG%2FBsmvckv7A2RSSpt5aGrqbqZ-.jpg",
   "name": "심바동물병원",
   "number": "02-523-0275",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190923_238%2F1569221310619tBUaa_JPEG%2F_oKL155gPy6TJ7h-rm_EX9uT.jpg",
   "name": "ABC동물병원",
   "number": "02-3471-0075",
-  "address": "서울 서초구 서초동"
+  "address": "서울 서초구 서초동",
+  "description": "강남역 5번 출구"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180702_138%2F1530521542297ni1oa_JPEG%2FI4KfGrKFqorR1ZLoip1S1QDW.jpg",
   "name": "디아나동물병원",
   "number": "02-521-9010",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191023_24%2F1571797104291u543F_JPEG%2FU5i8HV9upFWxAL_JcThUbMXe.jpg",
   "name": "라파엘동물병원",
   "number": "02-3444-7507",
-  "address": "서울 서초구 반포동"
+  "address": "서울 서초구 반포동",
+  "description": "10:30에 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220101_251%2F1641046542945k2Tg4_JPEG%2F%25B0%25B3%25B0%25ED%25BE%25E7%25C0%25CC_%25C4%25B3%25B8%25AF%25C5%25CD.jpg",
   "name": "몽마르뜨 동물병원",
   "number": "02-595-7588",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181217_287%2F1545050665324k6bx9_JPEG%2FE1pXrp8XUClHly3cNqoA9iMQ.JPG.jpg",
   "name": "헤이븐동물병원",
   "number": "02-532-5119",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190626_184%2F1561515387415rnAdy_JPEG%2F-0JoSQ3sonyvjn6Ut1Rbp-D_.jpg",
   "name": "한나동물병원",
   "number": "02-595-8875",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160726_63%2F1469524105832v9PR0_JPEG%2F176671555670124_0.jpeg",
   "name": "유림동물안과병원",
   "number": "02-593-1045",
-  "address": "서울 서초구 잠원동"
+  "address": "서울 서초구 잠원동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230207_251%2F1675752093342h9MFC_JPEG%2FKakaoTalk_20230207_154044096.jpg",
   "name": "꿈꾸는동물병원",
   "number": "02-592-0202",
-  "address": "서울 서초구 반포동"
+  "address": "서울 서초구 반포동",
+  "description": "반포역 3번 출구"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191018_144%2F1571394376238HCB62_JPEG%2Fleix-WQo6988qLWi5IgGCRPJ.jpg",
   "name": "해뜨는동물병원해질녘책방",
   "number": "02-536-6469",
-  "address": "서울 서초구 잠원동"
+  "address": "서울 서초구 잠원동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201028_25%2F1603853072991ydCLg_JPEG%2FZJEYBO715wSb-AgLbRlOUBGB.jpg",
   "name": "다니엘동물병원",
   "number": "02-585-0087",
-  "address": "서울 서초구 서초동"
+  "address": "서울 서초구 서초동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221104_223%2F1667548217290j1IQj_PNG%2FKakaoTalk_20221104_111710826.png",
   "name": "시니어동물병원",
   "number": "0507-1338-0525",
-  "address": "서울 서초구 서초동"
+  "address": "서울 서초구 서초동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210610_153%2F1623312515946o5dXb_JPEG%2FDX4IthslyZwq_huOpkl_XCBc.jpg",
   "name": "파파동물병원",
   "number": "02-2039-9780",
-  "address": "서울 서초구 잠원동"
+  "address": "서울 서초구 잠원동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190417_44%2F1555463658472aKnay_JPEG%2FRQZbos3WaU8WquiQgvA8ang3.jpg",
   "name": "방배한강동물병원",
   "number": "02-593-7667",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 26,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210217_59%2F1613528688899lNUUE_JPEG%2FA5hS1yanV8GJHAZC77RlD9eH.JPG.jpg",
   "name": "서울종합동물병원방배",
   "number": "0507-1443-2251",
-  "address": "서울 서초구 방배동"
+  "address": "서울 서초구 방배동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 27,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221207_287%2F16704030289021mupl_JPEG%2F%25BC%25AD%25C3%25CA%25C0%25CC%25C5%25C2%25C7%25FC_%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8%2528SLAMC%2529.jpg",
   "name": "서초 이태형 동물병원",
   "number": "0507-1384-7582",
-  "address": "서울 서초구 반포동"
+  "address": "서울 서초구 반포동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 28,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160423_69%2F14613947354479kRry_JPEG%2F176373558874359_0.jpeg",
   "name": "에이원동물병원",
   "number": "0507-1429-8181",
-  "address": "서울 서초구 서초동"
+  "address": "서울 서초구 서초동",
+  "description": "서초역 3번 출구"
  },
  {
   "id": 29,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181218_91%2F1545109053073g2m0M_JPEG%2F34MxhSc7uso05WNZsgQb-z2Q.jpg",
   "name": "이을동물병원",
   "number": "02-593-7575",
-  "address": "서울 서초구 반포동"
+  "address": "서울 서초구 반포동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 30,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_136%2F1441016933250PR36W_JPEG%2FSUBMIT_1414154077489_35689048.jpg",
   "name": "서초힐스동물병원",
   "number": "0507-1409-7593",
-  "address": "서울 서초구 우면동"
+  "address": "서울 서초구 우면동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 31,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_165%2F1441065614904cBQzu_JPEG%2FSUBMIT_1368072009161_20785810.jpg",
   "name": "반포자이동물병원",
   "number": "02-3476-3535",
-  "address": "서울 서초구 반포동"
+  "address": "서울 서초구 반포동",
+  "description": "사평역 1번 출구"
  },
  {
   "id": 32,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210827_291%2F1630045968061AR291_JPEG%2F84U9S3H-d2bygV9M1bjnyagS.jpg",
   "name": "하나동물병원",
   "number": "02-574-0511",
-  "address": "서울 서초구 신원동"
+  "address": "서울 서초구 신원동",
+  "description": "10:30에 영업 시작"
  }
 ]

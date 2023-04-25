@@ -4,209 +4,239 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160404_115%2F1459759518483214oc_JPEG%2F176354577531619_0.jpeg",
   "name": "경인동물의료센터",
   "number": "02-571-8275",
-  "address": "서울 영등포구 영등포동"
+  "address": "서울 영등포구 영등포동",
+  "description": "영등포역 6번 출구"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190905_142%2F15676690309876x77A_JPEG%2FCaY-DSWG-ysRuO3CYEzW-uT7.jpg",
   "name": "러브펫동물병원 영등포타임스퀘어점",
   "number": "02-2634-8275",
-  "address": "서울 영등포구 영등포동4가"
+  "address": "서울 영등포구 영등포동4가",
+  "description": "10:30에 영업 시작"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220810_41%2F1660119029077kV43U_JPEG%2FIMG_1463.jpg",
   "name": "24시 수 동물병원",
   "number": "02-2676-7582",
-  "address": "서울 영등포구 양평동1가"
+  "address": "서울 영등포구 양평동1가",
+  "description": "24시 영업 연중무휴"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_93%2F1441091602590G7mWP_JPEG%2FSUBMIT_1436139244314_36667560.jpg",
   "name": "이든동물의료센터",
   "number": "02-2635-2475",
-  "address": "서울 영등포구 당산동5가"
+  "address": "서울 영등포구 당산동5가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191014_175%2F1571039086426q3l8q_JPEG%2Fr6RqoyzbdmLI-La3jnnnDTvU.JPG.jpg",
   "name": "영등포동물병원",
   "number": "02-2633-9991",
-  "address": "서울 영등포구 당산동1가"
+  "address": "서울 영등포구 당산동1가",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_110%2F14410961712887TpsI_JPEG%2FSUBMIT_1394849245987_34490360.jpg",
   "name": "여의도동물병원",
   "number": "02-783-7580",
-  "address": "서울 영등포구 여의도동"
+  "address": "서울 영등포구 여의도동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201101_224%2F1604220286486w8Qhk_JPEG%2FpNo4Ka8UStTQD-TqPU37Yt_W.jpg",
   "name": "플러스동물메디컬센터",
   "number": "02-3662-3533",
-  "address": "서울 영등포구 양평동4가"
+  "address": "서울 영등포구 양평동4가",
+  "description": "당산역 3번 출구"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220203_235%2F1643865802919E4uC6_JPEG%2F%25BB%25E7%25C1%25F8_2022._2._3._%25BF%25C0%25C8%25C4_1_51_53_%25282%2529.jpg",
   "name": "디오빌동물병원",
   "number": "02-2671-0026",
-  "address": "서울 영등포구 당산동5가"
+  "address": "서울 영등포구 당산동5가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190806_175%2F1565076177573O8xnr_JPEG%2F1O_d_axBXVBmh-RoMBbbtTR4.jpg",
   "name": "유석동물병원",
   "number": "02-833-7554",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170904_172%2F1504502165234TCDy6_JPEG%2FmkV92Q6eqL6Ixzfci2cOSphn.jpg",
   "name": "신길 온동물병원",
   "number": "02-848-7975",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191020_170%2F1571570762684TQyIh_JPEG%2FICzasNGv-I94VfOouIuoVBfv.jpg",
   "name": "미소로동물병원",
   "number": "02-2679-9997",
-  "address": "서울 영등포구 영등포동8가"
+  "address": "서울 영등포구 영등포동8가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220223_206%2F1645585181779k11sv_JPEG%2F%25B0%25A3%25C6%25C7.jpg",
   "name": "우신종합동물병원",
   "number": "02-836-6509",
-  "address": "서울 영등포구 신길4동"
+  "address": "서울 영등포구 신길4동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200114_288%2F1578986909780teilS_JPEG%2Fo5lPPYi08STl1_HSvwD8hsmr.jpg",
   "name": "애드펫동물병원",
   "number": "02-2068-2277",
-  "address": "서울 영등포구 양평동2가"
+  "address": "서울 영등포구 양평동2가",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220430_55%2F16512923877645BJXN_JPEG%2F%25C0%25CC%25BF%25B9%25C1%25F6_%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8%25BF%25B9%25C1%25F6_12_%25281%2529.jpg",
   "name": "동물병원 예지",
   "number": "0507-1368-7228",
-  "address": "서울 영등포구 대림동"
+  "address": "서울 영등포구 대림동",
+  "description": "신풍역 2번 출구"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190804_236%2F15649132997839G2uM_JPEG%2Fpg-E5doTnf1fil68dsGLnpba.jpeg.jpg",
   "name": "캣앤캣 고양이병원",
   "number": "02-2677-2720",
-  "address": "서울 영등포구 문래동3가"
+  "address": "서울 영등포구 문래동3가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_61%2F1440988596580SAg9U_JPEG%2FSUBMIT_1433864816094_31248407.jpg",
   "name": "왈츠 동물병원",
   "number": "02-834-7582",
-  "address": "서울 영등포구 대림동"
+  "address": "서울 영등포구 대림동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170131_60%2F1485843187232l2B1Y_JPEG%2F186081554326239_0.jpeg",
   "name": "Dr.수 동물병원",
   "number": "02-785-7582",
-  "address": "서울 영등포구 여의도동"
+  "address": "서울 영등포구 여의도동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210507_252%2F1620365200349N223z_JPEG%2FnJ7Z2c7Qa2kezB_RYFq0jDFd.jpg",
   "name": "시그널동물병원",
   "number": "0507-1381-7505",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "08:00에 영업 시작"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190107_129%2F1546846629878l0b6G_JPEG%2FEGhm_gT8QvYMY6KcyTMUqon3.jpg",
   "name": "대방동물병원",
   "number": "02-833-0309",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "보라매역 6번 출구"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180719_258%2F1531977866771s3Tv0_JPEG%2FXL6_AQX8r4-3WjFBDDXfVud3.jpg",
   "name": "신풍동물병원",
   "number": "02-835-7572",
-  "address": "서울 영등포구 신길6동"
+  "address": "서울 영등포구 신길6동",
+  "description": "신풍역 2번 출구"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190218_232%2F1550469503275pOaHL_JPEG%2FAtHT_Sn5JIbymkHrRT3hi-n_.jpg",
   "name": "온누리종합동물병원",
   "number": "02-845-0780",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "영등포역 1번 출구"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220405_79%2F1649128685358x8Dld_JPEG%2FKakaoTalk_20220405_121600423.jpg",
   "name": "도림하나 동물병원",
   "number": "0507-1344-7584",
-  "address": "서울 영등포구 도림동"
+  "address": "서울 영등포구 도림동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_99%2F1440999466763MkWSL_JPEG%2F106575515439121_0.jpg",
   "name": "참동물병원",
   "number": "02-841-0075",
-  "address": "서울 영등포구 신길1동"
+  "address": "서울 영등포구 신길1동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210705_201%2F1625468741586Mu1j0_JPEG%2FmzWfVbUnGdUp7vJFXcBn2mKf.jpeg.jpg",
   "name": "다움동물병원",
   "number": "0507-1350-0197",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "신풍역 4번 출구"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200430_188%2F15882536116855cLwv_JPEG%2FD0VEa2YWx9BvrDyJ6p-x1LiD.jpeg.jpg",
   "name": "365 한가람동물의료센터",
   "number": "0507-1439-7804",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 26,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181107_257%2F1541567555812yYKTY_JPEG%2F6FnIhSFK01oLXBZrNoAp4SX9.jpg",
   "name": "그림책 읽어주는 동물병원",
   "number": "0507-1310-0113",
-  "address": "서울 영등포구 당산동4가"
+  "address": "서울 영등포구 당산동4가",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 27,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190609_87%2F1560052185717HsYJD_JPEG%2FALkixahQ2vpCMrnoAXmrjaqW.jpg",
   "name": "라이프동물병원",
   "number": "02-832-7975",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 28,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200106_216%2F1578307401390V624M_JPEG%2FdFo3fESR70vDGOfh2mwVzp9U.jpeg.jpg",
   "name": "아이펫동물병원",
   "number": "02-786-7582",
-  "address": "서울 영등포구 여의도동"
+  "address": "서울 영등포구 여의도동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 29,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170205_98%2F1486292384191jczLi_JPEG%2F186155598963206_0.jpeg",
   "name": "아람동물병원",
   "number": "0507-1342-7975",
-  "address": "서울 영등포구 신길동"
+  "address": "서울 영등포구 신길동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 30,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220807_160%2F1659824990536wYnR9_JPEG%2F0BC1A9D3-6C9A-41FE-BEF2-AA0E08848F8D.jpeg",
   "name": "뉴욕동물병원",
   "number": "02-2679-3877",
-  "address": "서울 영등포구 영등포동4가"
+  "address": "서울 영등포구 영등포동4가",
+  "description": "영등포시장역 4번 출구"
  }
 ]
