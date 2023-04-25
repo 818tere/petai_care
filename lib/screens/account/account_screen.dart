@@ -45,6 +45,12 @@ class _AccountScreenState extends State<AccountScreen> {
   final ImagePicker picker = ImagePicker();
   //_getfromimage
 
+  String? selectedItem;
+  final List<String> _items = [
+    '병원비',
+    '양육비',
+  ];
+  //dropdownbutton 분류 필드
   @override
   void initState() {
     helper.init().then((value) => updateScreen());
@@ -91,6 +97,52 @@ class _AccountScreenState extends State<AccountScreen> {
                 labelText: '내용',
               ),
             ),
+            DropdownButton<String>(
+              value: selectedItem,
+              onChanged: ((value) {
+                setState(() {
+                  selectedItem = value!;
+                });
+              }),
+              items: _items
+                  .map((e) => DropdownMenuItem(
+                        value: e,
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 20,
+                                child: uploadImage.Image.asset(
+                                    'assets/accountimages/$e.png'),
+                              ),
+                              const SizedBox(width: 10),
+                              Text(e),
+                            ],
+                          ),
+                        ),
+                      ))
+                  .toList(),
+              selectedItemBuilder: (BuildContext context) => _items
+                  .map((e) => Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                            child: uploadImage.Image.asset(
+                                'assets/accountimages/$e.png'),
+                          ),
+                          const SizedBox(width: 5),
+                          Text(e)
+                        ],
+                      ))
+                  .toList(),
+              hint: const Text(
+                '카테고리',
+                style: TextStyle(color: Colors.grey),
+              ),
+              isExpanded: true,
+              dropdownColor: Colors.white,
+            ),
           ],
         ),
         actions: [
@@ -114,7 +166,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 return;
               } else {
                 savePerformance(
-                    num.parse(amountController.text), descpController.text);
+                    amountController.text, descpController.text, selectedItem!);
                 setState(() {
                   if (mySelectedEvents[
                           DateFormat('yyyy-MM-dd').format(_selectedDay!)] !=
@@ -123,6 +175,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             DateFormat('yyyy-MM-dd').format(_selectedDay!)]
                         ?.add(
                       {
+                        'category': selectedItem,
                         'amount': amountController.text,
                         'descp': descpController.text,
                       },
@@ -131,6 +184,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     mySelectedEvents[
                         DateFormat('yyyy-MM-dd').format(_selectedDay!)] = [
                       {
+                        'category': selectedItem,
                         'amount': amountController.text,
                         'descp': descpController.text,
                       },
@@ -139,6 +193,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 });
                 amountController.clear();
                 descpController.clear();
+
                 Navigator.of(context).pop();
                 return;
               }
@@ -149,10 +204,12 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
-  Future savePerformance(num amount, String descp) async {
+  Future savePerformance(
+      String amount, String descp, String selectedItem) async {
     int id = helper.getCounter() + 1;
-    Performance newPerformance =
-        Performance(id, _selectedDay.toString(), amount, descp);
+
+    Performance newPerformance = Performance(
+        id, _selectedDay.toString(), amount.toString(), descp, selectedItem);
 
     helper.writePerformance(newPerformance).then((_) {
       helper.setCounter();
@@ -209,49 +266,12 @@ class _AccountScreenState extends State<AccountScreen> {
     });
   }
 
-  _bottomSheet(context, num recognizedAmount, String recognizedDescp) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return SizedBox(
-          height: 200,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text('추가할 정보를 한번 더 확인해주세요'),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      savePerformance(recognizedAmount, recognizedDescp);
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('내역추가'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('취소'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   Widget _buildRecognizedText(XFile image, ImageModel imageModel) {
     String amountTemp = (imageModel.images[0].fields[1].inferText)
         .replaceAll(RegExp('[^0-9\\s]'), '');
-    num recognizedAmount = num.parse(amountTemp);
+    String recognizedAmount = amountTemp;
     String recognizedDescp = imageModel.images[0].fields[0].inferText;
+    String recognizedCategory = recognizedDescp.contains('병원') ? '병원비' : '양육비';
     return Scaffold(
       appBar: AppBar(
         title: const Text('영수증 인식확인'),
@@ -376,8 +396,8 @@ class _AccountScreenState extends State<AccountScreen> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 50, vertical: 10)),
                                   onPressed: () {
-                                    savePerformance(
-                                        recognizedAmount, recognizedDescp);
+                                    savePerformance(recognizedAmount,
+                                        recognizedDescp, recognizedCategory);
                                     Navigator.of(context).pop();
                                   },
                                   child: const Text('내역추가'),
@@ -599,7 +619,7 @@ class _AccountScreenState extends State<AccountScreen> {
           ),
           SpeedDialChild(
             child: const Icon(Icons.picture_in_picture),
-            label: '갤러리',
+            label: '영수증 인식',
             onTap: () {
               _getFromImage(ImageSource.gallery);
             },
@@ -627,12 +647,12 @@ class _AccountScreenState extends State<AccountScreen> {
               .then((value) => updateScreen());
         },
         child: ListTile(
-          leading: const Icon(
-            Icons.local_hospital,
-            color: Colors.blue,
-            size: 40,
-          ),
-          title: Text('${formatCurrency.format(performance.amount)}원'),
+          leading: ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: uploadImage.Image.asset(
+                  'assets/accountimages/${performance.category}.png')),
+          title:
+              Text('${formatCurrency.format(num.parse(performance.amount))}원'),
           subtitle: Text(performance.description),
         ),
       ));
