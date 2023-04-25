@@ -34,7 +34,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    var url = Uri.parse('http://0af1-34-29-25-145.ngrok-free.app/');
+    var url = Uri.parse('http://11ea-34-91-97-125.ngrok-free.app');
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
     var response = await request.send();
@@ -42,13 +42,16 @@ class _AiScreenState extends State<AiScreen> {
     String koreanString = jsonDecode(
       const Utf8Decoder().convert(responseString.runes.toList()),
     )['class_name'];
+    int prob = jsonDecode(
+      const Utf8Decoder().convert(responseString.runes.toList()),
+    )['probability'];
 
     if (!mounted) return;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('질병 코드'),
-        content: Text(koreanString),
+        title: const Text('진단 결과'),
+        content: Text("$koreanString 확률: $prob%"),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
