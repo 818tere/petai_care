@@ -50,7 +50,7 @@ class _ReviewPostScreenState extends State<ReviewPostScreen> {
               ),
             ),
           ),
-          title: Text(user.email.toString()),
+          title: Text(widget.doc["userEmail"]),
           subtitle: Text(
             DateFormat('MM-dd HH:mm').format(widget.doc["writeDate"].toDate()),
           ),
