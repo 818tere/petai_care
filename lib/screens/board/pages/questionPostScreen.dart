@@ -54,7 +54,7 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                 ),
               ),
             ),
-            title: Text(user.email.toString()),
+            title: Text(widget.doc["userEmail"]),
             subtitle: Text(
               DateFormat('MM-dd HH:mm')
                   .format(widget.doc["writeDate"].toDate()),
