@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -11,6 +12,8 @@ class ReviewPostScreen extends StatefulWidget {
 }
 
 class _ReviewPostScreenState extends State<ReviewPostScreen> {
+  final user = FirebaseAuth.instance.currentUser!;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,7 @@ class _ReviewPostScreenState extends State<ReviewPostScreen> {
             textAlign: TextAlign.start,
           ),
         ),
-        // 아이콘, 익명, datetime
+        // 아이콘, userEamil, datetime
         ListTile(
           leading: const CircleAvatar(
             backgroundColor: Colors.white,
@@ -47,7 +50,7 @@ class _ReviewPostScreenState extends State<ReviewPostScreen> {
               ),
             ),
           ),
-          title: const Text('익명'),
+          title: Text(user.email.toString()),
           subtitle: Text(
             DateFormat('MM-dd HH:mm').format(widget.doc["writeDate"].toDate()),
           ),
