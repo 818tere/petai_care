@@ -52,6 +52,8 @@ dependencies:
   badges: ^3.1.1
   flutter_speed_dial: ^6.2.0
   firebase_storage: ^11.1.1
+  get: ^4.6.5
+  flutter_spinkit: ^5.1.0
 
 dev_dependencies:
   flutter_test:

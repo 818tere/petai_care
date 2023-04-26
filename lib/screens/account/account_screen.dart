@@ -14,6 +14,8 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter/src/widgets/image.dart' as uploadImage;
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:uuid/uuid.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -44,6 +46,8 @@ class _AccountScreenState extends State<AccountScreen> {
   XFile? _image;
   final ImagePicker picker = ImagePicker();
   //_getfromimage
+  final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
+  //String _imageURL = '';
 
   String? selectedItem;
   final List<String> _items = [
@@ -222,30 +226,37 @@ class _AccountScreenState extends State<AccountScreen> {
 
   Future _getFromImage(ImageSource imageSource) async {
     final XFile? pickedFile = await picker.pickImage(source: imageSource);
-    if (pickedFile != null) {
-      setState(() {
-        _image = XFile(pickedFile.path);
-      });
-      getRecognizedText(_image!); //이미지를 가져온 뒤 텍스트를 인식하는 함수
-    }
+    final File imagefile = File(pickedFile!.path);
+    String postId = const Uuid().v4();
+    Reference storageReference =
+        _firebaseStorage.ref().child('account_image/$postId');
+
+    UploadTask storageUploadTask = storageReference.putFile(imagefile); //파일 업로드
+    await storageUploadTask;
+
+    String downloadURL = await storageReference.getDownloadURL();
+    postId = const Uuid().v4();
+
+    getRecognizedText(pickedFile, downloadURL);
   }
 
-  Future getRecognizedText(XFile image) async {
+  Future getRecognizedText(XFile image, String downloadURL) async {
     //var bytes = File(_image.toString()).readAsBytes();
     //String img64 = base64Encode(await bytes);
 
     const String apiUrl =
         'https://c5ow50d89i.apigw.ntruss.com/custom/v1/21848/74ec55cb84097108fb278ca259460e9cfcde072e550ba9a68e3e5dca84f7b0fc/infer';
     const String secretKey = 'cVhCeGNBVmh6RmxnWVlOTm5Kc2pYU3NrWmpkd3d2ZUk=';
-    const String imageUrl =
+    /*const String imageUrl =
         'https://kr.object.ncloudstorage.com/petaicare/text1.jpeg';
+*/
 
     var requestJson = {
       'version': 'V1',
       'requestId': 'test',
       'timestamp': 0,
       'images': [
-        {'name': 'tmp', 'format': 'jpg', 'url': imageUrl}
+        {'name': 'tmp', 'format': 'jpg', 'url': downloadURL}
       ]
     };
     var headers = {
@@ -366,8 +377,9 @@ class _AccountScreenState extends State<AccountScreen> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.blue, width: 1.5)),
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -376,8 +388,8 @@ class _AccountScreenState extends State<AccountScreen> {
                               children: const [
                                 Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
                                         fontSize: 17))
                               ],
                             ),
@@ -389,7 +401,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               children: [
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.blue,
+                                      backgroundColor: Colors.white,
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10)),
@@ -400,11 +412,14 @@ class _AccountScreenState extends State<AccountScreen> {
                                         recognizedDescp, recognizedCategory);
                                     Navigator.of(context).pop();
                                   },
-                                  child: const Text('내역추가'),
+                                  child: const Text('내역추가',
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.bold)),
                                 ),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.blue,
+                                      backgroundColor: Colors.white,
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10)),
@@ -413,7 +428,10 @@ class _AccountScreenState extends State<AccountScreen> {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: const Text('취소'),
+                                  child: const Text('취소',
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontWeight: FontWeight.bold)),
                                 ),
                               ],
                             ),
