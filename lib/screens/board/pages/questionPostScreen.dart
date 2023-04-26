@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -11,9 +12,10 @@ class QuestionPostScreen extends StatefulWidget {
 }
 
 class _QuestionPostScreenState extends State<QuestionPostScreen> {
-  final controllerTitle = TextEditingController();
-  final controllerWriteDate = TextEditingController();
-  final controllerContent = TextEditingController();
+  final user = FirebaseAuth.instance.currentUser!;
+
+  CollectionReference refComment =
+      FirebaseFirestore.instance.collection('comments');
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
               textAlign: TextAlign.start,
             ),
           ),
-          // 아이콘, 익명, datetime
+          // 아이콘, userEmail, datetime
           ListTile(
             leading: const CircleAvatar(
               backgroundColor: Colors.white,
@@ -52,7 +54,7 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                 ),
               ),
             ),
-            title: const Text('익명'),
+            title: Text(widget.doc["userEmail"]),
             subtitle: Text(
               DateFormat('MM-dd HH:mm')
                   .format(widget.doc["writeDate"].toDate()),
@@ -77,9 +79,11 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
             thickness: 1,
           ),
           // 댓글 목록
+
           const Center(
             child: Text('No comments'),
           ),
+
           const SizedBox(
             height: 100,
           ),
@@ -92,36 +96,31 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                 child: SingleChildScrollView(
                   child: Row(
                     children: [
-                      Flexible(
-                        child: Form(
-                          child: TextFormField(
-                            validator: (value) {
-                              if (value!.trim().isEmpty) {
-                                return '댓글을 입력하세요.';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Theme.of(context).primaryColor,
-                                ),
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Theme.of(context).primaryColor,
                               ),
-                              hintText: "댓글을 입력하세요.",
-                              hintStyle: const TextStyle(color: Colors.black26),
-                              isDense: true,
                             ),
+                            hintText: "댓글을 입력하세요.",
+                            hintStyle: const TextStyle(color: Colors.black26),
                           ),
+                          onChanged: (value) {
+                            setState(() {
+                              userEnterComment = value;
+                            });
+                          },
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(Icons.send),
-                        onPressed: () {
-                          print('input comment: ');
-                        },
+                        onPressed:
+                            userEnterComment.trim().isEmpty ? null : addComment,
+                        icon: Icon(Icons.send),
                       )
                     ],
                   ),
@@ -132,5 +131,21 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
         ]),
       ),
     );
+  }
+
+  var userEnterComment = '';
+  Future<void> addComment() async {
+    FocusScope.of(context).unfocus();
+    await FirebaseFirestore.instance
+        .collection('questionPost')
+        .doc('TBeYcau11sYoHMTSPfF9')
+        .collection('comments')
+        .add({'comment': userEnterComment});
+  }
+
+  addComment1(Map<String, dynamic> comments, String id) {
+    CollectionReference users =
+        FirebaseFirestore.instance.collection('questionPost');
+    users.doc(id).collection('comments').add(comments);
   }
 }

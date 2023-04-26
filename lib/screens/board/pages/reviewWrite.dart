@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:petai_care/models/post.dart';
 
@@ -29,9 +30,12 @@ class _ReviewWriteState extends State<ReviewWrite> {
           IconButton(
             icon: const Icon(Icons.check),
             onPressed: () {
+              final user = FirebaseAuth.instance.currentUser!;
               final post = Post(
                 title: controllerTitle.text,
                 contents: controllerContent.text,
+                userId: user.uid,
+                userEmail: user.email.toString(),
                 writeDate: DateTime.now(),
               );
               createPost(post);
