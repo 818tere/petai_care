@@ -4,251 +4,287 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMzAyMTNfMTk1%2FMDAxNjc2MjYyNjU2NTU4.zzhTXW-Xu07qheyN5rKgZ5QSbVmoYxrPDiEF5YDtPu0g.CZu4G0cP1fvmA1bCA0eZIQfrQVlKN6lgxlc13ddUHmMg.PNG%2F2719678-e1722883-83aa-42fd-a2aa-206ea4d5d6a5.png",
   "name": "아이안 동물의료센터",
   "number": "0507-1354-2203",
-  "address": "서울 강동구 명일동"
+  "address": "서울 강동구 명일동",
+  "description": "21:00에 영업종료"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMDVfMjcg%2FMDAxNjQxMzY3MjY1MjQ3.vLjYus18hAxTaWxZxIOSyrqLKMHKtMvNrhIgnY2kKIsg.MhWWDIhLprDbE0Ou1FADpmzoSF80_oYZfl8FvnRb-PIg.PNG%2F2294240-e051296b-436e-418d-a3ec-5327266cfe9d.png",
   "name": "메이플동물의료센터",
   "number": "0507-1486-7979",
-  "address": "서울 강동구 강일동"
+  "address": "서울 강동구 강일동",
+  "description": "09:30에 영업시작"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_86%2F1441119539372g0tXD_JPEG%2F35021518_0.jpg",
   "name": "내품에동물병원",
   "number": "02-477-1775",
-  "address": "서울 강동구 성내3동"
+  "address": "서울 강동구 성내3동",
+  "description": "21:00에 영업종료"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220108_82%2F1641635686429XErV6_JPEG%2F20220105_174624.jpg",
   "name": "석동물병원",
   "number": "02-475-7501",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "19:10에 영업종료"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200606_228%2F1591431943781sgLw5_JPEG%2F-FvnrgivR3wjZJIPGQGqCSzP.jpg",
   "name": "박형우동물병원",
   "number": "02-488-8275",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "강동구청역 1번출구"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190414_205%2F1555245298076F9bla_JPEG%2FUJpSINKUywU86ANwNGWxvB0E.jpg",
   "name": "아프리카동물병원",
   "number": "02-426-7722",
-  "address": "서울 강동구 강일동"
+  "address": "서울 강동구 강일동",
+  "description": "19:30에 영업종료"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170727_87%2F1501081256638NcQwB_PNG%2F186677403076504_0.png",
   "name": "강동24시SKY동물의료센터",
   "number": "02-472-7579",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220714_255%2F1657736483253t81A9_JPEG%2F00440B85-50A3-48B9-B784-3EAE2251C4A7.jpeg",
   "name": "24시 더파크동물의료센터",
   "number": "02-6949-2475",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_254%2F1441096224949WzMvF_JPEG%2FSUBMIT_1433755631838_36768383.jpg",
   "name": "고덕24시동물병원",
   "number": "0507-1463-8278",
-  "address": "서울 강동구 명일동"
+  "address": "서울 강동구 명일동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200301_277%2F1583007612901dwTiS_JPEG%2FqCUNkIuOXeevstKzqjpPcrZL.jpg",
   "name": "스마트동물병원 강동암사점",
   "number": "0507-1402-8875",
-  "address": "서울 강동구 암사동"
+  "address": "서울 강동구 암사동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190821_93%2F1566375076556SSBOv_JPEG%2FQ_TNJByc-EcbIY_kKK0h_M6d.jpeg.jpg",
   "name": "올바른동물병원",
   "number": "0507-1421-1661",
-  "address": "서울 강동구 암사동"
+  "address": "서울 강동구 암사동",
+  "description": "09:30~21:00"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210706_92%2F1625550033498borlO_JPEG%2Fcy6qqxcdFu8r7AuOqYJZp3z5.jpg",
   "name": "로얄동물메디컬센터 강동",
   "number": "02-457-0075",
-  "address": "서울 강동구 길동"
+  "address": "서울 강동구 길동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_134%2F1441098465474ARneO_JPEG%2F166560567128098_0.jpeg",
   "name": "가람동물병원",
   "number": "0507-1412-5502",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170728_141%2F1501245049098qQ6wO_JPEG%2F186678616067619_0.jpeg",
   "name": "고래힐동물병원",
   "number": "0507-1447-5515",
-  "address": "서울 강동구 고덕동"
+  "address": "서울 강동구 고덕동",
+  "description": "10:00~22:00"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190402_40%2F1554171400129RH3x7_JPEG%2FD5Ea8qeTCKyY6tsEjUROJjJ9.jpg",
   "name": "씨에이치동물병원",
   "number": "0507-1358-7510",
-  "address": "서울 강동구 천호동"
+  "address": "서울 강동구 천호동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200707_23%2F1594119174851fXq9H_JPEG%2FEF-CEDRBor9n8ZBe4NuYJyXw.jpg",
   "name": "미드미동물의료센터",
   "number": "02-6497-7582",
-  "address": "서울 강동구 명일동"
+  "address": "서울 강동구 명일동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220224_290%2F1645694928325e5mMW_JPEG%2FKakaoTalk_20220224_182616088.jpg",
   "name": "돌봄 동물병원",
   "number": "0507-1398-2775",
-  "address": "서울 강동구 암사동"
+  "address": "서울 강동구 암사동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200429_87%2F1588117722700bpAMU_JPEG%2F4WLpvapSRkzb742deE4DpjxX.jpeg.jpg",
   "name": "둔촌동물병원",
   "number": "02-474-5100",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "22:00에 영업종료"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211117_247%2F1637128122263BOvS3_JPEG%2F1637127831919-1.jpg",
   "name": "고덕 동물의료센터",
   "number": "02-441-7585",
-  "address": "서울 강동구 고덕동"
+  "address": "서울 강동구 고덕동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200314_107%2F1584178962399O58qT_JPEG%2FVY9xHrvhe0z6GCk9bMbcluCm.jpg",
   "name": "펫트리동물의료센터",
   "number": "0507-1310-5775",
-  "address": "서울 강동구 길동"
+  "address": "서울 강동구 길동",
+  "description": "21:30에 영업종료"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221215_223%2F1671076691211wwzBl_JPEG%2F20210927-141810.jpg",
   "name": "안단테동물병원",
   "number": "02-476-7582",
-  "address": "서울 강동구 천호동"
+  "address": "서울 강동구 천호동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200716_116%2F1594876567512NW2tF_JPEG%2FLxI7z6PrkdcGRZeXjt7AJ6vW.jpg",
   "name": "시온동물병원",
   "number": "02-476-8275",
-  "address": "서울 강동구 천호동"
+  "address": "서울 강동구 천호동",
+  "description": "10:00에 영업시작"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180508_298%2F1525751105367zhPW9_JPEG%2FOnDXBCHupjpJxiKygE43gfo6.jpg",
   "name": "동물병원 공감",
   "number": "0507-1419-7975",
-  "address": "서울 강동구 천호동"
+  "address": "서울 강동구 천호동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_172%2F1441015060050Aufo4_JPEG%2F11669717_0.jpg",
   "name": "정동물병원",
   "number": "02-474-7588",
-  "address": "서울 강동구 천호동"
+  "address": "서울 강동구 천호동",
+  "description": "19:30에 영업종료"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190823_240%2F1566546102777UAw8J_JPEG%2FyX9W6NSTpE2Yhjdwl_XBgUAD.jpg",
   "name": "해태동물병원",
   "number": "02-427-5685",
-  "address": "서울 강동구 명일동"
+  "address": "서울 강동구 명일동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 26,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230213_77%2F1676264367432mdMMI_JPEG%2F1676264289365-1.jpg",
   "name": "센트럴동물병원",
   "number": "02-3428-0045",
-  "address": "서울 강동구 고덕동"
+  "address": "서울 강동구 고덕동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 27,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161213_85%2F14815965531746yYWQ_GIF%2F177163516572148_0.gif",
   "name": "마리스동물의료센터",
   "number": "02-442-8287",
-  "address": "서울 강동구 암사동"
+  "address": "서울 강동구 암사동",
+  "description": "21:00에 영업종료"
  },
  {
   "id": 28,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200625_178%2F1593052356089XM9O4_JPEG%2F4Gwwya1CuxWhju6qyaIfb_7q.jpg",
   "name": "가온동물병원",
   "number": "02-6953-7512",
-  "address": "서울 강동구 고덕동"
+  "address": "서울 강동구 고덕동",
+  "description": "21:00에 영업종료"
  },
  {
   "id": 29,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F%2F20170125_151%2F1485351449569Nho3w_JPEG%2F1485350630321.jpg",
   "name": "닥터표동물병원",
   "number": "0507-1407-4063",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 30,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190524_149%2F15586337439625a40a_JPEG%2F_gbZy0uAhmJVIAa3XXxRcfBG.jpg",
   "name": "쥬라기동물병원",
   "number": "02-488-7463",
-  "address": "서울 강동구 천호동"
+  "address": "서울 강동구 천호동",
+  "description": "10:00에 영업시작"
  },
  {
   "id": 31,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190814_157%2F1565743581519E1VcK_JPEG%2F7mDC4NnuQulte1MUG_7is9tn.jpg",
   "name": "양지가축동물병원",
   "number": "02-478-2208",
-  "address": "서울 강동구 길동"
+  "address": "서울 강동구 길동",
+  "description": "10:00~18:00"
  },
  {
   "id": 32,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201024_127%2F16035075711102pxay_JPEG%2FAZTy5d3GWwhFXQlZY0P-7KyU.jpg",
   "name": "사랑동물병원",
   "number": "0507-1322-1750",
-  "address": "서울 강동구 길동"
+  "address": "서울 강동구 길동",
+  "description": "10:00에 영업시작"
  },
  {
   "id": 33,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210223_246%2F1614047321649pf5Pa_JPEG%2FKYZ2pzO7lc9YoLFt5TlrbG_I.jpeg.jpg",
   "name": "암사동물병원",
   "number": "02-3426-5079",
-  "address": "서울 강동구 암사동"
+  "address": "서울 강동구 암사동",
+  "description": "20:00에 영업종료"
  },
  {
   "id": 34,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160624_244%2F1466734688886QkGsX_JPEG%2F176574514828803_0.jpeg",
   "name": "방주동물의료센터",
   "number": "02-476-3927",
-  "address": "서울 강동구 성내동"
+  "address": "서울 강동구 성내동",
+  "description": "09:30~19:30"
  },
  {
   "id": 35,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150902_108%2F14411256878002T1Uh_JPEG%2FSUBMIT_1425016815165_35125616.jpg",
   "name": "Dr.주 동물병원",
   "number": "02-470-0030",
-  "address": "서울 강동구 둔촌동"
+  "address": "서울 강동구 둔촌동",
+  "description": "둔촌동역 1번출구"
  },
  {
   "id": 36,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200319_71%2F1584554959576bWFQc_JPEG%2F6Kyk7PdQz-Q3GXUivMqO6GSv.jpg",
   "name": "두루동물병원",
   "number": "02-442-7772",
-  "address": "서울 강동구 명일동"
+  "address": "서울 강동구 명일동",
+  "description": "20:00에 영업종료"
  }
 ]

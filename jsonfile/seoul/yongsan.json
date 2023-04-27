@@ -4,174 +4,199 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191123_139%2F15745061859683TdVM_JPEG%2FvSHuf8p0E5QSSTMCyFn6GvTO.jpg",
   "name": "달래동물의료센터",
   "number": "02-794-1255",
-  "address": "서울 용산구 한남동"
+  "address": "서울 용산구 한남동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_239%2F1441083948808extVB_JPEG%2F21295487_0.jpg",
   "name": "민트동물병원",
   "number": "0507-1401-2235",
-  "address": "서울 용산구 원효로4가"
+  "address": "서울 용산구 원효로4가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210204_216%2F1612435723122wsYs7_PNG%2FiBDHRe6Bnnh5xOgYRHY7lWnW.png",
   "name": "24시 시유동물메디컬센터",
   "number": "0507-1439-0179",
-  "address": "서울 용산구 이촌동"
+  "address": "서울 용산구 이촌동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180109_68%2F1515462259828dSQvp_JPEG%2FJML-jf-s3lfXwX6rxPNsniQB.JPG.jpg",
   "name": "이태원동물병원",
   "number": "02-797-6677",
-  "address": "서울 용산구 이태원2동"
+  "address": "서울 용산구 이태원2동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_27%2F1441060538255V0lPa_JPEG%2F166158616945598_0.jpeg",
   "name": "좋아서하는동물병원",
   "number": "02-703-0075",
-  "address": "서울 용산구 문배동"
+  "address": "서울 용산구 문배동",
+  "description": "효창공원앞역 5번 출구"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20171215_212%2F1513315815884Jri7q_PNG%2FEUnm1_fLzk1bysrwfzeH4peO.png",
   "name": "24시 더힐동물의료센터",
   "number": "02-792-8275",
-  "address": "서울 용산구 한남동"
+  "address": "서울 용산구 한남동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190419_264%2F155565711289936Cfn_JPEG%2FL6N1y5C1EEKVEb6sX36tN3cp.jpg",
   "name": "라온동물병원",
   "number": "02-792-7585",
-  "address": "서울 용산구 이태원동"
+  "address": "서울 용산구 이태원동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210723_28%2F1627019267750mf8ox_JPEG%2FxLhfQ7oJ3YTNrzXAjwTrqYk0.jpg",
   "name": "금강동물병원",
   "number": "02-798-7512",
-  "address": "서울 용산구 이촌동"
+  "address": "서울 용산구 이촌동",
+  "description": "이촌역 3-1번 출구"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210506_294%2F1620282640629X22a4_JPEG%2F8GwRKvWeb336G98soh4FTq_g.jpg",
   "name": "더벳한남동물병원",
   "number": "02-6956-2280",
-  "address": "서울 용산구 한남동"
+  "address": "서울 용산구 한남동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190504_275%2F1556897320081EJGem_JPEG%2FvG_yYyXmKNKjuRaVV1_rc8rZ.jpg",
   "name": "원스동물병원",
   "number": "02-719-8275",
-  "address": "서울 용산구 청파동2가"
+  "address": "서울 용산구 청파동2가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220205_273%2F1644057014569kxKMn_JPEG%2F20141224_122747.jpg",
   "name": "남산동물병원",
   "number": "02-778-7582",
-  "address": "서울 용산구 후암동"
+  "address": "서울 용산구 후암동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200330_104%2F1585541567122PSwDr_JPEG%2F0mvE5bipH-WpD4Dg_Z6Gzd43.jpg",
   "name": "펫토이동물병원",
   "number": "02-795-2184",
-  "address": "서울 용산구 한남동"
+  "address": "서울 용산구 한남동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_92%2F14410676285312XvJg_JPEG%2F146652588544783_0.jpeg",
   "name": "엉클장동물병원",
   "number": "02-713-0053",
-  "address": "서울 용산구 원효로1가"
+  "address": "서울 용산구 원효로1가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201014_25%2F16026395510808Ylnx_JPEG%2F8cXNtu9pppGum1YzieDZntjo.jpg",
   "name": "워너비동물병원 용산점",
   "number": "02-797-1275",
-  "address": "서울 용산구 한강로3가"
+  "address": "서울 용산구 한강로3가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170209_123%2F1486567284454LvDzo_JPEG%2F186159405144306_0.jpeg",
   "name": "바다동물병원",
   "number": "0507-1360-2561",
-  "address": "서울 용산구 용산동5가"
+  "address": "서울 용산구 용산동5가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210518_93%2F1621332239782Hp59L_PNG%2FVG-YpjDQemp7XUtkHsV9UHYY.png",
   "name": "보광동물병원",
   "number": "02-790-9808",
-  "address": "서울 용산구 보광동"
+  "address": "서울 용산구 보광동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190318_231%2F1552889854998tzYk5_JPEG%2FeQC0VyZDR9KZD-0wJsnMt6sn.jpg",
   "name": "한사랑동물병원",
   "number": "0507-1436-8275",
-  "address": "서울 용산구 용산동2가"
+  "address": "서울 용산구 용산동2가",
+  "description": "녹사평역 2번 출구"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_103%2F1441027533890VO7uD_JPEG%2F126460537575254_0.jpg",
   "name": "아프리카동물병원",
   "number": "02-773-1119",
-  "address": "서울 용산구 후암동"
+  "address": "서울 용산구 후암동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160618_123%2F1466209420427TItl2_JPEG%2F176568495359463_0.jpeg",
   "name": "21세기동물병원",
   "number": "02-749-6750",
-  "address": "서울 용산구 보광동"
+  "address": "서울 용산구 보광동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181011_184%2F15392342950853wfqS_JPEG%2FEiAuuFK1HeyGwbKIOEWcTnKe.jpg",
   "name": "이상윤동물병원",
   "number": "02-792-5455",
-  "address": "서울 용산구 이촌동"
+  "address": "서울 용산구 이촌동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_246%2F1441018924506HIUwe_JPEG%2F156960545271937_0.jpeg",
   "name": "청화종합동물병원",
   "number": "02-792-7602",
-  "address": "서울 용산구 이태원동"
+  "address": "서울 용산구 이태원동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_25%2F1441060975540zl6rw_JPEG%2FSUBMIT_1429603417878_33510563.jpg",
   "name": "퍼스동물병원",
   "number": "02-790-7508",
-  "address": "서울 용산구 용산동2가"
+  "address": "서울 용산구 용산동2가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_20%2F1441031632430JOKuV_JPEG%2F126477527457943_0.jpg",
   "name": "펫 동물병원",
   "number": "02-3275-0079",
-  "address": "서울 용산구 효창동"
+  "address": "서울 용산구 효창동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190408_3%2F1554726740159sSyUG_JPEG%2Fm3o1dgZ5Smoc9qITkoPT1mav.jpeg.jpg",
   "name": "효창동물병원",
   "number": "02-711-4527",
-  "address": "서울 용산구 효창동"
+  "address": "서울 용산구 효창동",
+  "description": "효창공원앞역 2번 출구"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170421_268%2F1492753718967bYKRH_JPEG%2F186371547857997_0.jpeg",
   "name": "베이동물병원",
   "number": "0507-1444-7589",
-  "address": "서울 용산구 이촌동"
+  "address": "서울 용산구 이촌동",
+  "description": "매주 화요일 휴무"
  }
 ]

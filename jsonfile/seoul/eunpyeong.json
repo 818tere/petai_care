@@ -4,223 +4,255 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_175%2F1441009291971UKkhj_JPEG%2FSUBMIT_1363337788497_31798363.jpg",
   "name": "24시 스마트 동물메디컬센터",
   "number": "02-387-7582",
-  "address": "서울 은평구 응암동"
+  "address": "서울 은평구 응암동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210510_119%2F1620653108527qyX25_PNG%2FSH5Qu6ySmpROMEUzDhP13zgm.png",
   "name": "24시 예담동물의료센터",
   "number": "0507-1354-7519",
-  "address": "서울 은평구 역촌동"
+  "address": "서울 은평구 역촌동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_106%2F1441082859855B2vJR_JPEG%2FSUBMIT_1331729812560_21273751.jpg",
   "name": "닥터윤24시 동물병원",
   "number": "02-359-2020",
-  "address": "서울 은평구 대조동"
+  "address": "서울 은평구 대조동",
+  "description": "08:30에 영업 시작"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221217_190%2F1671260524649Iq2IE_JPEG%2F%25BA%25B4%25BF%25F8%25B7%25CE%25B0%25ED.jpg",
   "name": "늘푸른동물병원",
   "number": "02-388-3008",
-  "address": "서울 은평구 신사동"
+  "address": "서울 은평구 신사동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220825_28%2F1661411246851WuiYW_JPEG%2FIMG_5536.jpg",
   "name": "야옹동물병원",
   "number": "02-354-0087",
-  "address": "서울 은평구 신사동"
+  "address": "서울 은평구 신사동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210122_73%2F1611278509161wUDst_JPEG%2FZ2bzPyVGDKdYCyRSXqbmJTgQ.jpg",
   "name": "동물병원 움",
   "number": "02-6956-7599",
-  "address": "서울 은평구 불광동"
+  "address": "서울 은평구 불광동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200518_30%2F15897732886995hKtr_JPEG%2FgGVlJ8nFLY4JQePmVcAaT5F0.JPG.jpg",
   "name": "로얄동물병원",
   "number": "0507-1379-0975",
-  "address": "서울 은평구 구산동"
+  "address": "서울 은평구 구산동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190601_104%2F1559385409451B2yPP_PNG%2FjBcOi51nRXeCDpvqDQpPpJbC.png",
   "name": "치유동물의료센터",
   "number": "02-6964-8276",
-  "address": "서울 은평구 녹번동"
+  "address": "서울 은평구 녹번동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160427_5%2F1461740859763WvxKa_JPEG%2F176377563759621_0.jpeg",
   "name": "둘레길동물병원",
   "number": "02-354-7544",
-  "address": "서울 은평구 불광동"
+  "address": "서울 은평구 불광동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160216_70%2F145559146528551N7i_JPEG%2F176166518764219_0.jpeg",
   "name": "서울햇빛동물병원",
   "number": "02-387-8275",
-  "address": "서울 은평구 진관동"
+  "address": "서울 은평구 진관동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170811_153%2F1502425311191E8ouG_JPEG%2FNe0NI9n3M-mvdB0JzNz324m3.jpg",
   "name": "우신동물병원",
   "number": "02-356-7547",
-  "address": "서울 은평구 역촌동"
+  "address": "서울 은평구 역촌동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170929_75%2F1506671037933EPCoa_JPEG%2FjK0OQqIdQJiDFgDSDlzBleSn.jpg",
   "name": "우리덕구동물병원",
   "number": "02-6953-8275",
-  "address": "서울 은평구 진관동"
+  "address": "서울 은평구 진관동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210602_23%2F1622608444817m616G_JPEG%2FsYgboiVUlMDEEJwsbp2WO-qX.jpg",
   "name": "미래동물병원",
   "number": "02-386-6092",
-  "address": "서울 은평구 갈현2동"
+  "address": "서울 은평구 갈현2동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200928_119%2F16012847411203j9aF_JPEG%2FwYSpgHehwGDQ84_chQ4VVrBF.jpg",
   "name": "어울동물의료센터",
   "number": "02-384-1110",
-  "address": "서울 은평구 녹번동"
+  "address": "서울 은평구 녹번동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_52%2F14409900183390ku3j_JPEG%2F35258159_0.jpeg",
   "name": "스머프동물병원",
   "number": "02-969-7582",
-  "address": "서울 은평구 응암동"
+  "address": "서울 은평구 응암동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221220_236%2F1671524224449WuBTA_JPEG%2F20221218_100406.jpg",
   "name": "다루동물병원",
   "number": "0507-1328-8353",
-  "address": "서울 은평구 불광동"
+  "address": "서울 은평구 불광동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220906_131%2F1662446385981QTJG1_JPEG%2FKakaoTalk_20220903_181428893.jpg",
   "name": "서울은내과동물병원",
   "number": "02-354-9990",
-  "address": "서울 은평구 응암동"
+  "address": "서울 은평구 응암동",
+  "description": "매주 화요일 휴무"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220825_184%2F1661420153840Gr5Ow_JPEG%2F%25C1%25A4%25B5%25E7%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_%25C0%25C0%25BF%25EB_03.jpg",
   "name": "정든동물병원",
   "number": "02-306-9990",
-  "address": "서울 은평구 증산동"
+  "address": "서울 은평구 증산동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211018_200%2F1634525419239TTdxM_JPEG%2FpcK26S3BILsAqy5DLkxB9xUV.jpg",
   "name": "새은평동물의료센터",
   "number": "0507-1370-7566",
-  "address": "서울 은평구 대조동"
+  "address": "서울 은평구 대조동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190131_105%2F1548921876417WVoQu_JPEG%2FBiHjgSzJAHORU4jfkKQvafgQ.jpg",
   "name": "담은동물병원",
   "number": "0507-1413-9475",
-  "address": "서울 은평구 불광동"
+  "address": "서울 은평구 불광동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230125_121%2F1674588080140uYrOY_JPEG%2F20230119_140828.jpg",
   "name": "금쪽같은내새끼동물병원",
   "number": "02-384-7743",
-  "address": "서울 은평구 갈현동"
+  "address": "서울 은평구 갈현동",
+  "description": "구산역 4번 출구"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200731_46%2F1596179037488i16QI_JPEG%2F-_4CQfKzy-eYhq5wUMAV82Ts.jpg",
   "name": "한수동물병원",
   "number": "02-306-8575",
-  "address": "서울 은평구 증산동"
+  "address": "서울 은평구 증산동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200702_286%2F1593688510323rxJuC_JPEG%2FmVlhJBePnkvpsi77cibJWH3K.jpg",
   "name": "피움동물병원",
   "number": "0507-1460-3101",
-  "address": "서울 은평구 진관동"
+  "address": "서울 은평구 진관동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160203_76%2F1454457296126LQ7fY_JPEG%2F176153488475076_0.jpeg",
   "name": "도그원 동물의료센터",
   "number": "0507-1407-1591",
-  "address": "서울 은평구 갈현동"
+  "address": "서울 은평구 갈현동",
+  "description": "10:30에 영업 시작"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210816_132%2F16290745537954D0vD_JPEG%2FU3gJFL-aaoj2A4ZpfOIzTcVZ.jpg",
   "name": "다솜동물병원",
   "number": "02-3477-7667",
-  "address": "서울 은평구 응암동"
+  "address": "서울 은평구 응암동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 26,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190309_267%2F1552095422538YA2jg_JPEG%2Fwx_mepp_-bVXb8PKJWuFNzxL.jpeg.jpg",
   "name": "메디펫동물병원",
   "number": "02-384-0075",
-  "address": "서울 은평구 갈현동"
+  "address": "서울 은평구 갈현동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 27,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211015_110%2F1634264124813jDYQH_JPEG%2FLg0hALw3CXHM1hwuzphiT1Z4.jpg",
   "name": "아이러브펫동물병원 은평점",
   "number": "02-6975-5253",
-  "address": "서울 은평구 진관동"
+  "address": "서울 은평구 진관동",
+  "description": "10:30에 영업 시작"
  },
  {
   "id": 28,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190131_124%2F1548925240837OpP9N_JPEG%2FzMkl6ibUKmVkO22EbM9_phdu.jpg",
   "name": "러브마이펫동물병원",
   "number": "02-382-7582",
-  "address": "서울 은평구 응암동"
+  "address": "서울 은평구 응암동",
+  "description": "녹번역 3번 출구"
  },
  {
   "id": 29,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161029_106%2F1477726584251p27Lo_PNG%2F176979566642937_0.png",
   "name": "개와냥이동물병원",
   "number": "0507-1429-7273",
-  "address": "서울 은평구 대조동"
+  "address": "서울 은평구 대조동",
+  "description": "매주 화요일 휴무"
  },
  {
   "id": 30,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20171026_137%2F15089993342866gYIf_JPEG%2FbYhhXlGqM0hLNsrDDhiQ4kco.jpg",
   "name": "오거리동물병원",
   "number": "0507-1444-0274",
-  "address": "서울 은평구 응암동"
+  "address": "서울 은평구 응암동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 31,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_232%2F1441052484031daJ6o_JPEG%2F166353444834729_0.jpg",
   "name": "도담동물병원",
   "number": "02-388-0275",
-  "address": "서울 은평구 역촌동"
+  "address": "서울 은평구 역촌동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 32,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190130_285%2F1548828561593aCrfG_JPEG%2FneFw5E-YdQDDlDga7ajcYMMW.jpeg.jpg",
   "name": "뉴타운동물병원",
   "number": "02-385-8275",
-  "address": "서울 은평구 진관동"
+  "address": "서울 은평구 진관동",
+  "description": "09:30에 영업 시작"
  }
 ]

@@ -4,174 +4,199 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_32%2F1441006726059gB8tC_JPEG%2FSUBMIT_1416972241268_12047069.jpg",
   "name": "24시센트럴동물메디컬센터",
   "number": "02-3395-7975",
-  "address": "서울 성동구 행당동"
+  "address": "서울 성동구 행당동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180320_261%2F1521518294042FY2Tl_JPEG%2FI7VuzJk0b9NxiaV-DD2sbjNr.jpg",
   "name": "오렌지동물병원",
   "number": "0507-1443-7592",
-  "address": "서울 성동구 행당동"
+  "address": "서울 성동구 행당동",
+  "description": "행당역 3번 출구"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190127_170%2F1548561612356QNESD_JPEG%2F61UKGcB7LxWCENNEwxnbz53V.jpg",
   "name": "오석헌동물병원",
   "number": "02-6402-0301",
-  "address": "서울 성동구 옥수동"
+  "address": "서울 성동구 옥수동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_279%2F1441014893044ocvAH_JPEG%2FSUBMIT_1429681574319_31949507.jpg",
   "name": "라임동물병원",
   "number": "02-2281-8122",
-  "address": "서울 성동구 홍익동"
+  "address": "서울 성동구 홍익동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_56%2F144101622044748o0p_JPEG%2FSUBMIT_1408383944729_13298840.jpg",
   "name": "한양동물메디컬센터",
   "number": "0507-1444-5200",
-  "address": "서울 성동구 행당동"
+  "address": "서울 성동구 행당동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200427_297%2F15879995188123IfU8_JPEG%2F3OWB20td5MKvozOEkqrN5Zk5.jpeg.jpg",
   "name": "오늘동물병원",
   "number": "02-469-7975",
-  "address": "서울 성동구 성수동1가"
+  "address": "서울 성동구 성수동1가",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200117_12%2F1579198595982fIr96_JPEG%2F9XGhQFh5gQXEoK65zhnQ8IaS.jpg",
   "name": "이윤세동물병원",
   "number": "02-2282-7503",
-  "address": "서울 성동구 행당동"
+  "address": "서울 성동구 행당동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_230%2F1441059709706B223h_JPEG%2FSUBMIT_1316733097558_13089399.jpg",
   "name": "평생피부과동물병원",
   "number": "02-3395-0075",
-  "address": "서울 성동구 행당동"
+  "address": "서울 성동구 행당동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230102_224%2F1672648112294za7Y6_JPEG%2FKakaoTalk_20221230_190954813.jpg",
   "name": "조형선외과동물병원",
   "number": "02-2282-0119",
-  "address": "서울 성동구 금호동1가"
+  "address": "서울 성동구 금호동1가",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160603_287%2F1464932340843NoMWz_JPEG%2F176553546920701_0.jpeg",
   "name": "제인동물병원",
   "number": "02-468-7582",
-  "address": "서울 성동구 성수동2가"
+  "address": "서울 성동구 성수동2가",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210826_33%2F1629978160208OtXrA_JPEG%2Fbowraum2.jpg",
   "name": "바우라움 동물병원",
   "number": "02-6454-6182",
-  "address": "서울 성동구 행당동"
+  "address": "서울 성동구 행당동",
+  "description": "한양대역 1번 출구"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180718_58%2F15319012745901XXbH_JPEG%2FWfI8LuHWvIv9jvBPsbe12cEg.JPG.jpg",
   "name": "달링동물병원",
   "number": "0507-1321-8215",
-  "address": "서울 성동구 성수동1가"
+  "address": "서울 성동구 성수동1가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161228_195%2F1482923767155oJLsC_JPEG%2F177178604626535_0.jpeg",
   "name": "스테이동물병원",
   "number": "0507-1421-7502",
-  "address": "서울 성동구 옥수동"
+  "address": "서울 성동구 옥수동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180628_231%2F1530148459743C15Qt_JPEG%2F5La_M_eaeqbgMWl2r7xB4ztl.jpg",
   "name": "Pet365 동물병원",
   "number": "02-2282-3653",
-  "address": "서울 성동구 금호동4가"
+  "address": "서울 성동구 금호동4가",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190129_247%2F15487274968017wCGx_JPEG%2Fsck1b6lhGLZlkCgojhfCwtVw.jpg",
   "name": "아지동물병원",
   "number": "02-6085-7750",
-  "address": "서울 성동구 금호4가동"
+  "address": "서울 성동구 금호4가동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170203_116%2F1486094240781Xs8j9_JPEG%2F186153528740650_0.jpeg",
   "name": "바라봄동물병원",
   "number": "02-2297-9300",
-  "address": "서울 성동구 하왕십리동"
+  "address": "서울 성동구 하왕십리동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191017_294%2F1571288001553ibzH4_JPEG%2F76uowHYVDRiyccuraBv4Tffn.jpg",
   "name": "조은동물병원",
   "number": "0507-1399-0075",
-  "address": "서울 성동구 하왕십리동"
+  "address": "서울 성동구 하왕십리동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200807_228%2F1596782500579THr9W_JPEG%2F%25C6%25F7%25B7%25B93-1.jpg",
   "name": "포레동물병원",
   "number": "0507-1412-7975",
-  "address": "서울 성동구 성수동1가"
+  "address": "서울 성동구 성수동1가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191015_197%2F1571121460117PxWJj_JPEG%2FecTIGknl7wX7fsNDzj4P3H6W.jpeg.jpg",
   "name": "베이지동물병원",
   "number": "02-2295-9888",
-  "address": "서울 성동구 하왕십리동"
+  "address": "서울 성동구 하왕십리동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210715_174%2F16263303095634Op2I_JPEG%2FgRRZrWzVP5WLJZw2WEdHJGsw.jpg",
   "name": "한빛동물병원",
   "number": "0507-1398-1848",
-  "address": "서울 성동구 금호동2가"
+  "address": "서울 성동구 금호동2가",
+  "description": "신금호역 1번 출구"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_150%2F1441044185163bUnLM_JPEG%2F157166405368689_0.jpeg",
   "name": "텐즈힐링동물병원",
   "number": "02-2295-0975",
-  "address": "서울 성동구 상왕십리동"
+  "address": "서울 성동구 상왕십리동",
+  "description": "11:00에 영업 시작"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200928_191%2F1601271048190zW2no_JPEG%2F8EPu7gbt8WeDbDp93VmJGGiO.jpg",
   "name": "바른동물병원",
   "number": "0507-1319-7570",
-  "address": "서울 성동구 금호동4가"
+  "address": "서울 성동구 금호동4가",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_30%2F1440998787406bDTe0_JPEG%2F106574425855832_0.jpg",
   "name": "수동물병원",
   "number": "02-3409-4640",
-  "address": "서울 성동구 송정동"
+  "address": "서울 성동구 송정동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190131_275%2F1548930769547yEU2x_JPEG%2F_9Pirj_-CikDbeVm0jUu6I-K.jpg",
   "name": "기린동물병원",
   "number": "02-2291-8275",
-  "address": "서울 성동구 마장동"
+  "address": "서울 성동구 마장동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180625_104%2F15298977565773B5aa_JPEG%2FqGIC2eaJApCI5GgRLfbuucTa.jpg",
   "name": "서울숲동물병원",
   "number": "02-466-2475",
-  "address": "서울 성동구 성수동2가"
+  "address": "서울 성동구 성수동2가",
+  "description": "09:30에 영업 시작"
  }
 ]

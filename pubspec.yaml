@@ -51,6 +51,9 @@ dependencies:
   shared_preferences: ^2.1.0
   badges: ^3.1.1
   flutter_speed_dial: ^6.2.0
+  firebase_storage: ^11.1.1
+  get: ^4.6.5
+  flutter_spinkit: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +83,8 @@ flutter:
     - jsonfile/gyeonggi/
     - assets/images/question.jpeg
     - assets/images/review.jpeg
+    - assets/accountimages/병원비.png
+    - assets/accountimages/양육비.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

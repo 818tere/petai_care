@@ -4,202 +4,231 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAzMTRfNyAg%2FMDAxNjQ3MjQyODkxNzU2.EZ3ekgdWNndSSu-wB5wTcE1Y7dUsEiKqNcpXF9AtBbYg.Q8dLPlGUmFDVTKe7rIpJlbNOEopxesTAnceXA8yKfM4g.PNG%2F1936994-0933addb-ac85-46d8-8f66-aa643973c16f.png",
   "name": "고척 원 동물의료센터",
   "number": "02-856-7582",
-  "address": "서울 구로구 고척동"
+  "address": "서울 구로구 고척동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190308_211%2F1552020010816AD1Fw_JPEG%2Ff06cRIFgAHIYvmhTt2jeoVQF.jpg",
   "name": "24시지구촌동물메디컬센터",
   "number": "0507-1401-7582",
-  "address": "서울 구로구 구로동"
+  "address": "서울 구로구 구로동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220523_144%2F1653276978296GzdTy_JPEG%2F%25BC%25AD%25BF%25EF%25B4%25EB%25C7%25D0%25B1%25B3%25B7%25CE%25B0%25ED-06.jpg",
   "name": "구로종합동물병원",
   "number": "02-2631-0085",
-  "address": "서울 구로구 신도림동"
+  "address": "서울 구로구 신도림동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211214_180%2F1639465259760hP3C0_JPEG%2F1.jpg",
   "name": "오류동물병원",
   "number": "02-2612-3232",
-  "address": "서울 구로구 오류동"
+  "address": "서울 구로구 오류동",
+  "description": "오류동역 3번 출구"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161005_216%2F14756456006905NY77_JPEG%2F176955546340517_0.jpeg",
   "name": "라라동물의료원",
   "number": "0507-1446-7585",
-  "address": "서울 구로구 구로동"
+  "address": "서울 구로구 구로동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181225_161%2F1545718490459EwO8x_JPEG%2FAFWQv10m8NeF7XxzFEo_4ESM.jpg",
   "name": "금강종합동물병원",
   "number": "02-2686-8008",
-  "address": "서울 구로구 오류동"
+  "address": "서울 구로구 오류동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200826_73%2F1598419649001uYbhq_JPEG%2FT7G454JumI5_kCqZ9HP5FS0V.jpg",
   "name": "아이러브펫동물병원 신도림점",
   "number": "0507-1364-7533",
-  "address": "서울 구로구 신도림동"
+  "address": "서울 구로구 신도림동",
+  "description": "21:00에 영업 종료"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211104_162%2F1635994322602qLfld_JPEG%2FV1-K27141PaEySi2xHi2MPHV.jpg",
   "name": "클로버동물병원",
   "number": "02-2687-7582",
-  "address": "서울 구로구 항동"
+  "address": "서울 구로구 항동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200812_2%2F1597223237778zUcr5_JPEG%2F1HB3owFmEo7BU7h5pV7TXPlr.jpg",
   "name": "모두동물병원",
   "number": "02-2060-7975",
-  "address": "서울 구로구 개봉동"
+  "address": "서울 구로구 개봉동",
+  "description": "21:00에 영업 종료"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210614_153%2F1623650995299MEWfa_JPEG%2F8ymTaKxNYmxLNyNrtOTbJ3Bj.jpg",
   "name": "24시 신도림S동물의료센터",
   "number": "02-6949-3575",
-  "address": "서울 구로구 신도림동"
+  "address": "서울 구로구 신도림동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210511_254%2F1620721279866AdBW8_JPEG%2F47qFGn9-Y0aYfi3a3nPAuZs4.jpg",
   "name": "다나은동물병원",
   "number": "02-2672-7582",
-  "address": "서울 구로구 신도림동"
+  "address": "서울 구로구 신도림동",
+  "description": "구로역 3번 출구"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190109_149%2F15470291820401zP6h_JPEG%2F38CfARFclFlGaRI65Us9z5Ym.jpeg.jpg",
   "name": "드림동물병원",
   "number": "02-3666-0204",
-  "address": "서울 구로구 고척동"
+  "address": "서울 구로구 고척동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160720_225%2F1468996026345bfBDr_JPEG%2F176670555726196_0.jpeg",
   "name": "푸른동물병원",
   "number": "02-861-0075",
-  "address": "서울 구로구 구로동"
+  "address": "서울 구로구 구로동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210615_107%2F1623741060473yydwF_JPEG%2FmMJrI_mliO98ArFVaPEXL4qj.jpg",
   "name": "365 마음동물병원",
   "number": "02-2611-5223",
-  "address": "서울 구로구 궁동"
+  "address": "서울 구로구 궁동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210625_138%2F1624616179033tPUio_PNG%2FwEEe7HsYgUhkmzsIUXziTeZe.png",
   "name": "항동푸른숲동물병원",
   "number": "0507-1372-7593",
-  "address": "서울 구로구 항동"
+  "address": "서울 구로구 항동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211111_186%2F1636615381777C5VTD_JPEG%2F_DSC6735.jpg",
   "name": "고척 원 동물의료센터",
   "number": "02-856-7582",
-  "address": "서울 구로구 고척동"
+  "address": "서울 구로구 고척동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160303_178%2F1457000355334c9rsb_PNG%2F176253594935163_0.png",
   "name": "허브동물병원",
   "number": "02-6734-7500",
-  "address": "서울 구로구 구로동"
+  "address": "서울 구로구 구로동",
+  "description": "구일역 2번 출구"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_255%2F14410486051495METP_JPEG%2F97158576959807_2.jpg",
   "name": "신도림동물병원",
   "number": "02-3439-7992",
-  "address": "서울 구로구 신도림동"
+  "address": "서울 구로구 신도림동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_45%2F1440994963680oUFXF_JPEG%2FSUBMIT_1414033427226_11548174.jpg",
   "name": "24시 명 동물메디컬센터",
   "number": "02-2619-5102",
-  "address": "서울 구로구 개봉동"
+  "address": "서울 구로구 개봉동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211119_245%2F1637300652264jsp6B_JPEG%2F20211027_182237.jpg",
   "name": "한샘종합동물병원",
   "number": "02-2681-7585",
-  "address": "서울 구로구 개봉동"
+  "address": "서울 구로구 개봉동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210202_194%2F1612242232482wKUkd_JPEG%2FXqYY_RUJER1z4kLGcjNdG7pZ.jpg",
   "name": "올리브동물병원",
   "number": "02-2135-5866",
-  "address": "서울 구로구 고척동"
+  "address": "서울 구로구 고척동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200126_167%2F1580028915519jTnj1_JPEG%2FdJKCv5YmfeG4ncD0EmXmbzku.jpg",
   "name": "캥거루동물병원",
   "number": "02-2066-2579",
-  "address": "서울 구로구 오류동"
+  "address": "서울 구로구 오류동",
+  "description": "천왕역 3번 출구"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200725_25%2F15956681541118SU0i_JPEG%2FqFjHtCacqr8DiJlLd96mGsW2.jpg",
   "name": "사랑동물병원",
   "number": "02-851-1368",
-  "address": "서울 구로구 구로3동"
+  "address": "서울 구로구 구로3동",
+  "description": "대림역 1번 출구"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_164%2F14410647741973uhQl_JPEG%2FSUBMIT_1434514074027_33647244.jpg",
   "name": "벨라동물병원",
   "number": "02-859-8775",
-  "address": "서울 구로구 구로5동"
+  "address": "서울 구로구 구로5동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200128_38%2F15802125675030DxXs_JPEG%2FsxW8Y3U90Nvlt193LtU8afYi.jpg",
   "name": "안정택동물병원",
   "number": "02-2060-7512",
-  "address": "서울 구로구 천왕동"
+  "address": "서울 구로구 천왕동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 26,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200113_55%2F1578890838734EMmc3_JPEG%2FCxj4mGaTq4Fu4IXTIvDE0ir5.jpg",
   "name": "케이나인종합동물병원 본점",
   "number": "02-2686-3939",
-  "address": "서울 구로구 개봉3동"
+  "address": "서울 구로구 개봉3동",
+  "description": "개봉역 1번 출구"
  },
  {
   "id": 27,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210914_80%2F1631594739159LAhob_JPEG%2Fjj7OSSYl3IH4EP4wne5dCniP.jpg",
   "name": "개명동물종합병원",
   "number": "02-2619-0888",
-  "address": "서울 구로구 개봉동"
+  "address": "서울 구로구 개봉동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 28,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_210%2F14410751694889Y2MC_GIF%2F21074570_0.gif",
   "name": "굿모닝 동물병원",
   "number": "02-2060-8673",
-  "address": "서울 구로구 개봉동"
+  "address": "서울 구로구 개봉동",
+  "description": "21:00에 영업 종료"
  },
  {
   "id": 29,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_198%2F1440996579026lj19A_JPEG%2F106565493625462_0.jpg",
   "name": "개봉동물병원",
   "number": "02-2615-5014",
-  "address": "서울 구로구 고척2동"
+  "address": "서울 구로구 고척2동",
+  "description": "21:00에 영업 종료"
  }
 ]

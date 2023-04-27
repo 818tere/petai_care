@@ -4,223 +4,255 @@
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjA1MjZfMTk5%2FMDAxNjUzNTQ1NjE5NjM4.nf_cd0iH-oxnvBK38Er9i60CgmFYaQ8n4jZK9UPpZf0g.exgU6WPrANb5ISL-qA6NJIE_nGDnIHcnds-mEWvrVWMg.PNG%2F1677166-f25f1a94-7ae0-4ee4-9851-23b1247bfda5.png",
   "name": "정말로동물병원",
   "number": "0507-1468-8119",
-  "address": "서울 양천구 신월동"
+  "address": "서울 양천구 신월동",
+  "description": "매주 화요일 휴무"
  },
  {
   "id": 2,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjA4MDRfNTMg%2FMDAxNjU5NTk0OTMzNTI5.JzzlExye2DtXeKM3L80HYsIDZ3K3SFUwrTQNXU2TuNkg.lLGLkSa7-uVXjO51UYtIc9s_ExAuC_4teePaz4iTHFAg.PNG%2F2620017-cccc5dd4-260f-41eb-93ca-1c90b0bc4ed2.png",
   "name": "24시 월드펫동물메디컬센터",
   "number": "02-2698-7582",
-  "address": "서울 양천구 신월동"
+  "address": "서울 양천구 신월동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 3,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221028_108%2F1666917166413Utsi8_JPEG%2F%25B2%25D9%25B9%25CC%25B1%25E2KakaoTalk_20221027_185306231.jpg",
   "name": "24시 우리들동물메디컬센터",
   "number": "02-2642-7588",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "24시간 영업 연중무휴"
  },
  {
   "id": 4,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20171212_227%2F1513052309732kKLF5_JPEG%2FQWEp6_KXSpaylwjo9xNmCgFH.jpg",
   "name": "혜인종합동물병원본점",
   "number": "02-2645-1475",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "등촌역 6번 출구"
  },
  {
   "id": 5,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220618_5%2F1655559941772npQdw_JPEG%2FScreenshot_20220614-230857_NAVER.jpg",
   "name": "공원옆동물의료센터",
   "number": "0507-1411-8275",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 6,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221226_296%2F1672027469741zVJzq_JPEG%2F20221226_125530.jpg",
   "name": "대현동물병원",
   "number": "02-2651-1855",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 7,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190819_138%2F1566217222394Euvwc_JPEG%2FYTX14eMnZvG2WXvvyZHjJbaZ.jpg",
   "name": "하니동물의료센터",
   "number": "0507-1403-1772",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 8,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190527_300%2F1558940637035f5R9o_JPEG%2F2wgmMWg7L76uSY-0gWF5PfEk.jpg",
   "name": "우신동물병원",
   "number": "02-2693-8883",
-  "address": "서울 양천구 신월2동"
+  "address": "서울 양천구 신월2동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 9,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTExMTdfMTYg%2FMDAxNjM3MDc4NjI1MzM2.OHQleyt3Qc0hBMAglko52Ctp1rLSLLkI1qV9Oafvn9Mg.4MOTg2WbWsQa2m4LR8_1Tom4sZkZAJITqLvyLKw7tFEg.PNG%2F2402293-ec0ef6c6-ba17-48f4-979a-0fcf598f5958.png",
   "name": "봄날동물병원 목동본점",
   "number": "0507-1376-0413",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 10,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150916_22%2F14424071974979V54k_JPEG%2FSUBMIT_1442407129747_37108073.jpg",
   "name": "파리스동물병원",
   "number": "02-2644-8878",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 11,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170523_117%2F1495532455005anoA0_JPEG%2F186473587074833_0.jpeg",
   "name": "두암한방동물병원",
   "number": "02-846-4597",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 12,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230304_270%2F1677932105131gtCUR_JPEG%2FIMG_20230303_143034_315.jpg",
   "name": "상상동물병원",
   "number": "02-2038-8877",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 13,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_144%2F1441057401637X62sw_JPEG%2FSUBMIT_1370349728917_11856902.jpg",
   "name": "필동물종합병원",
   "number": "02-2649-0775",
-  "address": "서울 양천구 목4동"
+  "address": "서울 양천구 목4동",
+  "description": "목동역 3번 출구"
  },
  {
   "id": 14,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_297%2F14410429137263TjHc_JPEG%2FSUBMIT_1375245302296_32891393.jpg",
   "name": "오라고동물병원",
   "number": "02-2643-7579",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 15,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160909_159%2F1473427721924KnCWq_JPEG%2F176856616169397_0.jpeg",
   "name": "밀리언 동물병원",
   "number": "02-2061-5277",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "10:10에 영업 시작"
  },
  {
   "id": 16,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220821_94%2F1661075695228IxHPj_JPEG%2F%25BC%25AD%25BF%25EF%25B4%25EB%25B8%25B6%25C5%25A9.jpg",
   "name": "서울탑동물병원",
   "number": "0507-1432-8876",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 17,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180726_105%2F1532580749096deX5f_JPEG%2FiOlS_p_KCqL62h1GeJBUOFsk.jpg",
   "name": "노아동물병원",
   "number": "0507-1335-6183",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 18,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200902_26%2F1599017083257TRPUh_JPEG%2Fyr_-kiOQYBKyaVi-Y0lYibHO.JPG.jpg",
   "name": "리더스동물병원",
   "number": "02-2652-1865",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 19,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210912_3%2F1631429145745WrCFE_JPEG%2Ff1ApU0D5QW7KIhdnZSVCaI8p.jpg",
   "name": "신월라온동물의료센터",
   "number": "02-2694-7575",
-  "address": "서울 양천구 신월동"
+  "address": "서울 양천구 신월동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 20,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200709_148%2F1594293622319KEdgi_JPEG%2FPl2oPT1CENWVMaZejhqlJgCm.jpg",
   "name": "산책동물병원",
   "number": "02-2653-3335",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 21,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200407_283%2F15862618197418mfuV_JPEG%2Fr3LWdIRUyrCfmJAw27aIrENg.jpg",
   "name": "참사랑 동물병원",
   "number": "02-2643-7882",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "양천구청역 1번 출구"
  },
  {
   "id": 22,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190128_70%2F1548655790535lN9zt_JPEG%2FwE1NNr13iW1pF_bHmPBJ-6e8.jpeg.jpg",
   "name": "신정동물병원",
   "number": "02-2697-7576",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 23,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160430_113%2F1461987585849o9tQS_JPEG%2F176380526964894_0.jpeg",
   "name": "구름동물병원",
   "number": "02-2694-8275",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 24,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170216_96%2F1487220732349qQ7Pv_JPEG%2F186161568241907_0.jpeg",
   "name": "다온동물병원",
   "number": "02-2643-8204",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 25,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191223_219%2F1577090740603fNeKD_JPEG%2FQrvDDEJ27tFFOqRMeBJARATL.jpg",
   "name": "가나종합동물병원",
   "number": "02-2645-7588",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 26,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200205_239%2F15808734555899w77K_JPEG%2FtnqNe9tOtucBJqpYU3fJS5Kf.jpg",
   "name": "행복한동물병원",
   "number": "02-2655-2258",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 27,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220328_9%2F1648455179205fhazL_JPEG%2FKakaoTalk_20220325_174848765.jpg",
   "name": "정말로동물병원",
   "number": "0507-1468-8119",
-  "address": "서울 양천구 신월동"
+  "address": "서울 양천구 신월동",
+  "description": "매주 화요일 휴무"
  },
  {
   "id": 28,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20181118_21%2F1542517915926ldAdq_JPEG%2FRvRzoHYX5ZhNRC7OScODVkle.jpg",
   "name": "행복한세상동물병원",
   "number": "02-2645-7582",
-  "address": "서울 양천구 목1동"
+  "address": "서울 양천구 목1동",
+  "description": "10:00에 영업 시작"
  },
  {
   "id": 29,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190117_227%2F1547733791574aQTf7_JPEG%2F_etcINhgELB3vjQOpsXko3IW.JPG.jpg",
   "name": "리즈 동물병원",
   "number": "02-2062-1110",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 30,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200204_115%2F15808166310466miQu_JPEG%2FB0qwR74yypJnkRbltXB0XgOp.jpg",
   "name": "토론토동물병원",
   "number": "02-2642-8653",
-  "address": "서울 양천구 목동"
+  "address": "서울 양천구 목동",
+  "description": "09:00에 영업 시작"
  },
  {
   "id": 31,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170602_201%2F1496382773334cpD8J_JPEG%2F186551516939123_0.jpeg",
   "name": "페토브동물병원",
   "number": "02-2642-1239",
-  "address": "서울 양천구 신정동"
+  "address": "서울 양천구 신정동",
+  "description": "09:30에 영업 시작"
  },
  {
   "id": 32,
   "imageUrl": "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160228_134%2F1456620940956FOmk6_JPEG%2F176178498560594_0.jpeg",
   "name": "양천동물병원",
   "number": "02-2694-2242",
-  "address": "서울 양천구 신월동"
+  "address": "서울 양천구 신월동",
+  "description": "24시간 영업 연중무휴"
  }
 ]
