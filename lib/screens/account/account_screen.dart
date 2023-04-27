@@ -43,7 +43,7 @@ class _AccountScreenState extends State<AccountScreen> {
   var descpController = TextEditingController();
   final SPHelper helper = SPHelper();
 
-  XFile? _image;
+  //XFile? _image;
   final ImagePicker picker = ImagePicker();
   //_getfromimage
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;

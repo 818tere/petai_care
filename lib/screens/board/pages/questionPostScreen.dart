@@ -120,7 +120,7 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                       IconButton(
                         onPressed:
                             userEnterComment.trim().isEmpty ? null : addComment,
-                        icon: Icon(Icons.send),
+                        icon: const Icon(Icons.send),
                       )
                     ],
                   ),

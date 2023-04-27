@@ -255,301 +255,327 @@ class _BoardScreenState extends State<BoardScreen>
         body: TabBarView(
           controller: tabController,
           children: [
-            Expanded(
-              child: StreamBuilder<QuerySnapshot>(
-                  stream: refQuestion
-                      .orderBy("writeDate", descending: true)
-                      .snapshots(),
-                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return Text('Something went wrong! ${snapshot.error}');
-                    } else if (snapshot.hasData) {
-                      return ListView.builder(
-                        itemCount: snapshot.data!.docs.length,
-                        itemBuilder: (context, index) {
-                          final DocumentSnapshot documentSnapshot =
-                              snapshot.data!.docs[index];
-                          return Card(
-                              child: ListTile(
-                            title: Text(snapshot.data!.docs[index]['title']),
-                            subtitle: Text(snapshot.data!.docs[index]
-                                ['userEmail']), //userEmail
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 8),
-                                  child: Text(DateFormat('MM-dd HH:mm').format(
-                                      snapshot.data!.docs[index]['writeDate']
-                                          .toDate())),
-                                ),
-                                Visibility(
-                                  visible: edit,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      if (snapshot.data!.docs[index]
-                                              ['userId'] ==
-                                          user.uid) {
-                                        updateQuestion(documentSnapshot);
-                                      } else {
-                                        showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) =>
-                                                AlertDialog(
-                                                  title: const Text('오류!'),
-                                                  content:
-                                                      const Text('작성자가 아닙니다!'),
-                                                  actions: [
-                                                    Center(
-                                                      child: TextButton(
-                                                          onPressed: () {
+            Row(
+              children: [
+                Expanded(
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: refQuestion
+                          .orderBy("writeDate", descending: true)
+                          .snapshots(),
+                      builder:
+                          (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (snapshot.hasError) {
+                          return Text(
+                              'Something went wrong! ${snapshot.error}');
+                        } else if (snapshot.hasData) {
+                          return ListView.builder(
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              final DocumentSnapshot documentSnapshot =
+                                  snapshot.data!.docs[index];
+                              return Card(
+                                  child: ListTile(
+                                title:
+                                    Text(snapshot.data!.docs[index]['title']),
+                                subtitle: Text(snapshot.data!.docs[index]
+                                    ['userEmail']), //userEmail
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 8),
+                                      child: Text(DateFormat('MM-dd HH:mm')
+                                          .format(snapshot
+                                              .data!.docs[index]['writeDate']
+                                              .toDate())),
+                                    ),
+                                    Visibility(
+                                      visible: edit,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          if (snapshot.data!.docs[index]
+                                                  ['userId'] ==
+                                              user.uid) {
+                                            updateQuestion(documentSnapshot);
+                                          } else {
+                                            showDialog(
+                                                context: context,
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    AlertDialog(
+                                                      title: const Text('오류!'),
+                                                      content: const Text(
+                                                          '작성자가 아닙니다!'),
+                                                      actions: [
+                                                        Center(
+                                                          child: TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                  "확인")),
+                                                        )
+                                                      ],
+                                                    ));
+                                          }
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.edit),
+                                      ),
+                                    ),
+                                    Visibility(
+                                      visible: delete,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) =>
+                                                  AlertDialog(
+                                                    title: const Text('경고!'),
+                                                    content: const Text(
+                                                        '게시글을 삭제하시겠습니까?'),
+                                                    actions: <Widget>[
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          if (snapshot.data!
+                                                                          .docs[
+                                                                      index]
+                                                                  ['userId'] ==
+                                                              user.uid) {
+                                                            deleteQuestion(
+                                                                documentSnapshot
+                                                                    .id);
                                                             Navigator.of(
                                                                     context)
                                                                 .pop();
-                                                          },
-                                                          child:
-                                                              const Text("확인")),
-                                                    )
-                                                  ],
-                                                ));
-                                      }
-                                    },
-                                    padding: EdgeInsets.only(left: 5),
-                                    constraints: BoxConstraints(),
-                                    icon: Icon(Icons.edit),
-                                  ),
-                                ),
-                                Visibility(
-                                  visible: delete,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) =>
-                                              AlertDialog(
-                                                title: const Text('경고!'),
-                                                content: const Text(
-                                                    '게시글을 삭제하시겠습니까?'),
-                                                actions: <Widget>[
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      if (snapshot.data!
-                                                                  .docs[index]
-                                                              ['userId'] ==
-                                                          user.uid) {
-                                                        deleteQuestion(
-                                                            documentSnapshot
-                                                                .id);
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                      } else {
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                        showDialog(
-                                                            context: context,
-                                                            builder: (BuildContext
-                                                                    context) =>
-                                                                AlertDialog(
-                                                                  title:
-                                                                      const Text(
+                                                          } else {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                            showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder: (BuildContext
+                                                                        context) =>
+                                                                    AlertDialog(
+                                                                      title: const Text(
                                                                           '오류!'),
-                                                                  content:
-                                                                      const Text(
-                                                                          '작성자가 아닙니다!'),
-                                                                  actions: [
-                                                                    Center(
-                                                                      child: TextButton(
-                                                                          onPressed: () {
-                                                                            Navigator.of(context).pop();
-                                                                          },
-                                                                          child: const Text("확인")),
-                                                                    )
-                                                                  ],
-                                                                ));
-                                                      }
-                                                    },
-                                                    child: const Text('삭제'),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    },
-                                                    child: const Text('취소'),
-                                                  )
-                                                ],
-                                              ));
-                                    },
-                                    padding: const EdgeInsets.only(left: 5),
-                                    constraints: const BoxConstraints(),
-                                    icon: const Icon(Icons.delete),
-                                  ),
+                                                                      content:
+                                                                          const Text(
+                                                                              '작성자가 아닙니다!'),
+                                                                      actions: [
+                                                                        Center(
+                                                                          child: TextButton(
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                              child: const Text("확인")),
+                                                                        )
+                                                                      ],
+                                                                    ));
+                                                          }
+                                                        },
+                                                        child: const Text('삭제'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                        child: const Text('취소'),
+                                                      )
+                                                    ],
+                                                  ));
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.delete),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: ((context) => QuestionPostScreen(
-                                    snapshot.data!.docs[index])),
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: ((context) => QuestionPostScreen(
+                                        snapshot.data!.docs[index])),
+                                  ));
+                                },
                               ));
                             },
-                          ));
-                        },
-                      );
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                    return const Text("there's no data");
-                  }),
+                          );
+                        } else if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
+                        return const Text("there's no data");
+                      }),
+                ),
+              ],
             ),
-            Expanded(
-              child: StreamBuilder<QuerySnapshot>(
-                  stream: refReview
-                      .orderBy("writeDate", descending: true)
-                      .snapshots(),
-                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return Text('Something went wrong! ${snapshot.error}');
-                    } else if (snapshot.hasData) {
-                      return ListView.builder(
-                        itemCount: snapshot.data!.docs.length,
-                        itemBuilder: (context, index) {
-                          final DocumentSnapshot documentSnapshot =
-                              snapshot.data!.docs[index];
-                          return Card(
-                              child: ListTile(
-                            title: Text(snapshot.data!.docs[index]['title']),
-                            subtitle: Text(snapshot.data!.docs[index]
-                                ['userEmail']), //userEamil
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 8),
-                                  child: Text(DateFormat('MM-dd HH:mm').format(
-                                      snapshot.data!.docs[index]['writeDate']
-                                          .toDate())),
-                                ),
-                                Visibility(
-                                  visible: edit,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      if (snapshot.data!.docs[index]
-                                              ['userId'] ==
-                                          user.uid) {
-                                        updateReview(documentSnapshot);
-                                      } else {
-                                        showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) =>
-                                                AlertDialog(
-                                                  title: const Text('오류!'),
-                                                  content:
-                                                      const Text('작성자가 아닙니다!'),
-                                                  actions: [
-                                                    Center(
-                                                      child: TextButton(
-                                                          onPressed: () {
+            Row(
+              children: [
+                Expanded(
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: refReview
+                          .orderBy("writeDate", descending: true)
+                          .snapshots(),
+                      builder:
+                          (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (snapshot.hasError) {
+                          return Text(
+                              'Something went wrong! ${snapshot.error}');
+                        } else if (snapshot.hasData) {
+                          return ListView.builder(
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              final DocumentSnapshot documentSnapshot =
+                                  snapshot.data!.docs[index];
+                              return Card(
+                                  child: ListTile(
+                                title:
+                                    Text(snapshot.data!.docs[index]['title']),
+                                subtitle: Text(snapshot.data!.docs[index]
+                                    ['userEmail']), //userEamil
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 8),
+                                      child: Text(DateFormat('MM-dd HH:mm')
+                                          .format(snapshot
+                                              .data!.docs[index]['writeDate']
+                                              .toDate())),
+                                    ),
+                                    Visibility(
+                                      visible: edit,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          if (snapshot.data!.docs[index]
+                                                  ['userId'] ==
+                                              user.uid) {
+                                            updateReview(documentSnapshot);
+                                          } else {
+                                            showDialog(
+                                                context: context,
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    AlertDialog(
+                                                      title: const Text('오류!'),
+                                                      content: const Text(
+                                                          '작성자가 아닙니다!'),
+                                                      actions: [
+                                                        Center(
+                                                          child: TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                  "확인")),
+                                                        )
+                                                      ],
+                                                    ));
+                                          }
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.edit),
+                                      ),
+                                    ),
+                                    Visibility(
+                                      visible: delete,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) =>
+                                                  AlertDialog(
+                                                    title: const Text('경고!'),
+                                                    content: const Text(
+                                                        '게시글을 삭제하시겠습니까?'),
+                                                    actions: <Widget>[
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          if (snapshot.data!
+                                                                          .docs[
+                                                                      index]
+                                                                  ['userId'] ==
+                                                              user.uid) {
+                                                            deleteReview(
+                                                                documentSnapshot
+                                                                    .id);
                                                             Navigator.of(
                                                                     context)
                                                                 .pop();
-                                                          },
-                                                          child:
-                                                              const Text("확인")),
-                                                    )
-                                                  ],
-                                                ));
-                                      }
-                                    },
-                                    padding: const EdgeInsets.only(left: 5),
-                                    constraints: const BoxConstraints(),
-                                    icon: const Icon(Icons.edit),
-                                  ),
-                                ),
-                                Visibility(
-                                  visible: delete,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) =>
-                                              AlertDialog(
-                                                title: const Text('경고!'),
-                                                content: const Text(
-                                                    '게시글을 삭제하시겠습니까?'),
-                                                actions: <Widget>[
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      if (snapshot.data!
-                                                                  .docs[index]
-                                                              ['userId'] ==
-                                                          user.uid) {
-                                                        deleteReview(
-                                                            documentSnapshot
-                                                                .id);
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                      } else {
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                        showDialog(
-                                                            context: context,
-                                                            builder: (BuildContext
-                                                                    context) =>
-                                                                AlertDialog(
-                                                                  title:
-                                                                      const Text(
+                                                          } else {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                            showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder: (BuildContext
+                                                                        context) =>
+                                                                    AlertDialog(
+                                                                      title: const Text(
                                                                           '오류!'),
-                                                                  content:
-                                                                      const Text(
-                                                                          '작성자가 아닙니다!'),
-                                                                  actions: [
-                                                                    Center(
-                                                                      child: TextButton(
-                                                                          onPressed: () {
-                                                                            Navigator.of(context).pop();
-                                                                          },
-                                                                          child: const Text("확인")),
-                                                                    )
-                                                                  ],
-                                                                ));
-                                                      }
-                                                    },
-                                                    child: const Text('삭제'),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    },
-                                                    child: const Text('취소'),
-                                                  )
-                                                ],
-                                              ));
-                                    },
-                                    padding: const EdgeInsets.only(left: 5),
-                                    constraints: const BoxConstraints(),
-                                    icon: const Icon(Icons.delete),
-                                  ),
+                                                                      content:
+                                                                          const Text(
+                                                                              '작성자가 아닙니다!'),
+                                                                      actions: [
+                                                                        Center(
+                                                                          child: TextButton(
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                              child: const Text("확인")),
+                                                                        )
+                                                                      ],
+                                                                    ));
+                                                          }
+                                                        },
+                                                        child: const Text('삭제'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                        child: const Text('취소'),
+                                                      )
+                                                    ],
+                                                  ));
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.delete),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: ((context) => ReviewPostScreen(
-                                    snapshot.data!.docs[index])),
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: ((context) => ReviewPostScreen(
+                                        snapshot.data!.docs[index])),
+                                  ));
+                                },
                               ));
                             },
-                          ));
-                        },
-                      );
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                    return const Text("there's no data");
-                  }),
+                          );
+                        } else if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
+                        return const Text("there's no data");
+                      }),
+                ),
+              ],
             ),
           ],
         ),
