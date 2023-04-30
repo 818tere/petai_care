@@ -45,6 +45,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   //XFile? _image;
   final ImagePicker picker = ImagePicker();
+  bool isLoading = false;
   //_getfromimage
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
   //String _imageURL = '';
@@ -236,7 +237,9 @@ class _AccountScreenState extends State<AccountScreen> {
 
     String downloadURL = await storageReference.getDownloadURL();
     postId = const Uuid().v4();
-
+    setState(() {
+      isLoading = true;
+    });
     getRecognizedText(pickedFile, downloadURL);
   }
 
@@ -269,6 +272,7 @@ class _AccountScreenState extends State<AccountScreen> {
     final ImageModel imageModel = imageModelFromJson(response.body);
 
     setState(() {
+      isLoading = false;
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => _buildRecognizedText(image, imageModel),
@@ -293,23 +297,30 @@ class _AccountScreenState extends State<AccountScreen> {
         iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 400,
-                width: 400,
+                height: MediaQuery.of(context).size.height * 0.5,
                 child: uploadImage.Image.file(File(image.path)),
               ),
               SizedBox(
-                height: 300,
-                width: 300,
+                height: MediaQuery.of(context).size.height * 0.3,
                 child: Column(
                   children: [
-                    const SizedBox(height: 10),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text('\n* 영수증에서 인식한 정보이며 빈 칸의 항목은 인식불가 항목입니다.\n',
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 12,
+                              ))
+                        ]),
                     const Divider(
                       thickness: 1.5,
                       height: 1,
@@ -320,16 +331,18 @@ class _AccountScreenState extends State<AccountScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('사업자명: ',
+                          const Text('분류: ',
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17)),
-                          Text(imageModel.images[0].fields[0].inferText,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
+                              )),
+                          Text(recognizedCategory,
                               style: const TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 17)),
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                              )),
                         ],
                       ),
                     ),
@@ -343,16 +356,18 @@ class _AccountScreenState extends State<AccountScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('금엑: ',
+                          const Text('사업자명: ',
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17)),
-                          Text(imageModel.images[0].fields[1].inferText,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
+                              )),
+                          Text(imageModel.images[0].fields[0].inferText,
                               style: const TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 17)),
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                              )),
                         ],
                       ),
                     ),
@@ -364,84 +379,91 @@ class _AccountScreenState extends State<AccountScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text('* 영수증에서 인식한 정보이며 빈 칸의 항목은 인식불가 항목입니다.',
-                                style:
-                                    TextStyle(color: Colors.red, fontSize: 12))
-                          ]),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 17))
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 50, vertical: 10)),
-                                  onPressed: () {
-                                    savePerformance(recognizedAmount,
-                                        recognizedDescp, recognizedCategory);
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text('내역추가',
-                                      style: TextStyle(
-                                          color: Colors.blue,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.white,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 50, vertical: 10)),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text('취소',
-                                      style: TextStyle(
-                                          color: Colors.blue,
-                                          fontWeight: FontWeight.bold)),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('금액: ',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
+                              )),
+                          Text(imageModel.images[0].fields[1].inferText,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                              )),
+                        ],
                       ),
-                    )
+                    ),
+                    const Divider(
+                      thickness: 0.3,
+                      height: 1,
+                      color: Colors.black,
+                    ),
                   ],
                 ),
               ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.2,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                            ))
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 50, vertical: 10)),
+                          onPressed: () {
+                            savePerformance(recognizedAmount, recognizedDescp,
+                                recognizedCategory);
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('내역추가',
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 50, vertical: 10)),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('취소',
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -452,161 +474,169 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: 55,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Row(
-                children: const [
-                  Text(
-                    '가계부',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Column(
-            children: [
-              Offstage(
-                offstage: calenderHide,
-                child: TableCalendar(
-                  locale: 'ko_KR',
-                  focusedDay: _focusedDay,
-                  firstDay: DateTime(2023),
-                  lastDay: DateTime(2040),
-                  headerStyle: const HeaderStyle(
-                    formatButtonVisible: false,
-                    titleCentered: true,
-                    titleTextStyle: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+      body: isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : Column(
+              children: [
+                SizedBox(
+                  height: 55,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Row(
+                      children: const [
+                        Text(
+                          '가계부',
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                      ],
                     ),
                   ),
-                  onDaySelected: (selectedDay, focusedDay) {
-                    if (!isSameDay(_selectedDay, selectedDay)) {
-                      setState(() {
-                        _selectedDay = selectedDay;
-                        _focusedDay = focusedDay;
-                      });
-                    }
-                  },
-                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                  onFormatChanged: (format) {
-                    if (_calendarFormat != format) {
-                      setState(() {
-                        _calendarFormat = format;
-                      });
-                    }
-                  },
-                  onPageChanged: (focusedDay) {
-                    _focusedDay = focusedDay;
-                  },
-                  eventLoader: _listOfDayEvents,
                 ),
-              ),
-              Offstage(
-                  offstage: chartHide,
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Column(
+                  children: [
+                    Offstage(
+                      offstage: calenderHide,
+                      child: TableCalendar(
+                        locale: 'ko_KR',
+                        focusedDay: _focusedDay,
+                        firstDay: DateTime(2023),
+                        lastDay: DateTime(2040),
+                        headerStyle: const HeaderStyle(
+                          formatButtonVisible: false,
+                          titleCentered: true,
+                          titleTextStyle: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        onDaySelected: (selectedDay, focusedDay) {
+                          if (!isSameDay(_selectedDay, selectedDay)) {
+                            setState(() {
+                              _selectedDay = selectedDay;
+                              _focusedDay = focusedDay;
+                            });
+                          }
+                        },
+                        selectedDayPredicate: (day) =>
+                            isSameDay(_selectedDay, day),
+                        onFormatChanged: (format) {
+                          if (_calendarFormat != format) {
+                            setState(() {
+                              _calendarFormat = format;
+                            });
+                          }
+                        },
+                        onPageChanged: (focusedDay) {
+                          _focusedDay = focusedDay;
+                        },
+                        eventLoader: _listOfDayEvents,
+                      ),
+                    ),
+                    Offstage(
+                        offstage: chartHide,
+                        child: Column(
                           children: [
-                            ...List.generate(
-                              4,
-                              (index) => GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    index_color = index;
-                                  });
-                                },
-                                child: Container(
-                                  height: 40,
-                                  width: 70,
-                                  decoration: BoxDecoration(
-                                    color: index_color == index
-                                        ? Colors.blue
-                                        : Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
+                            const SizedBox(height: 20),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 15),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  ...List.generate(
+                                    4,
+                                    (index) => GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          index_color = index;
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 40,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          color: index_color == index
+                                              ? Colors.blue
+                                              : Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          day[index],
+                                          style: TextStyle(
+                                              color: index_color == index
+                                                  ? Colors.white
+                                                  : Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    day[index],
-                                    style: TextStyle(
-                                        color: index_color == index
-                                            ? Colors.white
-                                            : Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
+                                ],
                               ),
                             ),
+                            const SizedBox(height: 20),
+                            const Chart(),
                           ],
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const Chart(),
-                    ],
-                  )),
-            ],
-          ),
-          const SizedBox(height: 30),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  '소비내역',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          calenderHide = false;
-                          chartHide = true;
-                        });
-                      },
-                      child: const Icon(Icons.calendar_month_outlined,
-                          size: 30, color: Colors.black),
-                    ),
-                    const SizedBox(width: 10),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          chartHide = false;
-                          calenderHide = true;
-                        });
-                      },
-                      child: const Icon(Icons.bar_chart,
-                          size: 30, color: Colors.black),
-                    ),
+                        )),
                   ],
                 ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 15),
-          Expanded(
-            child: ListView(
-              children: getContent(),
-            ),
-          )
-          /*..._listOfDayEvents(_selectedDay!).map(
+                const SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        '소비내역',
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                calenderHide = false;
+                                chartHide = true;
+                              });
+                            },
+                            child: const Icon(Icons.calendar_month_outlined,
+                                size: 30, color: Colors.black),
+                          ),
+                          const SizedBox(width: 10),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                chartHide = false;
+                                calenderHide = true;
+                              });
+                            },
+                            child: const Icon(Icons.bar_chart,
+                                size: 30, color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Expanded(
+                  child: ListView(
+                    children: getContent(),
+                  ),
+                )
+                /*..._listOfDayEvents(_selectedDay!).map(
             (myEvents) => ListTile(
               leading: const Icon(
                 Icons.local_hospital,
@@ -622,8 +652,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   style: const TextStyle(fontWeight: FontWeight.w400)),
             ),
           )*/
-        ],
-      ),
+              ],
+            ),
       floatingActionButton: SpeedDial(
         animatedIcon: AnimatedIcons.add_event,
         spacing: 12,
