@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:petai_care/screens/LoginSignupScreen.dart';
+import 'package:petai_care/screens/hospital/favorite_provider.dart';
 import 'package:petai_care/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,11 +16,18 @@ class PetAICare extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => FavoriteItemProvider()),
+      ],
+          
+    child : MaterialApp(
       title: 'Pet_AI_Care',
       debugShowCheckedModeBanner: false,
       home: const LoginSignupScreen(),
       theme: theme(),
+    ),
     );
   }
 }
