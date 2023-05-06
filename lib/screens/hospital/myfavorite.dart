@@ -5,7 +5,6 @@ import 'package:flutter/services.dart' as rootBundle;
 import 'package:petai_care/screens/hospital/favorite_provider.dart';
 import 'package:petai_care/screens/hospital/seoul.dart';
 import 'package:provider/provider.dart';
-
 import 'HospitalDataModel.dart';
 
 void showPopup(context, imageUrl, name, address, number, description) {
@@ -101,9 +100,11 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                 return Expanded(
                   child: ListView.builder(
                     
-                      itemCount: favoriteProvider.selectedItem.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
-                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
+                        if (!favoriteProvider.selectedItem.contains(index)) {
+                        return SizedBox.shrink();
+                        }
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -169,14 +170,14 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                                     ),
                                   )),
                                 IconButton(
-                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  icon: Icon(favoriteProvider.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
                                   color: Colors.red,
                                   ),
                                   onPressed: () {
-                                    if(value.selectedItem.contains(index)){
-                                      value.removeItem(index);
+                                    if(favoriteProvider.selectedItem.contains(index)){
+                                      favoriteProvider.removeItem(index);
                                     }else{
-                                      value.addItem(index);
+                                      favoriteProvider.addItem(index);
                                     }
                                     setState((){
                                     });
@@ -188,8 +189,7 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                             ),
                           ),
                         );
-                      }
-                      );
+                      
               }),
                 );
               } else {
