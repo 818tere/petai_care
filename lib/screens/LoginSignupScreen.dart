@@ -41,28 +41,21 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               left: 0,
               right: 0,
               child: Container(
-                height: 300,
-                decoration: BoxDecoration(
-                  color: Colors.blue.shade800,
+                height: MediaQuery.of(context).size.height * 0.5,
+                decoration: const BoxDecoration(
+                  color: Color(0xffF9DEDC),
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 100,
-                    ),
+                    const SizedBox(height: 100),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.pets, color: Colors.blue.shade200, size: 30),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Pet Care',
-                          style: GoogleFonts.lato(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        Image.asset(
+                          'assets/main_logo.png',
+                          scale: 2,
                         ),
+                        const SizedBox(width: 10),
                       ],
                     ),
                   ],
@@ -71,10 +64,10 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
             ),
             //배경
             Positioned(
-              top: 180,
+              top: 250,
               child: Container(
                 padding: const EdgeInsets.all(18),
-                height: isSignupScreen ? 280 : 280,
+                height: isSignupScreen ? 280 : 220,
                 width: MediaQuery.of(context).size.width - 40,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
@@ -117,7 +110,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     margin: const EdgeInsets.only(top: 3),
                                     height: 2,
                                     width: 55,
-                                    color: Colors.blue.shade500,
+                                    color: const Color(0xff8C1D18),
                                   )
                               ],
                             ),
@@ -145,7 +138,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     margin: const EdgeInsets.only(top: 3),
                                     height: 2,
                                     width: 55,
-                                    color: Colors.blue.shade500,
+                                    color: const Color(0xff8C1D18),
                                   )
                               ],
                             ),
@@ -171,8 +164,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     userEmail = value!;
                                   },
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.account_circle,
-                                        color: Colors.blue.shade500),
+                                    prefixIcon: const Icon(Icons.account_circle,
+                                        color: Color(0xff8C1D18)),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey.shade300,
@@ -206,8 +199,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     userName = value!;
                                   },
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.create_outlined,
-                                        color: Colors.blue.shade500),
+                                    prefixIcon: const Icon(
+                                        Icons.create_outlined,
+                                        color: Color(0xff8C1D18)),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey.shade300,
@@ -242,8 +236,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     password = value!;
                                   },
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.lock,
-                                        color: Colors.blue.shade500),
+                                    prefixIcon: const Icon(Icons.lock,
+                                        color: Color(0xff8C1D18)),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey.shade300,
@@ -290,8 +284,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     userEmail = value;
                                   },
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.account_circle,
-                                        color: Colors.blue.shade500),
+                                    prefixIcon: const Icon(Icons.account_circle,
+                                        color: Color(0xff8C1D18)),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey.shade300,
@@ -329,8 +323,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     password = value;
                                   },
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.lock,
-                                        color: Colors.blue.shade500),
+                                    prefixIcon: const Icon(Icons.lock,
+                                        color: Color(0xff8C1D18)),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey.shade300,
@@ -362,7 +356,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
             ),
             //텍스트 폼 필드
             Positioned(
-              top: 500,
+              top: 550,
               left: 0,
               right: 0,
               child: Center(
@@ -423,7 +417,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade500,
+                        color: const Color(0xff8C1D18),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(

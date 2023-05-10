@@ -478,165 +478,174 @@ class _AccountScreenState extends State<AccountScreen> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : Column(
-              children: [
-                SizedBox(
-                  height: 55,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 30),
-                    child: Row(
-                      children: const [
-                        Text(
-                          '가계부',
-                          style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
+          : SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 55,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 30),
+                      child: Row(
+                        children: const [
+                          Text(
+                            '가계부',
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: Column(
+                      children: [
+                        Offstage(
+                          offstage: calenderHide,
+                          child: TableCalendar(
+                            locale: 'ko_KR',
+                            focusedDay: _focusedDay,
+                            firstDay: DateTime(2023),
+                            lastDay: DateTime(2040),
+                            headerStyle: const HeaderStyle(
+                              formatButtonVisible: false,
+                              titleCentered: true,
+                              titleTextStyle: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            onDaySelected: (selectedDay, focusedDay) {
+                              if (!isSameDay(_selectedDay, selectedDay)) {
+                                setState(() {
+                                  _selectedDay = selectedDay;
+                                  _focusedDay = focusedDay;
+                                });
+                              }
+                            },
+                            selectedDayPredicate: (day) =>
+                                isSameDay(_selectedDay, day),
+                            onFormatChanged: (format) {
+                              if (_calendarFormat != format) {
+                                setState(() {
+                                  _calendarFormat = format;
+                                });
+                              }
+                            },
+                            onPageChanged: (focusedDay) {
+                              _focusedDay = focusedDay;
+                            },
+                            eventLoader: _listOfDayEvents,
+                          ),
+                        ),
+                        Offstage(
+                          offstage: chartHide,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 10),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ...List.generate(
+                                      4,
+                                      (index) => GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            index_color = index;
+                                          });
+                                        },
+                                        child: Container(
+                                          height: 40,
+                                          width: 70,
+                                          decoration: BoxDecoration(
+                                            color: index_color == index
+                                                ? Colors.blue
+                                                : Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            day[index],
+                                            style: TextStyle(
+                                                color: index_color == index
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Chart(),
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
-                ),
-                Column(
-                  children: [
-                    Offstage(
-                      offstage: calenderHide,
-                      child: TableCalendar(
-                        locale: 'ko_KR',
-                        focusedDay: _focusedDay,
-                        firstDay: DateTime(2023),
-                        lastDay: DateTime(2040),
-                        headerStyle: const HeaderStyle(
-                          formatButtonVisible: false,
-                          titleCentered: true,
-                          titleTextStyle: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        onDaySelected: (selectedDay, focusedDay) {
-                          if (!isSameDay(_selectedDay, selectedDay)) {
-                            setState(() {
-                              _selectedDay = selectedDay;
-                              _focusedDay = focusedDay;
-                            });
-                          }
-                        },
-                        selectedDayPredicate: (day) =>
-                            isSameDay(_selectedDay, day),
-                        onFormatChanged: (format) {
-                          if (_calendarFormat != format) {
-                            setState(() {
-                              _calendarFormat = format;
-                            });
-                          }
-                        },
-                        onPageChanged: (focusedDay) {
-                          _focusedDay = focusedDay;
-                        },
-                        eventLoader: _listOfDayEvents,
-                      ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffFFD8E4),
+                      borderRadius: BorderRadius.circular(15),
                     ),
-                    Offstage(
-                        offstage: chartHide,
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 20),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 15),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ...List.generate(
-                                    4,
-                                    (index) => GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          index_color = index;
-                                        });
-                                      },
-                                      child: Container(
-                                        height: 40,
-                                        width: 70,
-                                        decoration: BoxDecoration(
-                                          color: index_color == index
-                                              ? Colors.blue
-                                              : Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          day[index],
-                                          style: TextStyle(
-                                              color: index_color == index
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            const Chart(),
-                          ],
-                        )),
-                  ],
-                ),
-                const SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        '소비내역',
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
-                      Row(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                calenderHide = false;
-                                chartHide = true;
-                              });
-                            },
-                            child: const Icon(Icons.calendar_month_outlined,
-                                size: 30, color: Colors.black),
+                          const Text(
+                            '소비내역',
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black),
                           ),
-                          const SizedBox(width: 10),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                chartHide = false;
-                                calenderHide = true;
-                              });
-                            },
-                            child: const Icon(Icons.bar_chart,
-                                size: 30, color: Colors.black),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    calenderHide = false;
+                                    chartHide = true;
+                                  });
+                                },
+                                child: const Icon(Icons.calendar_month_outlined,
+                                    size: 30, color: Colors.black),
+                              ),
+                              const SizedBox(width: 10),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    chartHide = false;
+                                    calenderHide = true;
+                                  });
+                                },
+                                child: const Icon(Icons.bar_chart,
+                                    size: 30, color: Colors.black),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                Expanded(
-                  child: ListView(
+                  const SizedBox(height: 15),
+                  ListView(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
                     children: getContent(),
-                  ),
-                )
-                /*..._listOfDayEvents(_selectedDay!).map(
+                  )
+                  /*..._listOfDayEvents(_selectedDay!).map(
             (myEvents) => ListTile(
               leading: const Icon(
                 Icons.local_hospital,
@@ -651,11 +660,13 @@ class _AccountScreenState extends State<AccountScreen> {
               subtitle: Text('내용:  ${myEvents['descp']}',
                   style: const TextStyle(fontWeight: FontWeight.w400)),
             ),
-          )*/
-              ],
+              )*/
+                ],
+              ),
             ),
       floatingActionButton: SpeedDial(
         animatedIcon: AnimatedIcons.add_event,
+        label: const Text('내역 추가'),
         spacing: 12,
         children: [
           SpeedDialChild(
@@ -695,6 +706,10 @@ class _AccountScreenState extends State<AccountScreen> {
               .then((value) => updateScreen());
         },
         child: ListTile(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+            side: BorderSide(color: Colors.grey.shade300, width: 1),
+          ),
           leading: ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: uploadImage.Image.asset(

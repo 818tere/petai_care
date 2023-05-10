@@ -17,8 +17,8 @@ class _AiScreenState extends State<AiScreen> {
   late File _imageFile;
   final picker = ImagePicker();
   final int _currentSelection = 0; // 0: 강아지, 1: 고양이
-  bool showDog = true;
-  bool showCat = false;
+  bool hideDog = false;
+  bool hideCat = true;
 
   _AiScreenState() {
     _imageFile = File(''); // 파일 초기화
@@ -34,6 +34,7 @@ class _AiScreenState extends State<AiScreen> {
         print('No image selected.');
       }
     });
+    _uploadImage(_imageFile);
   }
 
   Future<void> _uploadImage(File image) async {
@@ -66,8 +67,34 @@ class _AiScreenState extends State<AiScreen> {
     );
   }
 
-  void _sendImageToServer() {
-    _uploadImage(_imageFile);
+  void __showImageDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('이미지 선택'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.photo),
+              title: const Text('갤러리'),
+              onTap: () {
+                _getImage(ImageSource.gallery);
+                Navigator.of(context).pop();
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.camera_alt),
+              title: const Text('카메라'),
+              onTap: () {
+                _getImage(ImageSource.camera);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
@@ -151,41 +178,84 @@ class _AiScreenState extends State<AiScreen> {
               ),
               items: imageSliders,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      showDog = true;
-                      showCat = false;
-                    });
-                  },
-                  child: const Text('강아지'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      showDog = false;
-                      showCat = true;
-                    });
-                  },
-                  child: const Text('고양이'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ResultListScreen()),
-                    );
-                  },
-                  child: const Text('진단결과목록'),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton.icon(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    label: const Text(
+                      '강아지',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    icon: Image.asset('assets/ai_images/icon_dog.png',
+                        width: 40, height: 40),
+                    onPressed: () {
+                      setState(() {
+                        hideDog = false;
+                        hideCat = true;
+                      });
+                    },
+                  ),
+                  ElevatedButton.icon(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    label: const Text(
+                      '고양이',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    icon: Image.asset('assets/ai_images/icon_cat.png',
+                        width: 40, height: 40),
+                    onPressed: () {
+                      setState(() {
+                        hideDog = true;
+                        hideCat = false;
+                      });
+                    },
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ResultListScreen()),
+                      );
+                    },
+                    child: const Text(
+                      '진단결과목록',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Offstage(
-              offstage: showDog,
+              offstage: hideDog,
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.01),
@@ -195,27 +265,41 @@ class _AiScreenState extends State<AiScreen> {
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          AlertDialog(
-                            title: const Text('이미지 선택'),
-                            content: Row(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: const Text('직접 촬영'),
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: const Text('갤러리'),
-                                ),
-                              ],
-                            ),
-                          );
+                          __showImageDialog();
                         },
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.25,
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: const Color(0xffE8DEF8),
                             borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                              image:
+                                  AssetImage('assets/ai_images/icon_dog1.png'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: const [
+                                  Text('강아지',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: const [
+                                  Text('안과질환',
+                                      style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -227,8 +311,36 @@ class _AiScreenState extends State<AiScreen> {
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.25,
                           decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: const Color(0xffFFD8E4),
                             borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                              image:
+                                  AssetImage('assets/ai_images/icon_dog2.png'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: const [
+                                  Text('강아지',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: const [
+                                  Text('피부질환',
+                                      style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -238,7 +350,7 @@ class _AiScreenState extends State<AiScreen> {
               ),
             ),
             Offstage(
-              offstage: showCat,
+              offstage: hideCat,
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.01),
@@ -251,8 +363,36 @@ class _AiScreenState extends State<AiScreen> {
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.25,
                           decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: const Color(0xffFFD8E4),
                             borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                              image:
+                                  AssetImage('assets/ai_images/icon_cat2.png'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: const [
+                                  Text('고양이',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: const [
+                                  Text('안과질환',
+                                      style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -264,8 +404,36 @@ class _AiScreenState extends State<AiScreen> {
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.25,
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: const Color(0xffE8DEF8),
                             borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                              image:
+                                  AssetImage('assets/ai_images/icon_cat1.png'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: const [
+                                  Text('고양이',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: const [
+                                  Text('피부질환',
+                                      style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -279,20 +447,7 @@ class _AiScreenState extends State<AiScreen> {
       ),
       /*floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          FloatingActionButton(
-            heroTag: 'a1',
-            onPressed: () => _getImage(ImageSource.camera),
-            tooltip: 'Take a photo',
-            child: const Icon(Icons.add_a_photo),
-          ),
-          const SizedBox(height: 16),
-          FloatingActionButton(
-            heroTag: 'a2',
-            onPressed: () => _getImage(ImageSource.gallery),
-            tooltip: 'Pick an image',
-            child: const Icon(Icons.photo_library),
-          ),
+        
           const SizedBox(height: 16),
           FloatingActionButton(
             heroTag: 'a3',

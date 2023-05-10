@@ -84,6 +84,8 @@ flutter:
     - assets/images/review.jpeg
     - assets/accountimages/병원비.png
     - assets/accountimages/양육비.png
+    - assets/ai_images/
+    - assets/main_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
