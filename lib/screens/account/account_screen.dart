@@ -273,6 +273,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
     setState(() {
       isLoading = false;
+
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => _buildRecognizedText(image, imageModel),
@@ -287,6 +288,72 @@ class _AccountScreenState extends State<AccountScreen> {
     String recognizedAmount = amountTemp;
     String recognizedDescp = imageModel.images[0].fields[0].inferText;
     String recognizedCategory = recognizedDescp.contains('병원') ? '병원비' : '양육비';
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      showBottomSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15,
+                          ))
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 50, vertical: 10)),
+                        onPressed: () {
+                          savePerformance(recognizedAmount, recognizedDescp,
+                              recognizedCategory);
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('내역추가',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 50, vertical: 10)),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('취소',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          });
+    });
     return Scaffold(
       appBar: AppBar(
         title: const Text('영수증 인식확인'),
@@ -356,18 +423,22 @@ class _AccountScreenState extends State<AccountScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('사업자명: ',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 17,
-                              )),
-                          Text(imageModel.images[0].fields[0].inferText,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              )),
+                          const Text(
+                            '사업자명: ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 17,
+                            ),
+                          ),
+                          Text(
+                            imageModel.images[0].fields[0].inferText,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 17,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -387,12 +458,14 @@ class _AccountScreenState extends State<AccountScreen> {
                                 fontWeight: FontWeight.w500,
                                 fontSize: 17,
                               )),
-                          Text(imageModel.images[0].fields[1].inferText,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              )),
+                          Text(
+                            imageModel.images[0].fields[1].inferText,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 17,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -404,66 +477,6 @@ class _AccountScreenState extends State<AccountScreen> {
                   ],
                 ),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.2,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                            ))
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 50, vertical: 10)),
-                          onPressed: () {
-                            savePerformance(recognizedAmount, recognizedDescp,
-                                recognizedCategory);
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text('내역추가',
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 50, vertical: 10)),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text('취소',
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
         ),
@@ -592,12 +605,8 @@ class _AccountScreenState extends State<AccountScreen> {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffFFD8E4),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(

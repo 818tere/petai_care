@@ -53,6 +53,7 @@ dependencies:
   flutter_speed_dial: ^6.2.0
   firebase_storage: ^11.1.1
   carousel_slider: ^4.2.1
+  get: ^4.3.8
 
 dev_dependencies:
   flutter_test:
