@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
 import 'package:petai_care/screens/hospital/HospitalDataModel.dart';
+import 'package:provider/provider.dart';
+import 'favorite_provider.dart';
 
 void showPopup(context, imageUrl, name, address, number, description) {
   showDialog(
@@ -74,13 +76,17 @@ void showPopup(context, imageUrl, name, address, number, description) {
 // 강남구
 
 class Gangnam extends StatefulWidget {
-  const Gangnam({super.key});
+  const Gangnam({super.key,});
 
   @override
   State<Gangnam> createState() => _GangnamState();
 }
 
 class _GangnamState extends State<Gangnam> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,8 +101,10 @@ class _GangnamState extends State<Gangnam> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -150,7 +158,8 @@ class _GangnamState extends State<Gangnam> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -159,13 +168,28 @@ class _GangnamState extends State<Gangnam> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(

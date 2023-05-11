@@ -3,6 +3,8 @@ import 'package:petai_care/screens/hospital/gyeonggi.dart';
 import 'package:petai_care/screens/hospital/quick_search.dart';
 import 'package:flutter/material.dart';
 
+import 'myfavorite.dart';
+
 class HospitalScreen extends StatelessWidget {
   const HospitalScreen({super.key});
 
@@ -38,8 +40,14 @@ class HospitalScreen extends StatelessWidget {
                     },
                   ),
                   IconButton(
-                    icon: const Icon(Icons.favorite),
-                    onPressed: () {},
+                    icon: const Icon(Icons.favorite_outline_outlined,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyFavoriteItemScreen()));
+                    },
                   ),
                 ],
               ),
@@ -1060,7 +1068,7 @@ class Gyeonggi extends StatelessWidget {
               children: [
                 SizedBox(
                   width: 100.0,
-                  height: 50,
+                  height: 40,
                   child: ElevatedButton(
                     // 버튼 누르면 페이지 이동
                     onPressed: () {
