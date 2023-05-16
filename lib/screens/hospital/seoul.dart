@@ -85,7 +85,7 @@ class Gangnam extends StatefulWidget {
 class _GangnamState extends State<Gangnam> {
   @override
 
-  List<int> selectedItem = [];
+  List<int> _selectedItem = [];
 
   @override
   Widget build(BuildContext context) {
@@ -215,13 +215,17 @@ class _GangnamState extends State<Gangnam> {
 // 강동구
 
 class Gangdong extends StatefulWidget {
-  const Gangdong({super.key});
+  const Gangdong({super.key,});
 
   @override
   State<Gangdong> createState() => _GangdongState();
 }
 
 class _GangdongState extends State<Gangdong> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -236,8 +240,10 @@ class _GangdongState extends State<Gangdong> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -291,7 +297,8 @@ class _GangdongState extends State<Gangdong> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -300,13 +307,28 @@ class _GangdongState extends State<Gangdong> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(
@@ -332,13 +354,17 @@ class _GangdongState extends State<Gangdong> {
 // 강북구
 
 class Gangbuk extends StatefulWidget {
-  const Gangbuk({super.key});
+  const Gangbuk({super.key,});
 
   @override
   State<Gangbuk> createState() => _GangbukState();
 }
 
 class _GangbukState extends State<Gangbuk> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -353,8 +379,10 @@ class _GangbukState extends State<Gangbuk> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -408,7 +436,8 @@ class _GangbukState extends State<Gangbuk> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -417,13 +446,28 @@ class _GangbukState extends State<Gangbuk> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(
@@ -448,13 +492,17 @@ class _GangbukState extends State<Gangbuk> {
 // 강서구
 
 class Gangseo extends StatefulWidget {
-  const Gangseo({super.key});
+  const Gangseo({super.key,});
 
   @override
-  State<Gangbuk> createState() => _GangbukState();
+  State<Gangseo> createState() => _GangseoState();
 }
 
 class _GangseoState extends State<Gangseo> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -469,8 +517,10 @@ class _GangseoState extends State<Gangseo> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -524,7 +574,8 @@ class _GangseoState extends State<Gangseo> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -533,13 +584,28 @@ class _GangseoState extends State<Gangseo> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(
@@ -564,13 +630,17 @@ class _GangseoState extends State<Gangseo> {
 // 관악구
 
 class Gwanak extends StatefulWidget {
-  const Gwanak({super.key});
+  const Gwanak({super.key,});
 
   @override
   State<Gwanak> createState() => _GwanakState();
 }
 
 class _GwanakState extends State<Gwanak> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -585,8 +655,10 @@ class _GwanakState extends State<Gwanak> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -640,7 +712,8 @@ class _GwanakState extends State<Gwanak> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -649,13 +722,28 @@ class _GwanakState extends State<Gwanak> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(
@@ -681,13 +769,17 @@ class _GwanakState extends State<Gwanak> {
 // 광진구
 
 class Gwangjin extends StatefulWidget {
-  const Gwangjin({super.key});
+  const Gwangjin({super.key,});
 
   @override
   State<Gwangjin> createState() => _GwangjinState();
 }
 
 class _GwangjinState extends State<Gwangjin> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -702,8 +794,10 @@ class _GwangjinState extends State<Gwangjin> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -757,7 +851,8 @@ class _GwangjinState extends State<Gwangjin> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -766,13 +861,28 @@ class _GwangjinState extends State<Gwangjin> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(
@@ -795,16 +905,21 @@ class _GwangjinState extends State<Gwangjin> {
   }
 }
 
+
 // 구로구
 
 class Guro extends StatefulWidget {
-  const Guro({super.key});
+  const Guro({super.key,});
 
   @override
   State<Guro> createState() => _GuroState();
 }
 
 class _GuroState extends State<Guro> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -819,8 +934,10 @@ class _GuroState extends State<Guro> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -874,7 +991,8 @@ class _GuroState extends State<Guro> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -883,13 +1001,28 @@ class _GuroState extends State<Guro> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(
@@ -912,16 +1045,21 @@ class _GuroState extends State<Guro> {
   }
 }
 
+
 // 금천구
 
 class Geumcheon extends StatefulWidget {
-  const Geumcheon({super.key});
+  const Geumcheon({super.key,});
 
   @override
   State<Geumcheon> createState() => _GeumcheonState();
 }
 
 class _GeumcheonState extends State<Geumcheon> {
+  @override
+
+  List<int> selectedItem = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -936,8 +1074,10 @@ class _GeumcheonState extends State<Geumcheon> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
+                    
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                      return Consumer<FavoriteItemProvider>(builder: (context, value, child){
                         return GestureDetector(
                           onTap: () {
                             showPopup(
@@ -991,7 +1131,8 @@ class _GeumcheonState extends State<Geumcheon> {
                                               left: 8, right: 8),
                                           child: Text(
                                               items[index].address.toString()),
-                                        ),
+                                        
+                                        ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
@@ -1000,13 +1141,28 @@ class _GeumcheonState extends State<Geumcheon> {
                                         )
                                       ],
                                     ),
-                                  ))
+                                  )),
+                                IconButton(
+                                  icon: Icon(value.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
+                                  color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    if(value.selectedItem.contains(index)){
+                                      value.removeItem(index);
+                                    }else{
+                                      value.addItem(index);
+                                    }
+                                },
+                                ),
                                 ],
+                                
                               ),
                             ),
                           ),
                         );
-                      }),
+                      }
+                      );
+              }),
                 );
               } else {
                 return const Center(
@@ -1028,6 +1184,7 @@ class _GeumcheonState extends State<Geumcheon> {
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
 }
+
 
 // 노원구
 

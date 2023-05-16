@@ -205,9 +205,10 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
   }
   Future<List<HospitalDataModel>> ReadJsonData() async {
     final jsondata =
-        await rootBundle.rootBundle.loadString('jsonfile/seoul/gangnam.json');
+        await rootBundle.rootBundle.loadString('jsonfile/seoul/all.json');
     final list = json.decode(jsondata) as List<dynamic>;
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
+  
 }
