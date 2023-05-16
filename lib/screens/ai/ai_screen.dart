@@ -41,7 +41,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    var url = Uri.parse('http://718b6e518d57.ngrok.app');
+    var url = Uri.parse('http://edb064db31a1.ngrok.app');
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
     var response = await request.send();
@@ -53,12 +53,21 @@ class _AiScreenState extends State<AiScreen> {
       const Utf8Decoder().convert(responseString.runes.toList()),
     )['probability'];
 
+    late String result;
+
+    if (prob < 65){
+      result = "판정이 어렵습니다. 사진을 다시 찍어주세요.";
+    }
+    else{
+      result = "$koreanString 확률: $prob";
+    }
+
     if (!mounted) return;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('진단 결과'),
-        content: Text("$koreanString 확률: $prob%"),
+        content: Text(result),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
