@@ -81,11 +81,15 @@ class _MainScreensState extends State<MainScreens> {
             },
           ),
           ListTile(
+            leading: Icon(
+              Icons.logout,
+              color: Colors.grey[850],
+            ),
             title: const Text('로그아웃'),
             onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const LoginSignupScreen()));
-                  },
+              _auth.signOut();
+              Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+            },
           ),
         ]),
       ),
