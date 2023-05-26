@@ -35,7 +35,7 @@ class _AccountScreenState extends State<AccountScreen> {
   List day = ['1일', '1주', '1개월', '1년'];
   int index_color = 0;
   //chart
-  Map<String, List> mySelectedEvents = <String, List>{};
+  Map<String, List<dynamic>> mySelectedEvents = {};
   //tablecalendar 용
   List<Performance> performances = [];
   //로컬 저장용
@@ -62,11 +62,14 @@ class _AccountScreenState extends State<AccountScreen> {
     super.initState();
     _selectedDay = _focusedDay;
     initializeDateFormatting();
+    getContent(_focusedDay, mySelectedEvents);
   }
 
-  List _listOfDayEvents(DateTime day) {
-    if (mySelectedEvents[DateFormat('yyyy-MM-dd').format(day)] != null) {
-      return mySelectedEvents[DateFormat('yyyy-MM-dd').format(day)]!;
+  List listOfDayEvents(DateTime day) {
+    String formattedDate = DateFormat('yyyy-MM-dd').format(day);
+
+    if (mySelectedEvents[formattedDate] != null) {
+      return [mySelectedEvents[formattedDate]![0]];
     } else {
       return [];
     }
@@ -172,30 +175,7 @@ class _AccountScreenState extends State<AccountScreen> {
               } else {
                 savePerformance(
                     amountController.text, descpController.text, selectedItem!);
-                setState(() {
-                  if (mySelectedEvents[
-                          DateFormat('yyyy-MM-dd').format(_selectedDay!)] !=
-                      null) {
-                    mySelectedEvents[
-                            DateFormat('yyyy-MM-dd').format(_selectedDay!)]
-                        ?.add(
-                      {
-                        'category': selectedItem,
-                        'amount': amountController.text,
-                        'descp': descpController.text,
-                      },
-                    );
-                  } else {
-                    mySelectedEvents[
-                        DateFormat('yyyy-MM-dd').format(_selectedDay!)] = [
-                      {
-                        'category': selectedItem,
-                        'amount': amountController.text,
-                        'descp': descpController.text,
-                      },
-                    ];
-                  }
-                });
+
                 amountController.clear();
                 descpController.clear();
 
@@ -213,8 +193,34 @@ class _AccountScreenState extends State<AccountScreen> {
       String amount, String descp, String selectedItem) async {
     int id = helper.getCounter() + 1;
 
+    setState(() {
+      if (mySelectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDay!)] !=
+          null) {
+        mySelectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDay!)]?.add(
+          {
+            'category': selectedItem,
+            'amount': amount,
+            'descp': descp,
+          },
+        );
+      } else {
+        mySelectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDay!)] = [
+          {
+            'category': selectedItem,
+            'amount': amount,
+            'descp': descp,
+          },
+        ];
+      }
+    });
+
     Performance newPerformance = Performance(
-        id, _selectedDay.toString(), amount.toString(), descp, selectedItem);
+      id,
+      _selectedDay.toString(),
+      amount.toString(),
+      descp,
+      selectedItem,
+    );
 
     helper.writePerformance(newPerformance).then((_) {
       helper.setCounter();
@@ -288,73 +294,67 @@ class _AccountScreenState extends State<AccountScreen> {
     String recognizedAmount = amountTemp;
     String recognizedDescp = imageModel.images[0].fields[0].inferText;
     String recognizedCategory = recognizedDescp.contains('병원') ? '병원비' : '양육비';
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      showBottomSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return Container(
-              height: MediaQuery.of(context).size.height * 0.2,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15,
-                          ))
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50, vertical: 10)),
-                        onPressed: () {
-                          savePerformance(recognizedAmount, recognizedDescp,
-                              recognizedCategory);
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text('내역추가',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50, vertical: 10)),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text('취소',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          });
-    });
+
     return Scaffold(
+      bottomSheet: Container(
+        height: MediaQuery.of(context).size.height * 0.18,
+        decoration: const BoxDecoration(
+          color: Color(0xffE8DEF8),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                    ))
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff6750A4),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 10)),
+                  onPressed: () {
+                    savePerformance(
+                        recognizedAmount, recognizedDescp, recognizedCategory);
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('내역추가',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff6750A4),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 10)),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('취소',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text('영수증 인식확인'),
         backgroundColor: Colors.white,
@@ -372,7 +372,7 @@ class _AccountScreenState extends State<AccountScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.45,
                 child: uploadImage.Image.file(File(image.path)),
               ),
               SizedBox(
@@ -550,7 +550,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             onPageChanged: (focusedDay) {
                               _focusedDay = focusedDay;
                             },
-                            eventLoader: _listOfDayEvents,
+                            eventLoader: listOfDayEvents,
                           ),
                         ),
                         Offstage(
@@ -652,24 +652,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   ListView(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
-                    children: getContent(),
-                  )
-                  /*..._listOfDayEvents(_selectedDay!).map(
-            (myEvents) => ListTile(
-              leading: const Icon(
-                Icons.local_hospital,
-                color: Colors.blue,
-                size: 40,
-              ),
-              title: Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: Text('금액:  ${myEvents['amount']}',
-                    style: const TextStyle(fontWeight: FontWeight.w400)),
-              ),
-              subtitle: Text('내용:  ${myEvents['descp']}',
-                  style: const TextStyle(fontWeight: FontWeight.w400)),
-            ),
-              )*/
+                    children: getContent(_selectedDay!, mySelectedEvents),
+                  ),
                 ],
               ),
             ),
@@ -702,33 +686,66 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
-  List<Widget> getContent() {
+  List<Widget> getContent(
+      DateTime selectedDate, Map<String, List<dynamic>> mySelectedEvents) {
     final formatCurrency = NumberFormat.simpleCurrency(
         locale: 'ko_KR', name: '', decimalDigits: 0);
     List<Widget> tiles = [];
-    for (var performance in performances) {
-      tiles.add(Dismissible(
-        key: UniqueKey(),
-        onDismissed: (_) {
-          helper
-              .deletePerformance(performance.id)
-              .then((value) => updateScreen());
+
+    // Get the performance data for the selected date
+    List<Performance> selectedPerformances = performances
+        .where((performance) => performance.date == selectedDate.toString())
+        .toList();
+
+    // Add the performance data to the `mySelectedEvents` map
+    for (var performance in selectedPerformances) {
+      mySelectedEvents[performance.date] = [
+        {
+          'category': performance.category,
+          'amount': performance.amount,
+          'descp': performance.description,
         },
-        child: ListTile(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-            side: BorderSide(color: Colors.grey.shade300, width: 1),
-          ),
-          leading: ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: uploadImage.Image.asset(
-                  'assets/accountimages/${performance.category}.png')),
-          title:
-              Text('${formatCurrency.format(num.parse(performance.amount))}원'),
-          subtitle: Text(performance.description),
-        ),
-      ));
+      ];
     }
+    print(mySelectedEvents);
+    print(listOfDayEvents(selectedDate));
+    // Filter the performances based on the selected date
+    List<Performance> filteredPerformances = performances.where((performance) {
+      // Convert the stored date string to DateTime format for comparison
+      DateTime performanceDate = DateTime.parse(performance.date);
+      // Format the date as 'yyyy-MM-dd' for the eventLoader
+
+      return performanceDate.year == selectedDate.year &&
+          performanceDate.month == selectedDate.month &&
+          performanceDate.day == selectedDate.day;
+    }).toList();
+
+    for (var performance in filteredPerformances) {
+      tiles.add(
+        Dismissible(
+          key: UniqueKey(),
+          onDismissed: (_) {
+            helper
+                .deletePerformance(performance.id)
+                .then((value) => updateScreen());
+          },
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: BorderSide(color: Colors.grey.shade300, width: 1),
+            ),
+            leading: ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: uploadImage.Image.asset(
+                    'assets/accountimages/${performance.category}.png')),
+            title: Text(
+                '${formatCurrency.format(num.parse(performance.amount))}원'),
+            subtitle: Text(performance.description),
+          ),
+        ),
+      );
+    }
+
     return tiles;
   }
 
