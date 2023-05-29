@@ -6,6 +6,7 @@ import 'package:petai_care/screens/LoginSignupScreen.dart';
 import 'package:petai_care/screens/account/account_screen.dart';
 import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
+import 'package:petai_care/screens/diary/diary_screen.dart';
 import 'package:petai_care/screens/hospital/hospital_screen.dart';
 
 class MainScreens extends StatefulWidget {
@@ -75,10 +76,11 @@ class _MainScreensState extends State<MainScreens> {
             ),
           ),
           ListTile(
-            title: const Text('정보등록'),
+            title: const Text('마이 펫 등록'),
             onTap: () {
-              Navigator.pop(context);
-            },
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => DiaryScreen()));
+                  },
           ),
           ListTile(
             leading: Icon(
