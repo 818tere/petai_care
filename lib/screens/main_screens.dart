@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:petai_care/screens/LoginSignupScreen.dart';
 import 'package:petai_care/screens/account/account_screen.dart';
 import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
-import 'package:petai_care/screens/diary/diary_screen.dart';
-import 'package:petai_care/screens/hospital/hospital_screen.dart';
+import 'package:petai_care/screens/hospital/quick_search.dart';
 
 class MainScreens extends StatefulWidget {
   const MainScreens({Key? key}) : super(key: key);
@@ -68,19 +65,20 @@ class _MainScreensState extends State<MainScreens> {
               color: Colors.blue.shade200,
             ),
             accountName: Text(accountName ?? ''),
-            accountEmail: Text(accountEmail ?? '',
-            style: const TextStyle(fontSize: 20, color: Colors.black),),
+            accountEmail: Text(
+              accountEmail ?? '',
+              style: const TextStyle(fontSize: 20, color: Colors.black),
+            ),
             currentAccountPicture: const Icon(
               Icons.pets,
               size: 60,
             ),
           ),
           ListTile(
-            title: const Text('마이 펫 등록'),
+            title: const Text('정보등록'),
             onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => DiaryScreen()));
-                  },
+              Navigator.pop(context);
+            },
           ),
           ListTile(
             leading: Icon(
@@ -90,7 +88,8 @@ class _MainScreensState extends State<MainScreens> {
             title: const Text('로그아웃'),
             onTap: () {
               _auth.signOut();
-              Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+              Navigator.popUntil(
+                  context, ModalRoute.withName(Navigator.defaultRouteName));
             },
           ),
         ]),
@@ -99,7 +98,7 @@ class _MainScreensState extends State<MainScreens> {
         index: _selectedIndex,
         children: const [
           AiScreen(),
-          HospitalScreen(),
+          QuickSearch(),
           AccountScreen(),
           BoardScreen(),
         ],
@@ -121,9 +120,9 @@ class _MainScreensState extends State<MainScreens> {
           BottomNavigationBarItem(
               label: '가계부', icon: Icon(CupertinoIcons.creditcard)),
           BottomNavigationBarItem(
-              label: '게시판', icon:Icon(CupertinoIcons.bubble_left)),
-],
-),
-);
-}
+              label: '게시판', icon: Icon(CupertinoIcons.bubble_left)),
+        ],
+      ),
+    );
+  }
 }

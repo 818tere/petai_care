@@ -3,13 +3,13 @@ import 'performance.dart';
 import 'dart:convert';
 
 class SPHelper {
-  static late SharedPreferences? prefs;
+  static SharedPreferences? prefs;
   Future init() async {
     prefs = await SharedPreferences.getInstance();
   }
 
   Future writePerformance(Performance performance) async {
-    prefs?.setString(
+    await prefs?.setString(
         performance.id.toString(), json.encode(performance.toJson()));
   }
 
@@ -27,7 +27,7 @@ class SPHelper {
   }
 
   Future deletePerformance(int id) async {
-    prefs?.remove(id.toString());
+    await prefs?.remove(id.toString());
   }
 
   Future setCounter() async {
