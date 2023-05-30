@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:petai_care/screens/account/account_screen.dart';
 import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
+import 'package:petai_care/screens/diary/diary_screen.dart';
 import 'package:petai_care/screens/hospital/quick_search.dart';
 
 class MainScreens extends StatefulWidget {
@@ -77,8 +78,11 @@ class _MainScreensState extends State<MainScreens> {
           ListTile(
             title: const Text('정보등록'),
             onTap: () {
-              Navigator.pop(context);
-            },
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DiaryScreen()));
+                    },
           ),
           ListTile(
             leading: Icon(

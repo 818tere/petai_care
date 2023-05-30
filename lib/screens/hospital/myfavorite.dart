@@ -109,11 +109,11 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                           onTap: () {
                             showPopup(
                                 context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                                items[index-1].imageUrl,
+                                items[index-1].name,
+                                items[index-1].address,
+                                items[index-1].number,
+                                items[index-1].description);
                           },
                           child: Card(
                             elevation: 5,
@@ -147,7 +147,7 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
                                           child: Text(
-                                            items[index].name.toString(),
+                                            items[index-1].name.toString(),
                                             style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold),
@@ -157,14 +157,14 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
                                           child: Text(
-                                              items[index].address.toString()),
+                                              items[index-1].address.toString()),
                                         
                                         ),        
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
                                           child: Text(
-                                              items[index].number.toString()),
+                                              items[index-1].number.toString()),
                                         )
                                       ],
                                     ),

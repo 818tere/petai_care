@@ -40,6 +40,8 @@ dependencies:
   intl: ^0.18.0
   table_calendar: ^3.0.8
   image_picker: ^0.8.6+3
+  image_cropper: ^4.0.1
+  dotted_border: ^2.0.0+3
   http: ^0.13.5
   uuid: ^3.0.7
   syncfusion_flutter_charts: ^21.1.41
