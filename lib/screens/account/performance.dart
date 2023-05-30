@@ -5,14 +5,22 @@ class Performance {
   String amount = '';
   String category = '';
 
-  Performance(this.id, this.date, this.amount, this.description, this.category);
+  Performance(
+    this.id,
+    this.date,
+    this.amount,
+    this.description,
+    this.category,
+  );
 
-  Performance.fromJson(Map<String, dynamic> performanceMap) {
-    id = performanceMap['id'] ?? 0;
-    date = performanceMap['date'] ?? '';
-    amount = performanceMap['amount'] ?? 0;
-    description = performanceMap['description'] ?? '';
-    category = performanceMap['category'] ?? '';
+  factory Performance.fromJson(Map<String, dynamic> performanceMap) {
+    return Performance(
+      performanceMap['id'] ?? 0,
+      performanceMap['date'] ?? '',
+      performanceMap['amount'] ?? '',
+      performanceMap['description'] ?? '',
+      performanceMap['category'] ?? '',
+    );
   }
 
   Map<String, dynamic> toJson() {

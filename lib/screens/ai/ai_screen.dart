@@ -41,9 +41,10 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    var url = Uri.parse('http://edb064db31a1.ngrok.app');
+    var url = Uri.parse("http://c5bdc57ed968.ngrok.app");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
+
     var response = await request.send();
     var responseString = await response.stream.bytesToString();
     String koreanString = jsonDecode(
@@ -55,10 +56,9 @@ class _AiScreenState extends State<AiScreen> {
 
     late String result;
 
-    if (prob < 65){
+    if (prob < 55) {
       result = "판정이 어렵습니다. 사진을 다시 찍어주세요.";
-    }
-    else{
+    } else {
       result = "$koreanString 확률: $prob";
     }
 
@@ -77,12 +77,55 @@ class _AiScreenState extends State<AiScreen> {
       ),
     );
   }
+  /* try {
+      var client = http.Client();
+      var streamedResponse = await client.send(request);
+      var response = await http.Response.fromStream(streamedResponse);
+
+      if (response.statusCode == 200 || response.statusCode == 307) {
+        var responseString = response.body;
+        var jsonResponse = jsonDecode(responseString);
+        String koreanString = jsonResponse['class_name'];
+        int prob = jsonResponse['probability'];
+
+        late String result;
+
+        if (prob < 65) {
+          result = "판정이 어렵습니다. 사진을 다시 찍어주세요.";
+        } else {
+          result = "$koreanString 확률: $prob";
+        }
+
+        if (!mounted) return;
+
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('진단 결과'),
+            content: Text(result),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('OK'),
+              ),
+            ],
+          ),
+        );
+      } else {
+        // Handle non-200 status code
+        print('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      // Handle network or decoding error
+      print('Error: $e');
+    }
+  }*/
 
   void __showImageDialog() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('이미지 선택'),
+        title: const Text('이미지 선택', style: TextStyle(fontSize: 20)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -205,7 +248,7 @@ class _AiScreenState extends State<AiScreen> {
                         });
                       },
                       thumbColor:
-                          const Color(0xffFFD8E4), // Customize the thumb color
+                          const Color(0xffEADDFF), // Customize the thumb color
                       backgroundColor: Colors
                           .grey.shade300, // Customize the background color
                       children: {
@@ -214,7 +257,7 @@ class _AiScreenState extends State<AiScreen> {
                               vertical: 8.0, horizontal: 16.0),
                           decoration: BoxDecoration(
                             color: selectedSegment == 0
-                                ? const Color(0xffFFD8E4)
+                                ? const Color(0xffEADDFF)
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
@@ -236,7 +279,7 @@ class _AiScreenState extends State<AiScreen> {
                               vertical: 8.0, horizontal: 16.0),
                           decoration: BoxDecoration(
                             color: selectedSegment == 1
-                                ? const Color(0xffFFD8E4)
+                                ? const Color(0xffEADDFF)
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
@@ -544,18 +587,6 @@ class _AiScreenState extends State<AiScreen> {
           ],
         ),
       ),
-      /*floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        
-          const SizedBox(height: 16),
-          FloatingActionButton(
-            heroTag: 'a3',
-            onPressed: _sendImageToServer,
-            tooltip: 'Send image to server',
-            child: const Icon(Icons.cloud_upload),
-          ),
-        ],
-      ),*/
     );
   }
 }
