@@ -9,8 +9,8 @@ enum ProfileImageType { THUMBNAIL, BACKGROUND }
 class ProfileController extends GetxController {
   RxBool isEditMyProfile = false.obs;
   UserModel originMyProfile = UserModel(
-    name: "개발하는 남자",
-    discription: "구독과 좋아요",
+    name: "펫 이름",
+    discription: "펫 정보",
   );
   Rx<UserModel> myProfile = UserModel().obs;
 

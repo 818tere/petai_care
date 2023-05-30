@@ -131,10 +131,10 @@ class Profile extends GetView<ProfileController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _oneButton(Icons.chat_bubble, "나와의 채팅", () {}),
+                    _oneButton(Icons.chat_bubble, "게시판 이용", () {}),
                     _oneButton(
                         Icons.edit, "프로필 편집", controller.toggleEditProfile),
-                    _oneButton(Icons.chat_bubble_outline, " 카카오 스토리", () {}),
+                    _oneButton(Icons.chat_bubble_outline, "병원 검색", () {}),
                   ],
                 ),
               ),

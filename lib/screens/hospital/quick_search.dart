@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:petai_care/screens/hospital/myfavorite.dart';
+import 'package:provider/provider.dart';
+import 'favorite_provider.dart';
 
 class QuickSearch extends StatefulWidget {
   const QuickSearch({super.key});
 
   @override
-  State<QuickSearch> createState() => _QuickSearchState();
+  _QuickSearchState createState() => _QuickSearchState();
 }
 
 class _QuickSearchState extends State<QuickSearch> {
+
   final List<Map<String, dynamic>> _allHospitals = [
     {"id": 1, "name": "24시 SNC 동물메디컬센터", "address": "서울 강남구 역삼동"},
     {"id": 2, "name": "선릉동물병원", "address": "서울 강남구 역삼동"},
@@ -702,8 +705,9 @@ class _QuickSearchState extends State<QuickSearch> {
   ];
 
   List<Map<String, dynamic>> _foundHospitals = [];
+
   @override
-  initState() {
+  void initState() {
     _foundHospitals = _allHospitals;
     super.initState();
   }
@@ -714,15 +718,10 @@ class _QuickSearchState extends State<QuickSearch> {
       results = _allHospitals;
     } else {
       results = _allHospitals
-              .where((hospital) => hospital["address"]
-                  .toLowerCase()
-                  .contains(enteredKeyword.toLowerCase()))
-              .toList() +
-          _allHospitals
-              .where((hospital) => hospital["name"]
-                  .toLowerCase()
-                  .contains(enteredKeyword.toLowerCase()))
-              .toList();
+          .where((hospital) =>
+              hospital["address"].toLowerCase().contains(enteredKeyword.toLowerCase()) ||
+              hospital["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .toList();
     }
 
     setState(() {
@@ -744,21 +743,13 @@ class _QuickSearchState extends State<QuickSearch> {
                   const Text(
                     '동물병원',
                     style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
                   const SizedBox(
-                    width: 150,
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const QuickSearch()));
-                    },
+                    width: 220,
                   ),
                   IconButton(
                     icon: const Icon(
@@ -766,10 +757,11 @@ class _QuickSearchState extends State<QuickSearch> {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const MyFavoriteItemScreen()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyFavoriteItemScreen(),
+                        ),
+                      );
                     },
                   ),
                   const SizedBox(
@@ -787,34 +779,58 @@ class _QuickSearchState extends State<QuickSearch> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: _foundHospitals.length,
-              itemBuilder: (context, index) => Card(
-                key: ValueKey(_foundHospitals[index]["id"]),
-                color: Colors.white,
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    side: BorderSide(color: Colors.grey.shade300, width: 1),
-                  ),
-                  leading: Text(
-                    _foundHospitals[index]["id"].toString(),
-                    style: const TextStyle(fontSize: 24, color: Colors.black),
-                  ),
-                  title: Text(_foundHospitals[index]['name'],
-                      style: const TextStyle(color: Colors.black)),
-                  subtitle: Text(_foundHospitals[index]['address'],
-                      style: const TextStyle(color: Colors.black)),
-                  trailing: const IconButton(
-                    icon: Icon(
-                      Icons.favorite_outline_outlined,
-                    ),
-                    onPressed: null,
-                  ),
-                ),
-              ),
+            child: Consumer<FavoriteItemProvider>(
+              builder: (context, favoriteProvider, child) {
+                return ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: _foundHospitals.length,
+                  itemBuilder: (context, index) {
+                    final hospital = _foundHospitals[index];
+                    final hospitalId = hospital["id"];
+                    final isFavorite = favoriteProvider.selectedItem.contains(hospitalId);
+
+                    return Card(
+                      key: ValueKey(hospitalId),
+                      color: Colors.white,
+                      child: ListTile(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                            color: Colors.grey.shade300,
+                            width: 1,
+                          ),
+                        ),
+                        leading: Text(
+                          hospitalId.toString(),
+                          style: const TextStyle(fontSize: 24, color: Colors.black),
+                        ),
+                        title: Text(
+                          hospital['name'],
+                          style: const TextStyle(color: Colors.black),
+                        ),
+                        subtitle: Text(
+                          hospital['address'],
+                          style: const TextStyle(color: Colors.black),
+                        ),
+                        trailing: IconButton(
+                          icon: Icon(
+                            isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
+                                                        color: Colors.red,
+                          ),
+                          onPressed: () {
+                            if (isFavorite) {
+                              favoriteProvider.removeItem(hospitalId);
+                            } else {
+                              favoriteProvider.addItem(hospitalId);
+                            }
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ],
