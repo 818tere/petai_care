@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:petai_care/screens/account/models/image_model.dart';
 import 'dart:convert';
 import 'package:petai_care/screens/account/sphelper.dart';
-import 'package:petai_care/screens/account/widgets/chart_widget.dart';
+import 'package:petai_care/screens/account/widgets/bar_graph.dart';
 import 'package:petai_care/screens/account/performance.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -34,6 +34,15 @@ class _AccountScreenState extends State<AccountScreen> {
   //offstage
   List day = ['1일', '1주', '1개월', '1년'];
   int index_color = 0;
+  List<double> weeklySummary = [
+    4.40,
+    2.50,
+    42.42,
+    10.50,
+    100.20,
+    88.99,
+    90.10,
+  ];
   //chart
   Map<String, List<dynamic>> mySelectedEvents = {};
   //tablecalendar 용
@@ -598,7 +607,13 @@ class _AccountScreenState extends State<AccountScreen> {
                                   ],
                                 ),
                               ),
-                              const Chart(),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.3,
+                                child: BarGraph(
+                                  weeklySummary: weeklySummary,
+                                ),
+                              )
                             ],
                           ),
                         ),
