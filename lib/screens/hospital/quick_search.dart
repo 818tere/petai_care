@@ -762,6 +762,29 @@ class _QuickSearchState extends State<QuickSearch> {
               suffixIcon: Icon(Icons.search),
             ),
           ),
+          Divider(
+            height: 1,
+            thickness: 1,
+            color: Colors.grey.shade300,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.location_on_sharp),
+              label: const Text('내 주변 병원 찾기',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey.shade100,
+                foregroundColor: Colors.grey.shade800,
+                elevation: 0,
+                fixedSize: const Size(double.maxFinite, 45),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+          ),
           Expanded(
             child: Consumer<FavoriteItemProvider>(
               builder: (context, favoriteProvider, child) {
