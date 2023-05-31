@@ -41,7 +41,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://c5bdc57ed968.ngrok.app");
+    var url = Uri.parse("http://5607-104-196-237-213.ngrok-free.app/");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 

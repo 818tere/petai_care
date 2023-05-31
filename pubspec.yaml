@@ -45,7 +45,7 @@ dependencies:
   http: ^0.13.5
   uuid: ^3.0.7
   syncfusion_flutter_charts: ^21.1.41
-  fl_chart: ^0.36.4
+  fl_chart: ^0.62.0
   firebase_core: ^2.7.0
   firebase_auth: ^4.2.2
   cloud_firestore: ^4.4.3
