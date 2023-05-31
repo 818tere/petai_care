@@ -5,6 +5,7 @@ import 'package:petai_care/screens/account/account_screen.dart';
 import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
 import 'package:petai_care/screens/diary/diary_screen.dart';
+import 'package:petai_care/screens/hospital/myfavorite.dart';
 import 'package:petai_care/screens/hospital/quick_search.dart';
 
 class MainScreens extends StatefulWidget {
@@ -53,6 +54,19 @@ class _MainScreensState extends State<MainScreens> {
               Navigator.pop(context);
             },
           ),
+          IconButton(
+            icon: const Icon(
+              Icons.favorite_outline_outlined,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MyFavoriteItemScreen(),
+                ),
+              );
+            },
+          ),
         ],
       ),
       drawer: Drawer(
@@ -78,11 +92,9 @@ class _MainScreensState extends State<MainScreens> {
           ListTile(
             title: const Text('정보등록'),
             onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DiaryScreen()));
-                    },
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const DiaryScreen()));
+            },
           ),
           ListTile(
             leading: Icon(

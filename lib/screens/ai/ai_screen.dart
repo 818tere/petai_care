@@ -41,7 +41,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://5607-104-196-237-213.ngrok-free.app/");
+    var url = Uri.parse("http://10f6-34-75-189-230.ngrok-free.app/");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
@@ -56,7 +56,7 @@ class _AiScreenState extends State<AiScreen> {
 
     late String result;
 
-    if (prob < 55) {
+    if (prob < 45) {
       result = "판정이 어렵습니다. 사진을 다시 찍어주세요.";
     } else {
       result = "$koreanString 확률: $prob";

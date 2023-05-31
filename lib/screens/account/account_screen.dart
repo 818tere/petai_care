@@ -557,8 +557,9 @@ class _AccountScreenState extends State<AccountScreen> {
                         Offstage(
                           offstage: chartHide,
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
+                              /*Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 10),
                                 child: Row(
@@ -598,6 +599,33 @@ class _AccountScreenState extends State<AccountScreen> {
                                     ),
                                   ],
                                 ),
+                              ),*/
+                              const SizedBox(height: 15),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  Text(
+                                    '     이번주 소비내역',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1,
+                                  ),
+                                  Text(
+                                    '   132,500원   ',
+                                    style: TextStyle(
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 25,
                               ),
                               SizedBox(
                                 height:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:petai_care/screens/hospital/myfavorite.dart';
 import 'package:provider/provider.dart';
 import 'favorite_provider.dart';
 
@@ -11,7 +10,6 @@ class QuickSearch extends StatefulWidget {
 }
 
 class _QuickSearchState extends State<QuickSearch> {
-
   final List<Map<String, dynamic>> _allHospitals = [
     {"id": 1, "name": "24시 SNC 동물메디컬센터", "address": "서울 강남구 역삼동"},
     {"id": 2, "name": "선릉동물병원", "address": "서울 강남구 역삼동"},
@@ -719,8 +717,12 @@ class _QuickSearchState extends State<QuickSearch> {
     } else {
       results = _allHospitals
           .where((hospital) =>
-              hospital["address"].toLowerCase().contains(enteredKeyword.toLowerCase()) ||
-              hospital["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+              hospital["address"]
+                  .toLowerCase()
+                  .contains(enteredKeyword.toLowerCase()) ||
+              hospital["name"]
+                  .toLowerCase()
+                  .contains(enteredKeyword.toLowerCase()))
           .toList();
     }
 
@@ -739,33 +741,15 @@ class _QuickSearchState extends State<QuickSearch> {
             child: Padding(
               padding: const EdgeInsets.only(left: 30),
               child: Row(
-                children: [
-                  const Text(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
                     '동물병원',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
-                  ),
-                  const SizedBox(
-                    width: 220,
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.favorite_outline_outlined,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MyFavoriteItemScreen(),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
                   ),
                 ],
               ),
@@ -788,43 +772,84 @@ class _QuickSearchState extends State<QuickSearch> {
                   itemBuilder: (context, index) {
                     final hospital = _foundHospitals[index];
                     final hospitalId = hospital["id"];
-                    final isFavorite = favoriteProvider.selectedItem.contains(hospitalId);
+                    final isFavorite =
+                        favoriteProvider.selectedItem.contains(hospitalId);
 
                     return Card(
                       key: ValueKey(hospitalId),
                       color: Colors.white,
                       child: ListTile(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: BorderSide(
-                            color: Colors.grey.shade300,
-                            width: 1,
-                          ),
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              hospital['name'],
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                isFavorite
+                                    ? Icons.favorite
+                                    : Icons.favorite_border_outlined,
+                                color: Colors.red,
+                              ),
+                              onPressed: () {
+                                if (isFavorite) {
+                                  favoriteProvider.removeItem(hospitalId);
+                                } else {
+                                  favoriteProvider.addItem(hospitalId);
+                                }
+                              },
+                            ),
+                          ],
                         ),
-                        leading: Text(
-                          hospitalId.toString(),
-                          style: const TextStyle(fontSize: 24, color: Colors.black),
-                        ),
-                        title: Text(
-                          hospital['name'],
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                        subtitle: Text(
-                          hospital['address'],
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                        trailing: IconButton(
-                          icon: Icon(
-                            isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
-                                                        color: Colors.red,
-                          ),
-                          onPressed: () {
-                            if (isFavorite) {
-                              favoriteProvider.removeItem(hospitalId);
-                            } else {
-                              favoriteProvider.addItem(hospitalId);
-                            }
-                          },
+                        subtitle: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  hospital['address'],
+                                  style: const TextStyle(color: Colors.black),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xffF9DEDC),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 55, vertical: 10)),
+                                  onPressed: () {},
+                                  child: const Text('전화 걸기',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      )),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.grey.shade100,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 55, vertical: 10)),
+                                  onPressed: () {},
+                                  child: const Text('병원 정보',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     );
