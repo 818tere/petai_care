@@ -1,9 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.petai_care">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="petai_care"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+         <meta-data
+            android:name="com.naver.maps.map.c3oxeg0m2z"
+            android:value="Zme14LJePwVAkOFV5ur1vnJog3FexA1UvGxDegFz" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -51,5 +51,22 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+  		<string>https</string>
+		<string>http</string>
+	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>[USAGE PERPOSE]</string>
+		<key>NSLocationAlwaysUsageDescription</key>
+		<string>[USAGE PERPOSE]</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>[USAGE PERPOSE]</string>
+	<key>NMFClientId</key>
+	<string>c3oxeg0m2z</string>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+	<key>NSAllowsArbitraryLoads</key>
+  	<true/>
 </dict>
 </plist>

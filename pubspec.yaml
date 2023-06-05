@@ -59,6 +59,9 @@ dependencies:
   convert: ^3.0.1
   url_launcher: ^6.1.11
   webview_flutter: ^2.0.13
+  geolocator: ^9.0.2
+  naver_map_plugin:
+    git: https://github.com/LBSTECH/naver_map_plugin.git
 
 dev_dependencies:
   flutter_test:

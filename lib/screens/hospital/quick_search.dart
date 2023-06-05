@@ -1,9 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import 'favorite_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
 import 'webVeiw.dart';
 
 class QuickSearch extends StatefulWidget {
@@ -843,6 +845,8 @@ class _QuickSearchState extends State<QuickSearch> {
 
   List<Map<String, dynamic>> _foundHospitals = [];
 
+  TextEditingController controller = TextEditingController();
+
   @override
   void initState() {
     _foundHospitals = _allHospitals;
@@ -938,12 +942,32 @@ class _QuickSearchState extends State<QuickSearch> {
     );
   }
 
-  void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+  Map<String, String> headerss = {
+    "X-NCP-APIGW-API-KEY-ID": "c3oxeg0m2z", // 네이버 지도 api 개인 클라이언트 아이디
+    "X-NCP-APIGW-API-KEY":
+        "Zme14LJePwVAkOFV5ur1vnJog3FexA1UvGxDegFz" // 개인 시크릿 키
+  };
+
+  String myLocation = "";
+
+  Future<List> getLocation() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    String lat = position.latitude.toString();
+    String lon = position.longitude.toString();
+    Response response = await get(
+        Uri.parse(
+            'https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?request=coordsToaddr&coords=$lon,$lat&sourcecrs=epsg:4326&output=json'),
+        headers: headerss);
+    String jsonData = response.body;
+    var myjsonGu =
+        jsonDecode(jsonData)["results"][1]['region']['area2']['name'];
+    var myjsonSi =
+        jsonDecode(jsonData)["results"][1]['region']['area1']['name'];
+
+    List<String> gusi = [myjsonSi, myjsonGu];
+
+    return gusi;
   }
 
   @override
@@ -971,6 +995,7 @@ class _QuickSearchState extends State<QuickSearch> {
             ),
           ),
           TextField(
+            controller: controller,
             onChanged: (value) => _runFilter(value),
             decoration: const InputDecoration(
               hintText: '   지역명, 병원명 검색',
@@ -985,7 +1010,15 @@ class _QuickSearchState extends State<QuickSearch> {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                getLocation().then(
+                  (value) {
+                    myLocation = value[1];
+                    controller.text = myLocation;
+                    _runFilter(myLocation);
+                  },
+                );
+              },
               icon: const Icon(Icons.location_on_sharp),
               label: const Text('내 주변 병원 찾기',
                   style: TextStyle(fontWeight: FontWeight.bold)),
@@ -1065,9 +1098,9 @@ class _QuickSearchState extends State<QuickSearch> {
                                               BorderRadius.circular(10)),
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 55, vertical: 10)),
-                                  onPressed: () {
+                                  onPressed: () async {
                                     final phoneNumber = hospital['number'];
-                                    launch('tel:$phoneNumber');
+                                    await launch("tel://$phoneNumber");
                                   },
                                   child: const Text('전화 걸기',
                                       style: TextStyle(
