@@ -18,7 +18,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 1,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTA5MDdfMjU4%2FMDAxNjMxMDA2ODAxMTQ1.QeVUvRDxTRdoxs9KpC3-pM-P3reoDFCwkT810G8uS8Mg.0Qi786SJGpW9Be3oj1OHb_jGQ0eYZo_i6y9Z-2mD2skg.PNG%2F1262000-79a916e3-13b5-49a2-ab7e-180fff52afd4.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTA5MDdfMjU4%2FMDAxNjMxMDA2ODAxMTQ1.QeVUvRDxTRdoxs9KpC3-pM-P3reoDFCwkT810G8uS8Mg.0Qi786SJGpW9Be3oj1OHb_jGQ0eYZo_i6y9Z-2mD2skg.PNG%2F1262000-79a916e3-13b5-49a2-ab7e-180fff52afd4.png",
       "name": "24시 SNC 동물메디컬센터",
       "number": "02-562-7582",
       "address": "서울 강남구 역삼동",
@@ -28,7 +28,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 2,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjEwMTNfMjcz%2FMDAxNjY1NjUyODU2Nzc5.BbudeR5CtH2t50YkUv0l3ymAKh5IYI2OKm3xYAu07RIg.V8-vPGeI3gfUsKRYG05iXCfEoIqD21NomU9M59ajI78g.PNG%2F2007805-ad777e03-51aa-4b66-8ae8-fe4c7f3e23b3.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjEwMTNfMjcz%2FMDAxNjY1NjUyODU2Nzc5.BbudeR5CtH2t50YkUv0l3ymAKh5IYI2OKm3xYAu07RIg.V8-vPGeI3gfUsKRYG05iXCfEoIqD21NomU9M59ajI78g.PNG%2F2007805-ad777e03-51aa-4b66-8ae8-fe4c7f3e23b3.png",
       "name": "선릉동물병원",
       "number": "0507-1491-1556",
       "address": "서울 강남구 역삼동",
@@ -39,7 +39,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 3,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_275%2F14410092946382aozC_JPEG%2FSUBMIT_1386301626194_11631960.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_275%2F14410092946382aozC_JPEG%2FSUBMIT_1386301626194_11631960.jpg",
       "name": "24시청담우리동물병원",
       "number": "0507-1404-7515",
       "address": "서울 강남구 삼성동",
@@ -50,7 +50,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 4,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_107%2F1441002422748lybEQ_JPEG%2FSUBMIT_1342622524443_13174703.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_107%2F1441002422748lybEQ_JPEG%2FSUBMIT_1342622524443_13174703.jpg",
       "name": "예은동물병원",
       "number": "02-529-5575",
       "address": "서울 강남구 역삼동",
@@ -61,7 +61,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 5,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230131_116%2F1675092539933WKncw_JPEG%2F%25C5%25A9%25B1%25E2%25BA%25AF%25C8%25AF7A8A3433.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230131_116%2F1675092539933WKncw_JPEG%2F%25C5%25A9%25B1%25E2%25BA%25AF%25C8%25AF7A8A3433.jpg",
       "name": "스마트 동물병원 신사본원",
       "number": "0507-1406-0275",
       "address": "서울 강남구 신사동",
@@ -72,7 +72,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 6,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_277%2F1441063704011tRYCj_JPEG%2F20747335_1.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_277%2F1441063704011tRYCj_JPEG%2F20747335_1.jpg",
       "name": "스마트 동물병원",
       "number": "02-554-7582",
       "address": "서울 강남구 대치동",
@@ -83,7 +83,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 7,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_111%2F1440998360944QRumA_JPEG%2FSUBMIT_1359033923575_31498527.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_111%2F1440998360944QRumA_JPEG%2FSUBMIT_1359033923575_31498527.jpg",
       "name": "래이동물의료센터",
       "number": "02-556-7588",
       "address": "서울 강남구 대치동",
@@ -94,7 +94,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 8,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMDRfODQg%2FMDAxNjQxMjY3MTMzNDcw.fHrB3KcvxFf3UZhxVAiNE1rzeBPWipfTvyW0k3FxU5Ug.pS8onxVZ4iKv9TbyqJfhqeOpxvFRdscPMATvao85cJ0g.PNG%2F2445042-20cd709e-c5df-4b68-befc-6d46d58408fe.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMDRfODQg%2FMDAxNjQxMjY3MTMzNDcw.fHrB3KcvxFf3UZhxVAiNE1rzeBPWipfTvyW0k3FxU5Ug.pS8onxVZ4iKv9TbyqJfhqeOpxvFRdscPMATvao85cJ0g.PNG%2F2445042-20cd709e-c5df-4b68-befc-6d46d58408fe.png",
       "name": "커비동물병원",
       "number": "0507-1395-8960",
       "address": "서울 강남구 논현동",
@@ -105,7 +105,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 9,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjA4MTdfNDIg%2FMDAxNjYwNzAxNjkzNTc4.84wvz8fS-285eFcwNFEkplj8mAH9mYH_qMLQT984GBkg.QYCG60QC4cu84WO0lZJ6Hh5bB5UhYQImzQsRAS5EZLgg.PNG%2F1292029-64cc19f3-9e6d-4441-81ad-1a59f9f897ae.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjA4MTdfNDIg%2FMDAxNjYwNzAxNjkzNTc4.84wvz8fS-285eFcwNFEkplj8mAH9mYH_qMLQT984GBkg.QYCG60QC4cu84WO0lZJ6Hh5bB5UhYQImzQsRAS5EZLgg.PNG%2F1292029-64cc19f3-9e6d-4441-81ad-1a59f9f897ae.png",
       "name": "예은동물병원",
       "number": "02-529-5575",
       "address": "서울 강남구 역삼동",
@@ -116,7 +116,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 10,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210420_264%2F1618910667846oSA9R_JPEG%2FV9v-puyT3L1guJk9VvNI6HQM.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210420_264%2F1618910667846oSA9R_JPEG%2FV9v-puyT3L1guJk9VvNI6HQM.jpg",
       "name": "VIP동물의료센터 청담점",
       "number": "02-511-7522",
       "address": "서울 강남구 청담동",
@@ -127,7 +127,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 11,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200808_29%2F1596820244755m8fKV_JPEG%2FLAyMk_Qq25Az9CyG4uB4gZy9.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200808_29%2F1596820244755m8fKV_JPEG%2FLAyMk_Qq25Az9CyG4uB4gZy9.jpg",
       "name": "주주동물종합병원",
       "number": "02-556-0975",
       "address": "서울 강남구 대치동",
@@ -138,7 +138,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 12,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220818_97%2F1660815094340vHkI5_PNG%2F1.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220818_97%2F1660815094340vHkI5_PNG%2F1.png",
       "name": "그레이스동물병원",
       "number": "02-3442-5554",
       "address": "서울 강남구 논현동",
@@ -149,7 +149,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 13,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160908_171%2F1473337351836gouzu_JPEG%2F176858615250917_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160908_171%2F1473337351836gouzu_JPEG%2F176858615250917_0.jpeg",
       "name": "힐스타동물병원",
       "number": "02-445-5022",
       "address": "서울 강남구 자곡동",
@@ -160,7 +160,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 14,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_76%2F1441028975775fnNOh_JPEG%2FSUBMIT_1414487124068_11721589.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_76%2F1441028975775fnNOh_JPEG%2FSUBMIT_1414487124068_11721589.jpg",
       "name": "이안동물의학센터",
       "number": "02-574-7533",
       "address": "서울 강남구 청담동",
@@ -171,7 +171,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 15,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160621_39%2F1466497419818VmQ4S_JPEG%2F176565545539699_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160621_39%2F1466497419818VmQ4S_JPEG%2F176565545539699_0.jpeg",
       "name": "청담눈초롱안과동물병원",
       "number": "02-512-7566",
       "address": "서울 강남구 청담동",
@@ -182,7 +182,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 16,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjEwMjVfMzIg%2FMDAxNjY2Njc3NDE1NzQ0.NPRUOjDSFaqw5hOq_6n1AgvBOL0ovrgDm5RrjTmf6yEg.426DnKRHuYdU22mn0OAMLwfpnpLOngjXb_-x4_T_LZIg.PNG%2F2366294-0d4d1345-e065-4b24-91d1-437572267356.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjEwMjVfMzIg%2FMDAxNjY2Njc3NDE1NzQ0.NPRUOjDSFaqw5hOq_6n1AgvBOL0ovrgDm5RrjTmf6yEg.426DnKRHuYdU22mn0OAMLwfpnpLOngjXb_-x4_T_LZIg.PNG%2F2366294-0d4d1345-e065-4b24-91d1-437572267356.png",
       "name": "24시청담우리동물병원",
       "number": "0507-1404-7515",
       "address": "서울 강남구 삼성동",
@@ -193,7 +193,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 17,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMjZfMjA5%2FMDAxNjQzMTc2MDE0OTMy.K9DnKYeYdSHQIHKljCc6KBIb3oEX7kWhAQDxvqQ_GqUg.b1JobaKwqRfpkspk5FLDjUHMfs7Hto5taHl5LYDTJF8g.PNG%2F2386993-a3e98ea6-2764-4d30-a4c2-e7b5151b23be.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMjZfMjA5%2FMDAxNjQzMTc2MDE0OTMy.K9DnKYeYdSHQIHKljCc6KBIb3oEX7kWhAQDxvqQ_GqUg.b1JobaKwqRfpkspk5FLDjUHMfs7Hto5taHl5LYDTJF8g.PNG%2F2386993-a3e98ea6-2764-4d30-a4c2-e7b5151b23be.png",
       "name": "스마트 동물병원 신사본원",
       "number": "0507-1406-0275",
       "address": "서울 강남구 신사동",
@@ -204,7 +204,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 18,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210918_185%2F1631944977442Y11ek_JPEG%2FvNir-vzhKH0Fn-62VEDlxe7C.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210918_185%2F1631944977442Y11ek_JPEG%2FvNir-vzhKH0Fn-62VEDlxe7C.jpg",
       "name": "OK동물병원",
       "number": "02-569-7582",
       "address": "서울 강남구 역삼동",
@@ -215,7 +215,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 19,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200410_35%2F1586512994898LtxFI_JPEG%2F3yreVWme5aqB58Nwa_PGAxGa.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200410_35%2F1586512994898LtxFI_JPEG%2F3yreVWme5aqB58Nwa_PGAxGa.jpg",
       "name": "충현동물종합병원",
       "number": "02-549-7582",
       "address": "서울 강남구 논현동",
@@ -226,7 +226,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 20,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210512_198%2F16208184572478GNhI_JPEG%2FmjLIXtJM7P6pYmLOsF3846qR.JPG.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210512_198%2F16208184572478GNhI_JPEG%2FmjLIXtJM7P6pYmLOsF3846qR.JPG.jpg",
       "name": "아이윌24시동물병원",
       "number": "02-6925-7021",
       "address": "서울 강남구 청담동",
@@ -237,7 +237,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 21,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220908_66%2F1662622045788AyVcl_JPEG%2F%25B5%25E5%25B8%25B2%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_%25B7%25CE%25B0%25ED.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220908_66%2F1662622045788AyVcl_JPEG%2F%25B5%25E5%25B8%25B2%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_%25B7%25CE%25B0%25ED.jpg",
       "name": "드림 동물병원",
       "number": "02-508-7583",
       "address": "서울 강남구 역삼동",
@@ -248,7 +248,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 22,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210710_115%2F1625851693461glsim_JPEG%2FtT5V2S3mLHhlJytFB77aRJiF.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210710_115%2F1625851693461glsim_JPEG%2FtT5V2S3mLHhlJytFB77aRJiF.jpg",
       "name": "아크리스동물의료센터",
       "number": "02-583-7582",
       "address": "서울 강남구 삼성동",
@@ -259,7 +259,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 23,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230223_189%2F1677120686924hxbwK_JPEG%2F53A2653E-8487-453B-A402-7492F35C1559.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230223_189%2F1677120686924hxbwK_JPEG%2F53A2653E-8487-453B-A402-7492F35C1559.jpeg",
       "name": "라퓨클레르 동물피부클리닉",
       "number": "0507-1480-0937",
       "address": "서울 강남구 청담동",
@@ -270,7 +270,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 24,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjA4MzBfNTEg%2FMDAxNjYxODU3MDc1NTcx.A2t49wjVYEKICklQWXiyhs6Hw_KskPAMvKy9Vp0bYaIg.LwKDuGvQdtrNkLHQNNmRiX2YNAx9ZlT-TKdkqb_AMYwg.PNG%2F2493651-c0b9efbd-d860-4c89-a023-f882557a16a6.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjA4MzBfNTEg%2FMDAxNjYxODU3MDc1NTcx.A2t49wjVYEKICklQWXiyhs6Hw_KskPAMvKy9Vp0bYaIg.LwKDuGvQdtrNkLHQNNmRiX2YNAx9ZlT-TKdkqb_AMYwg.PNG%2F2493651-c0b9efbd-d860-4c89-a023-f882557a16a6.png",
       "name": "그레이스동물병원",
       "number": "02-3442-5554",
       "address": "서울 강남구 논현동",
@@ -281,7 +281,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 25,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTA2MjlfNDkg%2FMDAxNjI0OTQxOTc4NDk2.nDTzhyqkVZvKUCJc031RzQbr0Oy_HIHJMUuzklMdzucg._uZ40eGvNtoeFyfO4CLF9yE6uOcVPlEYYVdUqmGLb_Eg.PNG%2F1603148-00afb668-0178-42bf-88d0-0d75f27b9175.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTA2MjlfNDkg%2FMDAxNjI0OTQxOTc4NDk2.nDTzhyqkVZvKUCJc031RzQbr0Oy_HIHJMUuzklMdzucg._uZ40eGvNtoeFyfO4CLF9yE6uOcVPlEYYVdUqmGLb_Eg.PNG%2F1603148-00afb668-0178-42bf-88d0-0d75f27b9175.png",
       "name": "하나카동물병원",
       "number": "0507-1409-5852",
       "address": "서울 강남구 역삼동",
@@ -292,7 +292,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 26,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160108_288%2F14522221820093BdWW_JPEG%2F176054556335882_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160108_288%2F14522221820093BdWW_JPEG%2F176054556335882_0.jpeg",
       "name": "와이즈24시동물병원",
       "number": "0507-1408-8253",
       "address": "서울 강남구 논현동",
@@ -303,7 +303,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 27,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160219_2%2F1455876443770cyOMg_JPEG%2F176169593743597_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160219_2%2F1455876443770cyOMg_JPEG%2F176169593743597_0.jpeg",
       "name": "논현동물병원",
       "number": "02-3442-3785",
       "address": "서울 강남구 논현동",
@@ -314,7 +314,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 28,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200408_150%2F1586326650611Rrq8J_JPEG%2FuuJp7EgAc5uTd46nc-zF_39R.jpeg.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200408_150%2F1586326650611Rrq8J_JPEG%2FuuJp7EgAc5uTd46nc-zF_39R.jpeg.jpg",
       "name": "이비치동물치과병원",
       "number": "02-511-2842",
       "address": "서울 강남구 청담동",
@@ -325,7 +325,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 29,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200922_258%2F160070664706221HS5_JPEG%2FGXtevNL6c7H-GDlg0hHcSyST.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200922_258%2F160070664706221HS5_JPEG%2FGXtevNL6c7H-GDlg0hHcSyST.jpg",
       "name": "커비동물병원",
       "number": "0507-1395-8960",
       "address": "서울 강남구 논현동",
@@ -336,7 +336,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 30,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161019_132%2F1476841572179oCSUw_JPEG%2F176969507630673_2.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161019_132%2F1476841572179oCSUw_JPEG%2F176969507630673_2.jpeg",
       "name": "츄츄동물병원",
       "number": "02-512-0075",
       "address": "서울 강남구 역삼동",
@@ -347,7 +347,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 31,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200509_35%2F1588983348816Ww7eP_JPEG%2FmNyvLb_SRdrMua5YzKGiZEBA.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200509_35%2F1588983348816Ww7eP_JPEG%2FmNyvLb_SRdrMua5YzKGiZEBA.jpg",
       "name": "최영민동물의료센터",
       "number": "0507-1312-9539",
       "address": "서울 강남구 논현동",
@@ -358,7 +358,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 32,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMzAxMTFfMTIy%2FMDAxNjczNDAwNTIxNDc0.Z3oijMlOlEWm8xRD2VDRkQPyWK_E3NyQN4y8Evlso3kg.MrO0h5ZuQfxceeyN0TXPFhmoOkua-AGbW15se5rp6Kog.PNG%2F1320435-e5d025f8-acc5-446e-9969-f83d99a042d2.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMzAxMTFfMTIy%2FMDAxNjczNDAwNTIxNDc0.Z3oijMlOlEWm8xRD2VDRkQPyWK_E3NyQN4y8Evlso3kg.MrO0h5ZuQfxceeyN0TXPFhmoOkua-AGbW15se5rp6Kog.PNG%2F1320435-e5d025f8-acc5-446e-9969-f83d99a042d2.png",
       "name": "순수동물병원",
       "number": "02-515-8575",
       "address": "서울 강남구 논현동",
@@ -369,7 +369,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 33,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTExMThfOTEg%2FMDAxNjM3MjEzODE1MzA0.Bi-SU3uXkmrrePi2nZsF2i09vwUQMUu4R5813o9_g1kg.b-Qj0FBR395PIE99GtTllx4sAyIhnZB_H6hYhMsUW-Ig.PNG%2F2407808-464ac32f-f54f-439b-9831-f93824eda6e6.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMTExMThfOTEg%2FMDAxNjM3MjEzODE1MzA0.Bi-SU3uXkmrrePi2nZsF2i09vwUQMUu4R5813o9_g1kg.b-Qj0FBR395PIE99GtTllx4sAyIhnZB_H6hYhMsUW-Ig.PNG%2F2407808-464ac32f-f54f-439b-9831-f93824eda6e6.png",
       "name": "강남예치과동물병원",
       "number": "02-517-5585",
       "address": "서울 강남구 삼성동",
@@ -380,7 +380,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 34,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220705_123%2F1657006169462gLMgl_PNG%2F%25C1%25B6%25C8%25F1%25C1%25F8%25B4%25D4_2-blur-gold.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220705_123%2F1657006169462gLMgl_PNG%2F%25C1%25B6%25C8%25F1%25C1%25F8%25B4%25D4_2-blur-gold.png",
       "name": "청담리덴 동물치과병원",
       "number": "0507-1436-2884",
       "address": "서울 강남구 청담동",
@@ -391,7 +391,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 35,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180327_204%2F1522134601158fthnB_JPEG%2FbkDsQ1nrrvKxpXN6s5qeKMHZ.JPG.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180327_204%2F1522134601158fthnB_JPEG%2FbkDsQ1nrrvKxpXN6s5qeKMHZ.JPG.jpg",
       "name": "고려종합동물병원",
       "number": "02-575-7999",
       "address": "서울 강남구 도곡동",
@@ -402,7 +402,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 36,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180726_180%2F1532582394936thXVU_JPEG%2FeGmiqaRGYL_QBCWG35BY8xUt.JPG.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180726_180%2F1532582394936thXVU_JPEG%2FeGmiqaRGYL_QBCWG35BY8xUt.JPG.jpg",
       "name": "신사동물병원",
       "number": "02-549-4505",
       "address": "서울 강남구 논현동",
@@ -413,7 +413,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 37,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160829_261%2F1472465288183aLktj_JPEG%2F176779593826076_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160829_261%2F1472465288183aLktj_JPEG%2F176779593826076_0.jpeg",
       "name": "서울동물심장병원",
       "number": "0507-1438-7588",
       "address": "서울 강남구 역삼동",
@@ -424,7 +424,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 38,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180829_80%2F1535504437088Gd1VG_JPEG%2FJSmcS3msPB1bSq3Mc5548VZP.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180829_80%2F1535504437088Gd1VG_JPEG%2FJSmcS3msPB1bSq3Mc5548VZP.jpg",
       "name": "치료멍멍동물병원 신사본원",
       "number": "02-545-0075",
       "address": "서울 강남구 신사동",
@@ -435,7 +435,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 39,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150909_242%2F1441767398064ERx6j_PNG%2FSUBMIT_1441767296226_36823717.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150909_242%2F1441767398064ERx6j_PNG%2FSUBMIT_1441767296226_36823717.png",
       "name": "압구정웰동물병원",
       "number": "0507-1420-0275",
       "address": "서울 강남구 신사동",
@@ -446,7 +446,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 40,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMzAyMTNfMTk1%2FMDAxNjc2MjYyNjU2NTU4.zzhTXW-Xu07qheyN5rKgZ5QSbVmoYxrPDiEF5YDtPu0g.CZu4G0cP1fvmA1bCA0eZIQfrQVlKN6lgxlc13ddUHmMg.PNG%2F2719678-e1722883-83aa-42fd-a2aa-206ea4d5d6a5.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMzAyMTNfMTk1%2FMDAxNjc2MjYyNjU2NTU4.zzhTXW-Xu07qheyN5rKgZ5QSbVmoYxrPDiEF5YDtPu0g.CZu4G0cP1fvmA1bCA0eZIQfrQVlKN6lgxlc13ddUHmMg.PNG%2F2719678-e1722883-83aa-42fd-a2aa-206ea4d5d6a5.png",
       "name": "아이안 동물의료센터",
       "number": "0507-1354-2203",
       "address": "서울 강동구 명일동",
@@ -457,7 +457,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 41,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMDVfMjcg%2FMDAxNjQxMzY3MjY1MjQ3.vLjYus18hAxTaWxZxIOSyrqLKMHKtMvNrhIgnY2kKIsg.MhWWDIhLprDbE0Ou1FADpmzoSF80_oYZfl8FvnRb-PIg.PNG%2F2294240-e051296b-436e-418d-a3ec-5327266cfe9d.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fsearchad-phinf.pstatic.net%2FMjAyMjAxMDVfMjcg%2FMDAxNjQxMzY3MjY1MjQ3.vLjYus18hAxTaWxZxIOSyrqLKMHKtMvNrhIgnY2kKIsg.MhWWDIhLprDbE0Ou1FADpmzoSF80_oYZfl8FvnRb-PIg.PNG%2F2294240-e051296b-436e-418d-a3ec-5327266cfe9d.png",
       "name": "메이플동물의료센터",
       "number": "0507-1486-7979",
       "address": "서울 강동구 강일동",
@@ -468,7 +468,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 42,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_86%2F1441119539372g0tXD_JPEG%2F35021518_0.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_86%2F1441119539372g0tXD_JPEG%2F35021518_0.jpg",
       "name": "내품에동물병원",
       "number": "02-477-1775",
       "address": "서울 강동구 성내3동",
@@ -479,7 +479,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 43,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220108_82%2F1641635686429XErV6_JPEG%2F20220105_174624.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220108_82%2F1641635686429XErV6_JPEG%2F20220105_174624.jpg",
       "name": "석동물병원",
       "number": "02-475-7501",
       "address": "서울 강동구 성내동",
@@ -490,7 +490,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 44,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200606_228%2F1591431943781sgLw5_JPEG%2F-FvnrgivR3wjZJIPGQGqCSzP.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200606_228%2F1591431943781sgLw5_JPEG%2F-FvnrgivR3wjZJIPGQGqCSzP.jpg",
       "name": "박형우동물병원",
       "number": "02-488-8275",
       "address": "서울 강동구 성내동",
@@ -501,7 +501,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 45,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190414_205%2F1555245298076F9bla_JPEG%2FUJpSINKUywU86ANwNGWxvB0E.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190414_205%2F1555245298076F9bla_JPEG%2FUJpSINKUywU86ANwNGWxvB0E.jpg",
       "name": "아프리카동물병원",
       "number": "02-426-7722",
       "address": "서울 강동구 강일동",
@@ -512,7 +512,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 46,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170727_87%2F1501081256638NcQwB_PNG%2F186677403076504_0.png",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170727_87%2F1501081256638NcQwB_PNG%2F186677403076504_0.png",
       "name": "강동24시SKY동물의료센터",
       "number": "02-472-7579",
       "address": "서울 강동구 성내동",
@@ -523,7 +523,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 47,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220714_255%2F1657736483253t81A9_JPEG%2F00440B85-50A3-48B9-B784-3EAE2251C4A7.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220714_255%2F1657736483253t81A9_JPEG%2F00440B85-50A3-48B9-B784-3EAE2251C4A7.jpeg",
       "name": "24시 더파크동물의료센터",
       "number": "02-6949-2475",
       "address": "서울 강동구 성내동",
@@ -534,7 +534,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 48,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_254%2F1441096224949WzMvF_JPEG%2FSUBMIT_1433755631838_36768383.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_254%2F1441096224949WzMvF_JPEG%2FSUBMIT_1433755631838_36768383.jpg",
       "name": "고덕24시동물병원",
       "number": "0507-1463-8278",
       "address": "서울 강동구 명일동",
@@ -545,7 +545,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 49,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200301_277%2F1583007612901dwTiS_JPEG%2FqCUNkIuOXeevstKzqjpPcrZL.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200301_277%2F1583007612901dwTiS_JPEG%2FqCUNkIuOXeevstKzqjpPcrZL.jpg",
       "name": "스마트동물병원 강동암사점",
       "number": "0507-1402-8875",
       "address": "서울 강동구 암사동",
@@ -556,7 +556,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 50,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190821_93%2F1566375076556SSBOv_JPEG%2FQ_TNJByc-EcbIY_kKK0h_M6d.jpeg.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190821_93%2F1566375076556SSBOv_JPEG%2FQ_TNJByc-EcbIY_kKK0h_M6d.jpeg.jpg",
       "name": "올바른동물병원",
       "number": "0507-1421-1661",
       "address": "서울 강동구 암사동",
@@ -567,7 +567,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 51,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210706_92%2F1625550033498borlO_JPEG%2Fcy6qqxcdFu8r7AuOqYJZp3z5.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210706_92%2F1625550033498borlO_JPEG%2Fcy6qqxcdFu8r7AuOqYJZp3z5.jpg",
       "name": "로얄동물메디컬센터 강동",
       "number": "02-457-0075",
       "address": "서울 강동구 길동",
@@ -578,7 +578,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 52,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_134%2F1441098465474ARneO_JPEG%2F166560567128098_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_134%2F1441098465474ARneO_JPEG%2F166560567128098_0.jpeg",
       "name": "가람동물병원",
       "number": "0507-1412-5502",
       "address": "서울 강동구 성내동",
@@ -589,7 +589,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 53,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170728_141%2F1501245049098qQ6wO_JPEG%2F186678616067619_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170728_141%2F1501245049098qQ6wO_JPEG%2F186678616067619_0.jpeg",
       "name": "고래힐동물병원",
       "number": "0507-1447-5515",
       "address": "서울 강동구 고덕동",
@@ -600,7 +600,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 54,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190402_40%2F1554171400129RH3x7_JPEG%2FD5Ea8qeTCKyY6tsEjUROJjJ9.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190402_40%2F1554171400129RH3x7_JPEG%2FD5Ea8qeTCKyY6tsEjUROJjJ9.jpg",
       "name": "씨에이치동물병원",
       "number": "0507-1358-7510",
       "address": "서울 강동구 천호동",
@@ -611,7 +611,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 55,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200707_23%2F1594119174851fXq9H_JPEG%2FEF-CEDRBor9n8ZBe4NuYJyXw.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200707_23%2F1594119174851fXq9H_JPEG%2FEF-CEDRBor9n8ZBe4NuYJyXw.jpg",
       "name": "미드미동물의료센터",
       "number": "02-6497-7582",
       "address": "서울 강동구 명일동",
@@ -622,7 +622,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 56,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220224_290%2F1645694928325e5mMW_JPEG%2FKakaoTalk_20220224_182616088.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220224_290%2F1645694928325e5mMW_JPEG%2FKakaoTalk_20220224_182616088.jpg",
       "name": "돌봄 동물병원",
       "number": "0507-1398-2775",
       "address": "서울 강동구 암사동",
@@ -633,7 +633,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 57,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200429_87%2F1588117722700bpAMU_JPEG%2F4WLpvapSRkzb742deE4DpjxX.jpeg.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200429_87%2F1588117722700bpAMU_JPEG%2F4WLpvapSRkzb742deE4DpjxX.jpeg.jpg",
       "name": "둔촌동물병원",
       "number": "02-474-5100",
       "address": "서울 강동구 성내동",
@@ -644,7 +644,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 58,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211117_247%2F1637128122263BOvS3_JPEG%2F1637127831919-1.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20211117_247%2F1637128122263BOvS3_JPEG%2F1637127831919-1.jpg",
       "name": "고덕 동물의료센터",
       "number": "02-441-7585",
       "address": "서울 강동구 고덕동",
@@ -655,7 +655,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 59,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200314_107%2F1584178962399O58qT_JPEG%2FVY9xHrvhe0z6GCk9bMbcluCm.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200314_107%2F1584178962399O58qT_JPEG%2FVY9xHrvhe0z6GCk9bMbcluCm.jpg",
       "name": "펫트리동물의료센터",
       "number": "0507-1310-5775",
       "address": "서울 강동구 길동",
@@ -666,7 +666,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 60,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221215_223%2F1671076691211wwzBl_JPEG%2F20210927-141810.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221215_223%2F1671076691211wwzBl_JPEG%2F20210927-141810.jpg",
       "name": "안단테동물병원",
       "number": "02-476-7582",
       "address": "서울 강동구 천호동",
@@ -677,7 +677,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 61,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200716_116%2F1594876567512NW2tF_JPEG%2FLxI7z6PrkdcGRZeXjt7AJ6vW.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200716_116%2F1594876567512NW2tF_JPEG%2FLxI7z6PrkdcGRZeXjt7AJ6vW.jpg",
       "name": "시온동물병원",
       "number": "02-476-8275",
       "address": "서울 강동구 천호동",
@@ -688,7 +688,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 62,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180508_298%2F1525751105367zhPW9_JPEG%2FOnDXBCHupjpJxiKygE43gfo6.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180508_298%2F1525751105367zhPW9_JPEG%2FOnDXBCHupjpJxiKygE43gfo6.jpg",
       "name": "동물병원 공감",
       "number": "0507-1419-7975",
       "address": "서울 강동구 천호동",
@@ -699,7 +699,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 63,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_172%2F1441015060050Aufo4_JPEG%2F11669717_0.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_172%2F1441015060050Aufo4_JPEG%2F11669717_0.jpg",
       "name": "정동물병원",
       "number": "02-474-7588",
       "address": "서울 강동구 천호동",
@@ -710,7 +710,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 64,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190823_240%2F1566546102777UAw8J_JPEG%2FyX9W6NSTpE2Yhjdwl_XBgUAD.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190823_240%2F1566546102777UAw8J_JPEG%2FyX9W6NSTpE2Yhjdwl_XBgUAD.jpg",
       "name": "해태동물병원",
       "number": "02-427-5685",
       "address": "서울 강동구 명일동",
@@ -721,7 +721,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 65,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230213_77%2F1676264367432mdMMI_JPEG%2F1676264289365-1.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230213_77%2F1676264367432mdMMI_JPEG%2F1676264289365-1.jpg",
       "name": "센트럴동물병원",
       "number": "02-3428-0045",
       "address": "서울 강동구 고덕동",
@@ -732,7 +732,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 66,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161213_85%2F14815965531746yYWQ_GIF%2F177163516572148_0.gif",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20161213_85%2F14815965531746yYWQ_GIF%2F177163516572148_0.gif",
       "name": "마리스동물의료센터",
       "number": "02-442-8287",
       "address": "서울 강동구 암사동",
@@ -743,7 +743,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 67,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200625_178%2F1593052356089XM9O4_JPEG%2F4Gwwya1CuxWhju6qyaIfb_7q.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200625_178%2F1593052356089XM9O4_JPEG%2F4Gwwya1CuxWhju6qyaIfb_7q.jpg",
       "name": "가온동물병원",
       "number": "02-6953-7512",
       "address": "서울 강동구 고덕동",
@@ -754,7 +754,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 68,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F%2F20170125_151%2F1485351449569Nho3w_JPEG%2F1485350630321.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F%2F20170125_151%2F1485351449569Nho3w_JPEG%2F1485350630321.jpg",
       "name": "닥터표동물병원",
       "number": "0507-1407-4063",
       "address": "서울 강동구 성내동",
@@ -765,7 +765,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 69,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190524_149%2F15586337439625a40a_JPEG%2F_gbZy0uAhmJVIAa3XXxRcfBG.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190524_149%2F15586337439625a40a_JPEG%2F_gbZy0uAhmJVIAa3XXxRcfBG.jpg",
       "name": "쥬라기동물병원",
       "number": "02-488-7463",
       "address": "서울 강동구 천호동",
@@ -776,7 +776,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 70,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190814_157%2F1565743581519E1VcK_JPEG%2F7mDC4NnuQulte1MUG_7is9tn.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190814_157%2F1565743581519E1VcK_JPEG%2F7mDC4NnuQulte1MUG_7is9tn.jpg",
       "name": "양지가축동물병원",
       "number": "02-478-2208",
       "address": "서울 강동구 길동",
@@ -787,7 +787,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 71,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201024_127%2F16035075711102pxay_JPEG%2FAZTy5d3GWwhFXQlZY0P-7KyU.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201024_127%2F16035075711102pxay_JPEG%2FAZTy5d3GWwhFXQlZY0P-7KyU.jpg",
       "name": "사랑동물병원",
       "number": "0507-1322-1750",
       "address": "서울 강동구 길동",
@@ -798,7 +798,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 72,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210223_246%2F1614047321649pf5Pa_JPEG%2FKYZ2pzO7lc9YoLFt5TlrbG_I.jpeg.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210223_246%2F1614047321649pf5Pa_JPEG%2FKYZ2pzO7lc9YoLFt5TlrbG_I.jpeg.jpg",
       "name": "암사동물병원",
       "number": "02-3426-5079",
       "address": "서울 강동구 암사동",
@@ -809,7 +809,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 73,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160624_244%2F1466734688886QkGsX_JPEG%2F176574514828803_0.jpeg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20160624_244%2F1466734688886QkGsX_JPEG%2F176574514828803_0.jpeg",
       "name": "방주동물의료센터",
       "number": "02-476-3927",
       "address": "서울 강동구 성내동",
@@ -820,7 +820,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 74,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150902_108%2F14411256878002T1Uh_JPEG%2FSUBMIT_1425016815165_35125616.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150902_108%2F14411256878002T1Uh_JPEG%2FSUBMIT_1425016815165_35125616.jpg",
       "name": "Dr.주 동물병원",
       "number": "02-470-0030",
       "address": "서울 강동구 둔촌동",
@@ -831,7 +831,7 @@ class _QuickSearchState extends State<QuickSearch> {
     {
       "id": 75,
       "imageUrl":
-          "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200319_71%2F1584554959576bWFQc_JPEG%2F6Kyk7PdQz-Q3GXUivMqO6GSv.jpg",
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200319_71%2F1584554959576bWFQc_JPEG%2F6Kyk7PdQz-Q3GXUivMqO6GSv.jpg",
       "name": "두루동물병원",
       "number": "02-442-7772",
       "address": "서울 강동구 명일동",
@@ -1085,7 +1085,7 @@ class _QuickSearchState extends State<QuickSearch> {
                                   ),
                                   onPressed: () {
                                     final hospitalUrl = hospital['url'];
-                                    _navigateToWebView(context,hospitalUrl);
+                                    _navigateToWebView(context, hospitalUrl);
                                   },
                                   child: const Text(
                                     '병원 정보',
@@ -1111,7 +1111,6 @@ class _QuickSearchState extends State<QuickSearch> {
     );
   }
 }
-
 
 void _navigateToWebView(BuildContext context, String url) {
   Navigator.push(
