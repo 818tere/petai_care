@@ -1,6 +1,13 @@
 package com.example.petai_care
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugins.GeneratedPluginRegistrant
+
 
 class MainActivity: FlutterActivity() {
      override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
