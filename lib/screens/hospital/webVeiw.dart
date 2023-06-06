@@ -9,10 +9,12 @@ class WebViewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WebView(
-        initialUrl: url,
-        javascriptMode: JavascriptMode.unrestricted,
-      ),
+      body: SafeArea(
+        child: WebView(
+          initialUrl: url,
+          javascriptMode: JavascriptMode.unrestricted,
+        ),
+      ), 
     );
   }
 }
