@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:http/http.dart' as http;
 import 'package:petai_care/screens/account/models/image_model.dart';
@@ -755,22 +756,35 @@ class _AccountScreenState extends State<AccountScreen> {
 
     for (var performance in filteredPerformances) {
       tiles.add(
-        Dismissible(
-          key: UniqueKey(),
-          onDismissed: (_) {
-            helper
-                .deletePerformance(performance.id)
-                .then((value) => updateScreen());
-          },
+        Slidable(
+          key: Key(performance.id.toString()),
+          endActionPane: ActionPane(
+            extentRatio: 0.7,
+            motion: const ScrollMotion(),
+            children: [
+              SlidableAction(
+                onPressed: (_) {
+                  helper
+                      .deletePerformance(performance.id)
+                      .then((value) => updateScreen());
+                },
+                backgroundColor: const Color(0xFFFE4A49),
+                foregroundColor: Colors.white,
+                label: '삭제',
+              ),
+            ],
+          ),
           child: ListTile(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
               side: BorderSide(color: Colors.grey.shade300, width: 1),
             ),
             leading: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: uploadImage.Image.asset(
-                    'assets/accountimages/${performance.category}.png')),
+              borderRadius: BorderRadius.circular(5),
+              child: uploadImage.Image.asset(
+                'assets/accountimages/${performance.category}.png',
+              ),
+            ),
             title: Text(
                 '${formatCurrency.format(num.parse(performance.amount))}원'),
             subtitle: Text(performance.description),

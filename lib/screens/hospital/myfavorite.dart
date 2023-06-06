@@ -102,7 +102,7 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
-                    '동물병원',
+                    '자주 가는 병원',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,

@@ -62,6 +62,7 @@ dependencies:
   geolocator: ^9.0.2
   naver_map_plugin:
     git: https://github.com/LBSTECH/naver_map_plugin.git
+  flutter_slidable: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -89,12 +90,11 @@ flutter:
   assets:
     - jsonfile/seoul/
     - jsonfile/gyeonggi/
-    - assets/images/question.jpeg
-    - assets/images/review.jpeg
     - assets/accountimages/병원비.png
     - assets/accountimages/양육비.png
     - assets/ai_images/
     - assets/main_logo.png
+    - assets/banner/banner1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
