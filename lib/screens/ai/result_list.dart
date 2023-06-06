@@ -6,21 +6,13 @@ class ResultListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.exit_to_app),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
+          actions: const <Widget>[],
+        ),
+        body: Column(children: [
           SizedBox(
             height: 50,
             child: Padding(
@@ -38,8 +30,6 @@ class ResultListScreen extends StatelessWidget {
               ),
             ),
           ),
-        ]
-      )
-    );
+        ]));
   }
 }

@@ -960,12 +960,15 @@ class _QuickSearchState extends State<QuickSearch> {
             'https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?request=coordsToaddr&coords=$lon,$lat&sourcecrs=epsg:4326&output=json'),
         headers: headerss);
     String jsonData = response.body;
-    var myjsonGu =
-        jsonDecode(jsonData)["results"][1]['region']['area2']['name'];
+
     var myjsonSi =
         jsonDecode(jsonData)["results"][1]['region']['area1']['name'];
+    var myjsonGu =
+        jsonDecode(jsonData)["results"][1]['region']['area2']['name'];
+    var myjsonDong =
+        jsonDecode(jsonData)["results"][1]['region']['area3']['name'];
 
-    List<String> gusi = [myjsonSi, myjsonGu];
+    List<String> gusi = [myjsonSi, myjsonGu, myjsonDong];
 
     return gusi;
   }
@@ -994,12 +997,15 @@ class _QuickSearchState extends State<QuickSearch> {
               ),
             ),
           ),
-          TextField(
-            controller: controller,
-            onChanged: (value) => _runFilter(value),
-            decoration: const InputDecoration(
-              hintText: '   지역명, 병원명 검색',
-              suffixIcon: Icon(Icons.search),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: controller,
+              onChanged: (value) => _runFilter(value),
+              decoration: const InputDecoration(
+                hintText: '   지역명, 병원명 검색',
+                suffixIcon: Icon(Icons.search),
+              ),
             ),
           ),
           Divider(
@@ -1013,7 +1019,7 @@ class _QuickSearchState extends State<QuickSearch> {
               onPressed: () {
                 getLocation().then(
                   (value) {
-                    myLocation = value[1];
+                    myLocation = value[1] + " " + value[2];
                     controller.text = myLocation;
                     _runFilter(myLocation);
                   },
