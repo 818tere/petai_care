@@ -95,6 +95,8 @@ flutter:
     - assets/ai_images/
     - assets/main_logo.png
     - assets/banner/banner1.png
+    - assets/banner/banner2.png
+    - assets/banner/banner3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
