@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:http/http.dart' as http;
@@ -13,10 +12,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:petai_care/screens/account/widgets/bar_widget.dart';
+import 'package:petai_care/screens/account/widgets/direct_dialog.dart';
+import 'package:petai_care/screens/account/widgets/recognizedText.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:flutter/src/widgets/image.dart' as uploadImage;
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:uuid/uuid.dart';
+import 'package:flutter/src/widgets/image.dart' as uploadImage;
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -35,7 +36,6 @@ class _AccountScreenState extends State<AccountScreen> {
   //offstage
   List day = ['1일', '1주', '1개월', '1년'];
   int index_color = 0;
-
   //chart
   Map<String, List<dynamic>> mySelectedEvents = {};
   //tablecalendar 용
@@ -44,27 +44,17 @@ class _AccountScreenState extends State<AccountScreen> {
   var amountController = TextEditingController();
   var descpController = TextEditingController();
   final SPHelper helper = SPHelper();
-
-  //XFile? _image;
   final ImagePicker picker = ImagePicker();
   bool isLoading = false;
   //_getfromimage
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
-  //String _imageURL = '';
 
-  String? selectedItem;
-  final List<String> _items = [
-    '병원비',
-    '양육비',
-  ];
-  //dropdownbutton 분류 필드
   @override
   void initState() {
     helper.init().then((value) => updateScreen());
     super.initState();
     _selectedDay = _focusedDay;
     initializeDateFormatting();
-    getContent(_focusedDay, mySelectedEvents);
   }
 
   List listOfDayEvents(DateTime day) {
@@ -75,120 +65,6 @@ class _AccountScreenState extends State<AccountScreen> {
     } else {
       return [];
     }
-  }
-
-  Future<dynamic> _showAddEventDialog() async {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text(
-          '내역 추가',
-          textAlign: TextAlign.center,
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextField(
-              controller: amountController,
-              keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: const InputDecoration(
-                labelText: '금액',
-              ),
-            ),
-            TextField(
-              controller: descpController,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.allow(RegExp(
-                    r'[a-z|A-Z|0-9|ㄱ-ㅎ|ㅏ-ㅣ|가-힣|ᆞ|ᆢ|ㆍ|ᆢ|ᄀᆞ|ᄂᆞ|ᄃᆞ|ᄅᆞ|ᄆᆞ|ᄇᆞ|ᄉᆞ|ᄋᆞ|ᄌᆞ|ᄎᆞ|ᄏᆞ|ᄐᆞ|ᄑᆞ|ᄒᆞ]')),
-              ],
-              decoration: const InputDecoration(
-                labelText: '내용',
-              ),
-            ),
-            DropdownButton<String>(
-              value: selectedItem,
-              onChanged: ((value) {
-                setState(() {
-                  selectedItem = value!;
-                });
-              }),
-              items: _items
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Container(
-                          alignment: Alignment.center,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 20,
-                                child: uploadImage.Image.asset(
-                                    'assets/accountimages/$e.png'),
-                              ),
-                              const SizedBox(width: 10),
-                              Text(e),
-                            ],
-                          ),
-                        ),
-                      ))
-                  .toList(),
-              selectedItemBuilder: (BuildContext context) => _items
-                  .map((e) => Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                            child: uploadImage.Image.asset(
-                                'assets/accountimages/$e.png'),
-                          ),
-                          const SizedBox(width: 5),
-                          Text(e)
-                        ],
-                      ))
-                  .toList(),
-              hint: const Text(
-                '카테고리',
-                style: TextStyle(color: Colors.grey),
-              ),
-              isExpanded: true,
-              dropdownColor: Colors.white,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('취소'),
-          ),
-          TextButton(
-            child: const Text('추가'),
-            onPressed: () {
-              if (amountController.text.isEmpty &&
-                  descpController.text.isEmpty) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('내용이 입력되지 않았습니다.'),
-                    duration: Duration(seconds: 2),
-                  ),
-                );
-                return;
-              } else {
-                savePerformance(
-                    amountController.text, descpController.text, selectedItem!);
-
-                amountController.clear();
-                descpController.clear();
-
-                Navigator.of(context).pop();
-                return;
-              }
-            },
-          ),
-        ],
-      ),
-    );
   }
 
   Future savePerformance(
@@ -252,15 +128,9 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   Future getRecognizedText(XFile image, String downloadURL) async {
-    //var bytes = File(_image.toString()).readAsBytes();
-    //String img64 = base64Encode(await bytes);
-
     const String apiUrl =
         'https://c5ow50d89i.apigw.ntruss.com/custom/v1/21848/74ec55cb84097108fb278ca259460e9cfcde072e550ba9a68e3e5dca84f7b0fc/infer';
     const String secretKey = 'cVhCeGNBVmh6RmxnWVlOTm5Kc2pYU3NrWmpkd3d2ZUk=';
-    /*const String imageUrl =
-        'https://kr.object.ncloudstorage.com/petaicare/text1.jpeg';
-*/
 
     var requestJson = {
       'version': 'V1',
@@ -284,206 +154,13 @@ class _AccountScreenState extends State<AccountScreen> {
 
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => _buildRecognizedText(image, imageModel),
+          builder: (context) => RecognizedTextScreen(
+              image: image,
+              imageModel: imageModel,
+              savePerformance: savePerformance),
         ),
       );
     });
-  }
-
-  Widget _buildRecognizedText(XFile image, ImageModel imageModel) {
-    String amountTemp = (imageModel.images[0].fields[1].inferText)
-        .replaceAll(RegExp('[^0-9\\s]'), '');
-    String recognizedAmount = amountTemp;
-    String recognizedDescp = imageModel.images[0].fields[0].inferText;
-    String recognizedCategory = recognizedDescp.contains('병원') ? '병원비' : '양육비';
-
-    return Scaffold(
-      bottomSheet: Container(
-        height: MediaQuery.of(context).size.height * 0.18,
-        decoration: const BoxDecoration(
-          color: Color(0xffE8DEF8),
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text('인식한 정보를 확인해주세요. \n  내역을 추가하시겠습니까? ',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    ))
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff6750A4),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 10)),
-                  onPressed: () {
-                    savePerformance(
-                        recognizedAmount, recognizedDescp, recognizedCategory);
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('내역추가',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff6750A4),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 10)),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('취소',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        title: const Text('영수증 인식확인'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        centerTitle: true,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.45,
-                child: uploadImage.Image.file(File(image.path)),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: Column(
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text('\n* 영수증에서 인식한 정보이며 빈 칸의 항목은 인식불가 항목입니다.\n',
-                              style: TextStyle(
-                                color: Colors.red,
-                                fontSize: 12,
-                              ))
-                        ]),
-                    const Divider(
-                      thickness: 1.5,
-                      height: 1,
-                      color: Colors.black,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text('분류: ',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 17,
-                              )),
-                          Text(recognizedCategory,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              )),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      thickness: 0.3,
-                      height: 1,
-                      color: Colors.black,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            '사업자명: ',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
-                            ),
-                          ),
-                          Text(
-                            imageModel.images[0].fields[0].inferText,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 17,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      thickness: 0.3,
-                      height: 1,
-                      color: Colors.black,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text('금액: ',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 17,
-                              )),
-                          Text(
-                            imageModel.images[0].fields[1].inferText,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 17,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      thickness: 0.3,
-                      height: 1,
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 
   @override
@@ -713,8 +390,18 @@ class _AccountScreenState extends State<AccountScreen> {
           SpeedDialChild(
             child: const Icon(Icons.add),
             label: '직접입력',
-            onTap: () => _showAddEventDialog(),
-          )
+            onTap: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => DirectDialog(
+                amountController: amountController,
+                descpController: descpController,
+                helper: helper,
+                mySelectedEvents: mySelectedEvents,
+                selectedDay: _selectedDay,
+                savePerformance: savePerformance,
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -792,7 +479,6 @@ class _AccountScreenState extends State<AccountScreen> {
         ),
       );
     }
-
     return tiles;
   }
 
