@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:petai_care/screens/ai/result_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:petai_care/screens/ai/result.dart';
+import 'package:petai_care/screens/ai/result_list.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io';
@@ -33,7 +34,7 @@ class _AiScreenState extends State<AiScreen> {
       if (pickedFile != null) {
         _imageFile = File(pickedFile.path);
       } else {
-        print('No image selected.');
+        print('이미지가 정상적으로 선택되지 않았습니다.');
       }
     });
     _uploadImage(_imageFile);
@@ -41,7 +42,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image) async {
     // 주소 변경해야 함
-    var url = Uri.parse('http://edb064db31a1.ngrok.app');
+    var url = Uri.parse('http://d44a-35-194-151-60.ngrok-free.app');
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
     var response = await request.send();
@@ -53,14 +54,21 @@ class _AiScreenState extends State<AiScreen> {
       const Utf8Decoder().convert(responseString.runes.toList()),
     )['probability'];
 
+    // 확률 검사
     late String result;
 
-    if (prob < 65){
+    if (prob < 60){
       result = "판정이 어렵습니다. 사진을 다시 찍어주세요.";
     }
     else{
       result = "$koreanString 확률: $prob";
     }
+
+    if (!mounted) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ResultScreen()),
+    );
 
     if (!mounted) return;
     showDialog(
@@ -281,74 +289,6 @@ class _AiScreenState extends State<AiScreen> {
                             fontSize: 16),
                       ),
                     ),
-                    /*ElevatedButton.icon(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      label: const Text(
-                        '강아지',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      icon: Image.asset('assets/ai_images/icon_dog.png',
-                          width: 40, height: 40),
-                      onPressed: () {
-                        setState(() {
-                          hideDog = false;
-                          hideCat = true;
-                        });
-                      },
-                    ),
-                    ElevatedButton.icon(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      label: const Text(
-                        '고양이',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      icon: Image.asset('assets/ai_images/icon_cat.png',
-                          width: 40, height: 40),
-                      onPressed: () {
-                        setState(() {
-                          hideDog = true;
-                          hideCat = false;
-                        });
-                      },
-                    ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ResultListScreen()),
-                        );
-                      },
-                      child: const Text(
-                        '진단결과목록',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),*/
                   ],
                 ),
               ),
@@ -544,18 +484,6 @@ class _AiScreenState extends State<AiScreen> {
           ],
         ),
       ),
-      /*floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        
-          const SizedBox(height: 16),
-          FloatingActionButton(
-            heroTag: 'a3',
-            onPressed: _sendImageToServer,
-            tooltip: 'Send image to server',
-            child: const Icon(Icons.cloud_upload),
-          ),
-        ],
-      ),*/
     );
   }
 }
