@@ -64,11 +64,11 @@ class _AiScreenState extends State<AiScreen> {
       result = "$koreanString 확률: $prob";
     }
 
-    if (!mounted) return;
+    /*if (!mounted) return;
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const ResultScreen()),
-    );
+    );*/
 
     if (!mounted) return;
     showDialog(
