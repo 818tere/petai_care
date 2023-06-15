@@ -50,20 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA3TrTlteNEPUXeOJl8WjjCXxQCUrETYlU',
-    appId: '1:445735365536:android:c3febfa7ed54b08d9892c5',
-    messagingSenderId: '445735365536',
-    projectId: 'petaicare-5e58f',
-    storageBucket: 'petaicare-5e58f.appspot.com',
+    apiKey: 'AIzaSyAVAKNjFTUw5xRkSbzHO914rDow-oGwSwI',
+    appId: '1:464119642714:android:303fe87682bdb44294b663',
+    messagingSenderId: '464119642714',
+    projectId: 'petaicare',
+    storageBucket: 'petaicare.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDvXdHNt-y4JuW6NHHY6Z_9vIhd6za5I-g',
-    appId: '1:445735365536:ios:1daaad6a4d089d569892c5',
-    messagingSenderId: '445735365536',
-    projectId: 'petaicare-5e58f',
-    storageBucket: 'petaicare-5e58f.appspot.com',
-    iosClientId: '445735365536-ra3m4slg3ro299fia6j7a7e5heudqusm.apps.googleusercontent.com',
+    apiKey: 'AIzaSyD5z89_fbxhF9GwIelBv4aojAOvGXlS32o',
+    appId: '1:464119642714:ios:43372f6426b9621794b663',
+    messagingSenderId: '464119642714',
+    projectId: 'petaicare',
+    storageBucket: 'petaicare.appspot.com',
+    iosClientId:
+        '464119642714-5n2m3qi62ca6hj1to6lub8vunjkj66me.apps.googleusercontent.com',
     iosBundleId: 'com.example.petaiCare',
   );
 }
