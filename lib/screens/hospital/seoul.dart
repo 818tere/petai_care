@@ -86,15 +86,12 @@ class Gangnam extends StatefulWidget {
 
 class _GangnamState extends State<Gangnam> {
   @override
-  final List<int> _selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -102,7 +99,7 @@ class _GangnamState extends State<Gangnam> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -206,7 +203,7 @@ class _GangnamState extends State<Gangnam> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/gangnam.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -228,15 +225,12 @@ class Gangdong extends StatefulWidget {
 
 class _GangdongState extends State<Gangdong> {
   @override
-  List<int> selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -244,7 +238,7 @@ class _GangdongState extends State<Gangdong> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -348,7 +342,7 @@ class _GangdongState extends State<Gangdong> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/gangdong.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -370,15 +364,12 @@ class Gangbuk extends StatefulWidget {
 
 class _GangbukState extends State<Gangbuk> {
   @override
-  List<int> selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -386,7 +377,7 @@ class _GangbukState extends State<Gangbuk> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -490,7 +481,7 @@ class _GangbukState extends State<Gangbuk> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/gangbuk.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -511,15 +502,12 @@ class Gangseo extends StatefulWidget {
 
 class _GangseoState extends State<Gangseo> {
   @override
-  List<int> selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -527,7 +515,7 @@ class _GangseoState extends State<Gangseo> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -631,7 +619,7 @@ class _GangseoState extends State<Gangseo> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/gangseo.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -652,15 +640,12 @@ class Gwanak extends StatefulWidget {
 
 class _GwanakState extends State<Gwanak> {
   @override
-  List<int> selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -668,7 +653,7 @@ class _GwanakState extends State<Gwanak> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -772,7 +757,7 @@ class _GwanakState extends State<Gwanak> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/gwanak.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -794,15 +779,12 @@ class Gwangjin extends StatefulWidget {
 
 class _GwangjinState extends State<Gwangjin> {
   @override
-  List<int> selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -810,7 +792,7 @@ class _GwangjinState extends State<Gwangjin> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -914,7 +896,7 @@ class _GwangjinState extends State<Gwangjin> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/gwangjin.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -936,15 +918,12 @@ class Guro extends StatefulWidget {
 
 class _GuroState extends State<Guro> {
   @override
-  List<int> selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -952,7 +931,7 @@ class _GuroState extends State<Guro> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -1056,7 +1035,7 @@ class _GuroState extends State<Guro> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/guro.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1078,15 +1057,12 @@ class Geumcheon extends StatefulWidget {
 
 class _GeumcheonState extends State<Geumcheon> {
   @override
-  List<int> selectedItem = [];
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1094,7 +1070,7 @@ class _GeumcheonState extends State<Geumcheon> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return Consumer<FavoriteItemProvider>(
                             builder: (context, value, child) {
@@ -1198,7 +1174,7 @@ class _GeumcheonState extends State<Geumcheon> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/geumcheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1223,7 +1199,7 @@ class _NowonState extends State<Nowon> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1231,7 +1207,7 @@ class _NowonState extends State<Nowon> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -1315,7 +1291,7 @@ class _NowonState extends State<Nowon> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/nowon.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1340,7 +1316,7 @@ class _DobongState extends State<Dobong> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1348,7 +1324,7 @@ class _DobongState extends State<Dobong> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -1432,7 +1408,7 @@ class _DobongState extends State<Dobong> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/dobong.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1457,7 +1433,7 @@ class _DongdaemunState extends State<Dongdaemun> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1465,7 +1441,7 @@ class _DongdaemunState extends State<Dongdaemun> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -1549,7 +1525,7 @@ class _DongdaemunState extends State<Dongdaemun> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/dongdamun.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1574,7 +1550,7 @@ class _DongjakState extends State<Dongjak> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1582,7 +1558,7 @@ class _DongjakState extends State<Dongjak> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -1666,7 +1642,7 @@ class _DongjakState extends State<Dongjak> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/dongjak.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1691,7 +1667,7 @@ class _MapoState extends State<Mapo> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1699,7 +1675,7 @@ class _MapoState extends State<Mapo> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -1783,7 +1759,7 @@ class _MapoState extends State<Mapo> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/mapo.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1808,7 +1784,7 @@ class _SeodaemunState extends State<Seodaemun> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1816,7 +1792,7 @@ class _SeodaemunState extends State<Seodaemun> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -1900,7 +1876,7 @@ class _SeodaemunState extends State<Seodaemun> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/seodaemun.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -1924,7 +1900,7 @@ class _SeochoState extends State<Seocho> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -1932,7 +1908,7 @@ class _SeochoState extends State<Seocho> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2016,7 +1992,7 @@ class _SeochoState extends State<Seocho> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/seocho.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2040,7 +2016,7 @@ class _SeongdongState extends State<Seongdong> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2048,7 +2024,7 @@ class _SeongdongState extends State<Seongdong> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2132,7 +2108,7 @@ class _SeongdongState extends State<Seongdong> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/seongdong.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2157,7 +2133,7 @@ class _SeongbukState extends State<Seongbuk> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2165,7 +2141,7 @@ class _SeongbukState extends State<Seongbuk> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2249,7 +2225,7 @@ class _SeongbukState extends State<Seongbuk> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/seongbuk.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2274,7 +2250,7 @@ class _SongpaState extends State<Songpa> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2282,7 +2258,7 @@ class _SongpaState extends State<Songpa> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2366,7 +2342,7 @@ class _SongpaState extends State<Songpa> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/songpa.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2391,7 +2367,7 @@ class _YangcheonState extends State<Yangcheon> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2399,7 +2375,7 @@ class _YangcheonState extends State<Yangcheon> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2483,7 +2459,7 @@ class _YangcheonState extends State<Yangcheon> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/yangcheon.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2508,7 +2484,7 @@ class _YeongdeungpoState extends State<Yeongdeungpo> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2516,7 +2492,7 @@ class _YeongdeungpoState extends State<Yeongdeungpo> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2600,7 +2576,7 @@ class _YeongdeungpoState extends State<Yeongdeungpo> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata = await rootBundle.rootBundle
         .loadString('jsonfile/seoul/yeongdeungpo.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2625,7 +2601,7 @@ class _YongsanState extends State<Yongsan> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2633,7 +2609,7 @@ class _YongsanState extends State<Yongsan> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2717,7 +2693,7 @@ class _YongsanState extends State<Yongsan> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/yongsan.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2742,7 +2718,7 @@ class _EunpyeongState extends State<Eunpyeong> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2750,7 +2726,7 @@ class _EunpyeongState extends State<Eunpyeong> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2834,7 +2810,7 @@ class _EunpyeongState extends State<Eunpyeong> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/eunpyeong.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2858,7 +2834,7 @@ class _JongnoState extends State<Jongno> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2866,7 +2842,7 @@ class _JongnoState extends State<Jongno> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -2950,7 +2926,7 @@ class _JongnoState extends State<Jongno> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/jongno.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -2975,7 +2951,7 @@ class _JungState extends State<Jung> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -2983,7 +2959,7 @@ class _JungState extends State<Jung> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -3067,7 +3043,7 @@ class _JungState extends State<Jung> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/jung.json');
     final list = json.decode(jsondata) as List<dynamic>;
@@ -3092,7 +3068,7 @@ class _JungnangState extends State<Jungnang> {
       body: Column(
         children: [
           FutureBuilder(
-            future: ReadJsonData(),
+            future: readJsonData(),
             builder: (context, data) {
               if (data.hasError) {
                 return Center(child: Text("${data.error}"));
@@ -3100,7 +3076,7 @@ class _JungnangState extends State<Jungnang> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                      itemCount: items == null ? 0 : items.length,
+                      itemCount: items.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -3184,7 +3160,7 @@ class _JungnangState extends State<Jungnang> {
     );
   }
 
-  Future<List<HospitalDataModel>> ReadJsonData() async {
+  Future<List<HospitalDataModel>> readJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/jungnang.json');
     final list = json.decode(jsondata) as List<dynamic>;

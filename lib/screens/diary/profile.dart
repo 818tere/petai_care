@@ -1,8 +1,5 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:petai_care/screens/diary/image_crop_controller.dart';
 import 'package:petai_care/screens/diary/profile_controller.dart';
 import 'package:petai_care/screens/diary/text_editor_widget.dart';
 
@@ -24,7 +21,7 @@ class Profile extends GetView<ProfileController> {
                     GestureDetector(
                       onTap: controller.rollback,
                       child: Row(
-                        children: [
+                        children: const [
                           Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
@@ -39,7 +36,7 @@ class Profile extends GetView<ProfileController> {
                     ),
                     GestureDetector(
                       onTap: controller.save,
-                      child: Text(
+                      child: const Text(
                         "완료",
                         style: TextStyle(fontSize: 14, color: Colors.white),
                       ),
@@ -49,9 +46,9 @@ class Profile extends GetView<ProfileController> {
               : Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.close_sharp, color: Colors.white),
+                    const Icon(Icons.close_sharp, color: Colors.white),
                     Row(
-                      children: [
+                      children: const [
                         Icon(Icons.qr_code, color: Colors.white),
                         SizedBox(
                           width: 10,
@@ -97,10 +94,10 @@ class Profile extends GetView<ProfileController> {
       child: Column(
         children: [
           Icon(icon, color: Colors.white),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               color: Colors.white,
             ),
@@ -147,7 +144,7 @@ class Profile extends GetView<ProfileController> {
       onTap: () {
         controller.pickImage(ProfileImageType.THUMBNAIL);
       },
-      child: Container(
+      child: SizedBox(
         width: 120,
         height: 120,
         child: Stack(
@@ -155,7 +152,7 @@ class Profile extends GetView<ProfileController> {
             Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
-                child: Container(
+                child: SizedBox(
                   width: 100,
                   height: 100,
                   child: controller.myProfile.value.avatarFile == null
@@ -180,9 +177,9 @@ class Profile extends GetView<ProfileController> {
                       alignment: Alignment.bottomRight,
                       child: Container(
                         padding: const EdgeInsets.all(7),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             shape: BoxShape.circle, color: Colors.white),
-                        child: Icon(
+                        child: const Icon(
                           Icons.camera_alt,
                           size: 20,
                         ),
@@ -203,7 +200,7 @@ class Profile extends GetView<ProfileController> {
           padding: const EdgeInsets.symmetric(vertical: 12),
           child: Text(
             controller.myProfile.value.name!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w400,
               color: Colors.white,
@@ -212,7 +209,7 @@ class Profile extends GetView<ProfileController> {
         ),
         Text(
           controller.myProfile.value.discription!,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w400,
             color: Colors.white,
@@ -229,7 +226,7 @@ class Profile extends GetView<ProfileController> {
         children: [
           Container(
             height: 45,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               border: Border(
                 bottom: BorderSide(width: 1, color: Colors.white),
               ),
@@ -240,7 +237,7 @@ class Profile extends GetView<ProfileController> {
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: Text(
                 value,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w400,
                   color: Colors.white,
@@ -248,7 +245,7 @@ class Profile extends GetView<ProfileController> {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             right: 0,
             bottom: 15,
             child: Icon(
@@ -295,7 +292,7 @@ class Profile extends GetView<ProfileController> {
       bottom: 120,
       left: 0,
       right: 0,
-      child: Container(
+      child: SizedBox(
         height: 220,
         child: Obx(
           () => Column(
@@ -314,7 +311,7 @@ class Profile extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff3f3f3f),
+      backgroundColor: const Color(0xff3f3f3f),
       resizeToAvoidBottomInset: false,
       body: Container(
         child: Stack(

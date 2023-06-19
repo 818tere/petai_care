@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:http/http.dart' as http;
@@ -48,7 +50,9 @@ class _AccountScreenState extends State<AccountScreen> {
   bool isLoading = false;
   //_getfromimage
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
-
+  final user = FirebaseAuth.instance.currentUser;
+  CollectionReference userReference =
+      FirebaseFirestore.instance.collection('users');
   @override
   void initState() {
     helper.init().then((value) => updateScreen());
@@ -71,6 +75,19 @@ class _AccountScreenState extends State<AccountScreen> {
       String amount, String descp, String selectedItem) async {
     int id = helper.getCounter() + 1;
 
+    final collectionReference = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .collection('performances');
+
+    final newPerformance = {
+      'date': _selectedDay.toString(),
+      'amount': amount.toString(),
+      'descp': descp,
+      'category': selectedItem,
+    };
+    await collectionReference.doc(user!.uid).set(newPerformance);
+
     setState(() {
       if (mySelectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDay!)] !=
           null) {
@@ -92,7 +109,7 @@ class _AccountScreenState extends State<AccountScreen> {
       }
     });
 
-    Performance newPerformance = Performance(
+    Performance performance = Performance(
       id,
       _selectedDay.toString(),
       amount.toString(),
@@ -100,13 +117,14 @@ class _AccountScreenState extends State<AccountScreen> {
       selectedItem,
     );
 
-    helper.writePerformance(newPerformance).then((_) {
+    helper.writePerformance(performance).then((_) {
       helper.setCounter();
       updateScreen();
     });
 
     amountController.clear();
     descpController.clear();
+    updateScreen();
   }
 
   Future _getFromImage(ImageSource imageSource) async {
@@ -190,136 +208,131 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.5,
-                    child: Column(
-                      children: [
-                        Offstage(
-                          offstage: calenderHide,
-                          child: TableCalendar(
-                            locale: 'ko_KR',
-                            focusedDay: _focusedDay,
-                            firstDay: DateTime(2023),
-                            lastDay: DateTime(2040),
-                            headerStyle: const HeaderStyle(
-                              formatButtonVisible: false,
-                              titleCentered: true,
-                              titleTextStyle: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                  Column(
+                    children: [
+                      Offstage(
+                        offstage: calenderHide,
+                        child: TableCalendar(
+                          locale: 'ko_KR',
+                          focusedDay: _focusedDay,
+                          firstDay: DateTime(2023),
+                          lastDay: DateTime(2040),
+                          headerStyle: const HeaderStyle(
+                            formatButtonVisible: false,
+                            titleCentered: true,
+                            titleTextStyle: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
-                            onDaySelected: (selectedDay, focusedDay) {
-                              if (!isSameDay(_selectedDay, selectedDay)) {
-                                setState(() {
-                                  _selectedDay = selectedDay;
-                                  _focusedDay = focusedDay;
-                                });
-                              }
-                            },
-                            selectedDayPredicate: (day) =>
-                                isSameDay(_selectedDay, day),
-                            onFormatChanged: (format) {
-                              if (_calendarFormat != format) {
-                                setState(() {
-                                  _calendarFormat = format;
-                                });
-                              }
-                            },
-                            onPageChanged: (focusedDay) {
-                              _focusedDay = focusedDay;
-                            },
-                            eventLoader: listOfDayEvents,
                           ),
+                          onDaySelected: (selectedDay, focusedDay) {
+                            if (!isSameDay(_selectedDay, selectedDay)) {
+                              setState(() {
+                                _selectedDay = selectedDay;
+                                _focusedDay = focusedDay;
+                              });
+                            }
+                          },
+                          selectedDayPredicate: (day) =>
+                              isSameDay(_selectedDay, day),
+                          onFormatChanged: (format) {
+                            if (_calendarFormat != format) {
+                              setState(() {
+                                _calendarFormat = format;
+                              });
+                            }
+                          },
+                          onPageChanged: (focusedDay) {
+                            _focusedDay = focusedDay;
+                          },
+                          eventLoader: listOfDayEvents,
                         ),
-                        Offstage(
-                          offstage: chartHide,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              /*Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 10),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ...List.generate(
-                                      4,
-                                      (index) => GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            index_color = index;
-                                          });
-                                        },
-                                        child: Container(
-                                          height: 40,
-                                          width: 70,
-                                          decoration: BoxDecoration(
-                                            color: index_color == index
-                                                ? Colors.blue
-                                                : Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            day[index],
-                                            style: TextStyle(
-                                                color: index_color == index
-                                                    ? Colors.white
-                                                    : Colors.black,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w600),
-                                          ),
+                      ),
+                      Offstage(
+                        offstage: chartHide,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 15, vertical: 10),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  ...List.generate(
+                                    4,
+                                    (index) => GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          index_color = index;
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 40,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          color: index_color == index
+                                              ? Colors.blue
+                                              : Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          day[index],
+                                          style: TextStyle(
+                                              color: index_color == index
+                                                  ? Colors.white
+                                                  : Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600),
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),*/
-                              const SizedBox(height: 15),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  Text(
-                                    '     이번주 소비내역',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 1,
-                                  ),
-                                  Text(
-                                    '   132,500원   ',
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 25,
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.3,
-                                child: const BarWidget(),
-                              )
-                            ],
-                          ),
+                            ),*/
+                            const SizedBox(height: 15),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                Text(
+                                  '     이번주 소비내역',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 1,
+                                ),
+                                Text(
+                                  '   132,500원   ',
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            const SizedBox(
+                              child: BarWidget(),
+                            )
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -359,7 +372,6 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15),
                   ListView(
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
@@ -413,6 +425,59 @@ class _AccountScreenState extends State<AccountScreen> {
         locale: 'ko_KR', name: '', decimalDigits: 0);
     List<Widget> tiles = [];
 
+    /*final collectionReference = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .collection('performances');
+    // Fetch the performance documents for the selected date
+    collectionReference
+        .where('date', isEqualTo: selectedDate.toString())
+        .get()
+        .then((querySnapshot) {
+      // Iterate over the query snapshot and add the performance data to the tiles
+      for (var documentSnapshot in querySnapshot.docs) {
+        final performanceData = documentSnapshot.data();
+        final category = performanceData['category'];
+        final amount = performanceData['amount'];
+        final descp = performanceData['descp'];
+
+        tiles.add(
+          Slidable(
+            key: Key(documentSnapshot.id),
+            endActionPane: ActionPane(
+              extentRatio: 0.7,
+              motion: const ScrollMotion(),
+              children: [
+                SlidableAction(
+                  onPressed: (_) {
+                    documentSnapshot.reference.delete().then((value) {
+                      updateScreen();
+                    });
+                  },
+                  backgroundColor: const Color(0xFFFE4A49),
+                  foregroundColor: Colors.white,
+                  label: '삭제',
+                ),
+              ],
+            ),
+            child: ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(color: Colors.grey.shade300, width: 1),
+              ),
+              leading: ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: uploadImage.Image.asset(
+                  'assets/accountimages/$category.png',
+                ),
+              ),
+              title: Text('${formatCurrency.format(num.parse(amount))}원'),
+              subtitle: Text(descp),
+            ),
+          ),
+        );
+      }
+    });*/
     // Get the performance data for the selected date
     List<Performance> selectedPerformances = performances
         .where((performance) => performance.date == selectedDate.toString())

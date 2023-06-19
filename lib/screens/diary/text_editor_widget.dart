@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
 class TextEditorWidget extends StatefulWidget {
@@ -32,7 +30,7 @@ class _TextEditorWidgetState extends State<TextEditorWidget> {
               Get.back();
             },
             child: Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.arrow_back_ios,
                   color: Colors.white,
@@ -49,7 +47,7 @@ class _TextEditorWidgetState extends State<TextEditorWidget> {
             onTap: () {
               _completeEditing();
             },
-            child: Text(
+            child: const Text(
               "완료",
               style: TextStyle(fontSize: 14, color: Colors.white),
             ),
@@ -71,8 +69,8 @@ class _TextEditorWidgetState extends State<TextEditorWidget> {
           controller: _textEditingController,
           maxLength: 20,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18, color: Colors.white),
-          decoration: InputDecoration(
+          style: const TextStyle(fontSize: 18, color: Colors.white),
+          decoration: const InputDecoration(
             hintStyle: TextStyle(fontSize: 18, color: Colors.white),
             counterStyle: TextStyle(fontSize: 14, color: Colors.white),
             enabledBorder: UnderlineInputBorder(
