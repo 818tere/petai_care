@@ -1,12 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:petai_care/screens/ai/result.dart';
-import 'package:petai_care/screens/ai/result_list.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';
+import 'package:petai_care/screens/ai/result_list.dart';
 
 class AiScreen extends StatefulWidget {
   const AiScreen({super.key});
@@ -18,16 +17,12 @@ class AiScreen extends StatefulWidget {
 class _AiScreenState extends State<AiScreen> {
   late File _imageFile;
   final picker = ImagePicker();
-  final int _currentSelection = 0; // 0: 강아지, 1: 고양이
-  bool hideDog = false;
-  bool hideCat = true;
-  int selectedSegment = 0;
 
   _AiScreenState() {
     _imageFile = File(''); // 파일 초기화
   }
 
-  Future<void> _getImage(ImageSource source) async {
+  Future<void> _getImage(ImageSource source, int index) async {
     final pickedFile = await picker.pickImage(source: source);
 
     setState(() {
@@ -37,37 +32,48 @@ class _AiScreenState extends State<AiScreen> {
         print('이미지가 정상적으로 선택되지 않았습니다.');
       }
     });
-    _uploadImage(_imageFile);
+    _uploadImage(_imageFile, index);
   }
 
-  Future<void> _uploadImage(File image) async {
+  Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse('http://a8df-34-83-15-158.ngrok-free.app');
+    var url = Uri.parse("http://b948-35-230-164-117.ngrok-free.app");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
+
     var response = await request.send();
     var responseString = await response.stream.bytesToString();
-    String koreanString = jsonDecode(
+    List classlist = ['결막염', '궤양성각막질환', '백내장', '비궤양성각막질환',
+      '색소침착성각막염', '안검내반증', '안검염', '안검종양', '유루증', '핵경화',
+      '각막궤양', '각막부골편', '결막염', '비궤양성각막염', '안검염'];
+    List resultString = jsonDecode(
       const Utf8Decoder().convert(responseString.runes.toList()),
-    )['class_name'];
-    int prob = jsonDecode(
-      const Utf8Decoder().convert(responseString.runes.toList()),
-    )['probability'];
+    )['result_list'];
 
-    // 확률 검사
-    late String result;
-
-    if (prob < 60){
-      result = "판정이 어렵습니다. 사진을 다시 찍어주세요.";
+    String result = '';
+    int rank = 1;
+    for (int i = 0; i < 20; i++) {
+      if (resultString[i][1][1] == 'end'){ // 질병코드
+        break;
+      }
+      if (((index == 1) && (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
+          ((index == 3) && (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))){
+        if (resultString[i][1][1] == '유'){
+          result = "$result$rank위 : ${classlist[resultString[i][1][0]-1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
+          rank = rank + 1;
+        }
+      }
     }
-    else{
-      result = "$koreanString 확률: $prob";
-    }
 
+    if (result == '') {
+      result = "판정이 어렵습니다. 다른 사진으로 진단을 해주세요.";
+    }
+    
     /*if (!mounted) return;
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const ResultScreen()),
+      );
     );*/
 
     if (!mounted) return;
@@ -86,11 +92,11 @@ class _AiScreenState extends State<AiScreen> {
     );
   }
 
-  void __showImageDialog() {
+  void __showImageDialog(int index) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('이미지 선택'),
+        title: const Text('이미지 선택', style: TextStyle(fontSize: 20)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -98,7 +104,7 @@ class _AiScreenState extends State<AiScreen> {
               leading: const Icon(Icons.photo),
               title: const Text('갤러리'),
               onTap: () {
-                _getImage(ImageSource.gallery);
+                _getImage(ImageSource.gallery, index);
                 Navigator.of(context).pop();
               },
             ),
@@ -106,7 +112,7 @@ class _AiScreenState extends State<AiScreen> {
               leading: const Icon(Icons.camera_alt),
               title: const Text('카메라'),
               onTap: () {
-                _getImage(ImageSource.camera);
+                _getImage(ImageSource.camera, index);
                 Navigator.of(context).pop();
               },
             ),
@@ -119,12 +125,9 @@ class _AiScreenState extends State<AiScreen> {
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
-      'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-      'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-      'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-      'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-      'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+      'assets/banner/banner1.png',
+      'assets/banner/banner2.png',
+      'assets/banner/banner3.png',
     ];
     final List<Widget> imageSliders = imgList
         .map((item) => Container(
@@ -133,32 +136,14 @@ class _AiScreenState extends State<AiScreen> {
                   borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                   child: Stack(
                     children: <Widget>[
-                      Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                      Image.asset(item, fit: BoxFit.cover, width: 1000.0),
                       Positioned(
                         bottom: 0.0,
                         left: 0.0,
                         right: 0.0,
                         child: Container(
-                          decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color.fromARGB(200, 0, 0, 0),
-                                Color.fromARGB(0, 0, 0, 0)
-                              ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                            ),
-                          ),
                           padding: const EdgeInsets.symmetric(
                               vertical: 10.0, horizontal: 20.0),
-                          child: Text(
-                            'No. ${imgList.indexOf(item)} image',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
                         ),
                       ),
                     ],
@@ -198,287 +183,214 @@ class _AiScreenState extends State<AiScreen> {
               items: imageSliders,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CupertinoSlidingSegmentedControl<int>(
-                      groupValue: selectedSegment,
-                      onValueChanged: (value) {
-                        setState(() {
-                          selectedSegment = value!;
-                          hideDog = (value == 1);
-                          hideCat = (value == 0);
-                        });
-                      },
-                      thumbColor:
-                          const Color(0xffFFD8E4), // Customize the thumb color
-                      backgroundColor: Colors
-                          .grey.shade300, // Customize the background color
-                      children: {
-                        0: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 8.0, horizontal: 16.0),
-                          decoration: BoxDecoration(
-                            color: selectedSegment == 0
-                                ? const Color(0xffFFD8E4)
-                                : Colors.transparent,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Text(
-                            '강아지',
-                            style: TextStyle(
-                              fontWeight: selectedSegment == 0
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
-                              fontSize: 16,
-                              color: selectedSegment == 0
-                                  ? Colors.black
-                                  : Colors.black,
-                            ),
-                          ),
-                        ),
-                        1: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 8.0, horizontal: 16.0),
-                          decoration: BoxDecoration(
-                            color: selectedSegment == 1
-                                ? const Color(0xffFFD8E4)
-                                : Colors.transparent,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Text(
-                            '고양이',
-                            style: TextStyle(
-                              fontWeight: selectedSegment == 1
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
-                              fontSize: 16,
-                              color: selectedSegment == 1
-                                  ? Colors.black
-                                  : Colors.black,
-                            ),
-                          ),
-                        ),
-                      },
-                    ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color(0xff6750A4)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ResultListScreen()),
-                        );
-                      },
-                      child: const Text(
-                        '진단결과목록',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                    ),
-                  ],
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ResultListScreen()),
+                  );
+                },
+                icon: const Icon(CupertinoIcons.arrowshape_turn_up_right_fill),
+                label: const Text('진단결과목록',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xffE8DEF8),
+                  foregroundColor: Colors.grey.shade800,
+                  elevation: 0,
+                  fixedSize: const Size(double.maxFinite, 45),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
             ),
-            Offstage(
-              offstage: hideDog,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.01),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          __showImageDialog();
-                        },
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffE8DEF8),
-                            borderRadius: BorderRadius.circular(10),
-                            image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/ai_images/icon_dog1.png'),
-                              fit: BoxFit.cover,
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.01),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        __showImageDialog(1);
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffE8DEF8),
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/ai_images/icon_dog1.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const [
+                                Text('강아지',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold))
+                              ],
                             ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  Text('강아지',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  Text('안과질환',
-                                      style: TextStyle(
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                            ],
-                          ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const [
+                                Text('안과질환',
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold))
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffFFD8E4),
-                            borderRadius: BorderRadius.circular(10),
-                            image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/ai_images/icon_dog2.png'),
-                              fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        __showImageDialog(2);
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffFFD8E4),
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/ai_images/icon_dog2.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const [
+                                Text('강아지',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold))
+                              ],
                             ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  Text('강아지',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  Text('피부질환',
-                                      style: TextStyle(
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                            ],
-                          ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: const [
+                                Text('피부질환',
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold))
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Offstage(
-              offstage: hideCat,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.01),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffFFD8E4),
-                            borderRadius: BorderRadius.circular(10),
-                            image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/ai_images/icon_cat2.png'),
-                              fit: BoxFit.cover,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.01),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        __showImageDialog(3);
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffFFD8E4),
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/ai_images/icon_cat2.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: const [
+                                Text('고양이',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold))
+                              ],
                             ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  Text('고양이',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  Text('안과질환',
-                                      style: TextStyle(
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                            ],
-                          ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: const [
+                                Text('안과질환',
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold))
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffE8DEF8),
-                            borderRadius: BorderRadius.circular(10),
-                            image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/ai_images/icon_cat1.png'),
-                              fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        __showImageDialog(4);
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffE8DEF8),
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/ai_images/icon_cat1.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: const [
+                                Text('고양이',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold))
+                              ],
                             ),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  Text('고양이',
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  Text('피부질환',
-                                      style: TextStyle(
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.bold))
-                                ],
-                              ),
-                            ],
-                          ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: const [
+                                Text('피부질환',
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold))
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

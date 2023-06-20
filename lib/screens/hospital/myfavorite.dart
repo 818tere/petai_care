@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
 import 'package:petai_care/screens/hospital/favorite_provider.dart';
-import 'package:petai_care/screens/hospital/seoul.dart';
 import 'package:provider/provider.dart';
 import 'HospitalDataModel.dart';
 
@@ -75,7 +74,6 @@ void showPopup(context, imageUrl, name, address, number, description) {
   );
 }
 
-
 class MyFavoriteItemScreen extends StatefulWidget {
   const MyFavoriteItemScreen({super.key});
 
@@ -88,8 +86,33 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
   Widget build(BuildContext context) {
     final favoriteProvider = Provider.of<FavoriteItemProvider>(context);
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
+        actions: const <Widget>[],
+      ),
       body: Column(
         children: [
+          SizedBox(
+            height: 50,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    '자주 가는 병원',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           FutureBuilder(
             future: ReadJsonData(),
             builder: (context, data) {
@@ -99,21 +122,20 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                 var items = data.data as List<HospitalDataModel>;
                 return Expanded(
                   child: ListView.builder(
-                    
                       itemCount: items.length,
                       itemBuilder: (context, index) {
                         if (!favoriteProvider.selectedItem.contains(index)) {
-                        return SizedBox.shrink();
+                          return const SizedBox.shrink();
                         }
                         return GestureDetector(
                           onTap: () {
                             showPopup(
                                 context,
-                                items[index].imageUrl,
-                                items[index].name,
-                                items[index].address,
-                                items[index].number,
-                                items[index].description);
+                                items[index - 1].imageUrl,
+                                items[index - 1].name,
+                                items[index - 1].address,
+                                items[index - 1].number,
+                                items[index - 1].description);
                           },
                           child: Card(
                             elevation: 5,
@@ -147,7 +169,7 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
                                           child: Text(
-                                            items[index].name.toString(),
+                                            items[index - 1].name.toString(),
                                             style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold),
@@ -156,41 +178,44 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
-                                          child: Text(
-                                              items[index].address.toString()),
-                                        
-                                        ),        
+                                          child: Text(items[index - 1]
+                                              .address
+                                              .toString()),
+                                        ),
                                         Padding(
                                           padding: const EdgeInsets.only(
                                               left: 8, right: 8),
-                                          child: Text(
-                                              items[index].number.toString()),
+                                          child: Text(items[index - 1]
+                                              .number
+                                              .toString()),
                                         )
                                       ],
                                     ),
                                   )),
-                                IconButton(
-                                  icon: Icon(favoriteProvider.selectedItem.contains(index) ?Icons.favorite :Icons.favorite_border_outlined,
-                                  color: Colors.red,
+                                  IconButton(
+                                    icon: Icon(
+                                      favoriteProvider.selectedItem
+                                              .contains(index)
+                                          ? Icons.favorite
+                                          : Icons.favorite_border_outlined,
+                                      color: Colors.red,
+                                    ),
+                                    onPressed: () {
+                                      if (favoriteProvider.selectedItem
+                                          .contains(index)) {
+                                        favoriteProvider.removeItem(index);
+                                      } else {
+                                        favoriteProvider.addItem(index);
+                                      }
+                                      setState(() {});
+                                    },
                                   ),
-                                  onPressed: () {
-                                    if(favoriteProvider.selectedItem.contains(index)){
-                                      favoriteProvider.removeItem(index);
-                                    }else{
-                                      favoriteProvider.addItem(index);
-                                    }
-                                    setState((){
-                                    });
-                                },
-                                ),
                                 ],
-                                
                               ),
                             ),
                           ),
                         );
-                      
-              }),
+                      }),
                 );
               } else {
                 return const Center(
@@ -203,6 +228,7 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
       ),
     );
   }
+
   Future<List<HospitalDataModel>> ReadJsonData() async {
     final jsondata =
         await rootBundle.rootBundle.loadString('jsonfile/seoul/all.json');
@@ -210,5 +236,4 @@ class _MyFavoriteItemScreenState extends State<MyFavoriteItemScreen> {
 
     return list.map((e) => HospitalDataModel.fromJson(e)).toList();
   }
-  
 }
