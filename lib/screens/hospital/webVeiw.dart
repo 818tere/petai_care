@@ -14,7 +14,7 @@ class WebViewScreen extends StatelessWidget {
           initialUrl: url,
           javascriptMode: JavascriptMode.unrestricted,
         ),
-      ),
+      ), 
     );
   }
 }
