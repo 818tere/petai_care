@@ -37,15 +37,29 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://b948-35-230-164-117.ngrok-free.app");
+    var url = Uri.parse("https://3ac7-34-32-226-240.ngrok-free.app/");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
     var response = await request.send();
     var responseString = await response.stream.bytesToString();
-    List classlist = ['결막염', '궤양성각막질환', '백내장', '비궤양성각막질환',
-      '색소침착성각막염', '안검내반증', '안검염', '안검종양', '유루증', '핵경화',
-      '각막궤양', '각막부골편', '결막염', '비궤양성각막염', '안검염'];
+    List classlist = [
+      '결막염',
+      '궤양성각막질환',
+      '백내장',
+      '비궤양성각막질환',
+      '색소침착성각막염',
+      '안검내반증',
+      '안검염',
+      '안검종양',
+      '유루증',
+      '핵경화',
+      '각막궤양',
+      '각막부골편',
+      '결막염',
+      '비궤양성각막염',
+      '안검염'
+    ];
     List resultString = jsonDecode(
       const Utf8Decoder().convert(responseString.runes.toList()),
     )['result_list'];
@@ -53,13 +67,17 @@ class _AiScreenState extends State<AiScreen> {
     String result = '';
     int rank = 1;
     for (int i = 0; i < 20; i++) {
-      if (resultString[i][1][1] == 'end'){ // 질병코드
+      if (resultString[i][1][1] == 'end') {
+        // 질병코드
         break;
       }
-      if (((index == 1) && (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
-          ((index == 3) && (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))){
-        if (resultString[i][1][1] == '유'){
-          result = "$result$rank위 : ${classlist[resultString[i][1][0]-1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
+      if (((index == 1) &&
+              (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
+          ((index == 3) &&
+              (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))) {
+        if (resultString[i][1][1] == '유') {
+          result =
+              "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
           rank = rank + 1;
         }
       }
@@ -68,7 +86,7 @@ class _AiScreenState extends State<AiScreen> {
     if (result == '') {
       result = "판정이 어렵습니다. 다른 사진으로 진단을 해주세요.";
     }
-    
+
     /*if (!mounted) return;
     Navigator.push(
       context,

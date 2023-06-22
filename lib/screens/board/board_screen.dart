@@ -6,6 +6,7 @@ import 'package:petai_care/screens/board/pages/questionWrite.dart';
 import 'package:petai_care/screens/board/pages/questionPostScreen.dart';
 import 'package:petai_care/screens/board/pages/reviewPostScreen.dart';
 import 'package:petai_care/screens/board/pages/reviewWrite.dart';
+import 'package:petai_care/screens/board/pages/searchPage.dart';
 
 /// 하단의 리스트 페이지
 class BoardScreen extends StatefulWidget {
@@ -196,6 +197,14 @@ class _BoardScreenState extends State<BoardScreen>
     });
   }
 
+  getClientStream() async {
+    var data = await FirebaseFirestore.instance
+        .collection('questionPost')
+        .orderBy("writeDate", descending: true)
+        .get();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -239,7 +248,8 @@ class _BoardScreenState extends State<BoardScreen>
             ),
             IconButton(
               icon: const Icon(Icons.search),
-              onPressed: () {},
+              onPressed: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => SearchPage())),
             ),
           ],
           bottom: TabBar(
