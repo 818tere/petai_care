@@ -246,11 +246,6 @@ class _BoardScreenState extends State<BoardScreen>
                 });
               },
             ),
-            IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => SearchPage())),
-            ),
           ],
           bottom: TabBar(
               controller: tabController,
