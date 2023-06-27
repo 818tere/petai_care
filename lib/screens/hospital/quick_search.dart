@@ -860,7 +860,6 @@ class _QuickSearchState extends State<QuickSearch> {
       "address": "시흥 배곧동",
       "description": "24시간 영업 연중무휴",
       'url': "https://m.place.naver.com/place/1532423448/home?entry=pll",
-
     },
     {
       "id": 78,
@@ -910,7 +909,8 @@ class _QuickSearchState extends State<QuickSearch> {
       "number": "031-507-0082",
       "address": "시흥 정왕동",
       "description": "10:00 - 19:30",
-      'url': "https://m.place.naver.com/place/11643918/home?entry=pll&zoomLevel=13.000",
+      'url':
+          "https://m.place.naver.com/place/11643918/home?entry=pll&zoomLevel=13.000",
     },
     {
       "id": 83,
@@ -948,7 +948,7 @@ class _QuickSearchState extends State<QuickSearch> {
           "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220414_145%2F1649943809402pvgM3_JPEG%2F3%25BF%25DC%25BA%25CE%25C0%25FC%25B0%25E61.JPG",
       "name": "24시 센트럴동물의료센터",
       "number": "031-432-2475",
-      "address": "시흥 정왕동",
+      "address": "시흥시 정왕1동",
       "description": "24시간 영업 연중무휴",
       'url': "https://m.place.naver.com/place/1393893257/home?entry=pll",
     },
@@ -1040,7 +1040,8 @@ class _QuickSearchState extends State<QuickSearch> {
       "number": "0507-1316-7583",
       "address": "시흥 배곧동",
       "description": "10:30에 영업 시작",
-      'url': "https://m.place.naver.com/place/1699622449/home?entry=pll&zoomLevel=13.000",
+      'url':
+          "https://m.place.naver.com/place/1699622449/home?entry=pll&zoomLevel=13.000",
     },
     {
       "id": 96,
@@ -1068,7 +1069,7 @@ class _QuickSearchState extends State<QuickSearch> {
           "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200719_179%2F1595146830074N9UD8_JPEG%2F5QTuRZ5goqsvJ6gyZ4a-CEgx.jpg",
       "name": "위드동물병원",
       "number": "0507-1323-8075",
-      "address": "시흥 정왕동",
+      "address": "시흥시 정왕1동",
       "description": "10:00에 영업 시작",
       'url': "https://m.place.naver.com/place/37179512/home?entry=pll",
     },
@@ -1090,7 +1091,8 @@ class _QuickSearchState extends State<QuickSearch> {
       "number": "031-404-7588",
       "address": "시흥 은행동",
       "description": "경기 시흥시 은행로 130",
-      'url': "https://m.place.naver.com/place/17901475/home?entry=pll&zoomLevel=13.000",
+      'url':
+          "https://m.place.naver.com/place/17901475/home?entry=pll&zoomLevel=13.000",
     },
     {
       "id": 101,
@@ -1098,7 +1100,7 @@ class _QuickSearchState extends State<QuickSearch> {
           "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190128_13%2F1548678015995WHFkA_JPEG%2FfB7yqKCpPgspZRX2luCcQlKo.jpg",
       "name": "배곧 코코동물병원",
       "number": "031-434-0863",
-      "address": "시흥 정왕동",
+      "address": "시흥시 정왕1동",
       "description": "10:00에 영업 시작",
       'url': "https://m.place.naver.com/place/37673502/home?entry=pll",
     },
@@ -1120,7 +1122,8 @@ class _QuickSearchState extends State<QuickSearch> {
       "number": "031-317-7234",
       "address": "시흥 능곡동",
       "description": "09:30에 영업 시작",
-      'url': "https://m.place.naver.com/place/19574564/home?entry=pll&zoomLevel=14.000",
+      'url':
+          "https://m.place.naver.com/place/19574564/home?entry=pll&zoomLevel=14.000",
     },
     {
       "id": 104,
@@ -1128,7 +1131,7 @@ class _QuickSearchState extends State<QuickSearch> {
           "https:\/\/search.pstatic.net\/common\/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170307_234%2F1488846833663MLneC_JPEG%2F186257496372684_0.jpeg",
       "name": "정다운동물병원",
       "number": "031-498-7582",
-      "address": "시흥 정왕동",
+      "address": "시흥시 정왕1동",
       "description": "010:00에 영업 시작",
       'url': "https://m.place.naver.com/place/17939582/home?entry=pll",
     },
@@ -1140,7 +1143,8 @@ class _QuickSearchState extends State<QuickSearch> {
       "number": "031-311-4148",
       "address": "시흥 신천동",
       "description": "신천역 5번 출구",
-      'url': "https://m.place.naver.com/place/17892643/home?entry=pll&zoomLevel=14.000",
+      'url':
+          "https://m.place.naver.com/place/17892643/home?entry=pll&zoomLevel=14.000",
     }
   ];
 

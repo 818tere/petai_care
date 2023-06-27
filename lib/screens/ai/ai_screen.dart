@@ -22,41 +22,77 @@ class _AiScreenState extends State<AiScreen> {
     _imageFile = File(''); // 파일 초기화
   }
 
-  Future<void> _getImage(ImageSource source) async {
+  Future<void> _getImage(ImageSource source, int index) async {
     final pickedFile = await picker.pickImage(source: source);
 
     setState(() {
       if (pickedFile != null) {
         _imageFile = File(pickedFile.path);
       } else {
-        print('No image selected.');
+        print('이미지가 정상적으로 선택되지 않았습니다.');
       }
     });
-    _uploadImage(_imageFile);
+    _uploadImage(_imageFile, index);
   }
 
-  Future<void> _uploadImage(File image) async {
+  Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://10f6-34-75-189-230.ngrok-free.app/");
+    var url = Uri.parse("https://3ac7-34-32-226-240.ngrok-free.app/");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
     var response = await request.send();
     var responseString = await response.stream.bytesToString();
-    String koreanString = jsonDecode(
+    List classlist = [
+      '결막염',
+      '궤양성각막질환',
+      '백내장',
+      '비궤양성각막질환',
+      '색소침착성각막염',
+      '안검내반증',
+      '안검염',
+      '안검종양',
+      '유루증',
+      '핵경화',
+      '각막궤양',
+      '각막부골편',
+      '결막염',
+      '비궤양성각막염',
+      '안검염'
+    ];
+    List resultString = jsonDecode(
       const Utf8Decoder().convert(responseString.runes.toList()),
-    )['class_name'];
-    int prob = jsonDecode(
-      const Utf8Decoder().convert(responseString.runes.toList()),
-    )['probability'];
+    )['result_list'];
 
-    late String result;
-
-    if (prob < 45) {
-      result = "판정이 어렵습니다. 사진을 다시 찍어주세요.";
-    } else {
-      result = "$koreanString 확률: $prob";
+    String result = '';
+    int rank = 1;
+    for (int i = 0; i < 20; i++) {
+      if (resultString[i][1][1] == 'end') {
+        // 질병코드
+        break;
+      }
+      if (((index == 1) &&
+              (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
+          ((index == 3) &&
+              (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))) {
+        if (resultString[i][1][1] == '유') {
+          result =
+              "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
+          rank = rank + 1;
+        }
+      }
     }
+
+    if (result == '') {
+      result = "판정이 어렵습니다. 다른 사진으로 진단을 해주세요.";
+    }
+
+    /*if (!mounted) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ResultScreen()),
+      );
+    );*/
 
     if (!mounted) return;
     showDialog(
@@ -74,7 +110,7 @@ class _AiScreenState extends State<AiScreen> {
     );
   }
 
-  void __showImageDialog() {
+  void __showImageDialog(int index) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -86,7 +122,7 @@ class _AiScreenState extends State<AiScreen> {
               leading: const Icon(Icons.photo),
               title: const Text('갤러리'),
               onTap: () {
-                _getImage(ImageSource.gallery);
+                _getImage(ImageSource.gallery, index);
                 Navigator.of(context).pop();
               },
             ),
@@ -94,7 +130,7 @@ class _AiScreenState extends State<AiScreen> {
               leading: const Icon(Icons.camera_alt),
               title: const Text('카메라'),
               onTap: () {
-                _getImage(ImageSource.camera);
+                _getImage(ImageSource.camera, index);
                 Navigator.of(context).pop();
               },
             ),
@@ -197,7 +233,7 @@ class _AiScreenState extends State<AiScreen> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        __showImageDialog();
+                        __showImageDialog(1);
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.25,
@@ -238,7 +274,9 @@ class _AiScreenState extends State<AiScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        __showImageDialog(2);
+                      },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.25,
                         decoration: BoxDecoration(
@@ -289,7 +327,9 @@ class _AiScreenState extends State<AiScreen> {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        __showImageDialog(3);
+                      },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.25,
                         decoration: BoxDecoration(
@@ -329,7 +369,9 @@ class _AiScreenState extends State<AiScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        __showImageDialog(4);
+                      },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.25,
                         decoration: BoxDecoration(
