@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:petai_care/screens/account/models/image_model.dart';
@@ -7,13 +8,19 @@ import 'package:flutter/src/widgets/image.dart' as uploadImage;
 class RecognizedTextScreen extends StatelessWidget {
   final XFile image;
   final ImageModel imageModel;
-  final Function(String, String, String) savePerformance;
+  final CollectionReference<Object?> items;
+  final CollectionReference<Object?> markers;
+  final DateTime selectedDay;
+  final Map<DateTime, List<dynamic>> calendarMarker;
 
   const RecognizedTextScreen({
     super.key,
     required this.image,
     required this.imageModel,
-    required this.savePerformance,
+    required this.items,
+    required this.markers,
+    required this.selectedDay,
+    required this.calendarMarker,
   });
 
   @override
@@ -56,9 +63,36 @@ class RecognizedTextScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10)),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 50, vertical: 10)),
-                  onPressed: () {
-                    savePerformance(
-                        recognizedAmount, recognizedDescp, recognizedCategory);
+                  onPressed: () async {
+                    await items.add({
+                      'amount': recognizedAmount,
+                      'descp': recognizedDescp,
+                      'category': recognizedCategory,
+                      'date': selectedDay.toString(),
+                    });
+                    await markers.add({
+                      'amount': recognizedAmount,
+                      'descp': recognizedDescp,
+                      'date': selectedDay.toString(),
+                    });
+                    if (calendarMarker[
+                            DateTime.parse(selectedDay.toString())] !=
+                        null) {
+                      calendarMarker[DateTime.parse(selectedDay.toString())]
+                          ?.add({
+                        'amount': recognizedAmount,
+                        'descp': recognizedDescp,
+                        'date': selectedDay.toString(),
+                      });
+                    } else {
+                      calendarMarker[DateTime.parse(selectedDay.toString())] = [
+                        {
+                          'amount': recognizedAmount,
+                          'descp': recognizedDescp,
+                          'date': selectedDay.toString(),
+                        }
+                      ];
+                    }
                     Navigator.of(context).pop();
                   },
                   child: const Text('내역추가',

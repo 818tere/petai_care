@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:petai_care/screens/account/account_screen.dart';
 import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
 import 'package:petai_care/screens/diary/diary_screen.dart';
+import 'package:petai_care/screens/firestore.dart';
 import 'package:petai_care/screens/hospital/myfavorite.dart';
 import 'package:petai_care/screens/hospital/quick_search.dart';
 
@@ -115,7 +115,7 @@ class _MainScreensState extends State<MainScreens> {
         children: const [
           AiScreen(),
           QuickSearch(),
-          AccountScreen(),
+          FireStore(),
           BoardScreen(),
         ],
       ),
@@ -136,7 +136,7 @@ class _MainScreensState extends State<MainScreens> {
           BottomNavigationBarItem(
               label: '가계부', icon: Icon(CupertinoIcons.creditcard)),
           BottomNavigationBarItem(
-              label: '게시판', icon: Icon(CupertinoIcons.bubble_left)),
+              label: '게시판', icon: Icon(CupertinoIcons.bubble_left))
         ],
       ),
     );
