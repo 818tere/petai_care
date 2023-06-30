@@ -14,14 +14,26 @@ import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:uuid/uuid.dart';
 
-import 'account/models/image_model.dart';
-import 'account/widgets/recognizedText.dart';
+import 'models/image_model.dart';
+import 'widgets/recognizedText.dart';
 
 class FireStore extends StatefulWidget {
   const FireStore({Key? key}) : super(key: key);
 
   @override
   _FireStoreState createState() => _FireStoreState();
+}
+
+enum CategoryLabel {
+  hospital('병원비', Icons.sentiment_satisfied_outlined),
+  etc(
+    '양육비',
+    Icons.cloud_outlined,
+  );
+
+  const CategoryLabel(this.label, this.icon);
+  final String label;
+  final IconData icon;
 }
 
 class _FireStoreState extends State<FireStore> {
@@ -37,9 +49,7 @@ class _FireStoreState extends State<FireStore> {
   final formatCurrency =
       NumberFormat.simpleCurrency(locale: 'ko_KR', name: '', decimalDigits: 0);
 
-  final TextEditingController amountController = TextEditingController();
-  final TextEditingController descpController = TextEditingController();
-  final TextEditingController categoryController = TextEditingController();
+  CategoryLabel? selectedCategory;
 
   Map<DateTime, List<dynamic>> calendarMarker = {};
 
@@ -82,6 +92,9 @@ class _FireStoreState extends State<FireStore> {
   }
 
   Future<void> _update(DocumentSnapshot docSnapshot) async {
+    TextEditingController amountController = TextEditingController();
+    TextEditingController descpController = TextEditingController();
+
     late CollectionReference items = FirebaseFirestore.instance
         .collection('account')
         .doc(user.uid)
@@ -145,6 +158,9 @@ class _FireStoreState extends State<FireStore> {
   }
 
   Future<void> _create() async {
+    TextEditingController amountController = TextEditingController();
+    TextEditingController descpController = TextEditingController();
+    TextEditingController categoryController = TextEditingController();
     late CollectionReference items = FirebaseFirestore.instance
         .collection('account')
         .doc(user.uid)
@@ -155,11 +171,19 @@ class _FireStoreState extends State<FireStore> {
         .doc(user.uid)
         .collection('markers');
 
+    final List<DropdownMenuEntry<CategoryLabel>> categoryEntries =
+        <DropdownMenuEntry<CategoryLabel>>[];
+    for (final CategoryLabel icon in CategoryLabel.values) {
+      categoryEntries.add(
+          DropdownMenuEntry<CategoryLabel>(value: icon, label: icon.label));
+    }
+
     await showModalBottomSheet(
       isScrollControlled: true,
       context: context,
       builder: (BuildContext context) {
         return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.6,
           child: Padding(
             padding: EdgeInsets.only(
               top: 20,
@@ -170,71 +194,153 @@ class _FireStoreState extends State<FireStore> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextField(
-                  controller: amountController,
-                  keyboardType:
-                      const TextInputType.numberWithOptions(decimal: true),
-                  decoration: const InputDecoration(
-                    labelText: '금액',
-                  ),
-                ),
-                TextField(
-                  controller: descpController,
-                  decoration: const InputDecoration(
-                    labelText: '내용',
-                  ),
-                ),
-                TextField(
-                  controller: categoryController,
-                  decoration: const InputDecoration(
-                    labelText: '카테고리',
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
-                    onPressed: () async {
-                      final String amount = amountController.text;
-                      final String descp = descpController.text;
-                      final String category = categoryController.text;
-                      await items.add({
-                        'amount': amount,
-                        'descp': descp,
-                        'category': category,
-                        'date': _selectedDay.toString(),
-                      });
-                      await markers.add({
-                        'amount': amount,
-                        'descp': descp,
-                        'date': _selectedDay.toString(),
-                      });
-                      if (calendarMarker[
-                              DateTime.parse(_selectedDay.toString())] !=
-                          null) {
-                        calendarMarker[DateTime.parse(_selectedDay.toString())]
-                            ?.add({
-                          'amount': amount,
-                          'descp': descp,
-                          'date': _selectedDay.toString(),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text(
+                                '내역 추가',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            thickness: 1,
+                            color: Colors.grey.shade400,
+                          ),
+                        ],
+                      ),
+                    ),
+                    TextField(
+                      controller: amountController,
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
+                      decoration: const InputDecoration(
+                        labelText: '금액',
+                        labelStyle: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                    TextField(
+                      controller: descpController,
+                      decoration: const InputDecoration(
+                        labelText: '내용',
+                        labelStyle: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                    DropdownMenu<CategoryLabel>(
+                      width: MediaQuery.of(context).size.width * 0.91,
+                      controller: categoryController,
+                      enabled: true,
+                      label: const Text('카테고리', style: TextStyle(fontSize: 18)),
+                      dropdownMenuEntries: categoryEntries,
+                      inputDecorationTheme: const InputDecorationTheme(
+                        contentPadding: EdgeInsets.symmetric(vertical: 15),
+                      ),
+                      onSelected: (CategoryLabel? icon) {
+                        setState(() {
+                          selectedCategory = icon;
                         });
-                      } else {
-                        calendarMarker[
-                            DateTime.parse(_selectedDay.toString())] = [
-                          {
+                      },
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 70),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(
+                            Size(MediaQuery.of(context).size.width * 0.4, 50),
+                          ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                          ),
+                          backgroundColor: MaterialStateProperty.all(
+                              const Color(0xffE8DEF8)),
+                        ),
+                        onPressed: () async {
+                          final String amount = amountController.text;
+                          final String descp = descpController.text;
+                          final String category = categoryController.text;
+                          await items.add({
+                            'amount': amount,
+                            'descp': descp,
+                            'category': category,
+                            'date': _selectedDay.toString(),
+                          });
+                          await markers.add({
                             'amount': amount,
                             'descp': descp,
                             'date': _selectedDay.toString(),
+                          });
+                          if (calendarMarker[
+                                  DateTime.parse(_selectedDay.toString())] !=
+                              null) {
+                            calendarMarker[
+                                    DateTime.parse(_selectedDay.toString())]
+                                ?.add({
+                              'amount': amount,
+                              'descp': descp,
+                              'date': _selectedDay.toString(),
+                            });
+                          } else {
+                            calendarMarker[
+                                DateTime.parse(_selectedDay.toString())] = [
+                              {
+                                'amount': amount,
+                                'descp': descp,
+                                'date': _selectedDay.toString(),
+                              }
+                            ];
                           }
-                        ];
-                      }
-                      amountController.clear();
-                      descpController.clear();
-                      categoryController.clear();
-                      setState(() {});
-                    },
-                    child: const Text('create'))
+                          amountController.clear();
+                          descpController.clear();
+                          categoryController.clear();
+                        },
+                        child:
+                            const Text('추가하기', style: TextStyle(fontSize: 16)),
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(
+                            Size(MediaQuery.of(context).size.width * 0.4, 50),
+                          ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                          ),
+                          backgroundColor: MaterialStateProperty.all(
+                              const Color(0xffE8DEF8)),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('취소', style: TextStyle(fontSize: 16)),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

@@ -70,23 +70,25 @@ class _DirectDialogState extends State<DirectDialog> {
               });
             }),
             items: _items
-                .map((e) => DropdownMenuItem(
-                      value: e,
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 20,
-                              child: uploadImage.Image.asset(
-                                  'assets/accountimages/$e.png'),
-                            ),
-                            const SizedBox(width: 10),
-                            Text(e),
-                          ],
-                        ),
+                .map(
+                  (e) => DropdownMenuItem(
+                    value: e,
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                            child: uploadImage.Image.asset(
+                                'assets/accountimages/$e.png'),
+                          ),
+                          const SizedBox(width: 10),
+                          Text(e),
+                        ],
                       ),
-                    ))
+                    ),
+                  ),
+                )
                 .toList(),
             selectedItemBuilder: (BuildContext context) => _items
                 .map((e) => Row(
