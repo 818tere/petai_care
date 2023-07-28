@@ -1,326 +1,286 @@
+import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:petai_care/screens/diary/profile_controller.dart';
-import 'package:petai_care/screens/diary/text_editor_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 
-class Profile extends GetView<ProfileController> {
-  const Profile({super.key});
+class ProfileScreen extends StatefulWidget {
+  final void Function(String name, String birth, String gender, String imageUrl)
+      updateProfileInfo;
 
-  Widget _header() {
-    return Positioned(
-      top: Get.mediaQuery.padding.top,
-      left: 0,
-      right: 0,
-      child: Obx(
-        () => Container(
-          padding: const EdgeInsets.all(15),
-          child: controller.isEditMyProfile.value
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: controller.rollback,
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.white,
-                            size: 16,
-                          ),
-                          Text(
-                            "프로필 편집",
-                            style: TextStyle(fontSize: 14, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: controller.save,
-                      child: const Text(
-                        "완료",
-                        style: TextStyle(fontSize: 14, color: Colors.white),
-                      ),
-                    ),
-                  ],
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Icon(Icons.close_sharp, color: Colors.white),
-                    Row(
-                      children: const [
-                        Icon(Icons.qr_code, color: Colors.white),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Icon(Icons.settings, color: Colors.white)
-                      ],
-                    )
-                  ],
-                ),
-        ),
-      ),
-    );
+  const ProfileScreen({Key? key, required this.updateProfileInfo})
+      : super(key: key);
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  File? _image;
+  String _name = '';
+  DateTime? _birthday;
+
+  List<Widget> pets = <Widget>[
+    const Text('강아지'),
+    const Text('고양이'),
+  ];
+  final List<bool> _petType = [true, false]; // 초기 값은 강아지로 설정
+  List<Widget> genders = <Widget>[
+    const Text('수컷'),
+    const Text('암컷'),
+  ];
+  final List<bool> _genderType = [true, false]; // 초기 값은 남자로 설정
+
+  final _formKey = GlobalKey<FormState>();
+
+  bool _profileExists = false;
+
+  @override
+  void initState() {
+    super.initState();
+    checkProfileExistence();
   }
 
-  Widget _backgroundImage() {
-    return Positioned(
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      child: GestureDetector(
-        onTap: () {
-          controller.pickImage(ProfileImageType.BACKGROUND);
-        },
-        child: Obx(
-          () => Container(
-            color: Colors.transparent,
-            child: controller.myProfile.value.backgroundFile == null
-                ? Container()
-                : Image.file(
-                    controller.myProfile.value.backgroundFile!,
-                    fit: BoxFit.cover,
-                  ),
-          ),
-        ),
-      ),
-    );
+  Future<void> checkProfileExistence() async {
+    try {
+      final user = _auth.currentUser;
+      final docSnapshot =
+          await _firestore.collection('profiles').doc(user!.uid).get();
+      setState(() {
+        _profileExists = docSnapshot.exists;
+      });
+    } catch (e) {
+      print('Error checking profile existence: $e');
+    }
   }
 
-  Widget _oneButton(IconData icon, String title, Function()? ontap) {
-    return GestureDetector(
-      onTap: ontap,
-      child: Column(
-        children: [
-          Icon(icon, color: Colors.white),
-          const SizedBox(height: 10),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
-    );
+  Future<void> fetchProfileData() async {
+    try {
+      final user = _auth.currentUser;
+      final docSnapshot =
+          await _firestore.collection('profiles').doc(user!.uid).get();
+      if (docSnapshot.exists) {
+        final data = docSnapshot.data();
+        setState(() {
+          _name = data?['name'] ?? '';
+          _birthday = (data?['birthday'] as Timestamp?)?.toDate();
+          _petType[0] = data?['petType'] == '강아지';
+          _petType[1] = data?['petType'] == '고양이';
+          _genderType[0] = data?['genderType'] == '수컷';
+          _genderType[1] = data?['genderType'] == '암컷';
+          // If an image exists, you can load it using the FirebaseStorage instance and the imageUrl stored in Firestore.
+          // For example, if 'image' field in Firestore contains the download URL of the image:
+          // final imageUrl = data['image'];
+          // _image = File(await FirebaseStorage.instance.refFromURL(imageUrl).getPath());
+        });
+      }
+    } catch (e) {
+      print('Error fetching profile data: $e');
+    }
   }
 
-  Widget _footer() {
-    return Obx(
-      () => controller.isEditMyProfile.value
-          ? Container()
-          : Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      width: 1,
-                      color: Colors.white.withOpacity(0.4),
-                    ),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _oneButton(Icons.chat_bubble, "게시판 이용", () {}),
-                    _oneButton(
-                        Icons.edit, "프로필 편집", controller.toggleEditProfile),
-                    _oneButton(Icons.chat_bubble_outline, "병원 검색", () {}),
-                  ],
-                ),
-              ),
-            ),
-    );
+  Future<void> _selectImage() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      if (pickedImage != null) {
+        _image = File(pickedImage.path);
+      }
+    });
   }
 
-  Widget _profileImage() {
-    return GestureDetector(
-      onTap: () {
-        controller.pickImage(ProfileImageType.THUMBNAIL);
-      },
-      child: SizedBox(
-        width: 120,
-        height: 120,
-        child: Stack(
-          children: [
-            Center(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(40),
-                child: SizedBox(
-                  width: 100,
-                  height: 100,
-                  child: controller.myProfile.value.avatarFile == null
-                      ? Image.network(
-                          "https://img.freepik.com/free-icon/user_318-804790.jpg?w=2000",
-                          fit: BoxFit.cover,
-                        )
-                      : Image.file(
-                          controller.myProfile.value.avatarFile!,
-                          fit: BoxFit.cover,
-                        ),
-                ),
-              ),
-            ),
-            controller.isEditMyProfile.value
-                ? Positioned(
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    bottom: 0,
-                    child: Container(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        padding: const EdgeInsets.all(7),
-                        decoration: const BoxDecoration(
-                            shape: BoxShape.circle, color: Colors.white),
-                        child: const Icon(
-                          Icons.camera_alt,
-                          size: 20,
-                        ),
-                      ),
-                    ),
-                  )
-                : Container()
-          ],
-        ),
-      ),
-    );
-  }
+  Future<void> _saveProfile() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
 
-  Widget _profileInfo() {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          child: Text(
-            controller.myProfile.value.name!,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        Text(
-          controller.myProfile.value.discription!,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            color: Colors.white,
-          ),
-        )
-      ],
-    );
-  }
+      try {
+        final user = _auth.currentUser;
+        final profileData = {
+          'name': _name,
+          'birthday': _birthday,
+          'petType': _petType[0] ? '강아지' : '고양이',
+          'genderType': _genderType[0] ? '수컷' : '암컷',
+        };
 
-  Widget _partProfileInto(String value, Function()? ontap) {
-    return GestureDetector(
-      onTap: ontap,
-      child: Stack(
-        children: [
-          Container(
-            height: 45,
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(width: 1, color: Colors.white),
-              ),
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          const Positioned(
-            right: 0,
-            bottom: 15,
-            child: Icon(
-              Icons.edit,
-              color: Colors.white,
-              size: 18,
-            ),
-          )
-        ],
-      ),
-    );
-  }
+        if (_image != null) {
+          // 이미지 업로드 처리
+          final storageRef = FirebaseStorage.instance
+              .ref()
+              .child('profile_images/${user!.uid}');
+          await storageRef.putFile(_image!);
+          final imageUrl = await storageRef.getDownloadURL();
 
-  Widget _editProfileInfo() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Obx(
-        () => Column(
-          children: [
-            _partProfileInto(controller.myProfile.value.name!, () async {
-              var value = await Get.dialog(TextEditorWidget(
-                text: controller.myProfile.value.name!,
-              ));
-              if (value != null) {
-                controller.updateName(value);
-              }
-            }),
-            _partProfileInto(controller.myProfile.value.discription!, () async {
-              var value = await Get.dialog(TextEditorWidget(
-                text: controller.myProfile.value.discription!,
-              ));
-              if (value != null) {
-                controller.updateDiscription(value);
-              }
-            }),
-          ],
-        ),
-      ),
-    );
-  }
+          profileData['image'] = imageUrl;
+          widget.updateProfileInfo(_name, _birthday.toString().substring(0, 10),
+              _genderType[0] ? '수컷' : '암컷', imageUrl);
+        }
 
-  Widget _myProfile() {
-    return Positioned(
-      bottom: 120,
-      left: 0,
-      right: 0,
-      child: SizedBox(
-        height: 220,
-        child: Obx(
-          () => Column(
-            children: [
-              _profileImage(),
-              controller.isEditMyProfile.value
-                  ? _editProfileInfo()
-                  : _profileInfo(),
-            ],
-          ),
-        ),
-      ),
-    );
+        await _firestore.collection('profiles').doc(user!.uid).set(profileData);
+
+        // 프로필 생성 후 다음 작업 수행
+        // 예를 들면, 다음 화면으로 이동 등
+      } catch (e) {
+        print('프로필 생성 중 오류 발생: $e');
+        // 오류 처리
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    fetchProfileData();
     return Scaffold(
-      backgroundColor: const Color(0xff3f3f3f),
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        child: Stack(
-          children: [
-            _backgroundImage(),
-            _header(),
-            _myProfile(),
-            _footer(),
-          ],
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: Text(
+          _profileExists ? '프로필 수정' : '프로필 등록',
+          style: const TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          TextButton(
+            onPressed: _saveProfile,
+            child: Text(
+              _profileExists ? '수정' : '등록',
+              style: const TextStyle(fontSize: 20),
+            ),
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: GestureDetector(
+                    onTap: _selectImage,
+                    child: CircleAvatar(
+                        radius: 70,
+                        backgroundImage: _image != null
+                            ? FileImage(_image!)
+                            : const AssetImage('assets/profile.png')
+                                as ImageProvider),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                const Text(
+                  '내가 키우는 펫',
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                ),
+                ToggleButtons(
+                  onPressed: (int index) {
+                    setState(() {
+                      // The button that is tapped is set to true, and the others to false.
+                      for (int i = 0; i < _petType.length; i++) {
+                        _petType[i] = i == index;
+                      }
+                    });
+                  },
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  constraints: BoxConstraints(
+                      minHeight: 40.0,
+                      minWidth: MediaQuery.of(context).size.width / 2 - 20),
+                  isSelected: _petType,
+                  children: pets,
+                ),
+                const SizedBox(height: 16.0),
+                const Text(
+                  '성별',
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                ),
+                ToggleButtons(
+                  onPressed: (int index) {
+                    setState(() {
+                      // The button that is tapped is set to true, and the others to false.
+                      for (int i = 0; i < _genderType.length; i++) {
+                        _genderType[i] = i == index;
+                      }
+                    });
+                  },
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  constraints: BoxConstraints(
+                      minHeight: 40.0,
+                      minWidth: MediaQuery.of(context).size.width / 2 - 20),
+                  isSelected: _genderType,
+                  children: genders,
+                ),
+                const SizedBox(height: 16.0),
+                const Text(
+                  '나의 펫 이름',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return '이름을 입력해주세요.';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    _name = value!;
+                  },
+                ),
+                const SizedBox(height: 16.0),
+                const Text(
+                  '태어난 날',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    final DateTime? pickedDate = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime.now(),
+                    );
+
+                    if (pickedDate != null) {
+                      setState(() {
+                        _birthday = pickedDate;
+                      });
+                    }
+                  },
+                  child: AbsorbPointer(
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                      ),
+                      controller: TextEditingController(
+                        text: _birthday != null
+                            ? _birthday!.toString().substring(0, 10)
+                            : '',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return '태어난 날을 선택해주세요.';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        if (value != null && value.isNotEmpty) {
+                          _birthday = DateTime.parse(value);
+                        }
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

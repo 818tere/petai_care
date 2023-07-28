@@ -261,7 +261,7 @@ class _FireStoreState extends State<FireStore> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 70),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ElevatedButton(
                         style: ButtonStyle(

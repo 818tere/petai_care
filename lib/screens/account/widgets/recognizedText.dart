@@ -33,7 +33,7 @@ class RecognizedTextScreen extends StatelessWidget {
 
     return Scaffold(
       bottomSheet: Container(
-        height: MediaQuery.of(context).size.height * 0.18,
+        height: MediaQuery.of(context).size.height * 0.2,
         decoration: const BoxDecoration(
           color: Color(0xffE8DEF8),
           borderRadius: BorderRadius.only(
@@ -49,20 +49,27 @@ class RecognizedTextScreen extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
-                      fontSize: 15,
+                      fontSize: 17,
                     ))
               ],
             ),
+            const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff6750A4),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 10)),
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(MediaQuery.of(context).size.width * 0.4, 50),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                    backgroundColor:
+                        MaterialStateProperty.all(const Color(0xffEADDFF)),
+                  ),
                   onPressed: () async {
                     await items.add({
                       'amount': recognizedAmount,
@@ -95,23 +102,25 @@ class RecognizedTextScreen extends StatelessWidget {
                     }
                     Navigator.of(context).pop();
                   },
-                  child: const Text('내역추가',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
+                  child: const Text('추가하기', style: TextStyle(fontSize: 16)),
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff6750A4),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 10)),
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(MediaQuery.of(context).size.width * 0.4, 50),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                    backgroundColor:
+                        MaterialStateProperty.all(const Color(0xffEADDFF)),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text('취소',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
+                  child: const Text('취소', style: TextStyle(fontSize: 16)),
                 ),
               ],
             ),

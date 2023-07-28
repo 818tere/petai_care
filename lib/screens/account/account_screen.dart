@@ -1,12 +1,9 @@
 import 'dart:async';
-import 'package:petai_care/screens/account/sphelper.dart';
-import 'package:petai_care/screens/account/performance.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:petai_care/screens/account/widgets/bar_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:flutter/src/widgets/image.dart' as uploadImage;
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -26,15 +23,12 @@ class _AccountScreenState extends State<AccountScreen> {
   //chart
   Map<String, List<dynamic>> mySelectedEvents = {};
   //tablecalendar 용
-  List<Performance> performances = [];
   //로컬 저장용
   final TextEditingController amountController = TextEditingController();
   final TextEditingController descpController = TextEditingController();
-  final SPHelper helper = SPHelper();
 
   @override
   void initState() {
-    helper.init().then((value) => updateScreen());
     super.initState();
     _selectedDay = _focusedDay;
     initializeDateFormatting();
@@ -52,8 +46,6 @@ class _AccountScreenState extends State<AccountScreen> {
 
   Future savePerformance(
       String amount, String descp, String selectedItem) async {
-    int id = helper.getCounter() + 1;
-
     setState(() {
       if (mySelectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDay!)] !=
           null) {
@@ -75,22 +67,8 @@ class _AccountScreenState extends State<AccountScreen> {
       }
     });
 
-    Performance performance = Performance(
-      id,
-      _selectedDay.toString(),
-      amount.toString(),
-      descp,
-      selectedItem,
-    );
-
-    helper.writePerformance(performance).then((_) {
-      helper.setCounter();
-      updateScreen();
-    });
-
     amountController.clear();
     descpController.clear();
-    updateScreen();
   }
 
   @override
@@ -235,57 +213,9 @@ class _AccountScreenState extends State<AccountScreen> {
     final formatCurrency = NumberFormat.simpleCurrency(
         locale: 'ko_KR', name: '', decimalDigits: 0);
     List<Widget> tiles = [];
-    // Get the performance data for the selected date
-    List<Performance> selectedPerformances = performances
-        .where((performance) => performance.date == selectedDate.toString())
-        .toList();
-
-    // Add the performance data to the `mySelectedEvents` map
-    for (var performance in selectedPerformances) {
-      mySelectedEvents[performance.date] = [
-        {
-          'category': performance.category,
-          'amount': performance.amount,
-          'descp': performance.description,
-        },
-      ];
-    }
 
     // Filter the performances based on the selected date
-    List<Performance> filteredPerformances = performances.where((performance) {
-      // Convert the stored date string to DateTime format for comparison
-      DateTime performanceDate = DateTime.parse(performance.date);
-      // Format the date as 'yyyy-MM-dd' for the eventLoader
 
-      return performanceDate.year == selectedDate.year &&
-          performanceDate.month == selectedDate.month &&
-          performanceDate.day == selectedDate.day;
-    }).toList();
-
-    for (var performance in filteredPerformances) {
-      tiles.add(
-        ListTile(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-            side: BorderSide(color: Colors.grey.shade300, width: 1),
-          ),
-          leading: ClipRRect(
-            borderRadius: BorderRadius.circular(5),
-            child: uploadImage.Image.asset(
-              'assets/accountimages/${performance.category}.png',
-            ),
-          ),
-          title:
-              Text('${formatCurrency.format(num.parse(performance.amount))}원'),
-          subtitle: Text(performance.description),
-        ),
-      );
-    }
     return tiles;
-  }
-
-  void updateScreen() {
-    performances = helper.readPerformances();
-    setState(() {});
   }
 }

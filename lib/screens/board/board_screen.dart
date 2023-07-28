@@ -6,7 +6,6 @@ import 'package:petai_care/screens/board/pages/questionWrite.dart';
 import 'package:petai_care/screens/board/pages/questionPostScreen.dart';
 import 'package:petai_care/screens/board/pages/reviewPostScreen.dart';
 import 'package:petai_care/screens/board/pages/reviewWrite.dart';
-import 'package:petai_care/screens/board/pages/searchPage.dart';
 
 /// 하단의 리스트 페이지
 class BoardScreen extends StatefulWidget {
@@ -228,23 +227,37 @@ class _BoardScreenState extends State<BoardScreen>
             ),
           ),
           actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.edit),
-              color: edit ? Colors.red : Colors.black,
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: edit
+                    ? MaterialStateProperty.all<Color>(Colors.red)
+                    : MaterialStateProperty.all<Color>(Colors.black),
+              ),
               onPressed: () {
                 setState(() {
                   edit = !edit;
                 });
               },
+              child: const Text(
+                '수정',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
-            IconButton(
-              icon: const Icon(Icons.delete),
-              color: delete ? Colors.red : Colors.black,
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: edit
+                    ? MaterialStateProperty.all<Color>(Colors.red)
+                    : MaterialStateProperty.all<Color>(Colors.black),
+              ),
               onPressed: () {
                 setState(() {
                   delete = !delete;
                 });
               },
+              child: const Text(
+                '삭제',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
           ],
           bottom: TabBar(
