@@ -6,7 +6,6 @@ import 'package:petai_care/screens/ai/ai_screen.dart';
 import 'package:petai_care/screens/board/board_screen.dart';
 import 'package:petai_care/screens/account/firestore.dart';
 import 'package:petai_care/screens/diary/drawerbar.dart';
-import 'package:petai_care/screens/hospital/myfavorite.dart';
 import 'package:petai_care/screens/hospital/quick_search.dart';
 
 class MainScreens extends StatefulWidget {
@@ -32,28 +31,6 @@ class _MainScreensState extends State<MainScreens> {
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.exit_to_app),
-            onPressed: () {
-              _auth.signOut();
-              Navigator.pop(context);
-            },
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.favorite_outline_outlined,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MyFavoriteItemScreen(),
-                ),
-              );
-            },
-          ),
-        ],
       ),
       drawer: const DrawerBar(),
       body: IndexedStack(

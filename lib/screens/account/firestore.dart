@@ -14,6 +14,7 @@ import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:uuid/uuid.dart';
 
+import 'analysis_screen.dart';
 import 'models/image_model.dart';
 import 'widgets/recognizedText.dart';
 
@@ -290,6 +291,7 @@ class _FireStoreState extends State<FireStore> {
                           await markers.add({
                             'amount': amount,
                             'descp': descp,
+                            'category': category,
                             'date': _selectedDay.toString(),
                           });
                           if (calendarMarker[
@@ -447,62 +449,71 @@ class _FireStoreState extends State<FireStore> {
           : Column(
               children: [
                 SizedBox(
-                  height: 55,
+                  height: MediaQuery.of(context).size.height * 0.05,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: Row(
-                      children: const [
-                        Text(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
                           '가계부',
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const AnalysisScreen(),
+                              ),
+                            );
+                          },
+                          child:
+                              const Text('분석', style: TextStyle(fontSize: 20)),
+                        )
                       ],
                     ),
                   ),
                 ),
-                Offstage(
-                  offstage: calendarHide,
-                  child: TableCalendar(
-                    locale: 'ko_KR',
-                    focusedDay: _focusedDay,
-                    firstDay: DateTime(2023),
-                    lastDay: DateTime(2040),
-                    rowHeight: 43,
-                    headerStyle: const HeaderStyle(
-                      formatButtonVisible: false,
-                      titleCentered: true,
-                      titleTextStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                TableCalendar(
+                  locale: 'ko_KR',
+                  focusedDay: _focusedDay,
+                  firstDay: DateTime(2023),
+                  lastDay: DateTime(2040),
+                  rowHeight: 43,
+                  headerStyle: const HeaderStyle(
+                    formatButtonVisible: false,
+                    titleCentered: true,
+                    titleTextStyle: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
-                    onDaySelected: (selectedDay, focusedDay) {
-                      if (!isSameDay(_selectedDay, selectedDay)) {
-                        setState(() {
-                          _selectedDay = selectedDay;
-                          _focusedDay = focusedDay;
-                        });
-                      }
-                    },
-                    selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                    onFormatChanged: (format) {
-                      if (_calendarFormat != format) {
-                        setState(() {
-                          _calendarFormat = format;
-                        });
-                      }
-                    },
-                    onPageChanged: (focusedDay) {
-                      _focusedDay = focusedDay;
-                    },
-                    eventLoader: _getEventsForDay,
                   ),
+                  onDaySelected: (selectedDay, focusedDay) {
+                    if (!isSameDay(_selectedDay, selectedDay)) {
+                      setState(() {
+                        _selectedDay = selectedDay;
+                        _focusedDay = focusedDay;
+                      });
+                    }
+                  },
+                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+                  onFormatChanged: (format) {
+                    if (_calendarFormat != format) {
+                      setState(() {
+                        _calendarFormat = format;
+                      });
+                    }
+                  },
+                  onPageChanged: (focusedDay) {
+                    _focusedDay = focusedDay;
+                  },
+                  eventLoader: _getEventsForDay,
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.35,
+                  height: MediaQuery.of(context).size.height * 0.34,
                   child: StreamBuilder(
                     stream: items.snapshots(),
                     builder:

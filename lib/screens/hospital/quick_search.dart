@@ -6,6 +6,7 @@ import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import 'favorite_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'myfavorite.dart';
 import 'webVeiw.dart';
 
 class QuickSearch extends StatefulWidget {
@@ -1284,13 +1285,13 @@ class _QuickSearchState extends State<QuickSearch> {
       body: Column(
         children: [
           SizedBox(
-            height: 50,
+            height: MediaQuery.of(context).size.height * 0.05,
             child: Padding(
               padding: const EdgeInsets.only(left: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     '동물병원',
                     style: TextStyle(
                       fontSize: 30,
@@ -1298,6 +1299,16 @@ class _QuickSearchState extends State<QuickSearch> {
                       color: Colors.black,
                     ),
                   ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const MyFavoriteItemScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('즐겨찾기', style: TextStyle(fontSize: 20)),
+                  )
                 ],
               ),
             ),

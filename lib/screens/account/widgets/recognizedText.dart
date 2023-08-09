@@ -80,6 +80,7 @@ class RecognizedTextScreen extends StatelessWidget {
                     await markers.add({
                       'amount': recognizedAmount,
                       'descp': recognizedDescp,
+                      'category': recognizedCategory,
                       'date': selectedDay.toString(),
                     });
                     if (calendarMarker[

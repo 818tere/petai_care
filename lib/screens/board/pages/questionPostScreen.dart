@@ -36,8 +36,8 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                 // 아이콘, userEmail, datetime
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color(0xffFFFCF3)),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                   child: Column(
                     children: [
                       ListTile(
@@ -115,7 +115,7 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
-                                color: const Color(0xffF3F1E4)),
+                                color: const Color(0xffF7F2F9)),
                             child: ListTile(
                               title: Row(
                                 mainAxisAlignment:

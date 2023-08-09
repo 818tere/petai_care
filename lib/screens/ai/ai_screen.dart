@@ -173,7 +173,7 @@ class _AiScreenState extends State<AiScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: 50,
+              height: MediaQuery.of(context).size.height * 0.05,
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, bottom: 10),
                 child: Row(

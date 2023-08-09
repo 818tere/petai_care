@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:petai_care/screens/diary/profile.dart';
+import 'package:petai_care/screens/diary/vaccine.dart';
 
 class DrawerBar extends StatefulWidget {
   const DrawerBar({Key? key}) : super(key: key);
@@ -119,6 +120,19 @@ class _DrawerBarState extends State<DrawerBar> {
               ],
             ),
           ],
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.vaccines,
+            color: Colors.grey[850],
+          ),
+          title: const Text('예방접종 확인', style: TextStyle(fontSize: 16)),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const VaccineScreen()),
+            );
+          },
         ),
         ListTile(
           leading: Icon(
