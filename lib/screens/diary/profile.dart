@@ -22,6 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   File? _image;
+  String _imageUrl = '';
   String _name = '';
   DateTime? _birthday;
 
@@ -44,6 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     checkProfileExistence();
+    fetchProfileData(); // Moved fetchProfileData here to fetch the image URL.
   }
 
   Future<void> checkProfileExistence() async {
@@ -67,6 +69,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       if (docSnapshot.exists) {
         final data = docSnapshot.data();
         setState(() {
+          _imageUrl = data?['image'];
           _name = data?['name'] ?? '';
           _birthday = (data?['birthday'] as Timestamp?)?.toDate();
           _petType[0] = data?['petType'] == '강아지';
@@ -166,16 +169,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: GestureDetector(
                     onTap: _selectImage,
                     child: CircleAvatar(
-                        radius: 70,
-                        backgroundImage: _image != null
-                            ? FileImage(_image!)
-                            : const AssetImage('assets/profile.png')
-                                as ImageProvider),
+                      radius: 70,
+                      backgroundImage: _image != null
+                          ? FileImage(_image!)
+                          : (_profileExists)
+                              ? NetworkImage(_imageUrl)
+                              : const AssetImage(
+                                      'assets/ai_images/icon_cat1.png')
+                                  as ImageProvider,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16.0),
                 const Text(
-                  '내가 키우는 펫',
+                  '반려동물 분류',
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
                 ),
                 ToggleButtons(
@@ -187,9 +194,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       }
                     });
                   },
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  borderRadius: const BorderRadius.all(Radius.circular(16)),
                   constraints: BoxConstraints(
-                      minHeight: 40.0,
+                      minHeight: 45.0,
                       minWidth: MediaQuery.of(context).size.width / 2 - 20),
                   isSelected: _petType,
                   children: pets,
@@ -208,21 +215,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       }
                     });
                   },
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
+                  borderRadius: const BorderRadius.all(Radius.circular(16)),
                   constraints: BoxConstraints(
-                      minHeight: 40.0,
+                      minHeight: 45.0,
                       minWidth: MediaQuery.of(context).size.width / 2 - 20),
                   isSelected: _genderType,
                   children: genders,
                 ),
                 const SizedBox(height: 16.0),
                 const Text(
-                  '나의 펫 이름',
+                  '이름',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
+                    hintText: '반려동물 이름을 입력해주세요',
+                    contentPadding: EdgeInsets.all(16.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -257,7 +268,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: AbsorbPointer(
                     child: TextFormField(
                       decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.all(16.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        ),
                       ),
                       controller: TextEditingController(
                         text: _birthday != null

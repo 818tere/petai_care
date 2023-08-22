@@ -95,20 +95,32 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
 
             // Display organized data using a ListView
             return groupedData.keys.isEmpty
-                ? Center(
-                    child: Row(
-                      children: [
-                        IconButton(
-                            icon: const Icon(Icons.arrow_left),
-                            onPressed: _showPreviousMonth),
-                        const Text('소비가 없습니다'),
-                        IconButton(
-                          icon: const Icon(Icons.arrow_right),
-                          onPressed:
-                              _isNextMonthAvailable() ? _showNextMonth : null,
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          children: [
+                            IconButton(
+                                icon: const Icon(Icons.arrow_left),
+                                onPressed: _showPreviousMonth),
+                            const Text(
+                              '이달의 소비가 없습니다',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.arrow_right),
+                              onPressed: _isNextMonthAvailable()
+                                  ? _showNextMonth
+                                  : null,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   )
                 : ListView.builder(
                     itemCount: groupedData.keys.length,
@@ -152,7 +164,8 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: 300, // Adjust the height as needed
+                            height: MediaQuery.of(context).size.height *
+                                0.26, // Adjust the height as needed
                             child: PieChart(
                               PieChartData(
                                 sections: categories.keys.map((category) {
@@ -167,14 +180,15 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                                   return PieChartSectionData(
                                     value: percentage,
                                     title: '${percentage.toStringAsFixed(2)}%',
-                                    color:
-                                        _getRandomColor(), // You can customize the colors
+                                    color: category == '병원비'
+                                        ? (Colors.red.shade200)
+                                        : (Colors.blue
+                                            .shade200), // You can customize the colors
                                     radius:
-                                        80, // Adjust the size of the pie chart
+                                        95, // Adjust the size of the pie chart
                                     titleStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,
                                     ),
                                   );
                                 }).toList(),
@@ -187,38 +201,79 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                           ),
                           for (var category in categories.keys)
                             Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Category: $category',
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  ListView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    itemCount: categories[category]!.length,
-                                    itemBuilder: (context, index) {
-                                      final item = categories[category]![index];
-                                      return ListTile(
-                                        title: Text('${item['amount']}원'),
-                                        subtitle: Text(item['descp']),
-                                      );
-                                    },
-                                  ),
-                                  Text(
-                                    'Total: ${formatCurrency.format(categories[category]!.fold<int>(0, (sum, item) => sum + int.parse(item['amount'])))}원'
-                                    ' (${(categories[category]!.fold<int>(0, (sum, item) => sum + int.parse(item['amount'])) / totalSum * 100).toStringAsFixed(2)}%)',
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.grey,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0, vertical: 4),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: const Color(0xffF7F2F9)),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              CircleAvatar(
+                                                backgroundColor: category ==
+                                                        '병원비'
+                                                    ? (Colors.red.shade200)
+                                                    : (Colors.blue.shade200),
+                                                child: category == '병원비'
+                                                    ? const Icon(
+                                                        Icons.local_hospital,
+                                                      )
+                                                    : const Icon(
+                                                        Icons.shopping_bag),
+                                              ),
+                                              const SizedBox(width: 8),
+                                              Text(
+                                                category,
+                                                style: const TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            '${formatCurrency.format(categories[category]!.fold<int>(0, (sum, item) => sum + int.parse(item['amount'])))}원'
+                                            ' (${(categories[category]!.fold<int>(0, (sum, item) => sum + int.parse(item['amount'])) / totalSum * 100).toStringAsFixed(1)}%)',
+                                            style: const TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                    ListView.builder(
+                                      shrinkWrap: true,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      itemCount: categories[category]!.length,
+                                      itemBuilder: (context, index) {
+                                        final item =
+                                            categories[category]![index];
+                                        return ListTile(
+                                          title: Text(
+                                            '${item['amount']}원',
+                                            textAlign: TextAlign.right,
+                                          ),
+                                          subtitle: Text(
+                                            item['descp'],
+                                            textAlign: TextAlign.right,
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                         ],

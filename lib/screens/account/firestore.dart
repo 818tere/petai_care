@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/image.dart' as uploadImage;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -365,6 +364,7 @@ class _FireStoreState extends State<FireStore> {
   final ImagePicker picker = ImagePicker();
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
   bool isLoading = false;
+
   Future getFromImage(ImageSource imageSource, DateTime selectedDay) async {
     final XFile? pickedFile = await picker.pickImage(source: imageSource);
     final File imagefile = File(pickedFile!.path);
@@ -575,11 +575,13 @@ class _FireStoreState extends State<FireStore> {
                                   side: BorderSide(
                                       color: Colors.grey.shade300, width: 1),
                                 ),
-                                leading: ClipRRect(
-                                  borderRadius: BorderRadius.circular(5),
-                                  child: uploadImage.Image.asset(
-                                    'assets/accountimages/${docSnapshot['category']}.png',
-                                  ),
+                                leading: CircleAvatar(
+                                  backgroundColor: const Color(0xffE6E6E6),
+                                  child: docSnapshot['category'] == '병원비'
+                                      ? const Icon(
+                                          Icons.local_hospital,
+                                        )
+                                      : const Icon(Icons.shopping_bag),
                                 ),
                                 title: Text('${formatCurrency.format(
                                   num.parse(docSnapshot['amount']),
@@ -600,6 +602,7 @@ class _FireStoreState extends State<FireStore> {
               ],
             ),
       floatingActionButton: SpeedDial(
+        tooltip: '캘린더에 날짜를 선택 후 사용해주세요',
         animatedIcon: AnimatedIcons.add_event,
         label: const Text('내역 추가'),
         spacing: 12,
