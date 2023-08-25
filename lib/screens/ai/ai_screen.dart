@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,6 +19,7 @@ class AiScreen extends StatefulWidget {
 class _AiScreenState extends State<AiScreen> {
   late File _imageFile;
   final picker = ImagePicker();
+  User user = FirebaseAuth.instance.currentUser!;
 
   _AiScreenState() {
     _imageFile = File(''); // 파일 초기화
@@ -79,6 +82,11 @@ class _AiScreenState extends State<AiScreen> {
           result =
               "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
           rank = rank + 1;
+
+          _create(
+              classlist[resultString[i][1][0] - 1],
+              (resultString[i][0] * 100).toStringAsFixed(2) +
+                  '%'); //firestore에 저장
         }
       }
     }
@@ -138,6 +146,20 @@ class _AiScreenState extends State<AiScreen> {
         ),
       ),
     );
+  }
+
+  //firestore에 저장
+  _create(String name, String percentage) async {
+    late CollectionReference items = FirebaseFirestore.instance
+        .collection('diagnostic')
+        .doc(user.uid)
+        .collection('ai_result');
+
+    await items.add({
+      'name': name, //질병이름
+      'percentage': percentage, //확률
+      'date': DateTime.now(),
+    });
   }
 
   @override

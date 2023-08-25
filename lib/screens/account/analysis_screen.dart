@@ -109,6 +109,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                               '이달의 소비가 없습니다',
                               style: TextStyle(
                                 fontSize: 20,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             IconButton(
@@ -163,39 +164,48 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                                   fontSize: 30, fontWeight: FontWeight.bold),
                             ),
                           ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height *
-                                0.26, // Adjust the height as needed
-                            child: PieChart(
-                              PieChartData(
-                                sections: categories.keys.map((category) {
-                                  final categorySum = categories[category]!
-                                      .fold<int>(
-                                          0,
-                                          (sum, item) =>
-                                              sum + int.parse(item['amount']));
-                                  final percentage =
-                                      (categorySum / totalSum) * 100;
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 4),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height *
+                                  0.26, // Adjust the height as needed
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: const Color(0xffF7F2F9)),
+                              child: PieChart(
+                                PieChartData(
+                                  sections: categories.keys.map((category) {
+                                    final categorySum = categories[category]!
+                                        .fold<int>(
+                                            0,
+                                            (sum, item) =>
+                                                sum +
+                                                int.parse(item['amount']));
+                                    final percentage =
+                                        (categorySum / totalSum) * 100;
 
-                                  return PieChartSectionData(
-                                    value: percentage,
-                                    title: '${percentage.toStringAsFixed(2)}%',
-                                    color: category == '병원비'
-                                        ? (Colors.red.shade200)
-                                        : (Colors.blue
-                                            .shade200), // You can customize the colors
-                                    radius:
-                                        95, // Adjust the size of the pie chart
-                                    titleStyle: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  );
-                                }).toList(),
-                                sectionsSpace:
-                                    0, // Adjust the space between sections
-                                centerSpaceRadius:
-                                    0, // Adjust the center space radius
+                                    return PieChartSectionData(
+                                      value: percentage,
+                                      title:
+                                          '${percentage.toStringAsFixed(2)}%',
+                                      color: category == '병원비'
+                                          ? (Colors.red.shade200)
+                                          : (Colors.blue
+                                              .shade200), // You can customize the colors
+                                      radius:
+                                          95, // Adjust the size of the pie chart
+                                      titleStyle: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    );
+                                  }).toList(),
+                                  sectionsSpace:
+                                      0, // Adjust the space between sections
+                                  centerSpaceRadius:
+                                      0, // Adjust the center space radius
+                                ),
                               ),
                             ),
                           ),
@@ -206,7 +216,7 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
                               child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
-                                    color: const Color(0xffF7F2F9)),
+                                    color: const Color(0xffF3F1E4)),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [

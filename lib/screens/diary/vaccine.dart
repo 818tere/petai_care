@@ -42,7 +42,7 @@ class _VaccineScreenState extends State<VaccineScreen>
         context: context,
         builder: (BuildContext context) {
           return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.4,
             child: Padding(
               padding: EdgeInsets.only(
                 top: 20,
@@ -51,89 +51,83 @@ class _VaccineScreenState extends State<VaccineScreen>
                 bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Text(
-                                  '접종기록',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Divider(
-                              thickness: 1,
-                              color: Colors.grey.shade400,
-                            ),
-                          ],
+                      const Spacer(),
+                      const Text(
+                        '접종 기록',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      TextField(
-                        controller: doseController,
-                        keyboardType: const TextInputType.numberWithOptions(
-                            decimal: true),
-                        decoration: const InputDecoration(
-                          labelText: '접종 차수',
-                          hintText: '숫자만 입력해주세요 (예: 1)',
-                          labelStyle: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          final DateTime? pickedDate = await showDatePicker(
-                            context: context,
-                            initialDate: DateTime.now(),
-                            firstDate: DateTime(2000),
-                            lastDate: DateTime(2101),
-                          );
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () async {
+                              Navigator.of(context).pop();
 
-                          if (pickedDate != null &&
-                              pickedDate != DateTime.now()) {
-                            setState(() {
-                              dateController.text =
-                                  pickedDate.toLocal().toString().split(' ')[0];
-                            });
-                          }
-                        },
-                        child: IgnorePointer(
-                          child: TextField(
-                            controller: dateController,
-                            keyboardType: TextInputType.datetime,
-                            decoration: const InputDecoration(
-                              labelText: '접종 날짜',
-                              labelStyle: TextStyle(
-                                fontSize: 18,
-                              ),
+                              await items.add({
+                                'dose': doseController.text,
+                                'date': dateController.text,
+                              });
+                            },
+                            child: const Text(
+                              '저장',
+                              style: TextStyle(fontSize: 16),
                             ),
                           ),
                         ),
                       ),
                     ],
                   ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      // Save data to Firestore
-                      await items.add({
-                        'dose': doseController.text,
-                        'date': dateController.text,
-                      });
-                      Navigator.pop(context);
+                  Divider(
+                    thickness: 1,
+                    color: Colors.grey.shade400,
+                  ),
+                  TextField(
+                    controller: doseController,
+                    keyboardType:
+                        const TextInputType.numberWithOptions(decimal: true),
+                    decoration: const InputDecoration(
+                      labelText: '접종 차수',
+                      hintText: '숫자만 입력해주세요 (예: 1)',
+                      labelStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      final DateTime? pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2000),
+                        lastDate: DateTime(2101),
+                      );
+
+                      if (pickedDate != null && pickedDate != DateTime.now()) {
+                        setState(() {
+                          dateController.text =
+                              pickedDate.toLocal().toString().split(' ')[0];
+                        });
+                      }
                     },
-                    child: const Text('저장'),
+                    child: IgnorePointer(
+                      child: TextField(
+                        controller: dateController,
+                        keyboardType: TextInputType.datetime,
+                        decoration: const InputDecoration(
+                          labelText: '접종 날짜',
+                          labelStyle: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

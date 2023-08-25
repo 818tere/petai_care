@@ -40,7 +40,7 @@ class _QuestionWriteState extends State<QuestionWrite> {
                 createPost(post);
                 Navigator.pop(context);
               },
-              child: const Text('등록')),
+              child: const Text('등록', style: TextStyle(fontSize: 20))),
         ],
       ),
       body: Scaffold(

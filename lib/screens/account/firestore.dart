@@ -183,7 +183,7 @@ class _FireStoreState extends State<FireStore> {
       context: context,
       builder: (BuildContext context) {
         return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.6,
+          height: MediaQuery.of(context).size.height * 0.4,
           child: Padding(
             padding: EdgeInsets.only(
               top: 20,
@@ -192,155 +192,108 @@ class _FireStoreState extends State<FireStore> {
               bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text(
-                                '내역 추가',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Divider(
-                            thickness: 1,
-                            color: Colors.grey.shade400,
-                          ),
-                        ],
+                    const Spacer(),
+                    const Text(
+                      '내역 추가',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextField(
-                      controller: amountController,
-                      keyboardType:
-                          const TextInputType.numberWithOptions(decimal: true),
-                      decoration: const InputDecoration(
-                        labelText: '금액',
-                        labelStyle: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      controller: descpController,
-                      decoration: const InputDecoration(
-                        labelText: '내용',
-                        labelStyle: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    DropdownMenu<CategoryLabel>(
-                      width: MediaQuery.of(context).size.width * 0.91,
-                      controller: categoryController,
-                      enabled: true,
-                      label: const Text('카테고리', style: TextStyle(fontSize: 18)),
-                      dropdownMenuEntries: categoryEntries,
-                      inputDecorationTheme: const InputDecorationTheme(
-                        contentPadding: EdgeInsets.symmetric(vertical: 15),
-                      ),
-                      onSelected: (CategoryLabel? icon) {
-                        setState(() {
-                          selectedCategory = icon;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 70),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(
-                            Size(MediaQuery.of(context).size.width * 0.4, 50),
-                          ),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                          ),
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color(0xffE8DEF8)),
-                        ),
-                        onPressed: () async {
-                          final String amount = amountController.text;
-                          final String descp = descpController.text;
-                          final String category = categoryController.text;
-                          await items.add({
-                            'amount': amount,
-                            'descp': descp,
-                            'category': category,
-                            'date': _selectedDay.toString(),
-                          });
-                          await markers.add({
-                            'amount': amount,
-                            'descp': descp,
-                            'category': category,
-                            'date': _selectedDay.toString(),
-                          });
-                          if (calendarMarker[
-                                  DateTime.parse(_selectedDay.toString())] !=
-                              null) {
-                            calendarMarker[
-                                    DateTime.parse(_selectedDay.toString())]
-                                ?.add({
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () async {
+                            Navigator.of(context).pop();
+
+                            final String amount = amountController.text;
+                            final String descp = descpController.text;
+                            final String category = categoryController.text;
+                            await items.add({
                               'amount': amount,
                               'descp': descp,
+                              'category': category,
                               'date': _selectedDay.toString(),
                             });
-                          } else {
-                            calendarMarker[
-                                DateTime.parse(_selectedDay.toString())] = [
-                              {
+                            await markers.add({
+                              'amount': amount,
+                              'descp': descp,
+                              'category': category,
+                              'date': _selectedDay.toString(),
+                            });
+                            if (calendarMarker[
+                                    DateTime.parse(_selectedDay.toString())] !=
+                                null) {
+                              calendarMarker[
+                                      DateTime.parse(_selectedDay.toString())]
+                                  ?.add({
                                 'amount': amount,
                                 'descp': descp,
                                 'date': _selectedDay.toString(),
-                              }
-                            ];
-                          }
-                          amountController.clear();
-                          descpController.clear();
-                          categoryController.clear();
-                        },
-                        child:
-                            const Text('추가하기', style: TextStyle(fontSize: 16)),
-                      ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(
-                            Size(MediaQuery.of(context).size.width * 0.4, 50),
+                              });
+                            } else {
+                              calendarMarker[
+                                  DateTime.parse(_selectedDay.toString())] = [
+                                {
+                                  'amount': amount,
+                                  'descp': descp,
+                                  'date': _selectedDay.toString(),
+                                }
+                              ];
+                            }
+                          },
+                          child: const Text(
+                            '저장',
+                            style: TextStyle(fontSize: 16),
                           ),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                          ),
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color(0xffE8DEF8)),
                         ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text('취소', style: TextStyle(fontSize: 16)),
                       ),
-                    ],
+                    ),
+                  ],
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.grey.shade400,
+                ),
+                TextField(
+                  controller: amountController,
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
+                  decoration: const InputDecoration(
+                    labelText: '금액',
+                    labelStyle: TextStyle(
+                      fontSize: 18,
+                    ),
                   ),
+                ),
+                TextField(
+                  controller: descpController,
+                  decoration: const InputDecoration(
+                    labelText: '내용',
+                    labelStyle: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                DropdownMenu<CategoryLabel>(
+                  width: MediaQuery.of(context).size.width * 0.91,
+                  controller: categoryController,
+                  enabled: true,
+                  label: const Text('카테고리', style: TextStyle(fontSize: 18)),
+                  dropdownMenuEntries: categoryEntries,
+                  inputDecorationTheme: const InputDecorationTheme(
+                    contentPadding: EdgeInsets.symmetric(vertical: 15),
+                  ),
+                  onSelected: (CategoryLabel? icon) {
+                    setState(() {
+                      selectedCategory = icon;
+                    });
+                  },
                 ),
               ],
             ),
