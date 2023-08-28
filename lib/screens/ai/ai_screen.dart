@@ -37,36 +37,49 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://b948-35-230-164-117.ngrok-free.app");
+    var url = Uri.parse("http://8ba8-34-32-226-240.ngrok-free.app");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
     var response = await request.send();
     var responseString = await response.stream.bytesToString();
-    List classlist = ['결막염', '궤양성각막질환', '백내장', '비궤양성각막질환',
-      '색소침착성각막염', '안검내반증', '안검염', '안검종양', '유루증', '핵경화',
-      '각막궤양', '각막부골편', '결막염', '비궤양성각막염', '안검염'];
+    List classlist = ['결막염', '궤양성각막질환', '백내장', '비궤양성각막질환', '색소침착성각막염',
+      '안검내반증', '안검염', '안검종양', '유루증', '핵경화',
+      '각막궤양', '각막부골편', '결막염', '비궤양성각막염', '안검염',
+      '구진', '비듬(각질)', '과다색소침착', '여드름', '궤양', '결절'];
     List resultString = jsonDecode(
       const Utf8Decoder().convert(responseString.runes.toList()),
     )['result_list'];
 
     String result = '';
     int rank = 1;
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 25; i++) {
       if (resultString[i][1][1] == 'end'){ // 질병코드
         break;
       }
       if (((index == 1) && (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
+          ((index == 2) && (16 <= resultString[i][1][0] && resultString[i][1][0] <= 21)) ||
           ((index == 3) && (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))){
-        if (resultString[i][1][1] == '유'){
-          result = "$result$rank위 : ${classlist[resultString[i][1][0]-1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
+        if (resultString[i][1][1] != '무' && resultString[i][0] >= 55){
+          if (resultString[i][0] > 100){
+            resultString[i][0] == 100;
+          }
+          if (resultString[i][1][1] == '유'){
+            resultString[i][1][1] = '';
+          }
+          if (count == 1) {
+            result = "$result${rank-1/2}위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}%\n";
+          }
           rank = rank + 1;
+          if (rank == 10){
+            break;
+          }
         }
       }
     }
 
     if (result == '') {
-      result = "판정이 어렵습니다. 다른 사진으로 진단을 해주세요.";
+      result = "질병이 확인되지 않습니다.";
     }
     
     /*if (!mounted) return;
