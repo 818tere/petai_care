@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,6 +19,7 @@ class AiScreen extends StatefulWidget {
 class _AiScreenState extends State<AiScreen> {
   late File _imageFile;
   final picker = ImagePicker();
+  User user = FirebaseAuth.instance.currentUser!;
 
   _AiScreenState() {
     _imageFile = File(''); // 파일 초기화
@@ -53,27 +56,24 @@ class _AiScreenState extends State<AiScreen> {
 
     String result = '';
     int rank = 1;
-    for (int i = 0; i < 25; i++) {
-      if (resultString[i][1][1] == 'end'){ // 질병코드
+    for (int i = 0; i < 20; i++) {
+      if (resultString[i][1][1] == 'end') {
+        // 질병코드
         break;
       }
-      if (((index == 1) && (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
-          ((index == 2) && (16 <= resultString[i][1][0] && resultString[i][1][0] <= 21)) ||
-          ((index == 3) && (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))){
-        if (resultString[i][1][1] != '무' && resultString[i][0] >= 55){
-          if (resultString[i][0] > 100){
-            resultString[i][0] == 100;
-          }
-          if (resultString[i][1][1] == '유'){
-            resultString[i][1][1] = '';
-          }
-          if (count == 1) {
-            result = "$result${rank-1/2}위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}%\n";
-          }
+      if (((index == 1) &&
+              (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
+          ((index == 3) &&
+              (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))) {
+        if (resultString[i][1][1] == '유') {
+          result =
+              "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
           rank = rank + 1;
-          if (rank == 10){
-            break;
-          }
+
+          _create(
+              classlist[resultString[i][1][0] - 1],
+              (resultString[i][0] * 100).toStringAsFixed(2) +
+                  '%'); //firestore에 저장
         }
       }
     }
@@ -81,7 +81,7 @@ class _AiScreenState extends State<AiScreen> {
     if (result == '') {
       result = "질병이 확인되지 않습니다.";
     }
-    
+
     /*if (!mounted) return;
     Navigator.push(
       context,
@@ -135,6 +135,20 @@ class _AiScreenState extends State<AiScreen> {
     );
   }
 
+  //firestore에 저장
+  _create(String name, String percentage) async {
+    late CollectionReference items = FirebaseFirestore.instance
+        .collection('diagnostic')
+        .doc(user.uid)
+        .collection('ai_result');
+
+    await items.add({
+      'name': name, //질병이름
+      'percentage': percentage, //확률
+      'date': DateTime.now(),
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
@@ -168,7 +182,7 @@ class _AiScreenState extends State<AiScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: 50,
+              height: MediaQuery.of(context).size.height * 0.05,
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, bottom: 10),
                 child: Row(

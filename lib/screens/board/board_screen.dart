@@ -196,6 +196,14 @@ class _BoardScreenState extends State<BoardScreen>
     });
   }
 
+  getClientStream() async {
+    var data = await FirebaseFirestore.instance
+        .collection('questionPost')
+        .orderBy("writeDate", descending: true)
+        .get();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -219,27 +227,37 @@ class _BoardScreenState extends State<BoardScreen>
             ),
           ),
           actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.edit),
-              color: edit ? Colors.red : Colors.black,
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: edit
+                    ? MaterialStateProperty.all<Color>(Colors.red)
+                    : MaterialStateProperty.all<Color>(Colors.black),
+              ),
               onPressed: () {
                 setState(() {
                   edit = !edit;
                 });
               },
+              child: const Text(
+                '수정',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
-            IconButton(
-              icon: const Icon(Icons.delete),
-              color: delete ? Colors.red : Colors.black,
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: edit
+                    ? MaterialStateProperty.all<Color>(Colors.red)
+                    : MaterialStateProperty.all<Color>(Colors.black),
+              ),
               onPressed: () {
                 setState(() {
                   delete = !delete;
                 });
               },
-            ),
-            IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () {},
+              child: const Text(
+                '삭제',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
           ],
           bottom: TabBar(

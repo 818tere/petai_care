@@ -82,9 +82,10 @@ class _ResultListScreenState extends State<ResultListScreen> {
             child: Padding(
               padding: const EdgeInsets.only(left: 30),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
-                    '진단 결과 목록',
+                    '진단 결과 ',
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,

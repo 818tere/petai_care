@@ -369,6 +369,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             await _auth.createUserWithEmailAndPassword(
                                 email: userEmail, password: password);
                         if (newUser.user != null) {
+                          if (!mounted) return;
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) {
@@ -391,6 +392,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                         final newUser = await _auth.signInWithEmailAndPassword(
                             email: userEmail, password: password);
                         if (newUser.user != null) {
+                          if (!mounted) return;
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) {
@@ -399,6 +401,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                           );
                         }
                       } catch (e) {
+                        if (!mounted) return;
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('이메일을 정확히 입력해주세요'),

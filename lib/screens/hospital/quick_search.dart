@@ -6,6 +6,7 @@ import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import 'favorite_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'myfavorite.dart';
 import 'webVeiw.dart';
 
 class QuickSearch extends StatefulWidget {
@@ -840,6 +841,311 @@ class _QuickSearchState extends State<QuickSearch> {
       "description": "20:00에 영업종료",
       "url":
           "https://map.naver.com/v5/entry/place/1056384583?lng=127.0388137&lat=37.4973981&placePath=%2Fhome%3Fentry=plt&c=15,0,0,0,dh"
+    },
+    {
+      "id": 76,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200626_300%2F1593150242771KXWVK_JPEG%2FRtr19BTsKRQtIc08qqN5e7Ud.jpg",
+      "name": "바른마음동물병원",
+      "number": "0507-1316-7512",
+      "address": "시흥 능곡동",
+      "description": "10:00에 영업시작",
+      'url': "https://m.place.naver.com/place/1943524026/home?entry=pll",
+    },
+    {
+      "id": 77,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210913_30%2F16315050083578pelg_JPEG%2FVpvxnMCIpB0kg7L1NGTIuXd7.jpg",
+      "name": "24시 스마트 동물의료센터",
+      "number": "031-432-1224",
+      "address": "시흥 배곧동",
+      "description": "24시간 영업 연중무휴",
+      'url': "https://m.place.naver.com/place/1532423448/home?entry=pll",
+    },
+    {
+      "id": 78,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170818_52%2F1503055849600F3c25_JPEG%2FU5ft02v8nnXZs_gtT_2yHIZR.jpeg.jpg",
+      "name": "배곧동물병원",
+      "number": "0507-1411-6611",
+      "address": "시흥 배곧동",
+      "description": "09:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1665633549/home?entry=pll",
+    },
+    {
+      "id": 79,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220321_126%2F1647870768766PWcCn_JPEG%2F%25C0%25CC%25BB%25EA%25B5%25BF%25B9%25B0%25C0%25C7%25B7%25E1%25BC%25BE%25C5%25CD_66.jpg",
+      "name": "이산동물의료센터",
+      "number": "0507-1358-6536",
+      "address": "시흥 능곡동",
+      "description": "09:30에 영업 시작",
+      'url': "https://m.place.naver.com/place/1054391790/home?entry=pll",
+    },
+    {
+      "id": 80,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190509_188%2F1557327682525Czhwq_JPEG%2FNb_ioP9phFRI1l7afPMv0nYS.jpg",
+      "name": "고래동물병원",
+      "number": "031-505-7588",
+      "address": "시흥 은행동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1804566080/home?entry=pll",
+    },
+    {
+      "id": 81,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191113_248%2F1573625307602lCNRo_JPEG%2FZLcbK1GIlHd0NRukAP_Z4wb8.jpg",
+      "name": "참누리종합동물병원",
+      "number": "031-312-0075",
+      "address": "시흥 대야동",
+      "description": "시흥대야역 2번 출구",
+      'url': "https://m.place.naver.com/place/37383885/home?entry=pll",
+    },
+    {
+      "id": 82,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200814_281%2F15973707498691emha_JPEG%2F7LglUyoXEWgofJnqn9JEbjaw.jpg",
+      "name": "시화종합동물병원",
+      "number": "031-507-0082",
+      "address": "시흥 정왕동",
+      "description": "10:00 - 19:30",
+      'url':
+          "https://m.place.naver.com/place/11643918/home?entry=pll&zoomLevel=13.000",
+    },
+    {
+      "id": 83,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220602_134%2F1654179246792hrthT_JPEG%2Fimg_%25284%2529.jpg",
+      "name": "동그라미동물의료센터",
+      "number": "0507-1403-0136",
+      "address": "시흥 장곡동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1041013980/home?entry=pll",
+    },
+    {
+      "id": 84,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200324_285%2F1585037296339Cb2Pa_JPEG%2F9bgowViWrZB2raRdk5OlKtOZ.jpg",
+      "name": "내친구동물병원",
+      "number": "031-497-4479",
+      "address": "시흥 배곧동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1927671881/home?entry=pll",
+    },
+    {
+      "id": 85,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_134%2F1441033336012gRlXr_JPEG%2FSUBMIT_1435302075169_13412585.jpg",
+      "name": "이지종합동물병원",
+      "number": "0507-1394-7975",
+      "address": "시흥 대야동",
+      "description": "10:30에 영업 시작",
+      'url': "https://m.place.naver.com/place/13412585/home?entry=pll",
+    },
+    {
+      "id": 86,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220414_145%2F1649943809402pvgM3_JPEG%2F3%25BF%25DC%25BA%25CE%25C0%25FC%25B0%25E61.JPG",
+      "name": "24시 센트럴동물의료센터",
+      "number": "031-432-2475",
+      "address": "시흥시 정왕1동",
+      "description": "24시간 영업 연중무휴",
+      'url': "https://m.place.naver.com/place/1393893257/home?entry=pll",
+    },
+    {
+      "id": 87,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200516_20%2F15895954589250VhYS_JPEG%2FyyWxzkqVmaZz4ern1jNUfQs7.jpg",
+      "name": "배곧도담동물병원",
+      "number": "031-499-3007",
+      "address": "시흥 배곧동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1330849126/home?entry=pll",
+    },
+    {
+      "id": 88,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200810_69%2F1597036781109vcxfc_JPEG%2FWBZWFPExcWsVWAor57wPison.jpg",
+      "name": "24시위드유동물의료센터",
+      "number": "0507-1353-4975",
+      "address": "시흥 은행동",
+      "description": "09:00 - 20:00",
+      'url': "https://m.place.naver.com/place/1679686416/home?entry=pll",
+    },
+    {
+      "id": 89,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220831_7%2F1661923737337amhT4_JPEG%2Fedit-32.jpg",
+      "name": "더좋은동물병원",
+      "number": "031-431-0075",
+      "address": "시흥 배곧동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1390505216/home?entry=pll",
+    },
+    {
+      "id": 90,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230120_11%2F1674213658422FByqy_JPEG%2F%25C5%25BE%25B5%25BF%25B9%25B0%25BA%25B4%25BF%25F8_28.jpg",
+      "name": "시흥탑동물의료센터",
+      "number": "031-316-0750",
+      "address": "시흥 은행동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1374032487/home?entry=pll",
+    },
+    {
+      "id": 91,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221123_185%2F1669173517779hgAHI_JPEG%2FKakaoTalk_20221123_120914897_03.jpg",
+      "name": "비타민동물병원",
+      "number": "0507-1457-9120",
+      "address": "시흥 배곧동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1697864313/home?entry=pll",
+    },
+    {
+      "id": 92,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190130_3%2F15488289977366k98x_JPEG%2FsQCx3L9qM9IFWt4PJpf4nYYU.jpeg.jpg",
+      "name": "목감시티동물병원",
+      "number": "031-504-7559",
+      "address": "시흥 조남동",
+      "description": "09:00 - 20:00",
+      'url': "https://m.place.naver.com/place/1750219046/home?entry=pll",
+    },
+    {
+      "id": 93,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20201102_296%2F1604306468932noSby_JPEG%2FkU_ETfmAgyPWBI8TUkhxvaKT.jpg",
+      "name": "박한준종합동물병원",
+      "number": "031-315-7582",
+      "address": "시흥 대야동",
+      "description": "09:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/11846128/home?entry=pll",
+    },
+    {
+      "id": 94,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210720_141%2F1626756944325mflaB_JPEG%2F2hadVC22erSwCoabUWzQ-ro7.jpeg.jpg",
+      "name": "시흥i동물병원",
+      "number": "031-8042-7511",
+      "address": "시흥 대야동",
+      "description": "09:30에 영업 시작",
+      'url': "https://m.place.naver.com/place/1083401783/home?entry=pll",
+    },
+    {
+      "id": 95,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200403_78%2F15858857462311eetH_JPEG%2Foe7PurbgiLpQXEl_SUOMiJKV.jpg",
+      "name": "만세동물병원",
+      "number": "0507-1316-7583",
+      "address": "시흥 배곧동",
+      "description": "10:30에 영업 시작",
+      'url':
+          "https://m.place.naver.com/place/1699622449/home?entry=pll&zoomLevel=13.000",
+    },
+    {
+      "id": 96,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210628_80%2F1624863154684QVPMD_JPEG%2FrdFwhp1jsm7VfKpdzYaOH_M6.jpg",
+      "name": "윤슬동물병원",
+      "number": "031-404-8566",
+      "address": "시흥 월곶동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1505097923/home?entry=pll",
+    },
+    {
+      "id": 97,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220607_67%2F1654587389091BMpcs_JPEG%2FKakaoTalk_20220603_095715426_02.jpg",
+      "name": "연희동물의료원",
+      "number": "0507-1445-5119",
+      "address": "시흥 장곡동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/1163647409/home?entry=pll",
+    },
+    {
+      "id": 98,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200719_179%2F1595146830074N9UD8_JPEG%2F5QTuRZ5goqsvJ6gyZ4a-CEgx.jpg",
+      "name": "위드동물병원",
+      "number": "0507-1323-8075",
+      "address": "시흥시 정왕1동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/37179512/home?entry=pll",
+    },
+    {
+      "id": 99,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200308_294%2F1583637011882Yh4kW_JPEG%2Ffpea-Vi-FV3TCLihMpb_FViA.jpg",
+      "name": "은계동물병원",
+      "number": "031-315-7588",
+      "address": "시흥 은행동",
+      "description": "09:30에 영업 시작",
+      'url': "https://m.place.naver.com/place/1548236677/home?entry=pll",
+    },
+    {
+      "id": 100,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191112_249%2F1573542697156J8GtY_JPEG%2FQNfy8DGXXG9Oq_57QpnZaXNg.jpg",
+      "name": "푸른동물병원",
+      "number": "031-404-7588",
+      "address": "시흥 은행동",
+      "description": "경기 시흥시 은행로 130",
+      'url':
+          "https://m.place.naver.com/place/17901475/home?entry=pll&zoomLevel=13.000",
+    },
+    {
+      "id": 101,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190128_13%2F1548678015995WHFkA_JPEG%2FfB7yqKCpPgspZRX2luCcQlKo.jpg",
+      "name": "배곧 코코동물병원",
+      "number": "031-434-0863",
+      "address": "시흥시 정왕1동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/37673502/home?entry=pll",
+    },
+    {
+      "id": 102,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200727_187%2F1595826492647AQIkl_JPEG%2FV7RXhy35yLhPr37g1qvjQMxz.jpg",
+      "name": "펫츠나라동물병원",
+      "number": "031-314-0706",
+      "address": "시흥 신천동",
+      "description": "10:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/19898918/home?entry=pll",
+    },
+    {
+      "id": 103,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190130_97%2F1548827473063iIOVm_JPEG%2F3tA7gLbU2D9EhfjhbL4XB9Jm.jpg",
+      "name": "능곡동물병원",
+      "number": "031-317-7234",
+      "address": "시흥 능곡동",
+      "description": "09:30에 영업 시작",
+      'url':
+          "https://m.place.naver.com/place/19574564/home?entry=pll&zoomLevel=14.000",
+    },
+    {
+      "id": 104,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170307_234%2F1488846833663MLneC_JPEG%2F186257496372684_0.jpeg",
+      "name": "정다운동물병원",
+      "number": "031-498-7582",
+      "address": "시흥시 정왕1동",
+      "description": "010:00에 영업 시작",
+      'url': "https://m.place.naver.com/place/17939582/home?entry=pll",
+    },
+    {
+      "id": 105,
+      "imageUrl":
+          "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f184_184&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200411_299%2F1586579771707LOrhu_JPEG%2FhZChbMNEjq-97n6UJPBLuRR0.jpg",
+      "name": "청안동물병원",
+      "number": "031-311-4148",
+      "address": "시흥 신천동",
+      "description": "신천역 5번 출구",
+      'url':
+          "https://m.place.naver.com/place/17892643/home?entry=pll&zoomLevel=14.000",
     }
   ];
 
@@ -979,13 +1285,13 @@ class _QuickSearchState extends State<QuickSearch> {
       body: Column(
         children: [
           SizedBox(
-            height: 50,
+            height: MediaQuery.of(context).size.height * 0.05,
             child: Padding(
               padding: const EdgeInsets.only(left: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     '동물병원',
                     style: TextStyle(
                       fontSize: 30,
@@ -993,25 +1299,36 @@ class _QuickSearchState extends State<QuickSearch> {
                       color: Colors.black,
                     ),
                   ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const MyFavoriteItemScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text('즐겨찾기', style: TextStyle(fontSize: 20)),
+                  )
                 ],
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: controller,
-              onChanged: (value) => _runFilter(value),
-              decoration: const InputDecoration(
-                hintText: '   지역명, 병원명 검색',
-                suffixIcon: Icon(Icons.search),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.grey.shade100),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextField(
+                controller: controller,
+                onChanged: (value) => _runFilter(value),
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  hintText: '   지역명, 병원명 검색',
+                  suffixIcon: Icon(Icons.search),
+                ),
               ),
             ),
-          ),
-          Divider(
-            height: 1,
-            thickness: 1,
-            color: Colors.grey.shade300,
           ),
           Padding(
             padding: const EdgeInsets.all(4.0),

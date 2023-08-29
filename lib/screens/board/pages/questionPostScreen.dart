@@ -21,76 +21,74 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        title: Text(
-          widget.doc["title"],
-          style: const TextStyle(color: Colors.black),
+        title: const Text(
+          '질문 게시판',
+          style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
       body: Column(
         children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(children: [
-                //제목
-                Container(
-                  padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-                  width: double.infinity,
-                  child: Text(
-                    widget.doc["title"],
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                    textScaleFactor: 1.4,
-                    textAlign: TextAlign.start,
-                  ),
-                ),
+          SingleChildScrollView(
+            child: Column(
+              children: [
                 // 아이콘, userEmail, datetime
-                ListTile(
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      backgroundColor: Color(0xffE6E6E6),
-                      child: Icon(
-                        Icons.person,
-                        color: Color(0xffCCCCCC),
-                      ),
-                    ),
-                  ),
-                  title: Text(widget.doc["userEmail"]),
-                  subtitle: Text(
-                    DateFormat('MM-dd HH:mm')
-                        .format(widget.doc["writeDate"].toDate()),
-                  ),
-                ),
-                const Divider(
-                  thickness: 2,
-                ),
-                // 내용
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: 16, right: 16, top: 8, bottom: 8),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      widget.doc["contents"],
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-                const Divider(
-                  thickness: 2,
-                ),
                 Container(
-                  padding: const EdgeInsets.only(left: 16),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    '댓글',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: const CircleAvatar(
+                          backgroundColor: Color(0xffE6E6E6),
+                          child: Icon(
+                            Icons.person,
+                            color: Color(0xffCCCCCC),
+                          ),
+                        ),
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(widget.doc["userEmail"]),
+                            Text(
+                              DateFormat('MM-dd HH:mm')
+                                  .format(widget.doc["writeDate"].toDate()),
+                            ),
+                          ],
+                        ),
+                      ),
+                      //제목
+                      Container(
+                        padding:
+                            const EdgeInsets.only(left: 16, right: 16, top: 16),
+                        width: double.infinity,
+                        child: Text(
+                          widget.doc["title"],
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                          textScaleFactor: 1.4,
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                      // 내용
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 16, right: 16, top: 8, bottom: 8),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            widget.doc["contents"],
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const Divider(
-                  thickness: 2,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 // 댓글 목록
                 StreamBuilder<QuerySnapshot>(
@@ -114,14 +112,26 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                         final DocumentSnapshot commentdata =
                             snapshot.data!.docs[index];
                         return GestureDetector(
-                          child: ListTile(
-                            title:
-                                Text(snapshot.data!.docs[index]['userEmail']),
-                            subtitle:
-                                Text(snapshot.data!.docs[index]['comment']),
-                            trailing: Text(DateFormat('MM-dd HH:mm').format(
-                                snapshot.data!.docs[index]['commentDate']
-                                    .toDate())),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: const Color(0xffF7F2F9)),
+                            child: ListTile(
+                              title: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(snapshot.data!.docs[index]['userEmail']),
+                                  Text(
+                                    DateFormat('MM-dd HH:mm').format(snapshot
+                                        .data!.docs[index]['commentDate']
+                                        .toDate()),
+                                  ),
+                                ],
+                              ),
+                              subtitle:
+                                  Text(snapshot.data!.docs[index]['comment']),
+                            ),
                           ),
                           onLongPress: () {
                             showDialog(
@@ -184,57 +194,40 @@ class _QuestionPostScreenState extends State<QuestionPostScreen> {
                         );
                       },
                       separatorBuilder: (BuildContext context, int index) {
-                        return const Divider(thickness: 1);
+                        return const Divider(thickness: 0);
                       },
                     );
                   },
                 ),
-                const Divider(thickness: 1),
-                const SizedBox(
-                  height: 100,
-                ),
-              ]),
+              ],
             ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SingleChildScrollView(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: controllerComment,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 1,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                              hintText: "댓글을 입력하세요.",
-                              hintStyle: const TextStyle(color: Colors.black26),
-                              suffixIcon: IconButton(
-                                onPressed: controllerComment.clear,
-                                icon: const Icon(Icons.clear),
-                              )),
-                        ),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      controller: controllerComment,
+                      decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        hintText: "댓글을 입력하세요",
+                        hintStyle: TextStyle(color: Colors.black26),
+                        border: InputBorder.none,
                       ),
-                      IconButton(
-                        onPressed: () {
-                          addComment(controllerComment.text);
-                          controllerComment.clear();
-                        },
-                        icon: const Icon(Icons.send),
-                      )
-                    ],
+                    ),
                   ),
-                ),
+                  IconButton(
+                    onPressed: () {
+                      addComment(controllerComment.text);
+                      controllerComment.clear();
+                    },
+                    icon: const Icon(Icons.send),
+                  )
+                ],
               ),
             ),
           ),
