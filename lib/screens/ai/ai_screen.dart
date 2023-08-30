@@ -95,13 +95,6 @@ class _AiScreenState extends State<AiScreen> {
       result = "판정이 어렵습니다. 다른 사진으로 진단을 해주세요.";
     }
 
-    /*if (!mounted) return;
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ResultScreen()),
-      );
-    );*/
-
     if (!mounted) return;
     showDialog(
       context: context,

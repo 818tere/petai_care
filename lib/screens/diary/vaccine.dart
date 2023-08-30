@@ -20,7 +20,7 @@ class _VaccineScreenState extends State<VaccineScreen>
   void initState() {
     super.initState();
     _tabController =
-        TabController(length: 2, vsync: this); // Initialize the TabController
+        TabController(length: 3, vsync: this); // Initialize the TabController
   }
 
   @override
@@ -30,13 +30,15 @@ class _VaccineScreenState extends State<VaccineScreen>
   }
 
   _create(String vaccineName) {
+    TextEditingController nameController = TextEditingController();
+    TextEditingController hospitalController = TextEditingController();
     TextEditingController doseController = TextEditingController();
     TextEditingController dateController = TextEditingController();
 
     late CollectionReference items = FirebaseFirestore.instance
         .collection('vaccine')
         .doc(user.uid)
-        .collection(vaccineName);
+        .collection('vaccineSchedule');
     return () {
       showModalBottomSheet(
         context: context,
@@ -71,6 +73,8 @@ class _VaccineScreenState extends State<VaccineScreen>
                               Navigator.of(context).pop();
 
                               await items.add({
+                                'name': vaccineName,
+                                'hospital': hospitalController.text,
                                 'dose': doseController.text,
                                 'date': dateController.text,
                               });
@@ -87,6 +91,15 @@ class _VaccineScreenState extends State<VaccineScreen>
                   Divider(
                     thickness: 1,
                     color: Colors.grey.shade400,
+                  ),
+                  TextField(
+                    controller: hospitalController,
+                    decoration: const InputDecoration(
+                      labelText: '접종 병원',
+                      labelStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
                   TextField(
                     controller: doseController,
@@ -142,12 +155,13 @@ class _VaccineScreenState extends State<VaccineScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('예방접종 확인'),
+        title: const Text('예방접종 기록'),
         bottom: TabBar(
           controller: _tabController, // Assign the TabController to the TabBar
           tabs: const [
             Tab(text: '강아지'),
             Tab(text: '고양이'),
+            Tab(text: '접종확인'),
           ],
         ),
       ),
@@ -157,6 +171,7 @@ class _VaccineScreenState extends State<VaccineScreen>
         children: [
           _buildDogVaccinationSchedule(),
           _buildCatVaccinationSchedule(),
+          _buildVaccinationSchedule(),
         ],
       ),
     );
@@ -168,7 +183,7 @@ class _VaccineScreenState extends State<VaccineScreen>
         ExpansionTile(
           title: const Text('혼합예방주사(DHPPL)'),
           trailing: TextButton(
-            onPressed: _create('DHPPLDOG'),
+            onPressed: _create('혼합예방주사(DHPPL)'),
             child: const Text('접종기록'),
           ),
           children: [
@@ -184,6 +199,10 @@ class _VaccineScreenState extends State<VaccineScreen>
         ),
         ExpansionTile(
           title: const Text('코로나바이러스성 장염'),
+          trailing: TextButton(
+            onPressed: _create('코로나바이러스성 장염'),
+            child: const Text('접종기록'),
+          ),
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -197,6 +216,10 @@ class _VaccineScreenState extends State<VaccineScreen>
         ),
         ExpansionTile(
           title: const Text('기관지염'),
+          trailing: TextButton(
+            onPressed: _create('기관지염'),
+            child: const Text('접종기록'),
+          ),
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -210,6 +233,10 @@ class _VaccineScreenState extends State<VaccineScreen>
         ),
         ExpansionTile(
           title: const Text('광견병'),
+          trailing: TextButton(
+            onPressed: _create('광견병'),
+            child: const Text('접종기록'),
+          ),
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -229,6 +256,10 @@ class _VaccineScreenState extends State<VaccineScreen>
       children: [
         ExpansionTile(
           title: const Text('혼합예방주사(CVRP)'),
+          trailing: TextButton(
+            onPressed: _create('혼합예방주사(CVRP)'),
+            child: const Text('접종기록'),
+          ),
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -242,6 +273,10 @@ class _VaccineScreenState extends State<VaccineScreen>
         ),
         ExpansionTile(
           title: const Text('고양이 백혈병(Feline Leukemia)'),
+          trailing: TextButton(
+            onPressed: _create('고양이 백혈병'),
+            child: const Text('접종기록'),
+          ),
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -255,6 +290,10 @@ class _VaccineScreenState extends State<VaccineScreen>
         ),
         ExpansionTile(
           title: const Text('전염성 복막염(RP)'),
+          trailing: TextButton(
+            onPressed: _create('전염성 복막염(RP)'),
+            child: const Text('접종기록'),
+          ),
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -267,6 +306,10 @@ class _VaccineScreenState extends State<VaccineScreen>
         ),
         ExpansionTile(
           title: const Text('광견병'),
+          trailing: TextButton(
+            onPressed: _create('광견병'),
+            child: const Text('접종기록'),
+          ),
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -288,6 +331,90 @@ class _VaccineScreenState extends State<VaccineScreen>
       child: Text(
         type,
         style: const TextStyle(fontSize: 16),
+      ),
+    );
+  }
+
+  Widget _buildVaccinationSchedule() {
+    return Scaffold(
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection('vaccine')
+            .doc(user.uid)
+            .collection('vaccineSchedule')
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) {
+              DocumentSnapshot ds = snapshot.data!.docs[index];
+              return ListTile(
+                title: Row(
+                  children: [
+                    Text('${ds['dose']}차',
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red)),
+                    const SizedBox(width: 10),
+                    Text(ds['name'],
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
+                  ],
+                ),
+                subtitle: Row(
+                  children: [
+                    Text(ds['date'], style: const TextStyle(fontSize: 15)),
+                    const SizedBox(width: 10),
+                    Text(ds['hospital'], style: const TextStyle(fontSize: 15)),
+                  ],
+                ),
+                trailing: IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          content: const Text("이 항목을 삭제하시겠습니까?",
+                              style: TextStyle(fontSize: 16),
+                              textAlign: TextAlign.center),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const Text("취소"),
+                              onPressed: () {
+                                Navigator.of(context).pop(); // 다이얼로그 닫기
+                              },
+                            ),
+                            TextButton(
+                              child: const Text("삭제"),
+                              onPressed: () async {
+                                Navigator.of(context).pop();
+
+                                await FirebaseFirestore.instance
+                                    .collection('vaccine')
+                                    .doc(user.uid)
+                                    .collection('vaccineSchedule')
+                                    .doc(ds.id)
+                                    .delete();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  icon: const Icon(Icons.more_vert),
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }

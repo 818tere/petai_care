@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -108,6 +107,7 @@ class _FireStoreState extends State<FireStore> {
       context: context,
       builder: (BuildContext context) {
         return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.35,
           child: Padding(
             padding: EdgeInsets.only(
               top: 20,
@@ -116,9 +116,46 @@ class _FireStoreState extends State<FireStore> {
               bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Spacer(),
+                    const Text(
+                      '내역 수정',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () async {
+                            final String amount = amountController.text;
+                            final String descp = descpController.text;
+                            items.doc(docSnapshot.id).update({
+                              'amount': amount,
+                              'descp': descp,
+                            });
+                            amountController.clear();
+                            descpController.clear();
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text(
+                            '수정',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Divider(
+                  thickness: 1,
+                  color: Colors.grey.shade400,
+                ),
                 TextField(
                   controller: amountController,
                   keyboardType:
@@ -133,22 +170,6 @@ class _FireStoreState extends State<FireStore> {
                     labelText: '내용',
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
-                    onPressed: () async {
-                      final String amount = amountController.text;
-                      final String descp = descpController.text;
-                      items.doc(docSnapshot.id).update({
-                        'amount': amount,
-                        'descp': descp,
-                      });
-                      amountController.clear();
-                      descpController.clear();
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('update'))
               ],
             ),
           ),
@@ -478,68 +499,105 @@ class _FireStoreState extends State<FireStore> {
                             final DocumentSnapshot docSnapshot =
                                 streamSnapshot.data!.docs[index];
 
-                            return Slidable(
-                              endActionPane: ActionPane(
-                                extentRatio: 0.7,
-                                motion: const ScrollMotion(),
-                                children: [
-                                  SlidableAction(
-                                    onPressed: (_) {
-                                      _delete(docSnapshot.id, markers.id);
-                                      markers
-                                          .where('date',
-                                              isEqualTo: docSnapshot['date'])
-                                          .where('amount',
-                                              isEqualTo: docSnapshot['amount'])
-                                          .get()
-                                          .then((value) =>
-                                              value.docs.forEach((element) {
-                                                element.reference.delete();
-                                              }));
-                                      if (calendarMarker[DateTime.parse(
-                                              _selectedDay.toString())] !=
-                                          null) {
-                                        calendarMarker[DateTime.parse(
-                                                _selectedDay.toString())]!
-                                            .removeWhere((element) =>
-                                                element['amount'] ==
-                                                docSnapshot['amount']);
-                                      }
-                                      setState(() {});
-                                    },
-                                    backgroundColor: const Color(0xFFFE4A49),
-                                    foregroundColor: Colors.white,
-                                    label: '삭제',
-                                  ),
-                                  SlidableAction(
-                                    onPressed: (_) {
-                                      _update(docSnapshot);
-                                      setState(() {});
-                                    },
-                                    backgroundColor: Colors.purple,
-                                    foregroundColor: Colors.white,
-                                    label: '수정',
-                                  ),
-                                ],
+                            return ListTile(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: BorderSide(
+                                    color: Colors.grey.shade300, width: 1),
                               ),
-                              child: ListTile(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  side: BorderSide(
-                                      color: Colors.grey.shade300, width: 1),
-                                ),
-                                leading: CircleAvatar(
-                                  backgroundColor: const Color(0xffE6E6E6),
-                                  child: docSnapshot['category'] == '병원비'
-                                      ? const Icon(
-                                          Icons.local_hospital,
-                                        )
-                                      : const Icon(Icons.shopping_bag),
-                                ),
-                                title: Text('${formatCurrency.format(
-                                  num.parse(docSnapshot['amount']),
-                                )}원'),
-                                subtitle: Text(docSnapshot['descp']),
+                              leading: CircleAvatar(
+                                backgroundColor: const Color(0xffE6E6E6),
+                                child: docSnapshot['category'] == '병원비'
+                                    ? const Icon(
+                                        Icons.local_hospital,
+                                      )
+                                    : const Icon(Icons.shopping_bag),
+                              ),
+                              title: Text('${formatCurrency.format(
+                                num.parse(docSnapshot['amount']),
+                              )}원'),
+                              subtitle: Text(docSnapshot['descp']),
+                              trailing: PopupMenuButton<String>(
+                                onSelected: (value) {
+                                  if (value == "delete") {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          content: const Text(
+                                            "이 항목을 삭제하시겠습니까?",
+                                            style: TextStyle(fontSize: 16),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: const Text("취소"),
+                                              onPressed: () {
+                                                Navigator.of(context)
+                                                    .pop(); // 다이얼로그 닫기
+                                              },
+                                            ),
+                                            TextButton(
+                                              child: const Text("삭제"),
+                                              onPressed: () {
+                                                _delete(
+                                                    docSnapshot.id, markers.id);
+                                                markers
+                                                    .where('date',
+                                                        isEqualTo:
+                                                            docSnapshot['date'])
+                                                    .where('amount',
+                                                        isEqualTo: docSnapshot[
+                                                            'amount'])
+                                                    .get()
+                                                    .then((value) => value.docs
+                                                            .forEach((element) {
+                                                          element.reference
+                                                              .delete();
+                                                        }));
+                                                if (calendarMarker[
+                                                        DateTime.parse(
+                                                            _selectedDay
+                                                                .toString())] !=
+                                                    null) {
+                                                  calendarMarker[DateTime.parse(
+                                                          _selectedDay
+                                                              .toString())]!
+                                                      .removeWhere((element) =>
+                                                          element['amount'] ==
+                                                          docSnapshot[
+                                                              'amount']);
+                                                }
+                                                setState(() {});
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  } else if (value == "edit") {
+                                    _update(docSnapshot);
+                                    setState(() {});
+                                  }
+                                },
+                                itemBuilder: (BuildContext context) {
+                                  return [
+                                    const PopupMenuItem<String>(
+                                      value: "delete",
+                                      child: Text(
+                                        "삭제",
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                                    const PopupMenuItem<String>(
+                                      value: "edit",
+                                      child: Text(
+                                        "수정",
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ),
+                                  ];
+                                },
                               ),
                             );
                           },
