@@ -83,13 +83,6 @@ class _AiScreenState extends State<AiScreen> {
       result = "질병이 확인되지 않습니다.";
     }
 
-    /*if (!mounted) return;
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ResultScreen()),
-      );
-    );*/
-
     if (!mounted) return;
     showDialog(
       context: context,

@@ -126,7 +126,7 @@ class _DrawerBarState extends State<DrawerBar> {
             Icons.vaccines,
             color: Colors.grey[850],
           ),
-          title: const Text('예방접종 확인', style: TextStyle(fontSize: 16)),
+          title: const Text('예방접종 기록/확인', style: TextStyle(fontSize: 16)),
           onTap: () {
             Navigator.push(
               context,
