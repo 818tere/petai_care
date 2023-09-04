@@ -40,7 +40,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://8ba8-34-32-226-240.ngrok-free.app");
+    var url = Uri.parse("http://ee88-35-236-139-140.ngrok-free.app");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
@@ -56,6 +56,7 @@ class _AiScreenState extends State<AiScreen> {
 
     String result = '';
     int rank = 1;
+
     for (int i = 0; i < 20; i++) {
       if (resultString[i][1][1] == 'end') {
         // 질병코드
@@ -67,13 +68,13 @@ class _AiScreenState extends State<AiScreen> {
               (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))) {
         if (resultString[i][1][1] == '유') {
           result =
-              "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(2)}\n";
+              "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(1) + '%'}\n";
+          if (rank == 1){
+            _create(
+                classlist[resultString[i][1][0] - 1],
+                (resultString[i][0]).toStringAsFixed(1) + '%'); //firestore에 저장
+          }
           rank = rank + 1;
-
-          _create(
-              classlist[resultString[i][1][0] - 1],
-              (resultString[i][0] * 100).toStringAsFixed(2) +
-                  '%'); //firestore에 저장
         }
       }
     }
