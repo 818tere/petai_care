@@ -40,7 +40,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://ee88-35-236-139-140.ngrok-free.app");
+    var url = Uri.parse("http://da3d-34-27-21-220.ngrok-free.app");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
@@ -139,7 +139,7 @@ class _AiScreenState extends State<AiScreen> {
     await items.add({
       'name': name, //질병이름
       'percentage': percentage, //확률
-      'date': DateTime.now(),
+      'date': DateTime.now().toString().substring(0, 19),
     });
   }
 
