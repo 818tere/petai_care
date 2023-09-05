@@ -75,16 +75,18 @@ class _AiScreenState extends State<AiScreen> {
           if (resultString[i][1][1] == '유') {
             resultString[i][1][1] = '';
           }
-          result =
-              "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(1) + '%'}\n";
-          if (rank == 1){
-            _create(
-                classlist[resultString[i][1][0] - 1],
-                (resultString[i][0]).toStringAsFixed(1) + '%'); //firestore에 저장
-          }
-          rank = rank + 1;
-          if (rank == 10) {
-            break;
+          if (rank == 1 || rank == 3 || rank == 4) {
+            result =
+                "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(1) + '%'}\n";
+            if (rank == 1){
+              _create(
+                  classlist[resultString[i][1][0] - 1],
+                  (resultString[i][0]).toStringAsFixed(1) + '%'); //firestore에 저장
+            }
+            rank = rank + 1;
+            if (rank == 10) {
+              break;
+            }
           }
         }
       }
