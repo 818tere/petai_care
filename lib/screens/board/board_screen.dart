@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:petai_care/screens/board/pages/questionWrite.dart';
@@ -27,6 +28,7 @@ class _BoardScreenState extends State<BoardScreen>
   final controllerTitle = TextEditingController();
   final controllerWriteDate = TextEditingController();
   final controllerContent = TextEditingController();
+  final controllerSearch = TextEditingController();
 
   final user = FirebaseAuth.instance.currentUser!;
 
@@ -164,10 +166,12 @@ class _BoardScreenState extends State<BoardScreen>
 
   CollectionReference refQuestion =
       FirebaseFirestore.instance.collection('questionPost');
-
   CollectionReference refReview =
       FirebaseFirestore.instance.collection('reviewPost');
 
+  List<DocumentSnapshot> questionDocuments = [];
+  List<DocumentSnapshot> reviewDocuments = [];
+  String searchText = '';
   bool edit = false;
   bool delete = false;
 
@@ -194,14 +198,6 @@ class _BoardScreenState extends State<BoardScreen>
         }
       });
     });
-  }
-
-  getClientStream() async {
-    var data = await FirebaseFirestore.instance
-        .collection('questionPost')
-        .orderBy("writeDate", descending: true)
-        .get();
-    setState(() {});
   }
 
   @override
@@ -273,8 +269,19 @@ class _BoardScreenState extends State<BoardScreen>
         body: TabBarView(
           controller: tabController,
           children: [
-            Row(
+            Column(
               children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(8, 10, 8, 8),
+                  child: CupertinoSearchTextField(
+                    controller: controllerSearch,
+                    onChanged: (value) {
+                      setState(() {
+                        searchText = value;
+                      });
+                    },
+                  ),
+                ),
                 Expanded(
                   child: StreamBuilder<QuerySnapshot>(
                       stream: refQuestion
@@ -285,6 +292,156 @@ class _BoardScreenState extends State<BoardScreen>
                         if (snapshot.hasError) {
                           return Text(
                               'Something went wrong! ${snapshot.error}');
+                        }
+                        if (snapshot.hasData) {
+                          questionDocuments = snapshot.data!.docs;
+                        }
+                        if (searchText.isNotEmpty) {
+                          questionDocuments =
+                              questionDocuments.where((element) {
+                            return element
+                                .get('title')
+                                .toString()
+                                .toLowerCase()
+                                .contains(searchText.toLowerCase());
+                          }).toList();
+
+                          return ListView.builder(
+                            itemCount: questionDocuments.length,
+                            itemBuilder: (context, index) {
+                              final DocumentSnapshot documentSnapshot =
+                                  questionDocuments[index];
+                              return Card(
+                                  child: ListTile(
+                                title: Text(questionDocuments[index]['title']),
+                                subtitle: Text(questionDocuments[index]
+                                    ['userEmail']), //userEmail
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 8),
+                                      child: Text(DateFormat('MM-dd HH:mm')
+                                          .format(questionDocuments[index]
+                                                  ['writeDate']
+                                              .toDate())),
+                                    ),
+                                    Visibility(
+                                      visible: edit,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          if (questionDocuments[index]
+                                                  ['userId'] ==
+                                              user.uid) {
+                                            updateQuestion(documentSnapshot);
+                                          } else {
+                                            showDialog(
+                                                context: context,
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    AlertDialog(
+                                                      title: const Text('오류!'),
+                                                      content: const Text(
+                                                          '작성자가 아닙니다!'),
+                                                      actions: [
+                                                        Center(
+                                                          child: TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                  "확인")),
+                                                        )
+                                                      ],
+                                                    ));
+                                          }
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.edit),
+                                      ),
+                                    ),
+                                    Visibility(
+                                      visible: delete,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) =>
+                                                  AlertDialog(
+                                                    title: const Text('경고!'),
+                                                    content: const Text(
+                                                        '게시글을 삭제하시겠습니까?'),
+                                                    actions: <Widget>[
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          if (questionDocuments[
+                                                                      index]
+                                                                  ['userId'] ==
+                                                              user.uid) {
+                                                            deleteQuestion(
+                                                                documentSnapshot
+                                                                    .id);
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          } else {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                            showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder: (BuildContext
+                                                                        context) =>
+                                                                    AlertDialog(
+                                                                      title: const Text(
+                                                                          '오류!'),
+                                                                      content:
+                                                                          const Text(
+                                                                              '작성자가 아닙니다!'),
+                                                                      actions: [
+                                                                        Center(
+                                                                          child: TextButton(
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                              child: const Text("확인")),
+                                                                        )
+                                                                      ],
+                                                                    ));
+                                                          }
+                                                        },
+                                                        child: const Text('삭제'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                        child: const Text('취소'),
+                                                      )
+                                                    ],
+                                                  ));
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.delete),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: ((context) => QuestionPostScreen(
+                                        snapshot.data!.docs[index])),
+                                  ));
+                                },
+                              ));
+                            },
+                          );
                         } else if (snapshot.hasData) {
                           return ListView.builder(
                             itemCount: snapshot.data!.docs.length,
@@ -434,8 +591,19 @@ class _BoardScreenState extends State<BoardScreen>
                 ),
               ],
             ),
-            Row(
+            Column(
               children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(8, 10, 8, 8),
+                  child: CupertinoSearchTextField(
+                    controller: controllerSearch,
+                    onChanged: (value) {
+                      setState(() {
+                        searchText = value;
+                      });
+                    },
+                  ),
+                ),
                 Expanded(
                   child: StreamBuilder<QuerySnapshot>(
                       stream: refReview
@@ -446,6 +614,155 @@ class _BoardScreenState extends State<BoardScreen>
                         if (snapshot.hasError) {
                           return Text(
                               'Something went wrong! ${snapshot.error}');
+                        }
+                        if (snapshot.hasData) {
+                          reviewDocuments = snapshot.data!.docs;
+                        }
+                        if (searchText.isNotEmpty) {
+                          reviewDocuments = reviewDocuments.where((element) {
+                            return element
+                                .get('title')
+                                .toString()
+                                .toLowerCase()
+                                .contains(searchText.toLowerCase());
+                          }).toList();
+
+                          return ListView.builder(
+                            itemCount: reviewDocuments.length,
+                            itemBuilder: (context, index) {
+                              final DocumentSnapshot documentSnapshot =
+                                  reviewDocuments[index];
+                              return Card(
+                                  child: ListTile(
+                                title: Text(reviewDocuments[index]['title']),
+                                subtitle: Text(reviewDocuments[index]
+                                    ['userEmail']), //userEamil
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 8),
+                                      child: Text(DateFormat('MM-dd HH:mm')
+                                          .format(reviewDocuments[index]
+                                                  ['writeDate']
+                                              .toDate())),
+                                    ),
+                                    Visibility(
+                                      visible: edit,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          if (reviewDocuments[index]
+                                                  ['userId'] ==
+                                              user.uid) {
+                                            updateReview(documentSnapshot);
+                                          } else {
+                                            showDialog(
+                                                context: context,
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    AlertDialog(
+                                                      title: const Text('오류!'),
+                                                      content: const Text(
+                                                          '작성자가 아닙니다!'),
+                                                      actions: [
+                                                        Center(
+                                                          child: TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                  "확인")),
+                                                        )
+                                                      ],
+                                                    ));
+                                          }
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.edit),
+                                      ),
+                                    ),
+                                    Visibility(
+                                      visible: delete,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) =>
+                                                  AlertDialog(
+                                                    title: const Text('경고!'),
+                                                    content: const Text(
+                                                        '게시글을 삭제하시겠습니까?'),
+                                                    actions: <Widget>[
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          if (reviewDocuments[
+                                                                      index]
+                                                                  ['userId'] ==
+                                                              user.uid) {
+                                                            deleteReview(
+                                                                documentSnapshot
+                                                                    .id);
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                          } else {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                            showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder: (BuildContext
+                                                                        context) =>
+                                                                    AlertDialog(
+                                                                      title: const Text(
+                                                                          '오류!'),
+                                                                      content:
+                                                                          const Text(
+                                                                              '작성자가 아닙니다!'),
+                                                                      actions: [
+                                                                        Center(
+                                                                          child: TextButton(
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                              child: const Text("확인")),
+                                                                        )
+                                                                      ],
+                                                                    ));
+                                                          }
+                                                        },
+                                                        child: const Text('삭제'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                        child: const Text('취소'),
+                                                      )
+                                                    ],
+                                                  ));
+                                        },
+                                        padding: const EdgeInsets.only(left: 5),
+                                        constraints: const BoxConstraints(),
+                                        icon: const Icon(Icons.delete),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: ((context) => ReviewPostScreen(
+                                        snapshot.data!.docs[index])),
+                                  ));
+                                },
+                              ));
+                            },
+                          );
                         } else if (snapshot.hasData) {
                           return ListView.builder(
                             itemCount: snapshot.data!.docs.length,

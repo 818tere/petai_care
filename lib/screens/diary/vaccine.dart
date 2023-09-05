@@ -41,10 +41,11 @@ class _VaccineScreenState extends State<VaccineScreen>
         .collection('vaccineSchedule');
     return () {
       showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (BuildContext context) {
           return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.4,
+            height: MediaQuery.of(context).size.height * 0.8,
             child: Padding(
               padding: EdgeInsets.only(
                 top: 20,
