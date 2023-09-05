@@ -57,16 +57,24 @@ class _AiScreenState extends State<AiScreen> {
     String result = '';
     int rank = 1;
 
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 25; i++) {
       if (resultString[i][1][1] == 'end') {
         // 질병코드
         break;
       }
       if (((index == 1) &&
               (1 <= resultString[i][1][0] && resultString[i][1][0] <= 10)) ||
+          ((index == 2) &&
+              (16 <= resultString[i][1][0] && resultString[i][1][0] <= 21)) ||
           ((index == 3) &&
               (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))) {
-        if (resultString[i][1][1] == '유') {
+        if (resultString[i][1][1] != '무' && resultString[i][0] >= 55) {
+          if (resultString[i][0] > 100) {
+            resultString[i][0] == 100;
+          }
+          if (resultString[i][1][1] == '유') {
+            resultString[i][1][1] = '';
+          }
           result =
               "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(1) + '%'}\n";
           if (rank == 1){
@@ -75,6 +83,9 @@ class _AiScreenState extends State<AiScreen> {
                 (resultString[i][0]).toStringAsFixed(1) + '%'); //firestore에 저장
           }
           rank = rank + 1;
+          if (rank == 10) {
+            break;
+          }
         }
       }
     }
