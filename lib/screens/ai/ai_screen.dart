@@ -40,16 +40,35 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://da3d-34-27-21-220.ngrok-free.app");
+    var url = Uri.parse("http://d993-34-81-118-123.ngrok-free.app/");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
     var response = await request.send();
     var responseString = await response.stream.bytesToString();
-    List classlist = ['결막염', '궤양성각막질환', '백내장', '비궤양성각막질환', '색소침착성각막염',
-      '안검내반증', '안검염', '안검종양', '유루증', '핵경화',
-      '각막궤양', '각막부골편', '결막염', '비궤양성각막염', '안검염',
-      '구진', '비듬(각질)', '과다색소침착', '여드름', '궤양', '결절'];
+    List classlist = [
+      '결막염',
+      '궤양성각막질환',
+      '백내장',
+      '비궤양성각막질환',
+      '색소침착성각막염',
+      '안검내반증',
+      '안검염',
+      '안검종양',
+      '유루증',
+      '핵경화',
+      '각막궤양',
+      '각막부골편',
+      '결막염',
+      '비궤양성각막염',
+      '안검염',
+      '구진',
+      '비듬(각질)',
+      '과다색소침착',
+      '여드름',
+      '궤양',
+      '결절'
+    ];
     List resultString = jsonDecode(
       const Utf8Decoder().convert(responseString.runes.toList()),
     )['result_list'];
@@ -78,10 +97,11 @@ class _AiScreenState extends State<AiScreen> {
           if (rank == 1 || rank == 3 || rank == 4) {
             result =
                 "$result$rank위 : ${classlist[resultString[i][1][0] - 1]} ${resultString[i][1][1]} ${(resultString[i][0]).toStringAsFixed(1) + '%'}\n";
-            if (rank == 1){
+            if (rank == 1) {
               _create(
                   classlist[resultString[i][1][0] - 1],
-                  (resultString[i][0]).toStringAsFixed(1) + '%'); //firestore에 저장
+                  (resultString[i][0]).toStringAsFixed(1) +
+                      '%'); //firestore에 저장
             }
             rank = rank + 1;
             if (rank == 10) {
@@ -150,9 +170,11 @@ class _AiScreenState extends State<AiScreen> {
         .collection('ai_result');
 
     await items.add({
+      'category': const Text('자가진단'),
       'name': name, //질병이름
       'percentage': percentage, //확률
       'date': DateTime.now().toString().substring(0, 19),
+      'hospital': const Text(''),
     });
   }
 

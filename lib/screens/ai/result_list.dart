@@ -16,7 +16,7 @@ class _ResultListScreenState extends State<ResultListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('예방접종 기록'),
+        title: const Text('진단결과목록'),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
@@ -37,20 +37,28 @@ class _ResultListScreenState extends State<ResultListScreen> {
               return ListTile(
                 title: Row(
                   children: [
+                    Text(ds['category'],
+                        style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red)),
+                    const SizedBox(width: 20),
                     Text(ds['name'],
                         style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
-                    const SizedBox(width: 20),
+                    const SizedBox(width: 10),
                     Text(ds['percentage'],
                         style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red)),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
                   ],
                 ),
                 subtitle: Row(
                   children: [
                     Text(ds['date'], style: const TextStyle(fontSize: 15)),
+                    const SizedBox(width: 20),
+                    Text(ds['hospital'], style: const TextStyle(fontSize: 15)),
                   ],
                 ),
                 trailing: IconButton(
