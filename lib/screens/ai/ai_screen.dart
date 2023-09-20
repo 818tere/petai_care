@@ -39,6 +39,14 @@ class _AiScreenState extends State<AiScreen> {
   }
 
   Future<void> _uploadImage(File image, int index) async {
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        title: Text('결과를 받아오는 중입니다...', style: TextStyle(fontSize: 15)),
+        content: CircularProgressIndicator(), // 로딩 화면에 프로그레스 바 추가
+      ),
+      barrierDismissible: false, // 로딩 화면을 닫지 못하게 설정
+    );
     // 주소 변경해야 함
     var url = Uri.parse("http://cc1e-34-68-73-95.ngrok-free.app/");
     var request = http.MultipartRequest('POST', url);
@@ -119,6 +127,7 @@ class _AiScreenState extends State<AiScreen> {
     }
 
     if (!mounted) return;
+    Navigator.of(context).pop();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

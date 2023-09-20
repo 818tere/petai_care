@@ -337,7 +337,6 @@ class _FireStoreState extends State<FireStore> {
 
   final ImagePicker picker = ImagePicker();
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
-  bool isLoading = false;
 
   Future getFromImage(ImageSource imageSource, DateTime selectedDay) async {
     final XFile? pickedFile = await picker.pickImage(source: imageSource);
@@ -356,6 +355,17 @@ class _FireStoreState extends State<FireStore> {
   }
 
   Future getRecognizedText(XFile image, String downloadURL) async {
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        title: Text(
+          '결과를 받아오는 중입니다...',
+          style: TextStyle(fontSize: 15),
+        ),
+        content: CircularProgressIndicator(), // 로딩 화면에 프로그레스 바 추가
+      ),
+      barrierDismissible: false, // 로딩 화면을 닫지 못하게 설정
+    );
     late CollectionReference items = FirebaseFirestore.instance
         .collection('account')
         .doc(user.uid)
@@ -387,6 +397,7 @@ class _FireStoreState extends State<FireStore> {
 
     final ImageModel imageModel = imageModelFromJson(response.body);
 
+    Navigator.of(context).pop();
     if (mounted) {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -416,202 +427,191 @@ class _FireStoreState extends State<FireStore> {
         .collection('markers');
 
     return Scaffold(
-      body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          '가계부',
-                          style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
+      body: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.05,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    '가계부',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const AnalysisScreen(),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => const AnalysisScreen(),
-                              ),
-                            );
-                          },
-                          child:
-                              const Text('분석', style: TextStyle(fontSize: 20)),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                TableCalendar(
-                  locale: 'ko_KR',
-                  focusedDay: _focusedDay,
-                  firstDay: DateTime(2023),
-                  lastDay: DateTime(2040),
-                  rowHeight: 43,
-                  headerStyle: const HeaderStyle(
-                    formatButtonVisible: false,
-                    titleCentered: true,
-                    titleTextStyle: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  onDaySelected: (selectedDay, focusedDay) {
-                    if (!isSameDay(_selectedDay, selectedDay)) {
-                      setState(() {
-                        _selectedDay = selectedDay;
-                        _focusedDay = focusedDay;
-                      });
-                    }
-                  },
-                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                  onFormatChanged: (format) {
-                    if (_calendarFormat != format) {
-                      setState(() {
-                        _calendarFormat = format;
-                      });
-                    }
-                  },
-                  onPageChanged: (focusedDay) {
-                    _focusedDay = focusedDay;
-                  },
-                  eventLoader: _getEventsForDay,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.34,
-                  child: StreamBuilder(
-                    stream: items.snapshots(),
-                    builder:
-                        (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-                      if (streamSnapshot.hasData) {
-                        return ListView.builder(
-                          itemCount: streamSnapshot.data!.docs.length,
-                          itemBuilder: (context, index) {
-                            final DocumentSnapshot docSnapshot =
-                                streamSnapshot.data!.docs[index];
-
-                            return ListTile(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                side: BorderSide(
-                                    color: Colors.grey.shade300, width: 1),
-                              ),
-                              leading: CircleAvatar(
-                                backgroundColor: const Color(0xffE6E6E6),
-                                child: docSnapshot['category'] == '병원비'
-                                    ? const Icon(
-                                        Icons.local_hospital,
-                                      )
-                                    : const Icon(Icons.shopping_bag),
-                              ),
-                              title: Text('${formatCurrency.format(
-                                num.parse(docSnapshot['amount']),
-                              )}원'),
-                              subtitle: Text(docSnapshot['descp']),
-                              trailing: PopupMenuButton<String>(
-                                onSelected: (value) {
-                                  if (value == "delete") {
-                                    showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return AlertDialog(
-                                          content: const Text(
-                                            "이 항목을 삭제하시겠습니까?",
-                                            style: TextStyle(fontSize: 16),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                          actions: <Widget>[
-                                            TextButton(
-                                              child: const Text("취소"),
-                                              onPressed: () {
-                                                Navigator.of(context)
-                                                    .pop(); // 다이얼로그 닫기
-                                              },
-                                            ),
-                                            TextButton(
-                                              child: const Text("삭제"),
-                                              onPressed: () {
-                                                _delete(
-                                                    docSnapshot.id, markers.id);
-                                                markers
-                                                    .where('date',
-                                                        isEqualTo:
-                                                            docSnapshot['date'])
-                                                    .where('amount',
-                                                        isEqualTo: docSnapshot[
-                                                            'amount'])
-                                                    .get()
-                                                    .then((value) => value.docs
-                                                            .forEach((element) {
-                                                          element.reference
-                                                              .delete();
-                                                        }));
-                                                if (calendarMarker[
-                                                        DateTime.parse(
-                                                            _selectedDay
-                                                                .toString())] !=
-                                                    null) {
-                                                  calendarMarker[DateTime.parse(
-                                                          _selectedDay
-                                                              .toString())]!
-                                                      .removeWhere((element) =>
-                                                          element['amount'] ==
-                                                          docSnapshot[
-                                                              'amount']);
-                                                }
-                                                setState(() {});
-                                              },
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  } else if (value == "edit") {
-                                    _update(docSnapshot);
-                                    setState(() {});
-                                  }
-                                },
-                                itemBuilder: (BuildContext context) {
-                                  return [
-                                    const PopupMenuItem<String>(
-                                      value: "delete",
-                                      child: Text(
-                                        "삭제",
-                                        style: TextStyle(fontSize: 16),
-                                      ),
-                                    ),
-                                    const PopupMenuItem<String>(
-                                      value: "edit",
-                                      child: Text(
-                                        "수정",
-                                        style: TextStyle(fontSize: 16),
-                                      ),
-                                    ),
-                                  ];
-                                },
-                              ),
-                            );
-                          },
-                        );
-                      } else {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
+                      );
                     },
-                  ),
-                ),
-              ],
+                    child: const Text('분석', style: TextStyle(fontSize: 20)),
+                  )
+                ],
+              ),
             ),
+          ),
+          TableCalendar(
+            locale: 'ko_KR',
+            focusedDay: _focusedDay,
+            firstDay: DateTime(2023),
+            lastDay: DateTime(2040),
+            rowHeight: 43,
+            headerStyle: const HeaderStyle(
+              formatButtonVisible: false,
+              titleCentered: true,
+              titleTextStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onDaySelected: (selectedDay, focusedDay) {
+              if (!isSameDay(_selectedDay, selectedDay)) {
+                setState(() {
+                  _selectedDay = selectedDay;
+                  _focusedDay = focusedDay;
+                });
+              }
+            },
+            selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+            onFormatChanged: (format) {
+              if (_calendarFormat != format) {
+                setState(() {
+                  _calendarFormat = format;
+                });
+              }
+            },
+            onPageChanged: (focusedDay) {
+              _focusedDay = focusedDay;
+            },
+            eventLoader: _getEventsForDay,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.34,
+            child: StreamBuilder(
+              stream: items.snapshots(),
+              builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+                if (streamSnapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: streamSnapshot.data!.docs.length,
+                    itemBuilder: (context, index) {
+                      final DocumentSnapshot docSnapshot =
+                          streamSnapshot.data!.docs[index];
+
+                      return ListTile(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side:
+                              BorderSide(color: Colors.grey.shade300, width: 1),
+                        ),
+                        leading: CircleAvatar(
+                          backgroundColor: const Color(0xffE6E6E6),
+                          child: docSnapshot['category'] == '병원비'
+                              ? const Icon(
+                                  Icons.local_hospital,
+                                )
+                              : const Icon(Icons.shopping_bag),
+                        ),
+                        title: Text('${formatCurrency.format(
+                          num.parse(docSnapshot['amount']),
+                        )}원'),
+                        subtitle: Text(docSnapshot['descp']),
+                        trailing: PopupMenuButton<String>(
+                          onSelected: (value) {
+                            if (value == "delete") {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: const Text(
+                                      "이 항목을 삭제하시겠습니까?",
+                                      style: TextStyle(fontSize: 16),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text("취소"),
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .pop(); // 다이얼로그 닫기
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: const Text("삭제"),
+                                        onPressed: () {
+                                          _delete(docSnapshot.id, markers.id);
+                                          markers
+                                              .where('date',
+                                                  isEqualTo:
+                                                      docSnapshot['date'])
+                                              .where('amount',
+                                                  isEqualTo:
+                                                      docSnapshot['amount'])
+                                              .get()
+                                              .then((value) =>
+                                                  value.docs.forEach((element) {
+                                                    element.reference.delete();
+                                                  }));
+                                          if (calendarMarker[DateTime.parse(
+                                                  _selectedDay.toString())] !=
+                                              null) {
+                                            calendarMarker[DateTime.parse(
+                                                    _selectedDay.toString())]!
+                                                .removeWhere((element) =>
+                                                    element['amount'] ==
+                                                    docSnapshot['amount']);
+                                          }
+                                          setState(() {});
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            } else if (value == "edit") {
+                              _update(docSnapshot);
+                              setState(() {});
+                            }
+                          },
+                          itemBuilder: (BuildContext context) {
+                            return [
+                              const PopupMenuItem<String>(
+                                value: "delete",
+                                child: Text(
+                                  "삭제",
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              const PopupMenuItem<String>(
+                                value: "edit",
+                                child: Text(
+                                  "수정",
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ];
+                          },
+                        ),
+                      );
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
+            ),
+          ),
+        ],
+      ),
       floatingActionButton: SpeedDial(
         tooltip: '캘린더에 날짜를 선택 후 사용해주세요',
         animatedIcon: AnimatedIcons.add_event,
