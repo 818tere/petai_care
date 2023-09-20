@@ -40,7 +40,7 @@ class _AiScreenState extends State<AiScreen> {
 
   Future<void> _uploadImage(File image, int index) async {
     // 주소 변경해야 함
-    var url = Uri.parse("http://d993-34-81-118-123.ngrok-free.app/");
+    var url = Uri.parse("http://cc1e-34-68-73-95.ngrok-free.app/");
     var request = http.MultipartRequest('POST', url);
     request.files.add(await http.MultipartFile.fromPath('file', image.path));
 
@@ -86,7 +86,9 @@ class _AiScreenState extends State<AiScreen> {
           ((index == 2) &&
               (16 <= resultString[i][1][0] && resultString[i][1][0] <= 21)) ||
           ((index == 3) &&
-              (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15))) {
+              (11 <= resultString[i][1][0] && resultString[i][1][0] <= 15)) ||
+          ((index == 4) &&
+              (16 <= resultString[i][1][0] && resultString[i][1][0] <= 21))) {
         if (resultString[i][1][1] != '무' && resultString[i][0] >= 55) {
           if (resultString[i][0] > 100) {
             resultString[i][0] == 100;
@@ -170,11 +172,9 @@ class _AiScreenState extends State<AiScreen> {
         .collection('ai_result');
 
     await items.add({
-      'category': const Text('자가진단'),
       'name': name, //질병이름
       'percentage': percentage, //확률
       'date': DateTime.now().toString().substring(0, 19),
-      'hospital': const Text(''),
     });
   }
 
