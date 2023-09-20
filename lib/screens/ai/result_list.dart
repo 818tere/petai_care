@@ -37,12 +37,6 @@ class _ResultListScreenState extends State<ResultListScreen> {
               return ListTile(
                 title: Row(
                   children: [
-                    Text(ds['category'],
-                        style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red)),
-                    const SizedBox(width: 20),
                     Text(ds['name'],
                         style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
@@ -51,14 +45,13 @@ class _ResultListScreenState extends State<ResultListScreen> {
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
+                          color: Colors.red
                         )),
                   ],
                 ),
                 subtitle: Row(
                   children: [
                     Text(ds['date'], style: const TextStyle(fontSize: 15)),
-                    const SizedBox(width: 20),
-                    Text(ds['hospital'], style: const TextStyle(fontSize: 15)),
                   ],
                 ),
                 trailing: IconButton(
